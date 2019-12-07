@@ -1,18 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import AppRouter from './routers/AppRouter'
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux';
 import configureStore from './store/configureStore';
+import { startAddTests } from './actions/test';
 
 
 const store = configureStore();
 
 const jsx = (
     <Provider store={store}>
-        <App/>
+      <AppRouter/>
     </Provider>
   );
+
+store.dispatch(startAddTests());
 
 ReactDOM.render(jsx, document.getElementById('root'));
 
