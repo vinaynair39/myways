@@ -1,17 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-<<<<<<< HEAD
 import AppRouter from './routers/AppRouter'
-=======
 import './index.css';
 import App from './App';
->>>>>>> 2c876520d6cf78d6d4961855e3d0be46e9db6e4d
 import * as serviceWorker from './serviceWorker';
-import $ from 'jquery';
-import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import {Provider} from 'react-redux';
-import configureStore from './store/configureStore';
+import configureStore from './store/configureStore'
 import { startAddTests } from './actions/test';
 
 const store = configureStore();
@@ -24,8 +19,8 @@ const jsx = (
 
 store.dispatch(startAddTests());
 
-// ReactDOM.render(jsx, document.getElementById('root'));
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(jsx, document.getElementById('root'));
+// ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
