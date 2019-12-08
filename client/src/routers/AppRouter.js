@@ -3,10 +3,10 @@ import { Router, Route, Switch} from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 import DashboardPage from '../pages/DashboardPage';
 import NotFoundPage from '../pages/NotFoundPage';
-import Login from '../components/Login';
-import Register from '../components/Register';
+import LoginSignup from '../components/LoginSignup.js';
 import Test from '../components/Test'
 import PublicRoute from './PublicRoute';
+import Test from '../components/Test'
 import PrivateRoute from './PrivateRoute';
 import TestPage from '../pages/TestPage';
 
@@ -16,8 +16,8 @@ const AppRouter = () => (
   <Router history={history}>
     <div>
       <Switch>
-        <PublicRoute path='/' component={Login} exact={true} />
-        <PublicRoute path='/signup' component={Register} exact={true} />
+        <PublicRoute path='/' component={LoginSignup} exact={true} />
+        <PublicRoute path='/signup' component={LoginSignup} exact={true} />
         <PrivateRoute path="/dashboard" component={DashboardPage} />
         <PrivateRoute path="/test" component={TestPage} />
         <PrivateRoute path="/test/:name" component={Test} />
