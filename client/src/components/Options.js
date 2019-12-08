@@ -29,7 +29,7 @@ const Options = (props) => {
                 }} />
                 <label htmlFor="radio1">
                     <div className="options__checker"></div>
-                    One
+                    a
                 </label>
             </div>
 
@@ -37,10 +37,10 @@ const Options = (props) => {
                 <input type="radio" id="radio2" name="radio" value={'b'} onChange={(e) => {
                     setSelectedOption(e.target.value)
                     handleShowButton();
-                } }/>
+                }} />
                 <label htmlFor="radio2">
                     <div className="options__checker"></div>
-                    Two
+                    b
                     </label>
             </div>
 
@@ -48,10 +48,10 @@ const Options = (props) => {
                 <input type="radio" id="radio3" name="radio" value={'c'} onChange={(e) => {
                     setSelectedOption(e.target.value);
                     handleShowButton();
-                    }} />
+                }} />
                 <label htmlFor="radio3">
                     <div className="options__checker"></div>
-                    Three
+                    c
                     </label>
             </div>
 
@@ -62,10 +62,10 @@ const Options = (props) => {
                 }} />
                 <label htmlFor="radio4">
                     <div className="options__checker"></div>
-                    Four
+                    d
                         </label>
             </div>
-            {showButton ? <button type="submit" className="button button-submit"onClick={onSubmit}>Submit</button> : <button disabled={true} className="button button-submit" type="submit" onClick={onSubmit}>Submit</button>}
+            {showButton ? <button type="submit" className="button button-submit" onClick={onSubmit}>Submit</button> : <button disabled={true} className="button button-submit" type="submit" onClick={onSubmit}>Submit</button>}
         </form>
     );
 }

@@ -18,35 +18,38 @@ const Test = ({ tests }) => {
 
     const nextQuestion = () => {
         setQuestion('');
-            if (totalLength === currentTest) {
+        if (totalLength === currentTest) {
             alert("Successfully Completed!");
             { history.push('/dashboard') }
             return true;
         }
 
-        if (totalLength > currentTest && (tests[currentTest].questions.length-1) > (currentQuestion)) {
+        if (totalLength > currentTest && (tests[currentTest].questions.length - 1) > (currentQuestion)) {
             setQuestion(tests[currentTest].questions[currentQuestion].question);
             setTestName(tests[currentTest].assesmentType)
             setCurrentQuestion(currentQuestion + 1)
             return true;
         }
-        if ((tests[currentTest].questions.length-1) == currentQuestion) {
+        if ((tests[currentTest].questions.length - 1) == currentQuestion) {
             setQuestion(tests[currentTest].questions[currentQuestion].question);
             setCurrentQuestion(0);
             setCurrentTest(currentTest + 1)
             return true;
         }
-        
+
         setTestName(tests[currentTest].assesmentType);
         setCurrentTest(currentTest + 1);
     }
 
     return (
-        <div>
-            <h1>{testName}</h1>
-            {!!question ? <img src={question} /> : <p>No questions yet</p>}
-            <Options nextQuestion={nextQuestion} assesmentType={tests[currentTest  === 0 ? 0 : currentTest - 1].assesmentType} currentQuestion={currentQuestion} currentTest={currentTest} />
+        <>
+        <div className="test__item">
+            <h1 className='test__title'>{testName}</h1>
+            {!!question ? <img className="test__img" src={question} /> : <p>No questions yet</p>}
         </div>
+        <Options nextQuestion={nextQuestion} assesmentType={tests[currentTest === 0 ? 0 : currentTest - 1].assesmentType} currentQuestion={currentQuestion} currentTest={currentTest} />
+
+        </>
     )
 
 }

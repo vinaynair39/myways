@@ -8,7 +8,7 @@ const TestPage = (props) => {
 
 
     return (
-        <div>
+        <div className='test'>
             <Test tests={props.tests}/>
         </div>
     )

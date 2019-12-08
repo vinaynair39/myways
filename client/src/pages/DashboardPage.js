@@ -5,9 +5,16 @@ import { Link } from 'react-router-dom';
 
 const DashboardPage = (props) => {
     return (
-        <div>
-            <h1>hello</h1>
-            <Link to="/test"><button>Start Test</button></Link>
+        <div className="dashboard">
+            <h1>MyWays</h1>
+            <div className='button-start'>
+            <div>
+                <Link to="/test" className="effect1" href="#">
+                    Start Test!
+                <span className="bg"></span>
+                </Link>
+            </div>
+            </div>
         </div>
     )
 }
