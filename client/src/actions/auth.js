@@ -1,34 +1,42 @@
 import axios from 'axios';
+import {
+    LOGIN, LOGOUT, LOADING_UI,
+    UNLOADING_UI,
+    SET_ERRORS,
+    UNSET_ERRORS,
+} from './constants.js'
 
 
 export const login = () => ({
-    type: 'LOGIN',
+    type: LOGIN,
 });
 
-export const startSignUp = (credentials) => {
+export const startSignUp = (newUser) => {
     return (dispatch) => {
-        dispatch({ type: 'LOADING_UI' });
-        axios.post('/user/register', credentials).then((res) => {
-            console.log(credentials);
+        dispatch({ type: LOADING_UI});
+        axios.post('user/register', {...newUser}).then((res) => {
+            console.log(res.data)
             setAuthorizationHeader(res.data.token);
             dispatch(login())
-            dispatch({ type: 'UNLOADING_UI' });
+            dispatch({ type: UNLOADING_UI });
         }).catch(err => {
             console.log(err)
             dispatch({
                 type: 'SET_ERRORS',
                 error: err.response ? (err.response.data.general || err.response.data.email || err.response.data.password || err.response.data.error || err.response.data.handle) : ''
             })
-        });     
+        });
     }
 }
 
 export const startLogin = (credentials) => {
     return (dispatch) => {
-        dispatch({ type: 'LOADING_UI' });
-        return axios.post('/user/login', credentials).then(res => {
+        dispatch({ type: LOADING_UI });
+        return axios.post('user/login', credentials).then(res => {
+            console.log(res.data.token)
             setAuthorizationHeader(res.data.token);
-            dispatch({ type: 'UNLOADING_UI' });
+            dispatch(login());
+            dispatch({ type: UNLOADING_UI });
         }).catch(err => {
             console.log(err)
             dispatch({
@@ -40,13 +48,12 @@ export const startLogin = (credentials) => {
 };
 
 export const logout = () => ({
-    type: 'LOGOUT'
+    type: LOGOUT
 });
 
 export const startLogout = () => {
     return (dispatch) => {
         sessionStorage.removeItem('FBIdToken');
-        sessionStorage.removeItem('userHandle');
         delete axios.defaults.headers.common['Authorization'];
         dispatch(logout());
     };

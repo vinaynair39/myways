@@ -1,5 +1,4 @@
 import {ADD_QUESTIONS, ADD_TESTS, ADD_ANSWERS} from './constants';
-import {data} from './sat-questions'
 
 import axios from 'axios';
 
@@ -31,10 +30,9 @@ export const startAddAnswers = () => {
 }
 export const startAddTests = () => {
     return (dispatch, getState) => {
-        axios.get('/test/questions').then(res => {
+        return axios.get('/test/questions').then(res => {
             console.log(res.data)
             dispatch(addTests(res.data))
-            // dispatchEvent(addTests(data))
         }).catch(err => {
             console.log(err)
         })

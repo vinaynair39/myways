@@ -18,6 +18,7 @@ router.post("/register", async (req, res) => {
   }
 
   const { name, school, phone, password } = req.body;
+  console.log(req.body);
 
   // Check if user already exists
   const phoneExist = await User.findOne({ phone });
@@ -51,6 +52,8 @@ router.post("/register", async (req, res) => {
       writtenComprehension: 0
     }
   });
+
+  console.log(user)
 
   try {
     console.log("inside try block");

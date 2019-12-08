@@ -1,17 +1,18 @@
-// Setting up Environment Variable
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
-
+const User = require('./model/User')
 // Important external libraries
 require('dotenv').config();
 const express = require('express');
-const cors = require('body-parser');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
 
+
+const url = "mongodb://vinaynair39:vinaynair39@ds233198.mlab.com:33198/myways"
 // Connect to DB 
 mongoose.connect(
-    process.env.MONGO_URL,
+    url,
     { useUnifiedTopology: true },
     () => console.log('connected to db')
 );

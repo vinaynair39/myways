@@ -4,11 +4,14 @@
     justify-content: center;
     align-items: center;
     margin: 1rem auto;
+    min-height: 100vh;
+    // max-width: 750px;
+
 }
 
 .test__title{
     font-family: 'Sulphur Point', sans-serif;   
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
     text-transform: capitalize;
     text-align: center;
 }
@@ -28,6 +31,13 @@
 }
 
 .test__img{
-    height: 10rem;
+    height: 15rem;
+    width: 25rem;
+    min-height: 15rem;
+    min-width: 25rem;
     margin-bottom: 6rem;
+}
+
+.test__options{
+    flex-grow: 1;
 }
