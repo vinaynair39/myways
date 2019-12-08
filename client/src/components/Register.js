@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { register } from './UserFunctions'
+import {startSignUp } from '../actions/auth';
+import {connect} from 'react-redux';
 
 class Register extends Component {
   constructor() {
@@ -28,10 +29,7 @@ class Register extends Component {
         phone: this.state.phone,
         password: this.state.password,
     }
-
-    register(newUser).then(res => {
-      this.props.history.push(`/login`)
-    })
+    this.props.startSignUp(newUser);
   }
 
   render() {
@@ -98,5 +96,23 @@ class Register extends Component {
     )
   }
 }
+const mapDispatchToProps = (dispatch) => ({
+  startSignUp: (credentials)=> dispatch(startSignUp(credentials)),
+  setUIErrors: (error) => dispatch({
+      type: 'SET_ERRORS',
+      error: error
+  }),
+  unsetError: () => dispatch({
+      type: 'SET_ERRORS',
+      error: ''
+  })
+});
 
-export default Register
+// const mapStateToProps = (state) => ({
+//   error: state.auth.error,
+//   loading: state.auth.loading
+ 
+// })
+
+
+export default connect(undefined, mapDispatchToProps)(Register);

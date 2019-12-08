@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { login } from './UserFunctions'
+import {startLogin} from '../actions/auth';
+import {connect} from 'react-redux';
 
 class Login extends Component {
   constructor() {
@@ -24,12 +25,8 @@ class Login extends Component {
       phone: this.state.phone,
       password: this.state.password
     }
-
-    login(user).then(res => {
-      if (res) {
-        this.props.history.push(`/profile`)
-      }
-    })
+    console.log(user);
+    this.props.startLogin(user);
   }
 
   render() {
@@ -75,4 +72,18 @@ class Login extends Component {
   }
 }
 
-export default Login
+const mapDispatchToProps = (dispatch) => ({
+  startLogin: (credentials)=> dispatch(startLogin(credentials)),
+  unsetError: () => dispatch({
+      type: 'SET_ERRORS',
+      error: ''
+  })
+});
+
+// const mapStateToProps = (state) => ({
+//   error: state.auth.error,
+//   loading: state.auth.loading
+// })
+
+
+export default connect(undefined, mapDispatchToProps)(Login);
