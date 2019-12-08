@@ -8,7 +8,7 @@
 
 .test__title{
     font-family: 'Sulphur Point', sans-serif;   
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
     text-transform: capitalize;
     text-align: center;
 }
@@ -28,6 +28,8 @@
 }
 
 .test__img{
-    height: 10rem;
+    height: 15rem;
+    min-height: 15rem;
+    min-width: 20rem;
     margin-bottom: 6rem;
 }

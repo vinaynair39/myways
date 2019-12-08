@@ -29,6 +29,7 @@ class Register extends Component {
         phone: this.state.phone,
         password: this.state.password,
     }
+    console.log(newUser)
     this.props.startSignUp(newUser);
   }
 
