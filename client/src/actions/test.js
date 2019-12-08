@@ -1,4 +1,5 @@
-import {ADD_QUESTIONS, ADD_TESTS} from './constants'
+import {ADD_QUESTIONS, ADD_TESTS, ADD_ANSWERS} from './constants';
+import {data} from './sat-questions'
 
 import axios from 'axios';
 
@@ -13,20 +14,27 @@ export const addQuetions = (questions) => ({
     questions
 });
 
+export const addAnswers = (answer, assesmentType, currentQuestion, currentTest) => ({
+    type: ADD_ANSWERS,
+    answer,
+    assesmentType,
+    currentQuestion
+});
 
-export const startAddQuestions = () => {
+
+export const startAddAnswers = () => {
     return (dispatch, getState) => {
         axios.get('/test/questions').then(res => {
             console.log(res.data)
         })
     }
 }
-
 export const startAddTests = () => {
     return (dispatch, getState) => {
         axios.get('/test/questions').then(res => {
-            console.log(res.data);
+            console.log(res.data)
             dispatch(addTests(res.data))
+            // dispatchEvent(addTests(data))
         }).catch(err => {
             console.log(err)
         })

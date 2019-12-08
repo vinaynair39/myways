@@ -1,4 +1,4 @@
-[
+export const data = [
     {
         "assesmentType": "flexibilityOfClosure",
         "questions": [{
