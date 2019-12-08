@@ -8,7 +8,7 @@ export const PublicRoute = ({
 }) => (
     <Route {...rest} component={(props) => (
       false ? (
-        <Redirect to="/dashboard" />
+        <Redirect to="/" />
       ) : (
           <Component {...props} />
         )

@@ -13,7 +13,7 @@ const AppRouter = () => (
   <Router history={history}>
     <div>
       <Switch>
-        <PublicRoute path="/dashboard" component={DashboardPage} exact={true} />
+        <PublicRoute path="/" component={DashboardPage} exact={true} />
         <PublicRoute path="/test" component={TestPage} exact={true} />
         <PublicRoute path="/test/:name" component={Test} />
         <Route component={NotFoundPage} />
