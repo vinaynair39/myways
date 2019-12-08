@@ -4,6 +4,9 @@
     justify-content: center;
     align-items: center;
     margin: 1rem auto;
+    min-height: 100vh;
+    // max-width: 750px;
+
 }
 
 .test__title{
@@ -29,7 +32,12 @@
 
 .test__img{
     height: 15rem;
+    width: 25rem;
     min-height: 15rem;
-    min-width: 20rem;
+    min-width: 25rem;
     margin-bottom: 6rem;
+}
+
+.test__options{
+    flex-grow: 1;
 }

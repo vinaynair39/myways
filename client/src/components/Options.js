@@ -14,6 +14,7 @@ const Options = (props) => {
         e.preventDefault();
         getAnswer(selectedOption);
         props.nextQuestion();
+        setSelectedOption(0);
     };
 
     const getAnswer = (answer) => {

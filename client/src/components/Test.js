@@ -43,11 +43,13 @@ const Test = ({ tests }) => {
 
     return (
         <>
-        <div className="test__item">
-            <h1 className='test__title'>{testName}</h1>
-            {!!question ? <img className="test__img" src={question} /> : <p>No questions yet</p>}
-        </div>
-        <Options nextQuestion={nextQuestion} assesmentType={tests[currentTest === 0 ? 0 : currentTest - 1].assesmentType} currentQuestion={currentQuestion} currentTest={currentTest} />
+            <div className="test__item">
+                <h1 className='test__title'>{testName}</h1>
+                {!!question ? <img className="test__img" src={question} /> : <p>No questions yet</p>}
+            </div>
+            <div className="test__options">
+                <Options nextQuestion={nextQuestion} assesmentType={tests[currentTest === 0 ? 0 : currentTest - 1].assesmentType} currentQuestion={currentQuestion} currentTest={currentTest} />
+            </div>
 
         </>
     )
