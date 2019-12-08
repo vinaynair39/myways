@@ -1,0 +1,33 @@
+.test{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+}
+
+.test__title{
+    font-family: 'Sulphur Point', sans-serif;   
+    margin-bottom: 6rem;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.test__item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & p {
+        font-size: 4rem;
+        margin-top:0;
+        margin-bottom: 6rem;
+
+    }
+}
+
+.test__img{
+    height: 10rem;
+    margin-bottom: 6rem;
+}
