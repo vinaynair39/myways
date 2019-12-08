@@ -20,7 +20,7 @@ const Test = ({ tests }) => {
         setQuestion('');
         if (totalLength === currentTest) {
             alert("Successfully Completed!");
-            { history.push('/dashboard') }
+            { history.push('/') }
             return true;
         }
 
