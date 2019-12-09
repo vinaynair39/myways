@@ -6,6 +6,8 @@ import {
     UNSET_ERRORS,
 } from './constants.js'
 
+import { startAddTests } from './test'
+
 
 export const login = () => ({
     type: LOGIN,
@@ -13,12 +15,15 @@ export const login = () => ({
 
 export const startSignUp = (newUser) => {
     return (dispatch) => {
-        dispatch({ type: LOADING_UI});
-        axios.post('user/register', {...newUser}).then((res) => {
+        dispatch({ type: LOADING_UI });
+        axios.post('user/register', { ...newUser }).then((res) => {
             console.log(res.data)
             setAuthorizationHeader(res.data.token);
-            dispatch(login())
-            dispatch({ type: UNLOADING_UI });
+            dispatch(startAddTests()).then(() => {
+                dispatch(login());
+                dispatch({ type: UNLOADING_UI });
+
+            })
         }).catch(err => {
             console.log(err)
             dispatch({
@@ -35,7 +40,10 @@ export const startLogin = (credentials) => {
         return axios.post('user/login', credentials).then(res => {
             console.log(res.data.token)
             setAuthorizationHeader(res.data.token);
-            dispatch(login());
+            dispatch(startAddTests()).then(() => {
+                dispatch(login());
+                dispatch({ type: UNLOADING_UI });
+            })
             dispatch({ type: UNLOADING_UI });
         }).catch(err => {
             console.log(err)

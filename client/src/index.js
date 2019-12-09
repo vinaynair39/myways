@@ -22,7 +22,6 @@ const jsx = (
   </Provider>
 );
 
-store.dispatch(startAddTests());
 let hasRendered = false;
 const renderApp = () => {
   if (!hasRendered) {
