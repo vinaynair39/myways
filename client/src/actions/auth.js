@@ -16,7 +16,7 @@ export const login = () => ({
 export const startSignUp = (newUser) => {
     return (dispatch) => {
         dispatch({ type: LOADING_UI });
-        axios.post('/api/user/register', { ...newUser }).then((res) => {
+        axios.post('http://localhost:5000/api/user/register', { ...newUser }).then((res) => {
             console.log(res.data)
             setAuthorizationHeader(res.data.token);
             dispatch(startAddTests()).then(() => {
@@ -37,7 +37,7 @@ export const startSignUp = (newUser) => {
 export const startLogin = (credentials) => {
     return (dispatch) => {
         dispatch({ type: LOADING_UI });
-        return axios.post('/api/user/login', credentials).then(res => {
+        return axios.post('http://localhost:5000/api/user/login', credentials).then(res => {
             console.log(res.data.token)
             setAuthorizationHeader(res.data.token);
             dispatch(startAddTests()).then(() => {
@@ -46,11 +46,10 @@ export const startLogin = (credentials) => {
             })
             dispatch({ type: UNLOADING_UI });
         }).catch(err => {
-            console.log(err)
+            console.log(err.response.data.message)
             dispatch({
-                type: 'SET_ERRORS',
-                //error: err.response ? (err.response.data.general || err.response.data.err) : '',
-                error: "Invalid Credentials"
+                type: SET_ERRORS,
+                error: err.response ? err.response.data.message: ''
             })
         });
     }
