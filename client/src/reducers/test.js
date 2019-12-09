@@ -1,6 +1,7 @@
 import {
     ADD_TESTS,
-    ADD_ANSWERS
+    ADD_ANSWERS,
+    CURRENT_TEST
 } from '../actions/constants'
 
 const initState = {
@@ -31,6 +32,11 @@ export default (state = initState, action) => {
                     }]
                         
                 }
+        case CURRENT_TEST:
+            return {
+                ...state,
+                questions: action.questions
+            }
         default:
             return state;
     }

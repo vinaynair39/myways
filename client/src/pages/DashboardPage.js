@@ -12,7 +12,7 @@ const Wrapper = styled.div`
     height: 70vh;
     .title{
         font-size: 3rem;
-        text-decoration: underline;
+        color: #0f9d58;
     }
 `;
 

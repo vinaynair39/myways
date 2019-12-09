@@ -1,14 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { connect } from 'react-redux';
 
 const Wrapper = styled.div`
-  padding-left: 25vw;
-  padding-right: 25vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height:90vh;
   .question {
     width: 100%;
     font-size: 1.5rem;
@@ -19,7 +15,7 @@ const Wrapper = styled.div`
     border: none;
     outline: none;
     padding: 0.7rem;
-    margin: 2rem;
+    margin: 0 3rem 3.5rem 3rem;
     font-size: 1.3rem;
     color: white;
     border-radius: 3rem;
@@ -39,11 +35,11 @@ const Wrapper = styled.div`
   }
   .radios {
     width: 100%;
-    height: 100%;
     display: flex;
-    align-items: center;
+    position:fixed;
+    left: 0;
+    bottom: 0;
     justify-content: center;
-
     @media (max-width: 640px) {
       flex-direction: column;
     }
@@ -51,13 +47,10 @@ const Wrapper = styled.div`
   .radios2 {
     width: 100%;
     height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    display: flex;
     align-items: center;
     justify-content: center;
     justify-items: center;
-
     @media (max-width: 640px) {
       flex-direction: column;
     }
@@ -103,6 +96,7 @@ const Wrapper = styled.div`
       }
     }
 
+
     .checker {
       width: 18px;
       height: 18px;
@@ -117,27 +111,6 @@ const questions = (
   <div className="question">
     A is shorter than B but much taller than E. C is the tallest and D is a
     little bit shorter than A. Who is the shortest?
-  </div>
-);
-const twoButton = (
-  <div>
-    <div class="radios">
-      <div class="radio button-select">
-        <input type="radio" id="radio1" name="radio1" />
-        <label for="radio1">
-          <div class="checker"></div>
-          Strong Argument
-        </label>
-      </div>
-
-      <div class="radio button-select">
-        <input type="radio" id="radio2" name="radio1" />
-        <label for="radio2">
-          <div class="checker"></div>
-          Weak Argument
-        </label>
-      </div>
-    </div>
   </div>
 );
 
@@ -177,12 +150,75 @@ const fourButton = (
   </div>
 );
 
-export default function ButtonList() {
+
+
+
+function ButtonList(props) {
+  const [selectedOption, setSelectedOption] = useState(0);
+  const [checked1, setChecke1] = useState(false);
+  const [checked2, setChecke2] = useState(false);
+  const [showButton, setShowButton] = useState(false);
+
+  const handleShowButton = () => {
+    setShowButton(true);
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    // getAnswer(selectedOption);
+    console.log(selectedOption)
+    props.nextQuestion();
+    setSelectedOption(0);
+    setShowButton(false);
+    setChecke1(false);
+    setChecke2(false);
+  };
+
+  const twoButton = ([a, b]) => (
+    <div>
+      <div class="radios">
+        <div class="radio button-select">
+          <input type="radio" id="radio1" name="radio1" value={a} checked={checked1} onChange={(e) => {
+            setSelectedOption(e.target.value);
+            setChecke1(true);
+            handleShowButton();
+          }} />
+          <label for="radio1">
+            <div class="checker"></div>
+            {a}
+          </label>
+        </div>
+
+        <div class="radio button-select">
+          <input type="radio" id="radio2" name="radio1" value={b} checked={checked2}onChange={(e) => {
+            setSelectedOption(e.target.value);
+            setChecke2(true);
+            handleShowButton();
+          }} />
+          <label for="radio2">
+            <div class="checker"></div>
+            {b}
+          </label>
+        </div>
+      </div>
+    </div>
+  );
+
+
+
   return (
     <Wrapper className="">
-      {questions}
-      {twoButton}
-      {fourButton}
+      {twoButton([...props.options])}
+      {/* {fourButton} */}
+      <div className="test-buttons">{showButton ? <button className="button button-right" onClick={onSubmit}><FontAwesomeIcon icon={faArrowRight} size='2x' /></button> 
+      : <button className="button button-disable"><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
+      }</div>
     </Wrapper>
   );
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  setAnswers: 0//(answer, assesmentType, currentQuestion) => dispatch(addAnswers(answer, assesmentType, currentQuestion))
+})
+
+export default connect(undefined, mapDispatchToProps)(ButtonList);

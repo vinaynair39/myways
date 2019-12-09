@@ -7,7 +7,6 @@
     font-size: 1rem;
     line-height: 1;
     margin: 0;  
-    cursor: pointer;
 }
 
 .button-submit{
@@ -141,4 +140,36 @@
   
   .effect1:hover .bg:after{
     top: 6px;
+  }
+
+  .test-buttons{
+    display: flex;
+    position: absolute;
+    bottom: 4rem;
+    right: 4rem;
+  }
+  .button-right{
+    width: 5rem;
+    height:3rem;
+    background-color: $red;
+    color:white;
+    border-radius: 10%;
+    transition: all 0.2s ease;
+    &:hover{
+      transform: scale(1.1);
+  }
+    &:active{
+        transform: translateY(4px);
+        border-bottom: solid 5px $red;
+    }
+  }
+
+  .button-disable{
+    outline: none;
+    cursor: not-allowed;
+    background: grey;
+    color: white;
+    width: 5rem;
+    height:3rem;
+    border-radius: 10%; 
   }

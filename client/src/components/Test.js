@@ -37,7 +37,6 @@ const saveToLocalStorage = (state) => {
             saveToLocalStorage(0);
             return true;
         }
-
         if (totalLength > currentTest && (tests[currentTest].questions.length - 1) > (currentQuestion)) {
             setQuestion(tests[currentTest].questions[currentQuestion].question);
             setTestName(tests[currentTest].assesmentType)

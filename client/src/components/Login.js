@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   }
   .form-main{
     background: white;
-    padding: 2rem;
+    padding: 1.5rem 3rem;
   }
   .input-box {
     border: none;
@@ -75,6 +75,7 @@ class Login extends Component {
     return (
       <Wrapper className="">
         <form noValidate onSubmit={this.onSubmit} className="form-main">
+          <h1 className="pb-3 pt-0 text-center">Login</h1>
           <div className="form-box">
           <div className="d-flex justify-content-center align-items-center icon-box">
                   <FontAwesomeIcon icon={faMobileAlt} className="form-icon" />
@@ -91,7 +92,7 @@ class Login extends Component {
           {this.props.error === "User Doesn't Exist, Please Register!" && (
             <span className="errorMessage">{this.props.error}</span>
           )}
-          <div className="form-box my-3">
+          <div className="form-box my-4">
           <div className="d-flex justify-content-center align-items-center icon-box">
                   <FontAwesomeIcon icon={faKey} className="form-icon" />
                 </div>

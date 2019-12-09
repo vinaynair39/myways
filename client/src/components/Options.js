@@ -12,20 +12,21 @@ const Options = (props) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        getAnswer(selectedOption);
+        // getAnswer(selectedOption);
         props.nextQuestion();
-        setSelectedOption(0);
+        console.log(selectedOption)
+        setSelectedOption(null);
     };
 
-    const getAnswer = (answer) => {
-        console.log(answer, props.assesmentType, props.currentQuestion, props.currentTest)
-        props.setAnswers(answer, props.assesmentType, props.currentQuestion, props.currentTest)
-        console.log(answer)
-    }
+    // const getAnswer = (answer) => {
+    //     console.log(answer, props.assesmentType, props.currentQuestion, props.currentTest)
+    //     props.setAnswers(answer, props.assesmentType, props.currentQuestion, props.currentTest)
+    //     console.log(answer)
+    // }
     return (
         <form className="options__radios">
             <div className="options__radio">
-                <input type="radio" id="radio1" name="radio" value={'a'} onChange={(e) => {
+                <input type="radio" id="radio1" name="radio" checked={showButton} value={'a'} onChange={(e) => {
                     setSelectedOption(e.target.value);
                     handleShowButton();
                 }} />
@@ -36,7 +37,7 @@ const Options = (props) => {
             </div>
 
             <div className="options__radio">
-                <input type="radio" id="radio2" name="radio" value={'b'} onChange={(e) => {
+                <input type="radio" id="radio2" name="radio" checked={showButton} value={'b'} onChange={(e) => {
                     setSelectedOption(e.target.value)
                     handleShowButton();
                 }} />
