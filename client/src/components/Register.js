@@ -10,8 +10,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 const Wrapper = styled.div`
-  background: white;
-  width: 37vw;
+  display: flex;
+  height: 80%;
+  justify-content: center;
+  align-items: center;
   padding: 3rem 1.5rem 1rem 1.5rem;
   .form-box {
     font-size: 1.2rem;
@@ -24,6 +26,10 @@ const Wrapper = styled.div`
     border: none;
     outline: none;
     background: transparent;
+  }
+  .form-main{
+    background: white;
+    padding: 2rem;
   }
   .icon-box {
     width: 3vw;
@@ -127,7 +133,7 @@ class Register extends Component {
     const { formErrors } = this.state;
     return (
       <Wrapper className="">
-        <form noValidate onSubmit={this.onSubmit}>
+        <form noValidate onSubmit={this.onSubmit} className="form-main">
           <div className="form-box">
             <div className="d-flex justify-content-center align-items-center icon-box">
               <FontAwesomeIcon icon={faUser} className="form-icon" />

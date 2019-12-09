@@ -30,7 +30,11 @@ export const startAddAnswers = () => {
 }
 export const startAddTests = () => {
     return (dispatch, getState) => {
+<<<<<<< HEAD
+        return axios.get('/test/questions').then(res => {
+=======
         return axios.get('http://localhost:5000/api/test/questions').then(res => {
+>>>>>>> ceaf37b33964d66a3a110fc6e1fe6b7984d8dfc6
             console.log(res.data)
             dispatch(addTests(res.data))
         }).catch(err => {

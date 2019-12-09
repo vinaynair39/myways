@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMobileAlt, faKey } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 const Wrapper = styled.div`
-  background: white;
+  height: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,6 +16,10 @@ const Wrapper = styled.div`
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 4px inset, transparent 0px 0px 0px;
     padding: 1rem;
     display: flex;
+  }
+  .form-main{
+    background: white;
+    padding: 2rem;
   }
   .input-box {
     border: none;
@@ -70,7 +74,7 @@ class Login extends Component {
   render() {
     return (
       <Wrapper className="">
-        <form noValidate onSubmit={this.onSubmit} className="">
+        <form noValidate onSubmit={this.onSubmit} className="form-main">
           <div className="form-box">
           <div className="d-flex justify-content-center align-items-center icon-box">
                   <FontAwesomeIcon icon={faMobileAlt} className="form-icon" />
