@@ -25,6 +25,7 @@ const app = express();
 // Importing Routes
 const userRoute = require('./routes/user');
 const testRoute = require('./routes/test');
+const deductiveReasoning = require('./routes/deductiveReasoning');
 
 // Adding middleware to express
 app.use(bodyParser.json());
@@ -33,6 +34,7 @@ app.use(cors());
 // Route Middlewares
 app.use('/api/user', userRoute);
 app.use('/api/test', testRoute);
+app.use('/api/test', deductiveReasoning);
 
 // For Production: Delivering built client for all incoming requests
 if(process.env.NODE_ENV === 'production') {
