@@ -6,7 +6,9 @@ import { faMobileAlt, faKey } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 const Wrapper = styled.div`
   background: white;
-  width: 37vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 3rem 1.5rem 1rem 1.5rem;
   .form-box {
     font-size: 1.2rem;
@@ -61,6 +63,9 @@ class Login extends Component {
     };
     console.log(user);
     this.props.startLogin(user);
+      // if(this.props.res.type === 'SET_ERRORS'){
+      //   console.log("working");
+      // }
   }
 
   render() {

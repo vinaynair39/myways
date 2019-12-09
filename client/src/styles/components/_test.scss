@@ -4,40 +4,52 @@
     justify-content: center;
     align-items: center;
     margin: 1rem auto;
-    min-height: 100vh;
     // max-width: 750px;
+    @media(max-width: 640px) {
+        padding: 1rem 1rem;
+    }
+    overflow-x: hidden;
+
 
 }
 
 .test__title{
     font-family: 'Sulphur Point', sans-serif;   
-    margin-bottom: 4rem;
     text-transform: capitalize;
     text-align: center;
+    margin: 0 1rem 3rem 1rem;
 }
 
 .test__item{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
     & p {
         font-size: 4rem;
         margin-top:0;
-        margin-bottom: 6rem;
-
     }
 }
 
 .test__img{
-    height: 15rem;
-    width: 25rem;
-    min-height: 15rem;
-    min-width: 25rem;
-    margin-bottom: 6rem;
+    & img{
+        max-height: 22rem;
+        width: 25rem;
+        min-height: 15rem;
+        min-width: 25rem;
+    }
+
+    @media(max-width: 640px) {
+        height: rem;
+        width: 20rem;
+   
+     }
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .test__options{
-    flex-grow: 1;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 4rem;
 }

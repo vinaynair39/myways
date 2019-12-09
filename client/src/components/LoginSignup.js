@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   padding-bottom: 2rem;
   .auth-branding {
     font-size: 3rem;
-
+    margin-bottom: 4rem;
     font-weight: 1000;
   }
   .auth-box-header {

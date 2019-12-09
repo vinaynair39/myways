@@ -83,7 +83,7 @@ router.post("/login", async (req, res) => {
   const user = await User.findOne({ phone });
 
   if (!user) {
-    return res.status(400).send("Invalid credentials");
+    return res.status(400).send({message: "Invalid credentials"});
   }
 
   // Password is correct
