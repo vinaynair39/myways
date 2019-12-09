@@ -6,7 +6,9 @@ import { faMobileAlt, faKey } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 const Wrapper = styled.div`
   background: white;
-  width: 37vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 3rem 1.5rem 1rem 1.5rem;
   .form-box {
     font-size: 1.2rem;
@@ -34,6 +36,9 @@ const Wrapper = styled.div`
   .form-icon {
     font-size: 1.4rem;
   }
+  .errorMessage {
+    color: red;
+  }
 `;
 
 class Login extends Component {
@@ -59,7 +64,6 @@ class Login extends Component {
       phone: this.state.phone,
       password: this.state.password
     };
-    console.log(user);
     this.props.startLogin(user);
   }
 
@@ -80,6 +84,9 @@ class Login extends Component {
               onChange={this.onChange}
             />
           </div>
+          {this.props.error === "User Doesn't Exist, Please Register!" && (
+            <span className="errorMessage">{this.props.error}</span>
+          )}
           <div className="form-box my-3">
           <div className="d-flex justify-content-center align-items-center icon-box">
                   <FontAwesomeIcon icon={faKey} className="form-icon" />
@@ -93,6 +100,9 @@ class Login extends Component {
               onChange={this.onChange}
             />
           </div>
+          {this.props.error === "Inavlid Password!" && (
+            <span className="errorMessage">{this.props.error}</span>
+          )}
           <div className="d-flex justify-content-end">
             <button type="submit" className="form-button">
               Sign in
@@ -113,9 +123,9 @@ const mapDispatchToProps = dispatch => ({
     })
 });
 
-// const mapStateToProps = (state) => ({
-//   error: state.auth.error,
-//   loading: state.auth.loading
-// })
+const mapStateToProps = (state) => ({
+  error: state.auth.error,
+  loading: state.auth.loading
+})
 
-export default connect(undefined, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

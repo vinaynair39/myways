@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const register = newUser => {
   return axios
-    .post("http://localhost:5000/api/user/register", {
+    .post("/api/user/register", {
       name: newUser.name,
       school: newUser.school,
       phone: newUser.phone,
@@ -15,7 +15,7 @@ export const register = newUser => {
 
 export const login = user => {
   return axios
-    .post("http://localhost:5000/api/user/login", {
+    .post("/api/user/login", {
       phone: user.phone,
       password: user.password
     })
@@ -24,6 +24,7 @@ export const login = user => {
       return response.data;
     })
     .catch(err => {
+      if(err.stat)
       console.log(err);
     });
 };

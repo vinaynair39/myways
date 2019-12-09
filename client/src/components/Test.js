@@ -14,6 +14,8 @@ const Test = ({ tests }) => {
     const totalLength = tests.length;
 
     useEffect(() => {
+        // setCurrentTest(serializedState.currentTest);
+        // setCurrentQuestion(serializedState.currentQuestion);
         nextQuestion();
     }, [])
     

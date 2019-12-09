@@ -46,10 +46,10 @@ export const startLogin = (credentials) => {
             })
             dispatch({ type: UNLOADING_UI });
         }).catch(err => {
-            console.log(err)
+            console.log(err.response.data.message)
             dispatch({
-                type: 'SET_ERRORS',
-                error: err.response ? (err.response.data.general || err.response.data.err) : ''
+                type: SET_ERRORS,
+                error: err.response ? err.response.data.message: ''
             })
         });
     }
