@@ -23,7 +23,7 @@ export const addAnswers = (answer, assesmentType, currentQuestion, currentTest) 
 
 export const startAddAnswers = () => {
     return (dispatch, getState) => {
-        axios.get('/api/test/questions').then(res => {
+        axios.get('http://localhost:5000/api/test/questions').then(res => {
             console.log(res.data)
         })
     }
