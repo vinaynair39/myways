@@ -14,8 +14,6 @@ const Test = ({ tests }) => {
     const totalLength = tests.length;
 
     useEffect(() => {
-        // setCurrentTest(serializedState.currentTest);
-        // setCurrentQuestion(serializedState.currentQuestion);
         nextQuestion();
     }, [])
     
@@ -34,6 +32,7 @@ const saveToLocalStorage = (state) => {
         if (totalLength === currentTest) {
             alert("Successfully Completed!");
             { history.push('/') }
+            saveToLocalStorage(0);
             return true;
         }
 
@@ -54,6 +53,7 @@ const saveToLocalStorage = (state) => {
         setCurrentTest(currentTest + 1);
     }
 
+
     return (
         <>
             <div className="test__item">
@@ -65,7 +65,7 @@ const saveToLocalStorage = (state) => {
                 </div>
             </div>
             <div className="test__options">
-                <Options nextQuestion={nextQuestion} assesmentType={tests[currentTest === 0 ? 0 : currentTest - 1].assesmentType} currentQuestion={currentQuestion} currentTest={currentTest} />
+                <Options nextQuestion={nextQuestion} assesmentType={tests[currentTest === 0 ? 0 : currentTest-1].assesmentType} currentQuestion={currentQuestion} currentTest={currentTest} />
             </div>
 
         </>

@@ -23,14 +23,14 @@ export const addAnswers = (answer, assesmentType, currentQuestion, currentTest) 
 
 export const startAddAnswers = () => {
     return (dispatch, getState) => {
-        axios.get('/test/questions').then(res => {
+        axios.get('http://localhost:5000/api/test/questions').then(res => {
             console.log(res.data)
         })
     }
 }
 export const startAddTests = () => {
     return (dispatch, getState) => {
-        return axios.get('/test/questions').then(res => {
+        return axios.get('http://localhost:5000/api/test/questions').then(res => {
             console.log(res.data)
             dispatch(addTests(res.data))
         }).catch(err => {

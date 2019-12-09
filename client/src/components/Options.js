@@ -18,6 +18,7 @@ const Options = (props) => {
     };
 
     const getAnswer = (answer) => {
+        console.log(answer, props.assesmentType, props.currentQuestion, props.currentTest)
         props.setAnswers(answer, props.assesmentType, props.currentQuestion, props.currentTest)
         console.log(answer)
     }

@@ -16,20 +16,21 @@ export default (state = initState, action) => {
                 questions: action.tests
             };
         case ADD_ANSWERS:
-                // return {
-                //     ...state,
-                //     answers: {
-                //         ...state.answers,
-                //         assesmentType: action.assesmentType,
-                //         questions: [
-                //             {
-                //                 questionNumber: action.currentQuestion,
-                //                 answer: action.answer
-                //             }
-                //         ]
-                //     }
-
-                // }
+                return {
+                    ...state,
+                    answers: [
+                        ...state.answers,
+                        {
+                        assesmentType: action.assesmentType,
+                        questions: [
+                            {
+                                questionNumber: action.currentQuestion,
+                                answer: action.answer
+                            }
+                        ]
+                    }]
+                        
+                }
         default:
             return state;
     }
