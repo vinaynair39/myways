@@ -10,14 +10,17 @@ import Login from "../components/Login";
 import PrivateRoute from './PrivateRoute';
 import TestPage from '../pages/TestPage';
 import Register from '../components/Register';
+import Navbar from '../components/Navbar';
+import Landing from '../components/Landing';
 
 export const history = createHistory();
 
 const AppRouter = () => (
   <Router history={history}>
-    <div>
+    <div style={{height: "100vh", overflow: "hidden", background: "#f3f7f7"}}>
+      <Navbar />
       <Switch>
-        <PublicRoute path='/' component={LoginSignup} exact={true} />
+        <PublicRoute path='/' component={Landing} exact={true} />
         <PublicRoute path='/login' component={Login} exact={true} />
         <PublicRoute path='/signup' component={Register} exact={true} />
         <PrivateRoute path="/dashboard" component={DashboardPage} />

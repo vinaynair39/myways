@@ -12,10 +12,10 @@ class Navbar extends Component {
   render() {
     const loginRegLink = (
       <div>
-        <Link to="/login" className="nav-links mr-0">
+        <Link to="/login" className="nav-links mr-4">
           Login
         </Link>
-        <Link to="/register" className="nav-links">
+        <Link to="/signup" className="nav-links">
           Register
         </Link>
       </div>
@@ -56,8 +56,6 @@ const NavWrapper = styled.nav`
     text-transform: uppercase;
   }
   .nav-links {
-    margin-left: 1rem;
-    margin-right: 1rem;
     color: black;
     text-decoration: none;
   }
