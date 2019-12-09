@@ -6,18 +6,31 @@ import Options from './Options'
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";   
 
 const Test = ({ tests }) => {
-    const [currentTest, setCurrentTest] = useState(0);
-    const [currentQuestion, setCurrentQuestion] = useState(0);
+    const {currentTest: ct, currentQuestion: cq} = JSON.parse(localStorage.getItem('question'));
+    const [currentTest, setCurrentTest] = useState(ct || 0);
+    const [currentQuestion, setCurrentQuestion] = useState(cq || 0);
     const [question, setQuestion] = useState('');
     const [testName, setTestName] = useState('')
     const totalLength = tests.length;
 
     useEffect(() => {
+        // setCurrentTest(serializedState.currentTest);
+        // setCurrentQuestion(serializedState.currentQuestion);
         nextQuestion();
     }, [])
+    
+const saveToLocalStorage = (state) => {
+    try{
+      const serializedState = JSON.stringify(state);
+      localStorage.setItem('question',serializedState)
+    } catch(e){
+      console.log(e)
+    }
+  }
 
     const nextQuestion = () => {
         setQuestion('');
+        saveToLocalStorage({currentTest, currentQuestion})
         if (totalLength === currentTest) {
             alert("Successfully Completed!");
             { history.push('/') }
@@ -45,7 +58,11 @@ const Test = ({ tests }) => {
         <>
             <div className="test__item">
                 <h1 className='test__title'>{testName}</h1>
-                {!!question ? <img className="test__img" src={question} /> : <p>No questions yet</p>}
+                <div className="test__img">
+                    <div>
+                        {!!question ? <img src={question} /> : <p>No questions yet</p>}
+                    </div>
+                </div>
             </div>
             <div className="test__options">
                 <Options nextQuestion={nextQuestion} assesmentType={tests[currentTest === 0 ? 0 : currentTest - 1].assesmentType} currentQuestion={currentQuestion} currentTest={currentTest} />

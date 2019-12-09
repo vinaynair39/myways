@@ -14,6 +14,7 @@ import configureStore from './store/configureStore'
 import { startAddTests } from './actions/test';
 import './styles/styles.scss';
 
+
 const store = configureStore();
 
 const jsx = (
@@ -35,7 +36,7 @@ const token = sessionStorage.getItem('FBIdToken');
 if (token) {
   const decodedToken = jwtDecode(token);
   console.log(decodedToken);
-  if (decodedToken.exp * 1000 < Date.now()) {
+  if (decodedToken.exp * 10000 < Date.now()) {
     store.dispatch(logout());
     renderApp();
     history.push('/');
