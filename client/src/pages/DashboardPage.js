@@ -9,7 +9,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 70vh;
     .title{
         font-size: 3rem;
         text-decoration: underline;

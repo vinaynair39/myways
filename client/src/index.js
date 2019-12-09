@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import AppRouter from './routers/AppRouter'
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
-import {logout, login} from './actions/auth'
+import {login, startLogout} from './actions/auth'
 import {history}from './routers/AppRouter'
 import './index.css';
 import App from './App';
@@ -37,7 +37,7 @@ if (token) {
   const decodedToken = jwtDecode(token);
   console.log(decodedToken);
   if (decodedToken.exp * 10000 < Date.now()) {
-    store.dispatch(logout());
+    store.dispatch(startLogout());
     renderApp();
     history.push('/');
   }

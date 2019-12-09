@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
+import {startLogout} from '../actions/auth';
 import styled from "styled-components";
+import { connect } from "react-redux";
 
 class Navbar extends Component {
-  logOut(e) {
-    e.preventDefault();
-    localStorage.removeItem("usertoken");
-    this.props.history.push(`/`);
-  }
 
   render() {
     const loginRegLink = (
@@ -15,7 +12,7 @@ class Navbar extends Component {
         <Link to="/login" className="nav-links mr-4">
           Login
         </Link>
-        <Link to="/signup" className="nav-links">
+        <Link to="/signup" className="nav-links mr-4">
           Register
         </Link>
       </div>
@@ -23,10 +20,10 @@ class Navbar extends Component {
 
     const userLink = (
       <div>
-        <Link to="/profile" className="nav-links mr-0">
+        <Link to="/profile" className="nav-links mr-4">
           User
         </Link>
-        <a href="" onClick={this.logOut.bind(this)} className="nav-links">
+        <a href="" onClick={this.props.logout.bind(this)} className="nav-links mr-4">
           Logout
         </a>
       </div>
@@ -41,7 +38,7 @@ class Navbar extends Component {
         </div>
 
         <div className="d-flex align-items-center justify-content-end col-6 nav-links">
-          <div>{localStorage.usertoken ? userLink : loginRegLink}</div>
+          <div>{this.props.isAuthenticated? userLink : loginRegLink}</div>
         </div>
       </NavWrapper>
     );
@@ -120,4 +117,11 @@ const NavWrapper = styled.nav`
     }
   }
 `;
-export default withRouter(Navbar)
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+const mapDispatchToProps = (dispatch) => ({
+  logout: () => dispatch(startLogout())
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
