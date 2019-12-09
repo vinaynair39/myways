@@ -36,6 +36,9 @@ const Wrapper = styled.div`
   .form-icon {
     font-size: 1.4rem;
   }
+  .errorMessage {
+    color: red;
+  }
 `;
 
 class Login extends Component {
@@ -61,11 +64,7 @@ class Login extends Component {
       phone: this.state.phone,
       password: this.state.password
     };
-    console.log(user);
     this.props.startLogin(user);
-      // if(this.props.res.type === 'SET_ERRORS'){
-      //   console.log("working");
-      // }
   }
 
   render() {
@@ -85,6 +84,9 @@ class Login extends Component {
               onChange={this.onChange}
             />
           </div>
+          {this.props.error === "User Doesn't Exist, Please Register!" && (
+            <span className="errorMessage">{this.props.error}</span>
+          )}
           <div className="form-box my-3">
           <div className="d-flex justify-content-center align-items-center icon-box">
                   <FontAwesomeIcon icon={faKey} className="form-icon" />
@@ -98,6 +100,9 @@ class Login extends Component {
               onChange={this.onChange}
             />
           </div>
+          {this.props.error === "Inavlid Password!" && (
+            <span className="errorMessage">{this.props.error}</span>
+          )}
           <div className="d-flex justify-content-end">
             <button type="submit" className="form-button">
               Sign in
@@ -118,9 +123,9 @@ const mapDispatchToProps = dispatch => ({
     })
 });
 
-// const mapStateToProps = (state) => ({
-//   error: state.auth.error,
-//   loading: state.auth.loading
-// })
+const mapStateToProps = (state) => ({
+  error: state.auth.error,
+  loading: state.auth.loading
+})
 
-export default connect(undefined, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
