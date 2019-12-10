@@ -1,0 +1,54 @@
+{
+    "assesmentType": "deductiveReasoning",
+    "instructions": "In this section, a statement will be provided followed by a series of suggested conclusions. Here, you must take the statement to be true. After reading each conclusion underneath the statement, you must decide whether you think it follows from the statement provided.If you agree that the conclusion exactly follows the statement, chose Conclusion follows. However, if you do not agree that the conclusion exactly follows then chose Conclusion does not follow.You must select your answer based only on the information presented; not using general knowledge. Similarly, you are advised not to let your own opinions or prejudices influence your decisions; stick to the statements and base your judgements on the facts presented.",
+    "questions": [
+        {
+            "questionNumber": "1",
+            "paragraph": "In an attempt to cut expenses, an organisation disbanded its IT department and outsourced its IT function to a business process outsourcing company. In doing so, the company has managed to save 20% on its IT function expenditure",
+            "questionSet": [
+                {
+                    "questionNumber": "1",
+                    "question": "Conclusion One: Outsourcing functions to business process outsourcing companies will cut expenses.",
+                    "options": [
+                        {
+                            "optionNumber": "1",
+                            "option": "Conclusion Follows"
+                        },
+                        {
+                            "optionNumber": "2",
+                            "option": "Conclusion Does Not Follow"
+                        }
+                    ]
+                },
+                {
+                    "questionNumber": "2",
+                    "question": "Conclusion Two: The aim of this company’s outsourcing was to make the organisation more profitable.",
+                    "options": [
+                        {
+                            "optionNumber": "1",
+                            "option": "Conclusion Follows"
+                        },
+                        {
+                            "optionNumber": "2",
+                            "option": "Conclusion Does Not Follow"
+                        }
+                    ]
+                },
+                {
+                    "questionNumber": "3",
+                    "question": "Conclusion Three: The outsourced IT function has saved the organisation 1/5th on their IT function expenditure compared to the in-house IT function.",
+                    "options": [
+                        {
+                            "optionNumber": "1",
+                            "option": "Conclusion Follows"
+                        },
+                        {
+                            "optionNumber": "2",
+                            "option": "Conclusion Does Not Follow"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
