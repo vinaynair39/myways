@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { history } from '../routers/AppRouter'
 import { Link } from 'react-router-dom';
-import ButtonList from './ButtonList'
- 
+import { getCurrentTest } from '../actions/test';
+import ButtonList from './ButtonList';
+import {connect} from 'react-redux'
 
-const TestB = ({ test }) => {
+
+const TestB = ({ test, currentTest }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [currentOptions, setCurrentOptions] = useState(0);
     const [currentSubQuestion, setCurrentSubQuestion] = useState(0);
@@ -18,25 +20,26 @@ const TestB = ({ test }) => {
     console.log(test)
 
     useEffect(() => {
-        console.log(test)   
-
+        console.log(test)
         nextQuestion();
     }, [])
-    
-const saveToLocalStorage = (state) => {
-    try{
-      const serializedState = JSON.stringify(state);
-      localStorage.setItem('question',serializedState)
-    } catch(e){
-      console.log(e)
+
+    const saveToLocalStorage = (state) => {
+        try {
+            const serializedState = JSON.stringify(state);
+            localStorage.setItem('question', serializedState)
+        } catch (e) {
+            console.log(e)
+        }
     }
-  }
 
     const nextQuestion = () => {
         setQuestion('');
         console.log(totalLength - 1, 'vs', currentQuestion)
         if ((totalLength) === currentQuestion) {
+            currentTest('deductiveReasoning').then(()=> {
                 history.push('/test/deductiveReasoning');
+            })
             saveToLocalStorage(0);
             return true;
         }
@@ -57,23 +60,30 @@ const saveToLocalStorage = (state) => {
     }
     return (
         <>
-            <div className="test__item">
+                <div className="test__item">
                     <div>
                         {/* {!!paragraph ? <h3 title={test.instructions} className='test__paragraph'>{paragraph}</h3> : <p>No questions yet</p>} */}
                     </div>
                     <div>
                         <div>{!!question ? <h2 className="test__title">{question}</h2> : <p>No questions yet</p>}</div>
                     </div>
-            </div>
-            <div><ButtonList nextQuestion={nextQuestion} options={options}/></div>
-            <div className="test__options">
-                {/* <Options nextQuestion={nextQuestion}  /> */}
-            </div>
-
+                </div>
+                <div><ButtonList nextQuestion={nextQuestion} options={options} /></div>
+                <div className="test__options">
+                    {/* <Options nextQuestion={nextQuestion}  /> */}
+                </div>
         </>
     )
 
 }
 
-// export default connect(undefined, mapDispatchToProps)(Test);
-export default TestB;
+
+const mapDispatchToProps = (dispatch) => ({
+    currentTest: (name) => dispatch(getCurrentTest(name))
+})
+
+const mapStateToProps = (state) => ({
+    isLoading: state.auth.loading
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(TestB);

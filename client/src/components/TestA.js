@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { history } from '../routers/AppRouter'
 import { Link } from 'react-router-dom';
 import ButtonList from './ButtonList';
@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { getCurrentTest } from '../actions/test';
 
 
-const TestA = ({ test }) => {
+const TestA = ({ test, isLoading, currentTest }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [currentOptions, setCurrentOptions] = useState(0);
     const [currentSubQuestion, setCurrentSubQuestion] = useState(0);
@@ -34,14 +34,19 @@ const TestA = ({ test }) => {
     const nextQuestion = () => {
         setQuestion('');
         if (totalLength === currentQuestion) {
-            if (assesmentType === 'deductiveReasoning')
-                history.push('/event/problemSensitivity');
-            if (assesmentType === 'problemSensitivity')
-                history.push('/event/languageTest');
+            if (assesmentType === 'deductiveReasoning') {
+                currentTest('deductiveReasoning').then(() => {
+                    history.push('/test/problemSensitivity');
+                })
+            }
+            if (assesmentType === 'problemSensitivity') {
+                currentTest('deductiveReasoning').then(() => {
+                    history.push('/test/languageTest');
+                })
+            }
             saveToLocalStorage(0);
             return true;
         }
-
         if (totalLength > currentQuestion && (test.questions[currentQuestion].questionSet.length - 1) > (currentSubQuestion)) {
             setParagraph(test.questions[currentQuestion].paragraph);
             setQuestion(test.questions[currentQuestion].questionSet[currentSubQuestion].question);
@@ -59,25 +64,26 @@ const TestA = ({ test }) => {
         }
         setParagraph(test.questions[currentQuestion].paragraph);
         setCurrentQuestion(currentQuestion + 1);
-
     }
 
 
     return (
         <>
-            <div className="test__item">
-                <div>
-                    {!!paragraph ? <h3 title={test.instructions} className='test__paragraph'>{paragraph}</h3> : <p>No questions yet</p>}
+            {console.log(test)
+            }        {<>
+                <div className="test__item">
+                    <div>
+                        {!!paragraph ? <h2 title={test.instructions} className='test__paragraph'>{paragraph}</h2> : <p>No questions yet</p>}
+                    </div>
+                    <div>
+                        {!!question ? <h2 className="test__sub-question">{question}</h2> : <p>No questions yet</p>}
+                    </div>
                 </div>
-                <div>
-                    {!!question ? <h4 className="test__sub-question">{question}</h4> : <p>No questions yet</p>}
+                <div><ButtonList nextQuestion={nextQuestion} options={options} /></div>
+                <div className="test__options">
+                    {/* <Options nextQuestion={nextQuestion}  /> */}
                 </div>
-            </div>
-            <div><ButtonList nextQuestion={nextQuestion} options={options} /></div>
-            <div className="test__options">
-                {/* <Options nextQuestion={nextQuestion}  /> */}
-            </div>
-
+            </>}
         </>
     )
 
@@ -87,5 +93,9 @@ const mapDispatchToProps = (dispatch) => ({
     currentTest: (name) => dispatch(getCurrentTest(name))
 })
 
-export default connect(undefined, mapDispatchToProps)(TestA);
+const mapStateToProps = (state) => ({
+    isLoading: state.auth.loading
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(TestA);
 // export default TestA;

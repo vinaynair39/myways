@@ -1,4 +1,4 @@
-import {ADD_QUESTIONS, ADD_TESTS, ADD_ANSWERS , CURRENT_TEST} from './constants';
+import {ADD_QUESTIONS, ADD_TESTS, ADD_ANSWERS , CURRENT_TEST, LOADING_UI, UNLOADING_UI} from './constants';
 
 import axios from 'axios';
 
@@ -45,8 +45,10 @@ export const startAddTests = () => {
 
 export const getCurrentTest= (testName="informationOrdering") => {
     return (dispatch, getState) => {
+        dispatch({ type: LOADING_UI });
         return axios.get(`http://localhost:5000/api/test/${testName}`).then(res => {
-            dispatch(currentTest(res.data))
+            dispatch(currentTest(res.data));
+            return res.data;
         }).catch(err => {
             console.log(err)
         })

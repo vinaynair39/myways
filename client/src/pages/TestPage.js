@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect,useState} from 'react';
 import TestB from '../components/TestB';
 import TestA from '../components/TestA';
 import { connect } from 'react-redux';
@@ -8,16 +8,16 @@ import { getCurrentTest } from '../actions/test';
 
 
 const TestPage = (props) =>{
-    useEffect(() => {
-        console.log(props.match.params.name)
-        props.currentTest(props.match.params.name);
-    
+    const[test, setTest] = useState(false);
+    let response;
+    useEffect(async () => {
+         response = await props.currentTest(props.match.params.name);
+         setTest(response);
     },[]);  
 
     return (
         <div className='test'>
-            {console.log(props.match.params.name)}
-            {props.match.params.name === 'informationOrdering' ? <TestB test={props.tests} /> : <TestA test={props.tests} />}
+            {!!test && (props.match.params.name === 'informationOrdering' ? <TestB test={props.tests} /> : <TestA test={props.tests} />)}
         </div>
     )
 }
