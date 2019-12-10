@@ -32,7 +32,7 @@ export default (state = initialState, action) => {
         case UNLOADING_UI:
             return {
                 ...state,
-                loading: false
+                loading: null
             };
 
         case SET_ERRORS:

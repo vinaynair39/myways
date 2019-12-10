@@ -9,16 +9,39 @@
         padding: 1rem 1rem;
     }
     overflow-x: hidden;
-
-
 }
 
 .test__title{
     font-family: 'Sulphur Point', sans-serif;   
     text-transform: capitalize;
     text-align: center;
-    margin: 0 1rem 3rem 1rem;
+    margin: 10rem 5rem 3rem 5rem;
 }
+
+.text__sub{
+    margin-top: 10rem;
+
+}
+
+.test__paragraph{
+    font-family: 'Sulphur Point', sans-serif;   
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    text-align: center;
+    margin: 0 1rem 2rem 1rem;
+    padding: 2rem 10rem;
+    font-weight: 600;
+    cursor: help;
+}
+
+.test__sub-question{
+    font-family: 'Sulphur Point', sans-serif;   
+    text-transform: capitalize;
+    text-align: center;
+    margin: 0 1rem 3rem 1rem;
+    padding:  1rem 10rem 2rem 10rem;
+}
+
 
 .test__item{
     & p {

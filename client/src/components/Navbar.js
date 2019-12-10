@@ -9,10 +9,10 @@ class Navbar extends Component {
   render() {
     const loginRegLink = (
       <div>
-        <Link to="/login" className="nav-links mr-4">
+        <Link to="/login" className="nav-links mr-5">
           Login
         </Link>
-        <Link to="/signup" className="nav-links mr-4">
+        <Link to="/signup" className="nav-links mr-5">
           Register
         </Link>
       </div>
@@ -20,9 +20,9 @@ class Navbar extends Component {
 
     const userLink = (
       <div>
-        <Link to="/profile" className="nav-links mr-4">
+        {/* <Link to="/profile" className="nav-links mr-4">
           User
-        </Link>
+        </Link> */}
         <a href="" onClick={this.props.logout.bind(this)} className="nav-links mr-4">
           Logout
         </a>

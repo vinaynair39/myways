@@ -11,7 +11,7 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore'
-import { startAddTests } from './actions/test';
+import { getCurrentTest } from './actions/test';
 import './styles/styles.scss';
 
 
@@ -44,7 +44,7 @@ if (token) {
   else {
     store.dispatch(login());
     axios.defaults.headers.common['Authorization'] = token;
-    store.dispatch(startAddTests()).then(() => {
+    store.dispatch(getCurrentTest()).then(() => {
       renderApp();
     });
     if (history.location.pathname === '/') {

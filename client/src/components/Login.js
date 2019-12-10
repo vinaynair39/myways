@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { startLogin } from "../actions/auth";
+import { SET_ERRORS } from "../actions/constants";
 import { connect } from "react-redux";
+import Loader from 'react-loader-spinner'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMobileAlt, faKey } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
+
 const Wrapper = styled.div`
   height: 80%;
   display: flex;
@@ -19,7 +22,7 @@ const Wrapper = styled.div`
   }
   .form-main{
     background: white;
-    padding: 2rem;
+    padding: 1.5rem 3rem;
   }
   .input-box {
     border: none;
@@ -43,6 +46,7 @@ const Wrapper = styled.div`
   .errorMessage {
     color: red;
   }
+
 `;
 
 class Login extends Component {
@@ -71,14 +75,20 @@ class Login extends Component {
     this.props.startLogin(user);
   }
 
+  onError() {
+    return <span className="errorMessage">{this.props.error}</span>
+  }
+
   render() {
     return (
       <Wrapper className="">
+        {this.props.loading && <div className="spinner"></div>}
         <form noValidate onSubmit={this.onSubmit} className="form-main">
+          <h1 className="pb-3 pt-0 text-center">Login</h1>
           <div className="form-box">
-          <div className="d-flex justify-content-center align-items-center icon-box">
-                  <FontAwesomeIcon icon={faMobileAlt} className="form-icon" />
-                </div>
+            <div className="d-flex justify-content-center align-items-center icon-box">
+              <FontAwesomeIcon icon={faMobileAlt} className="form-icon" />
+            </div>
             <input
               type="text"
               className="input-box"
@@ -89,12 +99,12 @@ class Login extends Component {
             />
           </div>
           {this.props.error === "User Doesn't Exist, Please Register!" && (
-            <span className="errorMessage">{this.props.error}</span>
+            this.onError()
           )}
-          <div className="form-box my-3">
-          <div className="d-flex justify-content-center align-items-center icon-box">
-                  <FontAwesomeIcon icon={faKey} className="form-icon" />
-                </div>
+          <div className="form-box my-4">
+            <div className="d-flex justify-content-center align-items-center icon-box">
+              <FontAwesomeIcon icon={faKey} className="form-icon" />
+            </div>
             <input
               type="password"
               className="input-box"
@@ -105,7 +115,8 @@ class Login extends Component {
             />
           </div>
           {this.props.error === "Inavlid Password!" && (
-            <span className="errorMessage">{this.props.error}</span>
+            this.onError()
+
           )}
           <div className="d-flex justify-content-end">
             <button type="submit" className="form-button">
@@ -122,7 +133,7 @@ const mapDispatchToProps = dispatch => ({
   startLogin: credentials => dispatch(startLogin(credentials)),
   unsetError: () =>
     dispatch({
-      type: "SET_ERRORS",
+      type: SET_ERRORS,
       error: ""
     })
 });

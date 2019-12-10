@@ -12,7 +12,7 @@ import TestPage from '../pages/TestPage';
 import Register from '../components/Register';
 import Navbar from '../components/Navbar';
 import Landing from '../components/Landing';
-import ButtonList from '../components/ButtonList';
+import Dashboard from '../components/Dashboard';
 
 export const history = createHistory();
 
@@ -25,9 +25,9 @@ const AppRouter = () => (
         <PublicRoute path='/login' component={Login} exact={true} />
         <PublicRoute path='/signup' component={Register} exact={true} />
         <PrivateRoute path="/dashboard" component={DashboardPage} />
-        <PrivateRoute path="/test" component={TestPage} />
-        <PublicRoute path="/buttontest" component={ButtonList} />
-        <PrivateRoute path="/test/:name" component={Test} />
+        <PrivateRoute path="/test" component={TestPage} exact={true}/>
+        <PublicRoute path="/dashboardtest" component={Dashboard} />
+        <PrivateRoute path="/test/:name" component={TestPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
