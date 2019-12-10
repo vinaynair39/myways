@@ -6,6 +6,7 @@ import Loader from 'react-loader-spinner'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMobileAlt, faKey } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
+
 const Wrapper = styled.div`
   height: 80%;
   display: flex;

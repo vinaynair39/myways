@@ -27,14 +27,14 @@ export const addAnswers = (answer, currentQuestion, currentTest) => ({
 
 export const startAddAnswers = () => {
     return (dispatch, getState) => {
-        axios.get('http://localhost:5000/api/test/questions').then(res => {
+        axios.get('/api/test/questions').then(res => {
             console.log(res.data)
         })
     }
 }
 export const startAddTests = () => {
     return (dispatch, getState) => {
-        return axios.get('http://localhost:5000/api/test/questions').then(res => {
+        return axios.get('/api/test/questions').then(res => {
             console.log(res.data)
             dispatch(addTests(res.data))
         }).catch(err => {
@@ -46,6 +46,7 @@ export const startAddTests = () => {
 export const getCurrentTest= (testName="informationOrdering") => {
     return (dispatch, getState) => {
         dispatch({ type: LOADING_UI });
+        // return axios.get(`/api/test/${testName}`).then(res => {
         return axios.get(`http://localhost:5000/api/test/${testName}`).then(res => {
             dispatch(currentTest(res.data));
             return res.data;
