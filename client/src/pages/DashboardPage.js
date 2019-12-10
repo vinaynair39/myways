@@ -22,7 +22,7 @@ const DashboardPage = (props) => {
             <div className="title">Psychometric Evaluation</div>
             <div className='button-start'>
             <div>
-                <Link to="/test" className="effect1" href="#">
+                <Link to="/test/informationOrdering" className="effect1" href="#">
                     Start Test!
                 <span className="bg"></span>
                 </Link>

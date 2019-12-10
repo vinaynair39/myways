@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { history } from '../routers/AppRouter'
 import { Link } from 'react-router-dom';
-import ButtonList from './ButtonList'
-// import { faPlus } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";   
+import ButtonList from './ButtonList';
+import { connect } from 'react-redux';
+import { getCurrentTest } from '../actions/test';
+
 
 const TestA = ({ test }) => {
-    // const {currentTest: ct, currentQuestion: cq} = JSON.parse(localStorage.getItem('question'));
-    // const [currentTest, setCurrentTest] = useState(ct || 0);
-    // const [currentQuestion, setCurrentQuestion] = useState(cq || 0);
-    // const [question, setQuestion] = useState('');
-    // const [testName, setTestName] = useState('')
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [currentOptions, setCurrentOptions] = useState(0);
     const [currentSubQuestion, setCurrentSubQuestion] = useState(0);
@@ -23,25 +19,25 @@ const TestA = ({ test }) => {
     const assesmentType = test.assesmentType;
 
     useEffect(() => {
-        // setCurrentTest(serializedState.currentTest);
-        // setCurrentQuestion(serializedState.currentQuestion);
         nextQuestion();
     }, [])
-    
-const saveToLocalStorage = (state) => {
-    try{
-      const serializedState = JSON.stringify(state);
-      localStorage.setItem('question',serializedState)
-    } catch(e){
-      console.log(e)
+
+    const saveToLocalStorage = (state) => {
+        try {
+            const serializedState = JSON.stringify(state);
+            localStorage.setItem('question', serializedState)
+        } catch (e) {
+            console.log(e)
+        }
     }
-  }
 
     const nextQuestion = () => {
         setQuestion('');
         if (totalLength === currentQuestion) {
-            alert("Successfully Completed!");
-            { history.push('/') }
+            if (assesmentType === 'deductiveReasoning')
+                history.push('/event/problemSensitivity');
+            if (assesmentType === 'problemSensitivity')
+                history.push('/event/languageTest');
             saveToLocalStorage(0);
             return true;
         }
@@ -64,39 +60,20 @@ const saveToLocalStorage = (state) => {
         setParagraph(test.questions[currentQuestion].paragraph);
         setCurrentQuestion(currentQuestion + 1);
 
-
-
-
-        // if (totalLength > currentTest && (tests[currentTest].questions.length - 1) > (currentQuestion)) {
-        //     setQuestion(tests[currentTest].questions[currentQuestion].question);
-        //     setTestName(tests[currentTest].assesmentType)
-        //     setCurrentQuestion(currentQuestion + 1)
-        //     return true;
-        // }
-        // if ((tests[currentTest].questions.length - 1) == currentQuestion) {
-        //     setQuestion(tests[currentTest].questions[currentQuestion].question);
-        //     setCurrentQuestion(0);
-        //     setCurrentTest(currentTest + 1)
-        //     return true;
-        // }
-
-        // setTestName(tests[currentTest].assesmentType);
-        // setCurrentTest(currentTest + 1);
-    
     }
 
 
     return (
         <>
             <div className="test__item">
-                    <div>
-                        {!!paragraph ? <h2 title={test.instructions} className='test__paragraph'>{paragraph}</h2> : <p>No questions yet</p>}
-                    </div>
-                    <div>
-                        {!!question ? <h2 className="test__sub-question">{question}</h2> : <p>No questions yet</p>}
-                    </div>
+                <div>
+                    {!!paragraph ? <h3 title={test.instructions} className='test__paragraph'>{paragraph}</h3> : <p>No questions yet</p>}
+                </div>
+                <div>
+                    {!!question ? <h4 className="test__sub-question">{question}</h4> : <p>No questions yet</p>}
+                </div>
             </div>
-            <div><ButtonList nextQuestion={nextQuestion} options={options}/></div>
+            <div><ButtonList nextQuestion={nextQuestion} options={options} /></div>
             <div className="test__options">
                 {/* <Options nextQuestion={nextQuestion}  /> */}
             </div>
@@ -106,5 +83,9 @@ const saveToLocalStorage = (state) => {
 
 }
 
-// export default connect(undefined, mapDispatchToProps)(Test);
-export default TestA;
+const mapDispatchToProps = (dispatch) => ({
+    currentTest: (name) => dispatch(getCurrentTest(name))
+})
+
+export default connect(undefined, mapDispatchToProps)(TestA);
+// export default TestA;

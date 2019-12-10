@@ -43,7 +43,7 @@ export const startAddTests = () => {
     }
 }
 
-export const getCurrentTest= (testName) => {
+export const getCurrentTest= (testName="informationOrdering") => {
     return (dispatch, getState) => {
         return axios.get(`http://localhost:5000/api/test/${testName}`).then(res => {
             dispatch(currentTest(res.data))

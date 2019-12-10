@@ -44,7 +44,7 @@ if (token) {
   else {
     store.dispatch(login());
     axios.defaults.headers.common['Authorization'] = token;
-    store.dispatch(getCurrentTest('deductiveReasoning')).then(() => {
+    store.dispatch(getCurrentTest()).then(() => {
       renderApp();
     });
     if (history.location.pathname === '/') {
