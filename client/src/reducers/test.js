@@ -16,22 +16,8 @@ export default (state = initState, action) => {
                 ...state,
                 questions: action.tests
             };
-        case ADD_ANSWERS:
-                return {
-                    ...state,
-                    answers: [
-                        ...state.answers,
-                        {
-                        assesmentType: action.assesmentType,
-                        questions: [
-                            {
-                                questionNumber: action.currentQuestion,
-                                answer: action.answer
-                            }
-                        ]
-                    }]
-                        
-                }
+        // case ADD_ANSWERS:
+                // return [...state, action.answer]
         case CURRENT_TEST:
             return {
                 ...state,

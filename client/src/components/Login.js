@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { startLogin } from "../actions/auth";
 import { SET_ERRORS } from "../actions/constants";
 import { connect } from "react-redux";
+import Loader from 'react-loader-spinner'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMobileAlt, faKey } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
@@ -44,6 +45,7 @@ const Wrapper = styled.div`
   .errorMessage {
     color: red;
   }
+
 `;
 
 class Login extends Component {
@@ -79,6 +81,7 @@ class Login extends Component {
   render() {
     return (
       <Wrapper className="">
+        {this.props.loading && <div className="spinner"></div>}
         <form noValidate onSubmit={this.onSubmit} className="form-main">
           <h1 className="pb-3 pt-0 text-center">Login</h1>
           <div className="form-box">

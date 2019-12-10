@@ -17,11 +17,11 @@ export const addQuetions = (questions) => ({
     questions
 });
 
-export const addAnswers = (answer, assesmentType, currentQuestion, currentTest) => ({
+export const addAnswers = (answer, currentQuestion, currentTest) => ({
     type: ADD_ANSWERS,
     answer,
-    assesmentType,
-    currentQuestion
+    currentQuestion,
+    currentTest
 });
 
 

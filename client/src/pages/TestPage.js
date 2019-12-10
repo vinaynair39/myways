@@ -6,23 +6,18 @@ import { getCurrentTest } from '../actions/test';
 // import { faPlus } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";   
 
-
 const TestPage = (props) =>{
-    const[test, setTest] = useState(false);
-    let response;
-    useEffect(async () => {
-         response = await props.currentTest(props.match.params.name);
-         setTest(response);
+    useEffect(() => {
+        props.currentTest(props.match.params.name);
     },[]);  
 
     return (
         <div className='test'>
-            {!!test && (props.match.params.name === 'informationOrdering' ? <TestB test={props.tests} /> : <TestA test={props.tests} />)}
-        </div>
+            {props.tests.assesmentType === props.match.params.name && (props.match.params.name === 'informationOrdering' ? <TestB test={props.tests} /> : <TestA test={props.tests} />)}
+        </div>  
     )
 }
     
-
 const mapStateToProps = (state) => ({
     tests: state.test ? state.test.questions: []
 });

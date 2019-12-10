@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import ButtonList from './ButtonList';
 import { connect } from 'react-redux';
 import { getCurrentTest } from '../actions/test';
+import Loader from 'react-loader-spinner'
+
 
 
 const TestA = ({ test, isLoading, currentTest }) => {
@@ -44,6 +46,11 @@ const TestA = ({ test, isLoading, currentTest }) => {
                     history.push('/test/languageTest');
                 })
             }
+            if (assesmentType === 'languageTest') {
+                alert('test successful!');
+                history.push('/');
+            }
+
             saveToLocalStorage(0);
             return true;
         }
@@ -73,13 +80,16 @@ const TestA = ({ test, isLoading, currentTest }) => {
             }        {<>
                 <div className="test__item">
                     <div>
-                        {!!paragraph ? <h2 title={test.instructions} className='test__paragraph'>{paragraph}</h2> : <p>No questions yet</p>}
+                        {!!paragraph ? <h2 title={test.instructions} className='test__paragraph'>{paragraph}</h2> : <Loader type="ThreeDots"
+                            color="#00BFFF"
+                            height={100}
+                            width={100} />}
                     </div>
                     <div>
-                        {!!question ? <h2 className="test__sub-question">{question}</h2> : <p>No questions yet</p>}
+                        {!!question ? <h2 className="test__sub-question">{question}</h2> : <Loader />}
                     </div>
                 </div>
-                <div><ButtonList nextQuestion={nextQuestion} options={options} /></div>
+                <div><ButtonList nextQuestion={nextQuestion} options={options} currentQuestion={currentQuestion} currentSubQuestion={currentSubQuestion}/></div>
                 <div className="test__options">
                     {/* <Options nextQuestion={nextQuestion}  /> */}
                 </div>

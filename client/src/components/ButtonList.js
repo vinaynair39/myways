@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import {addAnswers } from '../actions/test';
 import { connect } from 'react-redux';
 
 const Wrapper = styled.div`
@@ -14,8 +15,8 @@ const Wrapper = styled.div`
     background: #0f9d58;
     border: none;
     outline: none;
-    padding: 0.7rem;
-    margin: 0 3rem 3rem 3rem;
+    padding: 0.7rem 2rem;
+    margin: 0 2rem 3rem 3rem;
     font-size: 1.3rem;
     color: white;
     border-radius: 3rem;
@@ -25,12 +26,12 @@ const Wrapper = styled.div`
     background: #0f9d58;
     border: none;
     outline: none;
-    padding: 1rem 1.35rem 1rem 1.35rem;
+    padding: 0.7rem 2rem;
     margin: 0 2rem 3rem 2rem;
     font-size: 1.4rem;
     color: white;
     border-radius: 3rem;
-    width: 100vw;
+    width: fit-content;
   }
   .button-select3 {
     background: #0f9d58;
@@ -100,7 +101,7 @@ const Wrapper = styled.div`
 
 
 
-function ButtonList(props) {
+function ButtonList( props) {
   const [selectedOption, setSelectedOption] = useState(0);
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
@@ -115,7 +116,7 @@ function ButtonList(props) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // getAnswer(selectedOption);
+    props.setAnswers(props.selectedOption, props.currentSubquestion, props.currentQuestion);
     console.log(selectedOption)
     props.nextQuestion();
     setSelectedOption(0);
@@ -158,10 +159,10 @@ function ButtonList(props) {
   );
 
 
-  const fourButton = ([a, b, c, d, e]) => (
+  const fourButton = ([a, b, c, d]) => (
     <div>
       <div className="radios">
-        <div className="radio button-select">
+        <div className="radio button-select2">
           <input type="radio" id="radio1" name="radio1" value={a} checked={checked1} onChange={(e) => {
             setSelectedOption(e.target.value);
             setChecked1(true);
@@ -173,7 +174,7 @@ function ButtonList(props) {
           </label>
         </div>
 
-        <div className="radio button-select">
+        <div className="radio button-select2">
           <input type="radio" id="radio2" name="radio1" value={b} checked={checked2} onChange={(e) => {
             setSelectedOption(e.target.value);
             setChecked2(true);
@@ -184,7 +185,7 @@ function ButtonList(props) {
             {b}
           </label>
         </div>
-        <div className="radio button-select">
+        <div className="radio button-select2">
           <input type="radio" id="radio3" name="radio1" value={c} checked={checked3} onChange={(e) => {
             setSelectedOption(e.target.value);
             setChecked3(true);
@@ -195,7 +196,7 @@ function ButtonList(props) {
             {c}
           </label>
         </div>
-        <div className="radio button-select">
+        <div className="radio button-select2">
           <input type="radio" id="radio4" name="radio1" value={d} checked={checked4} onChange={(e) => {
             setSelectedOption(e.target.value);
             setChecked4(true);
@@ -418,7 +419,7 @@ function ButtonList(props) {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  setAnswers: 0//(answer, assesmentType, currentQuestion) => dispatch(addAnswers(answer, assesmentType, currentQuestion))
+  setAnswers: (answer, assesmentType, currentQuestion) => dispatch(addAnswers(answer, assesmentType, currentQuestion))
 })
 
 export default connect(undefined, mapDispatchToProps)(ButtonList);

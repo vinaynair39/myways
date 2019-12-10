@@ -74,7 +74,7 @@ const Options = (props) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    setAnswers: (answer, assesmentType, currentQuestion) => dispatch(addAnswers(answer, assesmentType, currentQuestion))
+    addAnswers: (answer, assesmentType, currentQuestion) => dispatch(addAnswers(answer, assesmentType, currentQuestion))
 })
 
 export default connect(undefined, mapDispatchToProps)(Options);
