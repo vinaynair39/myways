@@ -8,7 +8,7 @@ import { faMobileAlt, faKey } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  height: 80%;
+  height: 88vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,10 +19,13 @@ const Wrapper = styled.div`
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 4px inset, transparent 0px 0px 0px;
     padding: 1rem;
     display: flex;
+    border-radius: 4rem;
   }
   .form-main{
-    background: white;
+    background: #2F474B;
     padding: 1.5rem 3rem;
+    border-radius: 4rem;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   }
   .input-box {
     border: none;
@@ -39,9 +42,13 @@ const Wrapper = styled.div`
     padding: 0.5rem 1rem;
     font-size: 1.5rem;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    border-radius: 4rem;
   }
   .form-icon {
     font-size: 1.4rem;
+  }
+  .title{
+    color: white;
   }
   .errorMessage {
     color: red;
@@ -84,7 +91,7 @@ class Login extends Component {
       <Wrapper className="">
         {this.props.loading && <div className="spinner"></div>}
         <form noValidate onSubmit={this.onSubmit} className="form-main">
-          <h1 className="pb-3 pt-0 text-center">Login</h1>
+          <h1 className="pb-3 pt-0 text-center title">Login</h1>
           <div className="form-box">
             <div className="d-flex justify-content-center align-items-center icon-box">
               <FontAwesomeIcon icon={faMobileAlt} className="form-icon" />

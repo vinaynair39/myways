@@ -1,0 +1,387 @@
+{
+  "assesmentType": "languageTest",
+  "questions": [
+    {
+      "questionNumber": "1",
+      "paragraph": "Each question below has a group of words. The word at the top of the group is not spelled in the usual way. Instead, it is spelled approximately as it is pronounced. Your task is to recognize the disguised word from the spelling. In order to show that you recognize the disguised word, look for one of the five words beneath it that corresponds most closely in meaning to the disguised word.NOW GO RIGHT AHEAD WITH THESE QUESTIONS",
+      "questionSet": [
+        {
+          "questionNumber": "1",
+          "question": " kloz",
+          "options": [
+            {
+              "optionNumber": "1",
+              "option": "attire"
+            },
+            {
+              "optionNumber": "2",
+              "option": "nearby"
+            },
+            {
+              "optionNumber": "3",
+              "option": "stick"
+            },
+            {
+              "optionNumber": "4",
+              "option": "giant"
+            },
+            {
+              "optionNumber": "5",
+              "option": "relatives"
+            }
+          ]
+        },
+        {
+          "questionNumber": "2",
+          "question": "restrnt ",
+          "options": [
+            {
+              "optionNumber": "1",
+              "option": "food"
+            },
+            {
+              "optionNumber": "2",
+              "option": "self-control"
+            },
+            {
+              "optionNumber": "3",
+              "option": "sleep"
+            },
+            {
+              "optionNumber": "4",
+              "option": "space-explorer"
+            },
+            {
+              "optionNumber": "5",
+              "option": "drug"
+            }
+          ]
+        },
+        {
+          "questionNumber": "3",
+          "question": " prezns",
+          "options": [
+            {
+              "optionNumber": "1",
+              "option": "kings"
+            },
+            {
+              "optionNumber": "2",
+              "option": "explanations"
+            },
+            {
+              "optionNumber": "3",
+              "option": "dates"
+            },
+            {
+              "optionNumber": "4",
+              "option": "gifts"
+            },
+            {
+              "optionNumber": "5",
+              "option": "forecasts"
+            }
+          ]
+        },
+        {
+          "questionNumber": "4",
+          "question": " grbj",
+          "options": [
+            {
+              "optionNumber": "1",
+              "option": "car-port"
+            },
+            {
+              "optionNumber": "2",
+              "option": "seize"
+            },
+            {
+              "optionNumber": "3",
+              "option": "boat"
+            },
+            {
+              "optionNumber": "4",
+              "option": "boast"
+            },
+            {
+              "optionNumber": "5",
+              "option": "waste"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "questionNumber": "1",
+      "paragraph": "Vocabulary:\nMaya \u2014 English\nc?on \u2014 gun\nsi? \u2014 wood\nk?ab \u2014 hand\nkab \u2014 juice\nbat \u2014\tax\npal \u2014 son\nNOW GO RIGHT AHEAD WITH THESE QUESTIONS.Write down your answers so that you can check them when you are finished.",
+      "questionSet": [
+        {
+          "questionNumber": "1",
+          "question": "bat",
+          "options": [
+            {
+              "optionNumber": "1",
+              "option": "animal"
+            },
+            {
+              "optionNumber": "2",
+              "option": "stick"
+            },
+            {
+              "optionNumber": "3",
+              "option": "jump"
+            },
+            {
+              "optionNumber": "4",
+              "option": "ax"
+            },
+            {
+              "optionNumber": "5",
+              "option": "stone"
+            }
+          ]
+        },
+        {
+          "questionNumber": "2",
+          "question": "kab",
+          "options": [
+            {
+              "optionNumber": "1",
+              "option": "juice"
+            },
+            {
+              "optionNumber": "2",
+              "option": "cart"
+            },
+            {
+              "optionNumber": "3",
+              "option": "corn"
+            },
+            {
+              "optionNumber": "4",
+              "option": "tool"
+            },
+            {
+              "optionNumber": "5",
+              "option": "run"
+            }
+          ]
+        },
+        {
+          "questionNumber": "3",
+          "question": "con?",
+          "options": [
+            {
+              "optionNumber": "1",
+              "option": "story"
+            },
+            {
+              "optionNumber": "2",
+              "option": "gun"
+            },
+            {
+              "optionNumber": "3",
+              "option": "eat"
+            },
+            {
+              "optionNumber": "4",
+              "option": "mix"
+            },
+            {
+              "optionNumber": "5",
+              "option": "bird"
+            }
+          ]
+        },
+        {
+          "questionNumber": "4",
+          "question": "kab?",
+          "options": [
+            {
+              "optionNumber": "1",
+              "option": "road"
+            },
+            {
+              "optionNumber": "2",
+              "option": "tree"
+            },
+            {
+              "optionNumber": "3",
+              "option": "yell"
+            },
+            {
+              "optionNumber": "4",
+              "option": "fish"
+            },
+            {
+              "optionNumber": "5",
+              "option": "hand"
+            }
+          ]
+        },
+        {
+          "questionNumber": "5",
+          "question": "si?",
+          "options": [
+            {
+              "optionNumber": "1",
+              "option": "look"
+            },
+            {
+              "optionNumber": "2",
+              "option": "yes"
+            },
+            {
+              "optionNumber": "3",
+              "option": "forgive"
+            },
+            {
+              "optionNumber": "4",
+              "option": "cook"
+            },
+            {
+              "optionNumber": "5",
+              "option": "wood"
+            }
+          ]
+        },
+        {
+          "questionNumber": "6",
+          "question": "pal",
+          "options": [
+            {
+              "optionNumber": "1",
+              "option": "chief"
+            },
+            {
+              "optionNumber": "2",
+              "option": "son"
+            },
+            {
+              "optionNumber": "3",
+              "option": "friend"
+            },
+            {
+              "optionNumber": "4",
+              "option": "gold"
+            },
+            {
+              "optionNumber": "5",
+              "option": "boat"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "questionNumber": "1",
+      "paragraph": "Sample: JOHN took a long walk in the woods.Children in blue jeans were singing and dancing in the park.\nA\tB\tC\tD\tE\nYou would select “A.” because the key sentence is about “John” and the second sentence is about “children”.NOW GO RIGHT AHEAD WITH THESE QUESTIONS.Write down your answers so that you can check them when you are finished.",
+      "questionSet": [
+        {
+          "questionNumber": "1",
+          "question": "MARY is happy. From the look on your face, I can tell that you must have had a bad day.\nA\tB\tC\tD\tE",
+          "options": [
+            {
+              "optionNumber": "1",
+              "option": "A"
+            },
+            {
+              "optionNumber": "2",
+              "option": "B"
+            },
+            {
+              "optionNumber": "3",
+              "option": "C"
+            },
+            {
+              "optionNumber": "4",
+              "option": "D"
+            },
+            {
+              "optionNumber": "5",
+              "option": "E"
+            }
+          ]
+        },
+        {
+          "questionNumber": "2",
+          "question": "We wanted to go out, BUT we were too tired.\nBecause of our extensive training, we were confident when we were out sailing,\nA\t\tB\tC\nyet we were always aware of the potential dangers of being on the lake.\n\tD\tE",
+          "options": [
+            {
+              "optionNumber": "1",
+              "option": "A"
+            },
+            {
+              "optionNumber": "2",
+              "option": "B"
+            },
+            {
+              "optionNumber": "3",
+              "option": "C"
+            },
+            {
+              "optionNumber": "4",
+              "option": "D"
+            },
+            {
+              "optionNumber": "5",
+              "option": "E"
+            }
+          ]
+        },
+        {
+          "questionNumber": "3",
+          "question": "3.John said THAT Jill liked chocolate.\\nIn our class, that professor claimed that he knew that girl on the television\r\nA             \tB                                   \tC                  \tD                E\r\nnews show.",
+          "options": [
+            {
+              "optionNumber": "1",
+              "option": "A"
+            },
+            {
+              "optionNumber": "2",
+              "option": "B"
+            },
+            {
+              "optionNumber": "3",
+              "option": "C"
+            },
+            {
+              "optionNumber": "4",
+              "option": "D"
+            },
+            {
+              "optionNumber": "5",
+              "option": "E"
+            }
+          ]
+        },
+        {
+          "questionNumber": "4",
+          "question": "The officer gave me a TICKET!/nWhen she went away to college, the young man’s daughter wrote him the most\nA\tB\t\nCbeautiful letter that he had ever received.\nD \tE",
+          "options": [
+            {
+              "optionNumber": "1",
+              "option": "A"
+            },
+            {
+              "optionNumber": "2",
+              "option": "B"
+            },
+            {
+              "optionNumber": "3",
+              "option": "C"
+            },
+            {
+              "optionNumber": "4",
+              "option": "D"
+            },
+            {
+              "optionNumber": "5",
+              "option": "E"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

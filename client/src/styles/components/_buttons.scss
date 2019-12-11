@@ -164,6 +164,24 @@
     }
   }
 
+  .button-left{
+    position: absolute;
+    right: 58em;
+    width: 5rem;
+    height:3rem;
+    background-color: $dark-grey;
+    color:white;
+    border-radius: 10%;
+    transition: all 0.2s ease;
+    &:hover{
+      transform: scale(1.1);
+  }
+    &:active{
+        transform: translateY(4px);
+        border-bottom: solid 5px $red;
+    }
+  }
+
   .button-disable{
     outline: none;
     cursor: not-allowed;

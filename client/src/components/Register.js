@@ -11,16 +11,16 @@ import {
 import styled from "styled-components";
 const Wrapper = styled.div`
   display: flex;
-  height: 80%;
+  height: 88vh;
   justify-content: center;
   align-items: center;
-  padding: 3rem 1.5rem 1rem 1.5rem;
   .form-box {
     font-size: 1.2rem;
     background: #f3f7f7;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 4px inset, transparent 0px 0px 0px;
     padding: 1rem;
     display: flex;
+      border-radius: 4rem;
   }
   .input-box {
     border: none;
@@ -28,8 +28,10 @@ const Wrapper = styled.div`
     background: transparent;
   }
   .form-main{
-    background: white;
-    padding: 2rem;
+    background: #2F474B;
+    padding: 2rem 3rem;
+    border-radius: 4rem;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   }
   .icon-box {
     width: 3vw;
@@ -41,6 +43,7 @@ const Wrapper = styled.div`
     padding: 0.5rem 1rem;
     font-size: 1.5rem;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    border-radius: 4rem;
   }
   .form-icon {
     font-size: 1.4rem;

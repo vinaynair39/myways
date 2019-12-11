@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import {addAnswers } from '../actions/test';
+import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { addAnswers } from '../actions/test';
 import { connect } from 'react-redux';
+import { ADD_ANSWERS } from '../actions/constants'
 
 const Wrapper = styled.div`
   .question {
@@ -101,7 +102,7 @@ const Wrapper = styled.div`
 
 
 
-function ButtonList( props) {
+function ButtonList(props) {
   const [selectedOption, setSelectedOption] = useState(0);
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
@@ -113,12 +114,35 @@ function ButtonList( props) {
   const handleShowButton = () => {
     setShowButton(true);
   }
+  const saveToLocalStorage = (state) => {
+    try {
+      const serializedState = JSON.stringify(state);
+      localStorage.setItem('answers', serializedState)
+    } catch (e) {
+      console.log(e)
+    }
+  }
 
   const onSubmit = (e) => {
     e.preventDefault();
-    props.setAnswers(props.selectedOption, props.currentSubquestion, props.currentQuestion);
-    console.log(selectedOption)
+    props.addAnswers(selectedOption, props.currentQuestion, props.currentSubquestion);
+    console.log(selectedOption, props.currentQuestion, props.currentSubquestion);
     props.nextQuestion();
+    saveToLocalStorage(props.answers);
+    setSelectedOption(0);
+    setShowButton(false);
+    setChecked1(false);
+    setChecked2(false);
+    setChecked3(false);
+    setChecked4(false);
+    setChecked5(false);
+  };
+
+  const onPrevious = (e) => {
+    e.preventDefault();
+    console.log(props.currentQuestion, props.currentSubquestion);
+    props.previousQuestion();
+    saveToLocalStorage(props.answers);
     setSelectedOption(0);
     setShowButton(false);
     setChecked1(false);
@@ -273,6 +297,8 @@ function ButtonList( props) {
       </div>
     </div>
   );
+
+
   const getEmojiMeter = () => (
     <div className="container">
       <div className="feedback">
@@ -294,7 +320,7 @@ function ButtonList( props) {
             setSelectedOption(e.target.value);
             setChecked4(true);
             handleShowButton();
-          }} /> 
+          }} />
           <label for="rating-3"></label>
           <input type="radio" name="rating" id="rating-2" onChange={(e) => {
             setSelectedOption(e.target.value);
@@ -399,11 +425,15 @@ function ButtonList( props) {
       </div>
     </div>
   )
+
+
   const getButton = () => {
     if (props.options.length === 2)
       return twoButton([...props.options])
     if (props.options.length === 4)
       return fourButton([...props.options])
+    if (props.options.length === 0)
+      return fourButton(['a', 'b', 'c', 'd'])
     if (props.options.length === 5)
       return fiveButton([...props.options])
   }
@@ -413,13 +443,26 @@ function ButtonList( props) {
       {/* {getEmojiMeter()} */}
       <div className="test-buttons">{showButton ? <button className="button button-right" onClick={onSubmit}><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
         : <button className="button button-disable"><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
-      }</div>
+      }
+        {(((props.currentQuestion == 0 && props.currentSubquestion > 0) || (props.currentQuestion > 0)) && <button className="button button-left" onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>)
+        }
+      </div>
     </Wrapper>
   );
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  setAnswers: (answer, assesmentType, currentQuestion) => dispatch(addAnswers(answer, assesmentType, currentQuestion))
+  addAnswers: (answer, currentQuestion, currentSubquestion) => dispatch({
+    type: ADD_ANSWERS,
+    answer,
+    currentQuestion,
+    currentSubquestion
+  })
 })
 
-export default connect(undefined, mapDispatchToProps)(ButtonList);
+const mapStateToProps = (state) => ({
+  isLoading: state.auth.loading,
+  answers: state.test.answers
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ButtonList);

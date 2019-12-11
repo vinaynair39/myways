@@ -6,7 +6,7 @@ import {
     UNSET_ERRORS,
 } from './constants.js'
 
-import { getCurrentTest } from './test'
+import { startAddTests } from './test'
 
 
 export const login = () => ({
@@ -19,7 +19,7 @@ export const startSignUp = (newUser) => {
         axios.post('/api/user/register', { ...newUser }).then((res) => {
             console.log(res.data)
             setAuthorizationHeader(res.data.token);
-            dispatch(getCurrentTest()).then(() => {
+            dispatch(startAddTests()).then(() => {
                 dispatch(login());
                 dispatch({ type: UNLOADING_UI });
 
@@ -38,10 +38,10 @@ export const startLogin = (credentials) => {
     
     return (dispatch) => {
         dispatch({ type: LOADING_UI });
-        return axios.post('/api/user/login', credentials).then(res => {
+        return axios.post('http://localhost:5000/api/user/login', credentials).then(res => {
             console.log(res.data.token)
             setAuthorizationHeader(res.data.token);
-            dispatch(getCurrentTest()).then(() => {
+            dispatch(startAddTests()).then(() => {
                 dispatch({ type: UNLOADING_UI });
                 dispatch(login());
             })

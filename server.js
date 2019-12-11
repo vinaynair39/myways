@@ -24,15 +24,31 @@ const app = express();
 
 // Importing Routes
 const userRoute = require('./routes/user');
-const testRoute = require('./routes/test');
+const problemSensitivity = require('./routes/problemSensitivity');
+const deductiveReasoning = require('./routes/deductiveReasoning');
+const deductiveReasoningAnswers = require('./routes/deductiveReasoningAnswers');
+const languageTest = require('./routes/languageTest');
+const tests = require('./routes/tests');
+const informationOrdering = require('./routes/informationOrdering');
+const mathematicalReasoning = require('./routes/mathematicalReasoning');
+
 
 // Adding middleware to express
 app.use(bodyParser.json());
 app.use(cors());
-
 // Route Middlewares
 app.use('/api/user', userRoute);
-app.use('/api/test', testRoute);
+app.use('/api/test', tests);
+app.use('/api/test', problemSensitivity);
+app.use('/api/test', deductiveReasoning);
+app.use('/api/test', languageTest);
+app.use('/api/test', informationOrdering);
+app.use('/api/test', mathematicalReasoning);
+
+app.use('/api/answers', deductiveReasoningAnswers);
+
+
+
 
 // For Production: Delivering built client for all incoming requests
 if(process.env.NODE_ENV === 'production') {

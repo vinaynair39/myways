@@ -3,11 +3,11 @@ import TestListItem from './TestListItem'
 // import { faPlus } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";   
 
-const TestList = (props) => (
-    <div>
+const TestList = ({tests}) => (
+    <div style={{paddingBottom:"2rem"}}>
         <div className="list">
-        {props.tests.length === 0 ? (<p>No Tests</p>) : (props.tests.map((test) => {
-            return <TestListItem key={test.id}  {...test} />
+        {tests.length === 0 ? (<p>No Tests</p>) : (tests.map((test) => {
+            return <TestListItem key={test.assesmentType}  {...test} />
         }))}
     </div>
     </div>

@@ -1,19 +1,20 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-import {startLogout} from '../actions/auth';
+import { startLogout } from "../actions/auth";
 import styled from "styled-components";
 import { connect } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignInAlt, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 
 class Navbar extends Component {
-
   render() {
     const loginRegLink = (
       <div>
-        <Link to="/login" className="nav-links mr-5">
-          Login
+        <Link to="/login" className="nav-links mr-5 text-color2">
+        <FontAwesomeIcon icon={faSignInAlt}/> Login
         </Link>
-        <Link to="/signup" className="nav-links mr-5">
-          Register
+        <Link to="/signup" className="nav-links mr-5 text-color2">
+        <FontAwesomeIcon icon={faUserPlus} className="icon-reg"/> Register
         </Link>
       </div>
     );
@@ -23,7 +24,11 @@ class Navbar extends Component {
         {/* <Link to="/profile" className="nav-links mr-4">
           User
         </Link> */}
-        <a href="" onClick={this.props.logout.bind(this)} className="nav-links mr-4">
+        <a
+          href=""
+          onClick={this.props.logout.bind(this)}
+          className="nav-links mr-4"
+        >
           Logout
         </a>
       </div>
@@ -33,12 +38,15 @@ class Navbar extends Component {
       <NavWrapper>
         <div className="d-flex align-items-center nav-name col-6 ">
           <Link to="/" className="nav-name">
-            <h1 className="nav-name">MyWays</h1>
+            <h1 className="nav-name">
+              <span className="text-color1">My</span>
+              <span className="text-color2">Ways</span>
+            </h1>
           </Link>
         </div>
 
         <div className="d-flex align-items-center justify-content-end col-6 nav-links">
-          <div>{this.props.isAuthenticated? userLink : loginRegLink}</div>
+          <div>{this.props.isAuthenticated ? "" : loginRegLink}</div>
         </div>
       </NavWrapper>
     );
@@ -47,19 +55,20 @@ class Navbar extends Component {
 
 const NavWrapper = styled.nav`
   display: flex;
-  .nav-link {
-    color: var(--mainDark) !important;
-    font-size: 1.3rem;
-    text-transform: uppercase;
-  }
+  background: #2F474B;
+  height: 12vh;
   .nav-links {
     color: black;
+    font-size: 1.6rem!important;
     text-decoration: none;
+  }
+  .icon-reg{
+    font-size: 1.4rem;
   }
   .nav-name {
     font-size: 2.8rem;
     font-weight: bold;
-    text-decoration: none;
+    text-decoration: none !important;
     color: black;
   }
   .nav-links {
@@ -70,6 +79,12 @@ const NavWrapper = styled.nav`
   }
   .text-black {
     color: black;
+  }
+  .text-color1 {
+    color: #f8d637;
+  }
+  .text-color2 {
+    color: #E6E6E6;
   }
   .button {
     justify-content: flex-end;
@@ -118,10 +133,10 @@ const NavWrapper = styled.nav`
   }
 `;
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated
 });
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(startLogout())
 });
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
