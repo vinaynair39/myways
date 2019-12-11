@@ -48,7 +48,8 @@ export const startAddTests = () => {
 export const getCurrentTest = (testName = "deductiveReasoning") => {
     return (dispatch, getState) => {
         dispatch({ type: LOADING_UI });
-        return axios.get(`/api/test/${testName}`).then(res => {
+        // return axios.get(`/api/test/${testName}`).then(res => {
+        return axios.get(`http://localhost:5000/api/test/${testName}`).then(res => {
             dispatch(currentTest(res.data));
             dispatch(getCurrentAnswers(testName)).then(() => {
                 dispatch({ type: UNLOADING_UI });
