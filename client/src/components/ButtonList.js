@@ -143,18 +143,12 @@ function ButtonList(props) {
   const onPrevious = (e) => {
     e.preventDefault();
     props.previousQuestion();
+    handleShowButton();
     if (!!props.answers.questions[props.currentQuestion].questionSet) {
       setSelectedOption(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion-1].answer.option);
       setSelectedOptionNumber(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion-1].answer.optionNumber);
-      console.log('--------------------------------------------------------------');
-      console.log(selectedOptionNumber);
-      console.log(selectedOption)
-      console.log(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion-1].answer)
-      console.log(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion-1].answer.option)
-      // props.answers.questions[currentQuestion].questionSet[currentSubquestion].answer.optionNumber;
     }
     saveToLocalStorage(props.answers);
-    setShowButton(false);
     setChecked1(false);
     setChecked2(false);
     setChecked3(false);
@@ -257,7 +251,7 @@ function ButtonList(props) {
     <div>
       <div className="radios">
         <div className="radio button-select3">
-          <input type="radio" id="1" name="radio1" value={a} checked={checked1} onChange={(e) => {
+          <input type="radio" id="1" name="radio1" value={a} checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
             setSelectedOption(e.target.value);
             setSelectedOptionNumber(e.target.id)
             setChecked1(true);
@@ -270,7 +264,7 @@ function ButtonList(props) {
         </div>
 
         <div className="radio button-select3">
-          <input type="radio" id="2" name="radio1" value={b} checked={checked2} onChange={(e) => {
+          <input type="radio" id="2" name="radio1" value={b} checked={selectedOptionNumber === '2' ? true : checked2} onChange={(e) => {
             setSelectedOption(e.target.value);
             setSelectedOptionNumber(e.target.id)
             setChecked2(true);
@@ -282,7 +276,7 @@ function ButtonList(props) {
           </label>
         </div>
         <div className="radio button-select3">
-          <input type="radio" id="3" name="radio1" value={c} checked={checked3} onChange={(e) => {
+          <input type="radio" id="3" name="radio1" value={c} checked={selectedOptionNumber === '3' ? true : checked3} onChange={(e) => {
             setSelectedOption(e.target.value);
             setSelectedOptionNumber(e.target.id)
             setChecked3(true);
@@ -294,7 +288,7 @@ function ButtonList(props) {
           </label>
         </div>
         <div className="radio button-select3">
-          <input type="radio" id="4" name="radio1" value={d} checked={checked4} onChange={(e) => {
+          <input type="radio" id="4" name="radio1" value={d} checked={selectedOptionNumber === '4' ? true : checked4} onChange={(e) => {
             setSelectedOption(e.target.value);
             setSelectedOptionNumber(e.target.id)
             setChecked4(true);
@@ -306,7 +300,7 @@ function ButtonList(props) {
           </label>
         </div>
         <div className="radio button-select3">
-          <input type="radio" id="5" name="radio1" value={e} checked={checked5} onChange={(e) => {
+          <input type="radio" id="5" name="radio1" value={e} checked={selectedOptionNumber === '5' ? true : checked5} onChange={(e) => {
             setSelectedOption(e.target.value);
             setSelectedOptionNumber(e.target.id)
             setChecked5(true);
@@ -471,10 +465,10 @@ function ButtonList(props) {
       {getButton()}
       {/* {getEmojiMeter()} */}
       <div className="test-buttons">
-        {/* {showButton ? <button className="button button-right" onClick={onSubmit}><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
+        {showButton ? <button className="button button-right" onClick={onSubmit}><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
           : <button className="button button-disable"><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
-        } */}
-        <button className="button button-right" onClick={onSubmit}><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
+        }
+        {/* <button className="button button-right" onClick={onSubmit}><FontAwesomeIcon icon={faArrowRight} size='2x' /></button> */}
         {(!!props.currentSubquestion ? (((props.currentQuestion == 0 && props.currentSubquestion > 0) || (props.currentQuestion > 0))
           && <button className="button button-left" onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>) :
           (props.currentQuestion > 0 && <button className="button button-left" onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>)

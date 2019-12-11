@@ -184,6 +184,9 @@
   }
 
   .button-disable{
+    position: absolute;
+    bottom: 3.5rem;
+    right: 2rem;
     outline: none;
     cursor: not-allowed;
     background: grey;
