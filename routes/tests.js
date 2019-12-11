@@ -1,13 +1,12 @@
 const router = require('express').Router();
 
-const QUESTIONS = require('../seed/sat-questions.json');
-const ANSWERS = require('../seed/sat-answers.json');
+const QUESTIONS = require('../seed/tests.json');
 
 const {
     generateToken
 } = require('../services/generateToken');
 
-router.get('/questions', async (req, res) => {
+router.get('/tests', async (req, res) => {
     try {
         res.json(QUESTIONS);
 

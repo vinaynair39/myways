@@ -3,7 +3,7 @@ import { history } from '../routers/AppRouter'
 import { Link } from 'react-router-dom';
 import { getCurrentTest } from '../actions/test';
 import ButtonList from './ButtonList';
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 
 const TestB = ({ test, currentTest }) => {
@@ -37,7 +37,7 @@ const TestB = ({ test, currentTest }) => {
         setQuestion('');
         console.log(totalLength - 1, 'vs', currentQuestion)
         if ((totalLength) === currentQuestion) {
-            currentTest('deductiveReasoning').then(()=> {
+            currentTest('deductiveReasoning').then(() => {
                 history.push('/test/deductiveReasoning');
             })
             saveToLocalStorage(0);
@@ -47,31 +47,44 @@ const TestB = ({ test, currentTest }) => {
         if (totalLength > currentQuestion) {
             setParagraph(test.questions.paragraph);
             setQuestion(test.questions[currentQuestion].question);
-            setOptions(test.questions[currentQuestion].options.map(option => option.option))
+            !!test.questions[currentQuestion].options && setOptions(test.questions[currentQuestion].options.map(option => option.option))
             setCurrentQuestion(currentQuestion + 1);
             return true;
         }
         if ((test.questions[currentQuestion] - 1) == currentSubQuestion) {
             setQuestion(test.questions[currentQuestion].question);
-            setOptions(test.questions[currentQuestion].options.map(option => option.option))
+            !!test.questions[currentQuestion].options && setOptions(test.questions[currentQuestion].options.map(option => option.option))
             setCurrentQuestion(0)
             return true;
         }
     }
+
+    function validURL(str) {
+        var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+            '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+            '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
+        return !!pattern.test(str);
+    }
+
     return (
         <>
-                <div className="test__item">
-                    <div>
-                        {/* {!!paragraph ? <h3 title={test.instructions} className='test__paragraph'>{paragraph}</h3> : <p>No questions yet</p>} */}
-                    </div>
-                    <div>
-                        <div>{!!question ? <h2 className="test__title">{question}</h2> : <p>No questions yet</p>}</div>
-                    </div>
+            <div className="test__item">
+                <div>
+                    {/* {!!paragraph ? <h3 title={test.instructions} className='test__paragraph'>{paragraph}</h3> : <p>No questions yet</p>} */}
                 </div>
-                <div><ButtonList nextQuestion={nextQuestion} options={options} /></div>
-                <div className="test__options">
-                    {/* <Options nextQuestion={nextQuestion}  /> */}
+                <div>
+                    <div>{!!question &&
+                        (validURL(question) ? <img src={question} />
+                            : <h2 className="test__title">{question}</h2>)}</div>
                 </div>
+            </div>
+            <div><ButtonList nextQuestion={nextQuestion} options={options} /></div>
+            <div className="test__options">
+                {/* <Options nextQuestion={nextQuestion}  /> */}
+            </div>
         </>
     )
 

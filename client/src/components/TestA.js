@@ -3,16 +3,14 @@ import { history } from '../routers/AppRouter'
 import { Link } from 'react-router-dom';
 import ButtonList from './ButtonList';
 import { connect } from 'react-redux';
-import { getCurrentTest } from '../actions/test';
+import { addAnswers } from '../actions/test';
 import Loader from 'react-loader-spinner'
 
 
 
-const TestA = ({ test, isLoading, currentTest }) => {
+const TestA = ({ test, isLoading, addAnswers }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [currentOptions, setCurrentOptions] = useState(0);
-    const [currentSubQuestion, setCurrentSubQuestion] = useState(0);
-    const [currentParagraph, setcurrentParagraph] = useState(0);
+    const [currentSubquestion, setCurrentSubquestion] = useState(0);
     const [paragraph, setParagraph] = useState('');
     const [question, setQuestion] = useState('');
     const [options, setOptions] = useState([])
@@ -21,75 +19,77 @@ const TestA = ({ test, isLoading, currentTest }) => {
     const assesmentType = test.assesmentType;
 
     useEffect(() => {
-        nextQuestion();
-    }, [])
-
-    const saveToLocalStorage = (state) => {
-        try {
-            const serializedState = JSON.stringify(state);
-            localStorage.setItem('question', serializedState)
-        } catch (e) {
-            console.log(e)
+        if (totalLength === currentQuestion) {
+            setParagraph('');
+            setQuestion('');
+            setOptions('');
+            alert("Completed!")
+            history.push('/');
         }
-    }
+        else {
+            setParagraph(test.questions[currentQuestion].paragraph);
+            setQuestion(test.questions[currentQuestion].questionSet[currentSubquestion].question);
+            setOptions(test.questions[currentQuestion].questionSet[currentSubquestion].options.map(option => option.option));
+        }
+        console.log(currentQuestion, currentSubquestion)
+
+    }, [currentSubquestion])
+
 
     const nextQuestion = () => {
-        setQuestion('');
+        console.log(currentQuestion, currentSubquestion)
         if (totalLength === currentQuestion) {
-            if (assesmentType === 'deductiveReasoning') {
-                currentTest('deductiveReasoning').then(() => {
-                    history.push('/test/problemSensitivity');
-                })
-            }
-            if (assesmentType === 'problemSensitivity') {
-                currentTest('deductiveReasoning').then(() => {
-                    history.push('/test/languageTest');
-                })
-            }
-            if (assesmentType === 'languageTest') {
-                alert('test successful!');
-                history.push('/');
-            }
-
-            saveToLocalStorage(0);
+            alert("Completed!")
+            history.push('/');
             return true;
         }
-        if (totalLength > currentQuestion && (test.questions[currentQuestion].questionSet.length - 1) > (currentSubQuestion)) {
-            setParagraph(test.questions[currentQuestion].paragraph);
-            setQuestion(test.questions[currentQuestion].questionSet[currentSubQuestion].question);
-            setOptions(test.questions[currentQuestion].questionSet[currentSubQuestion].options.map(option => option.option))
-            setCurrentSubQuestion(currentSubQuestion + 1);
+        if (totalLength > currentQuestion && (test.questions[currentQuestion].questionSet.length - 1) > (currentSubquestion)) {
+            setCurrentSubquestion(currentSubquestion + 1)
+            console.log(currentQuestion, currentSubquestion)
             return true;
         }
-        if ((test.questions[currentQuestion].questionSet.length - 1) == currentSubQuestion) {
-            setParagraph(test.questions[currentQuestion].paragraph);
-            setQuestion(test.questions[currentQuestion].questionSet[currentSubQuestion].question);
-            setOptions(test.questions[currentQuestion].questionSet[currentSubQuestion].options.map(option => option.option))
-            setCurrentSubQuestion(0);
+        if ((test.questions[currentQuestion].questionSet.length - 1) == currentSubquestion) {
+            setCurrentSubquestion(0);
             setCurrentQuestion(currentQuestion + 1)
+            console.log(currentQuestion, currentSubquestion)
+
+            return true;
+        }
+        setCurrentQuestion(currentQuestion + 1);
+        console.log(currentQuestion, currentSubquestion)
+    }
+
+    const previousQuestion = () => {
+        console.log(currentQuestion, currentSubquestion)
+        if (currentQuestion >= 0 && currentSubquestion > 0) {
+            setCurrentSubquestion(currentSubquestion - 1)
+            console.log(currentQuestion, currentSubquestion)
+            return true;
+        }
+        if (currentQuestion > 0 && currentSubquestion == 0 ) {
+            setCurrentQuestion(currentQuestion - 1);
+            console.log(question)
+            setCurrentSubquestion(test.questions[currentQuestion].questionSet.length - 1)
+            console.log(currentQuestion, currentSubquestion)
             return true;
         }
         setParagraph(test.questions[currentQuestion].paragraph);
-        setCurrentQuestion(currentQuestion + 1);
+        // setCurrentQuestion(currentQuestion - 1);
+        console.log(currentQuestion, currentSubquestion);
     }
-
 
     return (
         <>
-            {console.log(test)
-            }        {<>
+            {<>
                 <div className="test__item">
                     <div>
-                        {!!paragraph ? <h2 title={test.instructions} className='test__paragraph'>{paragraph}</h2> : <Loader type="ThreeDots"
-                            color="#00BFFF"
-                            height={100}
-                            width={100} />}
+                        {!!paragraph && <h2 title={test.instructions} className='test__paragraph'>{paragraph}</h2>}
                     </div>
                     <div>
-                        {!!question ? <h2 className="test__sub-question">{question}</h2> : <Loader />}
+                        {!!question && <h2 className="test__sub-question">{question}</h2>}
                     </div>
                 </div>
-                <div><ButtonList nextQuestion={nextQuestion} options={options} currentQuestion={currentQuestion} currentSubQuestion={currentSubQuestion}/></div>
+                <div><ButtonList nextQuestion={nextQuestion} previousQuestion={previousQuestion} options={options} currentQuestion={currentQuestion} currentSubquestion={currentSubquestion} /></div>
                 <div className="test__options">
                     {/* <Options nextQuestion={nextQuestion}  /> */}
                 </div>
@@ -99,13 +99,7 @@ const TestA = ({ test, isLoading, currentTest }) => {
 
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    currentTest: (name) => dispatch(getCurrentTest(name))
-})
 
-const mapStateToProps = (state) => ({
-    isLoading: state.auth.loading
-})
 
-export default connect(mapStateToProps, mapDispatchToProps)(TestA);
+export default TestA;
 // export default TestA;

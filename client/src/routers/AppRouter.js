@@ -3,8 +3,7 @@ import { Router, Route, Switch} from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 import DashboardPage from '../pages/DashboardPage';
 import NotFoundPage from '../pages/NotFoundPage';
-import LoginSignup from '../components/LoginSignup.js';
-import Test from '../components/Test'
+import TestInfo from '../components/TestInfo'
 import PublicRoute from './PublicRoute';
 import Login from "../components/Login";
 import PrivateRoute from './PrivateRoute';
@@ -26,6 +25,7 @@ const AppRouter = () => (
         <PublicRoute path='/signup' component={Register} exact={true} />
         <PrivateRoute path="/dashboard" component={DashboardPage} />
         <PrivateRoute path="/test" component={TestPage} exact={true}/>
+        <PrivateRoute path="/testInfo/:name" component={TestInfo} exact={true}/>
         <PublicRoute path="/dashboardtest" component={Dashboard} />
         <PrivateRoute path="/test/:name" component={TestPage} />
         <Route component={NotFoundPage} />

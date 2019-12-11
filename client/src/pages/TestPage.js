@@ -13,7 +13,9 @@ const TestPage = (props) =>{
 
     return (
         <div className='test'>
-            {props.tests.assesmentType === props.match.params.name && (props.match.params.name === 'informationOrdering' ? <TestB test={props.tests} /> : <TestA test={props.tests} />)}
+            {props.tests.assesmentType === props.match.params.name && 
+            ((props.match.params.name ===  'informationOrdering' || props.match.params.name ===  'mathematicalReasoning')
+            ? <TestB test={props.tests} /> : <TestA test={props.tests} />)}
         </div>  
     )
 }

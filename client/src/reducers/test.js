@@ -1,10 +1,12 @@
 import {
     ADD_TESTS,
     ADD_ANSWERS,
-    CURRENT_TEST
+    CURRENT_TEST,
+    CURRENT_ANSWERS
 } from '../actions/constants'
 
 const initState = {
+    tests: [],
     questions: [],
     answers: [],
 }
@@ -14,10 +16,16 @@ export default (state = initState, action) => {
         case ADD_TESTS:
             return {
                 ...state,
-                questions: action.tests
+                tests: action.tests
             };
-        // case ADD_ANSWERS:
-                // return [...state, action.answer]
+        case ADD_ANSWERS:
+                // state.answers.questions[action.currentQuestion].questionSet[action.currentSubquestion].answer.option = action.answer;
+            return state;
+        case CURRENT_ANSWERS:
+            return {
+                ...state,
+                answers: action.answers
+            }
         case CURRENT_TEST:
             return {
                 ...state,
