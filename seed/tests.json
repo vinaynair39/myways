@@ -1,24 +1,19 @@
 [
     {
         "assesmentType": "deductiveReasoning",
-        "assesmentName": "Deductive Reasoning",
-        "definition": "Deductive reasoning is a logical process in which a conclusion is based on the concordance of multiple premises that are generally assumed to be true.",
-        "instructions": "In this section, a statement will be provided followed by a series of suggested conclusions. Here, you must take the statement to be true. After reading each conclusion underneath the statement, you must decide whether you think it follows from the statement provided.If you agree that the conclusion exactly follows the statement, chose Conclusion follows. However, if you do not agree that the conclusion exactly follows then chose Conclusion does not follow.You must select your answer based only on the information presented; not using general knowledge. Similarly, you are advised not to let your own opinions or prejudices influence your decisions; stick to the statements and base your judgements on the facts presented."
+        "instructions": "In this section, a statement will be provided followed by a series of suggested conclusions. Here, you must take the statement to be true. After reading each conclusion underneath the statement, you must decide whether you think it follows from the statement provided.If you agree that the conclusion exactly follows the statement, chose Conclusion follows. However, if you do not agree that the conclusion exactly follows then chose Conclusion does not follow.You must select your answer based only on the information presented; not using general knowledge. Similarly, you are advised not to let your own opinions or prejudices influence your decisions; stick to the statements and base your judgements on the facts presented.",
     },
     {
         "assesmentType": "informationOrdering",
-        "assesmentName": "Information Ordering",
-        "definition": "Deductive reasoning is a logical process in which a conclusion is based on the concordance of multiple premises that are generally assumed to be true. ",
         "instructions": "these are instructions"
     },
     {
         "assesmentType": "languageTest",
-        "assesmentName": "Language Test",
-        "definition": "Deductive reasoning is a logical process in which a conclusion is based on the concordance of multiple premises that are generally assumed to be true. ",
         "instructions": "these are instructions"
     },
     {
         "assesmentType": "problemSensitivity",
+<<<<<<< HEAD
         "assesmentName": "Problem Sensitivity",
         "definition": "Deductive reasoning is a logical process in which a conclusion is based on the concordance of multiple premises that are generally assumed to be true. ",
         "instructions": "these are instructions"
@@ -27,6 +22,8 @@
         "assesmentType": "mathematicalReasoning",
         "assesmentName": "Mathematical Reasoning",
         "definition": "Deductive reasoning is a logical process in which a conclusion is based on the concordance of multiple premises that are generally assumed to be true. ",
+=======
+>>>>>>> bb24d75dce999ea9320888fd339dacb89eba34bf
         "instructions": "these are instructions"
     }
 ]

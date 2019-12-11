@@ -24,9 +24,6 @@ const Wrapper = styled.div`
   }
   .grid-col-2 {
     overflow-y: scroll;
-    padding: 3rem 3rem 3rem 3rem;
-    display: flex;
-    justify-content: center;
   }
   .sidebar {
     display: grid;
@@ -62,6 +59,7 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-rows: 1fr;
     align-items: end;
+    padding-top: 12vh;
     padding-bottom: 1rem;
   }
   .icon {
@@ -119,7 +117,7 @@ class Dashboard2 extends Component {
             </div>
           </div>
         </div>
-        <div className="grid-col-2">
+        <div className="grid-col-2 d-flex justify-content-center">
           {this.state.selection === "dashboard" ? (
             <TestPage />
           ) : this.state.selection === "test" ? (

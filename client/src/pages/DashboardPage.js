@@ -11,7 +11,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 70vh;
+    height: fit-content;
     .title{
         font-size: 3rem;
         color: #0f9d58;
@@ -22,8 +22,8 @@ const DashboardPage = ({tests}) => {
     return (
         <Wrapper className="">
             <div className="title">Psychometric Evaluation</div>
-            <div className='button-start'>
-            </div>
+            {/* <div className='button-start'>
+            </div> */}
             <TestList tests={tests}/>
         </Wrapper>
     )
