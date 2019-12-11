@@ -144,11 +144,11 @@
 
   .test-buttons{
     display: flex;
-    position: absolute;
-    bottom: 3.5rem;
-    right: 4rem;
   }
   .button-right{
+    position: absolute;
+    bottom: 3.5rem;
+    right: 2rem;
     width: 5rem;
     height:3rem;
     background-color: $red;
@@ -166,7 +166,8 @@
 
   .button-left{
     position: absolute;
-    right: 58em;
+    right: 78.5em;
+    bottom: 3.5rem;
     width: 5rem;
     height:3rem;
     background-color: $dark-grey;

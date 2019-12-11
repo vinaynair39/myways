@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -110,7 +110,8 @@ function ButtonList(props) {
   const [checked4, setChecked4] = useState(false);
   const [checked5, setChecked5] = useState(false);
   const [showButton, setShowButton] = useState(false);
-  const [selectedOptionNumber, setSelectedOptionNumber] = useState(0);
+  const [selectedOptionNumber, setSelectedOptionNumber] = useState(false);
+
 
   const handleShowButton = () => {
     setShowButton(true);
@@ -124,13 +125,13 @@ function ButtonList(props) {
     }
   }
 
+
   const onSubmit = (e) => {
     e.preventDefault();
-
+    setSelectedOptionNumber(0);
     props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion, props.currentSubquestion);
     props.nextQuestion();
     saveToLocalStorage(props.answers);
-    setSelectedOption(0);
     setShowButton(false);
     setChecked1(false);
     setChecked2(false);
@@ -142,8 +143,17 @@ function ButtonList(props) {
   const onPrevious = (e) => {
     e.preventDefault();
     props.previousQuestion();
+    if (!!props.answers.questions[props.currentQuestion].questionSet) {
+      setSelectedOption(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion-1].answer.option);
+      setSelectedOptionNumber(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion-1].answer.optionNumber);
+      console.log('--------------------------------------------------------------');
+      console.log(selectedOptionNumber);
+      console.log(selectedOption)
+      console.log(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion-1].answer)
+      console.log(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion-1].answer.option)
+      // props.answers.questions[currentQuestion].questionSet[currentSubquestion].answer.optionNumber;
+    }
     saveToLocalStorage(props.answers);
-    setSelectedOption(0);
     setShowButton(false);
     setChecked1(false);
     setChecked2(false);
@@ -156,7 +166,9 @@ function ButtonList(props) {
     <div>
       <div className="radios">
         <div className="radio button-select">
-          <input type="radio" id="1" name="radio1" value={a} checked={checked1} onChange={(e) => {
+          {console.log(selectedOptionNumber === '1',selectedOptionNumber === '2' )}
+          {console.log(selectedOptionNumber)}
+          <input type="radio" id="1" name="radio1" value={a} checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
             setSelectedOptionNumber(e.target.id)
             setSelectedOption(e.target.value);
             setChecked1(true);
@@ -169,7 +181,7 @@ function ButtonList(props) {
         </div>
 
         <div className="radio button-select">
-          <input type="radio" id="2" name="radio1" value={b} checked={checked2} onChange={(e) => {
+          <input type="radio" id="2" name="radio1" value={b} checked={selectedOptionNumber === '2' ? true : checked2} onChange={(e) => {
             setSelectedOptionNumber(e.target.id)
             setSelectedOption(e.target.value);
             setChecked2(true);
@@ -453,13 +465,16 @@ function ButtonList(props) {
     if (props.options.length === 5)
       return fiveButton([...props.options])
   }
+
   return (
     <Wrapper className="">
       {getButton()}
       {/* {getEmojiMeter()} */}
-      <div className="test-buttons">{showButton ? <button className="button button-right" onClick={onSubmit}><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
-        : <button className="button button-disable"><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
-      }
+      <div className="test-buttons">
+        {/* {showButton ? <button className="button button-right" onClick={onSubmit}><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
+          : <button className="button button-disable"><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
+        } */}
+        <button className="button button-right" onClick={onSubmit}><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
         {(!!props.currentSubquestion ? (((props.currentQuestion == 0 && props.currentSubquestion > 0) || (props.currentQuestion > 0))
           && <button className="button button-left" onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>) :
           (props.currentQuestion > 0 && <button className="button button-left" onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>)

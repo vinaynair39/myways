@@ -22,7 +22,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers }) => {
             setQuestion('');
             setOptions('');
             alert("Completed!");
-            sendAnswers({answers});
+            sendAnswers(answers);
             history.push('/');
         }
         else {
@@ -44,28 +44,28 @@ const TestA = ({ test, isLoading, sendAnswers, answers }) => {
         if (totalLength > currentQuestion && (test.questions[currentQuestion].questionSet.length - 1) > (currentSubquestion)) {
             setCurrentSubquestion(currentSubquestion + 1)
             console.log(currentQuestion, currentSubquestion)
-            return true;
+            return currentQuestion, currentSubquestion;
         }
         if ((test.questions[currentQuestion].questionSet.length - 1) == currentSubquestion) {
             setCurrentSubquestion(0);
             setCurrentQuestion(currentQuestion + 1)
             console.log(currentQuestion, currentSubquestion)
 
-            return true;
+            return currentQuestion, currentSubquestion;
         }
         setCurrentQuestion(currentQuestion + 1);
-        console.log(currentQuestion, currentSubquestion)
+        return currentQuestion, currentSubquestion;
     }
 
-    const previousQuestion =  () => {
+    const previousQuestion = () => {
         if (currentQuestion >= 0 && currentSubquestion > 0) {
             setCurrentSubquestion(currentSubquestion - 1)
-            return true;
+            return [currentQuestion, currentSubquestion];
         }
-        if (currentQuestion > 0 && currentSubquestion == 0 ) {
-            setCurrentSubquestion(test.questions[currentQuestion-1].questionSet.length - 1)
+        if (currentQuestion > 0 && currentSubquestion == 0) {
+            setCurrentSubquestion(test.questions[currentQuestion - 1].questionSet.length - 1)
             setCurrentQuestion(currentQuestion - 1);
-            return true;
+            return [currentQuestion, currentSubquestion];
         }
     }
 
@@ -96,5 +96,5 @@ const mapStateToProps = (state) => ({
     answers: state.test.answers
 })
 
-export default TestA;
+export default connect(mapStateToProps, mapDispatchToProps)(TestA);
 // export default TestA;

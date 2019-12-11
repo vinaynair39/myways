@@ -21,7 +21,7 @@ export default (state = initState, action) => {
         case ADD_ANSWERS:
             if(!!state.answers.questions[action.currentQuestion].questionSet){
                 state.answers.questions[action.currentQuestion].questionSet[action.currentSubquestion].answer.option = action.answer;
-            state.answers.questions[action.currentQuestion].questionSet[action.currentSubquestion].answer.optionNumber = action.answerNumber;
+                state.answers.questions[action.currentQuestion].questionSet[action.currentSubquestion].answer.optionNumber = action.answerNumber;
             }
             return state;
         case CURRENT_ANSWERS:

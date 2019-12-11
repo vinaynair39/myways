@@ -25,13 +25,6 @@ const DashboardPage = ({tests}) => {
             <div className='button-start'>
             </div>
             <TestList tests={tests}/>
-
-            {/* <div>
-                <Link to="/test/informationOrdering" className="effect1" href="#">
-                    Start Test!
-                <span className="bg"></span>
-                </Link>
-            </div> */}
         </Wrapper>
     )
 }
