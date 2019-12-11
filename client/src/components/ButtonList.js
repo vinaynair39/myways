@@ -110,6 +110,7 @@ function ButtonList(props) {
   const [checked4, setChecked4] = useState(false);
   const [checked5, setChecked5] = useState(false);
   const [showButton, setShowButton] = useState(false);
+  const [selectedOptionNumber, setSelectedOptionNumber] = useState(0);
 
   const handleShowButton = () => {
     setShowButton(true);
@@ -125,8 +126,7 @@ function ButtonList(props) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    props.addAnswers(selectedOption, props.currentQuestion, props.currentSubquestion);
-    console.log(selectedOption, props.currentQuestion, props.currentSubquestion);
+    props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion, props.currentSubquestion);
     props.nextQuestion();
     saveToLocalStorage(props.answers);
     setSelectedOption(0);
@@ -140,7 +140,6 @@ function ButtonList(props) {
 
   const onPrevious = (e) => {
     e.preventDefault();
-    console.log(props.currentQuestion, props.currentSubquestion);
     props.previousQuestion();
     saveToLocalStorage(props.answers);
     setSelectedOption(0);
@@ -156,24 +155,26 @@ function ButtonList(props) {
     <div>
       <div className="radios">
         <div className="radio button-select">
-          <input type="radio" id="radio1" name="radio1" value={a} checked={checked1} onChange={(e) => {
+          <input type="radio" id="1" name="radio1" value={a} checked={checked1} onChange={(e) => {
+            setSelectedOptionNumber(e.target.id)
             setSelectedOption(e.target.value);
             setChecked1(true);
             handleShowButton();
           }} />
-          <label htmlFor="radio1">
+          <label htmlFor="1">
             <div className="checker"></div>
             {a}
           </label>
         </div>
 
         <div className="radio button-select">
-          <input type="radio" id="radio2" name="radio1" value={b} checked={checked2} onChange={(e) => {
+          <input type="radio" id="2" name="radio1" value={b} checked={checked2} onChange={(e) => {
+            setSelectedOptionNumber(e.target.id)
             setSelectedOption(e.target.value);
             setChecked2(true);
             handleShowButton();
           }} />
-          <label htmlFor="radio2">
+          <label htmlFor="2">
             <div className="checker"></div>
             {b}
           </label>
@@ -187,46 +188,50 @@ function ButtonList(props) {
     <div>
       <div className="radios">
         <div className="radio button-select2">
-          <input type="radio" id="radio1" name="radio1" value={a} checked={checked1} onChange={(e) => {
+          <input type="radio" id="1" name="radio1" value={a} checked={checked1} onChange={(e) => {
+            setSelectedOptionNumber(e.target.id)
             setSelectedOption(e.target.value);
             setChecked1(true);
             handleShowButton();
           }} />
-          <label htmlFor="radio1">
+          <label htmlFor="1">
             <div className="checker"></div>
             {a}
           </label>
         </div>
 
         <div className="radio button-select2">
-          <input type="radio" id="radio2" name="radio1" value={b} checked={checked2} onChange={(e) => {
+          <input type="radio" id="2" name="radio1" value={b} checked={checked2} onChange={(e) => {
+            setSelectedOptionNumber(e.target.id)
             setSelectedOption(e.target.value);
             setChecked2(true);
             handleShowButton();
           }} />
-          <label htmlFor="radio2">
+          <label htmlFor="2">
             <div className="checker"></div>
             {b}
           </label>
         </div>
         <div className="radio button-select2">
-          <input type="radio" id="radio3" name="radio1" value={c} checked={checked3} onChange={(e) => {
+          <input type="radio" id="3" name="radio1" value={c} checked={checked3} onChange={(e) => {
             setSelectedOption(e.target.value);
+            setSelectedOptionNumber(e.target.id)
             setChecked3(true);
             handleShowButton();
           }} />
-          <label htmlFor="radio3">
+          <label htmlFor="3">
             <div className="checker"></div>
             {c}
           </label>
         </div>
         <div className="radio button-select2">
-          <input type="radio" id="radio4" name="radio1" value={d} checked={checked4} onChange={(e) => {
+          <input type="radio" id="4" name="radio1" value={d} checked={checked4} onChange={(e) => {
             setSelectedOption(e.target.value);
+            setSelectedOptionNumber(e.target.id)
             setChecked4(true);
             handleShowButton();
           }} />
-          <label htmlFor="radio4">
+          <label htmlFor="4">
             <div className="checker"></div>
             {d}
           </label>
@@ -239,57 +244,62 @@ function ButtonList(props) {
     <div>
       <div className="radios">
         <div className="radio button-select3">
-          <input type="radio" id="radio1" name="radio1" value={a} checked={checked1} onChange={(e) => {
+          <input type="radio" id="1" name="radio1" value={a} checked={checked1} onChange={(e) => {
             setSelectedOption(e.target.value);
+            setSelectedOptionNumber(e.target.id)
             setChecked1(true);
             handleShowButton();
           }} />
-          <label htmlFor="radio1">
+          <label htmlFor="1">
             <div className="checker"></div>
             {a}
           </label>
         </div>
 
         <div className="radio button-select3">
-          <input type="radio" id="radio2" name="radio1" value={b} checked={checked2} onChange={(e) => {
+          <input type="radio" id="2" name="radio1" value={b} checked={checked2} onChange={(e) => {
             setSelectedOption(e.target.value);
+            setSelectedOptionNumber(e.target.id)
             setChecked2(true);
             handleShowButton();
           }} />
-          <label htmlFor="radio2">
+          <label htmlFor="2">
             <div className="checker"></div>
             {b}
           </label>
         </div>
         <div className="radio button-select3">
-          <input type="radio" id="radio3" name="radio1" value={c} checked={checked3} onChange={(e) => {
+          <input type="radio" id="3" name="radio1" value={c} checked={checked3} onChange={(e) => {
             setSelectedOption(e.target.value);
+            setSelectedOptionNumber(e.target.id)
             setChecked3(true);
             handleShowButton();
           }} />
-          <label htmlFor="radio3">
+          <label htmlFor="3">
             <div className="checker"></div>
             {c}
           </label>
         </div>
         <div className="radio button-select3">
-          <input type="radio" id="radio4" name="radio1" value={d} checked={checked4} onChange={(e) => {
+          <input type="radio" id="4" name="radio1" value={d} checked={checked4} onChange={(e) => {
             setSelectedOption(e.target.value);
+            setSelectedOptionNumber(e.target.id)
             setChecked4(true);
             handleShowButton();
           }} />
-          <label htmlFor="radio4">
+          <label htmlFor="4">
             <div className="checker"></div>
             {d}
           </label>
         </div>
         <div className="radio button-select3">
-          <input type="radio" id="radio5" name="radio1" value={e} checked={checked5} onChange={(e) => {
+          <input type="radio" id="5" name="radio1" value={e} checked={checked5} onChange={(e) => {
             setSelectedOption(e.target.value);
+            setSelectedOptionNumber(e.target.id)
             setChecked5(true);
             handleShowButton();
           }} />
-          <label htmlFor="radio5">
+          <label htmlFor="5">
             <div className="checker"></div>
             {e}
           </label>
@@ -303,37 +313,42 @@ function ButtonList(props) {
     <div className="container">
       <div className="feedback">
         <div className="rating">
-          <input type="radio" name="rating" id="rating-5" onChange={(e) => {
+          <input type="radio" name="rating" id="5" onChange={(e) => {
+            setSelectedOptionNumber(e.target.id)
             setSelectedOption(e.target.value);
             setChecked5(true);
             handleShowButton();
           }} />
-          <label for="rating-5"></label>
-          <input type="radio" name="rating" id="rating-4"
+          <label htmlFor="5"></label>
+          <input type="radio" name="rating" id="4"
             onChange={(e) => {
               setSelectedOption(e.target.value);
+              setSelectedOptionNumber(e.target.id)
               setChecked4(true);
               handleShowButton();
             }} />
-          <label for="rating-4"></label>
-          <input type="radio" name="rating" id="rating-3" onChange={(e) => {
+          <label htmlFor="4"></label>
+          <input type="radio" name="rating" id="3" onChange={(e) => {
             setSelectedOption(e.target.value);
+            setSelectedOptionNumber(e.target.id)
             setChecked4(true);
             handleShowButton();
           }} />
-          <label for="rating-3"></label>
-          <input type="radio" name="rating" id="rating-2" onChange={(e) => {
+          <label htmlFor="3"></label>
+          <input type="radio" name="rating" id="2" onChange={(e) => {
             setSelectedOption(e.target.value);
+            setSelectedOptionNumber(e.target.id)
             setChecked4(true);
             handleShowButton();
           }} />
-          <label for="rating-2"></label>
-          <input type="radio" name="rating" id="rating-1" onChange={(e) => {
+          <label htmlFor="2"></label>
+          <input type="radio" name="rating" id="1" onChange={(e) => {
             setSelectedOption(e.target.value);
+            setSelectedOptionNumber(e.target.id)
             setChecked4(true);
             handleShowButton();
           }} />
-          <label for="rating-1"></label>
+          <label htmlFor="1"></label>
           <div className="emoji-wrapper">
             <div className="emoji">
               <svg className="rating-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -444,19 +459,23 @@ function ButtonList(props) {
       <div className="test-buttons">{showButton ? <button className="button button-right" onClick={onSubmit}><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
         : <button className="button button-disable"><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
       }
-        {(((props.currentQuestion == 0 && props.currentSubquestion > 0) || (props.currentQuestion > 0)) && <button className="button button-left" onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>)
-        }
+        {(!!props.currentSubquestion ? (((props.currentQuestion == 0 && props.currentSubquestion > 0) || (props.currentQuestion > 0))
+          && <button className="button button-left" onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>) :
+          (props.currentQuestion > 0 && <button className="button button-left" onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>)
+        )}
       </div>
     </Wrapper>
   );
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  addAnswers: (answer, currentQuestion, currentSubquestion) => dispatch({
+  addAnswers: (answerNumber, answer, currentQuestion, currentSubquestion) => dispatch({
     type: ADD_ANSWERS,
+    answerNumber,
     answer,
     currentQuestion,
-    currentSubquestion
+    currentSubquestion,
+
   })
 })
 

@@ -21,13 +21,17 @@ export const addQuetions = (questions) => ({
     questions
 });
 
-export const addAnswers = (data) => {
-    return ({
-        type: ADD_ANSWERS,
-        ...data
-    })
-};
+export const addAnswers = (answerNumber, answer, currentQuestion, currentSubquestion) => {
+    return (
+        {
+            type: ADD_ANSWERS,
+            answerNumber,
+            answer,
+            currentQuestion,
+            currentSubquestion,
 
+        })
+};
 
 export const startAddAnswers = () => {
     return (dispatch, getState) => {
@@ -72,3 +76,19 @@ export const getCurrentAnswers = (testName = "deductiveReasoning") => {
         })
     }
 }
+
+
+export const sendAnswers = (answers) => {
+    return (dispatch, getState) => {
+        console.log('send send send');
+        dispatch({ type: LOADING_UI });
+        return axios.post(`http://localhost:5000/api/answers/deductiveReasoningResult`, answers).then(res => {
+            alert("answer submitted");
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+}
+
+
+

@@ -3,27 +3,27 @@ import { history } from '../routers/AppRouter'
 import { Link } from 'react-router-dom';
 import ButtonList from './ButtonList';
 import { connect } from 'react-redux';
-import { addAnswers } from '../actions/test';
+import { sendAnswers } from '../actions/test';
 import Loader from 'react-loader-spinner'
 
 
 
-const TestA = ({ test, isLoading, addAnswers }) => {
+const TestA = ({ test, isLoading, sendAnswers, answers }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [currentSubquestion, setCurrentSubquestion] = useState(0);
     const [paragraph, setParagraph] = useState('');
     const [question, setQuestion] = useState('');
     const [options, setOptions] = useState([])
     const totalLength = test.questions.length;
-    const instruction = test.instruction;
-    const assesmentType = test.assesmentType;
 
     useEffect(() => {
         if (totalLength === currentQuestion) {
             setParagraph('');
             setQuestion('');
             setOptions('');
-            alert("Completed!")
+            alert("Completed!");
+            sendAnswers({answers});
+
             history.push('/');
         }
         else {
@@ -33,7 +33,7 @@ const TestA = ({ test, isLoading, addAnswers }) => {
         }
         console.log(currentQuestion, currentSubquestion)
 
-    }, [currentSubquestion])
+    }, [currentSubquestion, currentQuestion])
 
 
     const nextQuestion = () => {
@@ -59,23 +59,17 @@ const TestA = ({ test, isLoading, addAnswers }) => {
         console.log(currentQuestion, currentSubquestion)
     }
 
-    const previousQuestion = () => {
-        console.log(currentQuestion, currentSubquestion)
+    const previousQuestion =  () => {
         if (currentQuestion >= 0 && currentSubquestion > 0) {
             setCurrentSubquestion(currentSubquestion - 1)
-            console.log(currentQuestion, currentSubquestion)
             return true;
         }
         if (currentQuestion > 0 && currentSubquestion == 0 ) {
+            setCurrentSubquestion(test.questions[currentQuestion-1].questionSet.length - 1)
             setCurrentQuestion(currentQuestion - 1);
-            console.log(question)
-            setCurrentSubquestion(test.questions[currentQuestion].questionSet.length - 1)
-            console.log(currentQuestion, currentSubquestion)
             return true;
         }
-        setParagraph(test.questions[currentQuestion].paragraph);
-        // setCurrentQuestion(currentQuestion - 1);
-        console.log(currentQuestion, currentSubquestion);
+
     }
 
     return (
@@ -91,7 +85,6 @@ const TestA = ({ test, isLoading, addAnswers }) => {
                 </div>
                 <div><ButtonList nextQuestion={nextQuestion} previousQuestion={previousQuestion} options={options} currentQuestion={currentQuestion} currentSubquestion={currentSubquestion} /></div>
                 <div className="test__options">
-                    {/* <Options nextQuestion={nextQuestion}  /> */}
                 </div>
             </>}
         </>
@@ -99,7 +92,13 @@ const TestA = ({ test, isLoading, addAnswers }) => {
 
 }
 
+const mapDispatchToProps = (dispatch) => ({
+    sendAnswers: (answers) => dispatch(sendAnswers(answers))
+});
 
+const mapStateToProps = (state) => ({
+    answers: state.test.answers
+})
 
-export default TestA;
+export default connect(mapStateToProps, mapDispatchToProps)(TestA);
 // export default TestA;

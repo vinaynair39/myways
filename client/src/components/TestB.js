@@ -20,9 +20,17 @@ const TestB = ({ test, currentTest }) => {
     console.log(test)
 
     useEffect(() => {
-        console.log(test)
-        nextQuestion();
-    }, [])
+        if (totalLength === currentQuestion) {
+            setParagraph('');
+            setQuestion('');
+            setOptions('');
+            alert("Completed!")
+            history.push('/');
+        }
+        setParagraph(test.questions.paragraph);
+        setQuestion(test.questions[currentQuestion].question);
+        !!test.questions[currentQuestion].options && setOptions(test.questions[currentQuestion].options.map(option => option.option))
+    }, [currentQuestion])
 
     const saveToLocalStorage = (state) => {
         try {
@@ -36,25 +44,21 @@ const TestB = ({ test, currentTest }) => {
     const nextQuestion = () => {
         setQuestion('');
         console.log(totalLength - 1, 'vs', currentQuestion)
-        if ((totalLength) === currentQuestion) {
-            currentTest('deductiveReasoning').then(() => {
-                history.push('/test/deductiveReasoning');
-            })
-            saveToLocalStorage(0);
-            return true;
-        }
 
         if (totalLength > currentQuestion) {
-            setParagraph(test.questions.paragraph);
-            setQuestion(test.questions[currentQuestion].question);
-            !!test.questions[currentQuestion].options && setOptions(test.questions[currentQuestion].options.map(option => option.option))
             setCurrentQuestion(currentQuestion + 1);
             return true;
         }
         if ((test.questions[currentQuestion] - 1) == currentSubQuestion) {
             setQuestion(test.questions[currentQuestion].question);
-            !!test.questions[currentQuestion].options && setOptions(test.questions[currentQuestion].options.map(option => option.option))
             setCurrentQuestion(0)
+            return true;
+        }
+    }
+    const previousQuestion =  () => {
+        if (currentQuestion > 0) {
+            console.log("hello")
+            setCurrentQuestion(currentQuestion - 1)
             return true;
         }
     }
@@ -81,7 +85,7 @@ const TestB = ({ test, currentTest }) => {
                             : <h2 className="test__title">{question}</h2>)}</div>
                 </div>
             </div>
-            <div><ButtonList nextQuestion={nextQuestion} options={options} /></div>
+            <div><ButtonList previousQuestion={previousQuestion} nextQuestion={nextQuestion} options={options} currentQuestion={currentQuestion} currentTest={test.assesmentType}/></div>
             <div className="test__options">
                 {/* <Options nextQuestion={nextQuestion}  /> */}
             </div>

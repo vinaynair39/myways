@@ -32,6 +32,8 @@ const tests = require('./routes/tests');
 const informationOrdering = require('./routes/informationOrdering');
 const mathematicalReasoning = require('./routes/mathematicalReasoning');
 
+const deductiveReasoningResult = require('./routes/deductiveReasoningResult');
+
 
 // Adding middleware to express
 app.use(bodyParser.json());
@@ -46,6 +48,8 @@ app.use('/api/test', informationOrdering);
 app.use('/api/test', mathematicalReasoning);
 
 app.use('/api/answers', deductiveReasoningAnswers);
+app.use('/api/answers', deductiveReasoningResult);
+
 
 
 
