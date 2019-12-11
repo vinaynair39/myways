@@ -53,10 +53,7 @@ align-items: center;
   .sub-title{
     font-size: 1.3rem;
   }
-`;
-
-// import { faPlus } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";   
+`;  
 
 const TestListItem = ({ assesmentType, assesmentName, definition, instruction }) => {
     return (

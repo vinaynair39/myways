@@ -11,9 +11,9 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore'
-import { startAddTests } from './actions/test';
-import './styles/styles.scss';
 
+import { startAddTests , addAnswers} from './actions/test';
+import './styles/styles.scss';
 
 const store = configureStore();
 
@@ -31,7 +31,14 @@ const renderApp = () => {
     hasRendered = true;
   }
 };
-
+const getFromLocalStorage = (state) => {
+  try {
+    const serializedState = JSON.parse(localStorage.getItem('answers'));
+    store.dispatch(addAnswers(serializedState));
+  } catch (e) {
+    console.log(e)
+  }
+}
 ReactDOM.render(<p>Loading...</p>, document.getElementById('root'));
 const token = sessionStorage.getItem('FBIdToken');
 if (token) {
@@ -46,6 +53,7 @@ if (token) {
     store.dispatch(login());
     axios.defaults.headers.common['Authorization'] = token;
     store.dispatch(startAddTests()).then(() => {
+      getFromLocalStorage();
       renderApp();
     });
     if (history.location.pathname === '/') {
