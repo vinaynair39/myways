@@ -55,6 +55,7 @@ const TestB = ({ test, currentTest }) => {
             return true;
         }
     }
+    
     const previousQuestion =  () => {
         if (currentQuestion > 0) {
             console.log("hello")
@@ -62,7 +63,6 @@ const TestB = ({ test, currentTest }) => {
             return true;
         }
     }
-
     function validURL(str) {
         var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
             '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
@@ -85,6 +85,7 @@ const TestB = ({ test, currentTest }) => {
                             : <h2 className="test__title">{question}</h2>)}</div>
                 </div>
             </div>
+
             <div><ButtonList previousQuestion={previousQuestion} nextQuestion={nextQuestion} options={options} currentQuestion={currentQuestion} currentTest={test.assesmentType}/></div>
             <div className="test__options">
                 {/* <Options nextQuestion={nextQuestion}  /> */}

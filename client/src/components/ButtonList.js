@@ -126,6 +126,7 @@ function ButtonList(props) {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
     props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion, props.currentSubquestion);
     props.nextQuestion();
     saveToLocalStorage(props.answers);
@@ -475,7 +476,6 @@ const mapDispatchToProps = (dispatch) => ({
     answer,
     currentQuestion,
     currentSubquestion,
-
   })
 })
 

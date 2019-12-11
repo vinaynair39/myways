@@ -18,8 +18,6 @@ padding-top: 3rem;
     font-size: 2rem;
     color: white;
     width: fit-content;
-    text-decoration: none;
-    color: white;
   }
   .nav-linker{
     text-decoration: none;
@@ -27,7 +25,7 @@ padding-top: 3rem;
   }
   .card-category {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    width: 77vw;
+    width: 90vw;
     border-radius: 1rem;
   }
   .icon-container {
@@ -45,22 +43,24 @@ align-items: center;
     font-size: 1.6rem;
     padding-left: 0.7rem;
   }
-  .h-title{
-      font-size: 1.9rem;
+  .title{
+      font-size: 2.2rem;
       font-weight: bold;
-      color: #2F474B !important;
   }
   .sub-title{
     font-size: 1.3rem;
   }
-`;  
+`;
 
-const TestListItem = ({ assesmentType, assesmentName, definition, instruction }) => {
+// import { faPlus } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";   
+
+const TestListItem = ({assesmentName, assesmentType, definition}) => {
     return (
         <Wrapper >
             <div className="card-category row m-0 p-0 d-flex flex-row align-items-center">
             <div className="category col-10">
-                <div className="category row-6 h-title">{assesmentName}</div>
+                <div className="category row-6 title">{assesmentName}</div>
                 <div className="category row-6 sub-title">{definition}</div></div>
             <div className="icon-container  col-2 text-center">
         <Link to={`../testInfo/${assesmentType}`} className="button-select">View</Link>

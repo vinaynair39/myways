@@ -14,18 +14,25 @@ import Login from "./Login";
 import Register from "./Register";
 import { Router, Route, Switch } from "react-router-dom";
 import { Link, withRouter } from "react-router-dom";
-import TestPage from '../pages/TestPage';
+import TestPage from '../pages/DashboardPage';
 
 const Wrapper = styled.div`
   display: grid;
+  height: 88vh;
   grid-template-columns: 1fr 5fr;
-  .grid-col {
-    height: 100vh;
+  .grid-col-1 {
+  }
+  .grid-col-2 {
+    overflow-y: scroll;
+    padding: 3rem 3rem 3rem 3rem;
+    display: flex;
+    justify-content: center;
   }
   .sidebar {
     display: grid;
     grid-template-rows: 1fr 1fr;
     color: white;
+    background: #2F474B;
   }
   .sidebar-grid1 {
     display: grid;
@@ -85,7 +92,7 @@ class Dashboard2 extends Component {
   render() {
     return (
       <Wrapper>
-        <div className="grid-col sidebar  bg-dark">
+        <div className="grid-col sidebar">
           <div className="sidebar-grid1">
             <div
               className="sidebar1-item"
@@ -112,13 +119,13 @@ class Dashboard2 extends Component {
             </div>
           </div>
         </div>
-        <div className="grid-col">
+        <div className="grid-col-2">
           {this.state.selection === "dashboard" ? (
-            <Login />
+            <TestPage />
           ) : this.state.selection === "test" ? (
             <TestPage />
           ) : (
-            ""
+            <TestPage />
           )}
         </div>
       </Wrapper>

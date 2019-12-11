@@ -11,10 +11,12 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore'
+
 import { startAddTests , addAnswers} from './actions/test';
 import './styles/styles.scss';
 
 const store = configureStore();
+
 
 const jsx = (
   <Provider store={store}>

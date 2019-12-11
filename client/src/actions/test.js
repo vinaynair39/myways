@@ -21,6 +21,7 @@ export const addQuetions = (questions) => ({
     questions
 });
 
+
 export const addAnswers = (answerNumber, answer, currentQuestion, currentSubquestion) => {
     return (
         {
@@ -29,7 +30,6 @@ export const addAnswers = (answerNumber, answer, currentQuestion, currentSubques
             answer,
             currentQuestion,
             currentSubquestion,
-
         })
 };
 

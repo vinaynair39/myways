@@ -23,7 +23,6 @@ const TestA = ({ test, isLoading, sendAnswers, answers }) => {
             setOptions('');
             alert("Completed!");
             sendAnswers({answers});
-
             history.push('/');
         }
         else {
@@ -32,7 +31,6 @@ const TestA = ({ test, isLoading, sendAnswers, answers }) => {
             setOptions(test.questions[currentQuestion].questionSet[currentSubquestion].options.map(option => option.option));
         }
         console.log(currentQuestion, currentSubquestion)
-
     }, [currentSubquestion, currentQuestion])
 
 
@@ -69,7 +67,6 @@ const TestA = ({ test, isLoading, sendAnswers, answers }) => {
             setCurrentQuestion(currentQuestion - 1);
             return true;
         }
-
     }
 
     return (
@@ -91,7 +88,6 @@ const TestA = ({ test, isLoading, sendAnswers, answers }) => {
     )
 
 }
-
 const mapDispatchToProps = (dispatch) => ({
     sendAnswers: (answers) => dispatch(sendAnswers(answers))
 });
@@ -100,5 +96,5 @@ const mapStateToProps = (state) => ({
     answers: state.test.answers
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(TestA);
+export default TestA;
 // export default TestA;
