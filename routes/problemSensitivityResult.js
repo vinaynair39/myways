@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
-router.post('/deductiveReasoning', async (req, res) => {
+
+router.post('/problemSensitivity', async (req, res) => {
     try {
         console.log(req.body)
         res.json(req.body);
@@ -8,5 +9,3 @@ router.post('/deductiveReasoning', async (req, res) => {
         res.send(400).send(error);
     }
 });
-
-module.exports = router;

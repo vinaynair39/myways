@@ -86,7 +86,7 @@ export const sendAnswers = (answers) => {
     return (dispatch, getState) => {
         console.log('send send send');
         dispatch({ type: LOADING_UI });
-        return axios.post(`http://localhost:5000/api/answers/deductiveReasoningResult`, answers).then(res => {
+        return axios.post(`http://localhost:5000/api/result/deductiveReasoningResult`, answers).then(res => {
             alert("answer submitted");
         }).catch(err => {
             console.log(err)
