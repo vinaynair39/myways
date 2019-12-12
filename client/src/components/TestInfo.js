@@ -8,10 +8,10 @@ const TestInfo = (props ) => {
 
 
     return (
-        <div>
-            <h2>{props.currentTestInfo.assesmentName}</h2>
-            <h4>{props.currentTestInfo.instructions}</h4>
-            <Link to={`../test/${props.currentTestInfo.assesmentType}`}>Start!</Link>
+        <div className="testInfo">
+            <h2 className="testInfo__title">{props.currentTestInfo.assesmentName}</h2>
+            <h4 className="testInfo__subtitle">{props.currentTestInfo.instructions}</h4>
+            <Link className="button-testInfo"to={`../test/${props.currentTestInfo.assesmentType}`}>Start!</Link>
         </div>
     );
 }

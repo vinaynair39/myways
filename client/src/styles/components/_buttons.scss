@@ -27,6 +27,26 @@
 }
 
 
+.button-testInfo {
+  border: none;
+  background: #FFC765;
+  outline:none;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.5rem;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px px 1px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  border-radius: 6px;
+  &:hover{
+    transform: scale(1.1);
+    text-decoration-line: none;
+    color:white;
+  }
+  &:active{
+      transform: translateY(4px);
+      border-bottom: solid 5px #FFC765;
+  }
+}
+
 
 * {
     margin: 0;

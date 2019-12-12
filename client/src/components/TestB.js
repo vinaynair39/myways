@@ -25,7 +25,7 @@ const TestB = ({ test, currentTest }) => {
             setQuestion('');
             setOptions('');
             alert("Completed!")
-            history.push('/');
+            history.push('/dashboardtest');        
         }
         setParagraph(test.questions.paragraph);
         setQuestion(test.questions[currentQuestion].question);

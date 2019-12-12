@@ -8,11 +8,12 @@ import {history}from './routers/AppRouter'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import LoadingPage from './pages/LoadingPage';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore'
-
 import { startAddTests , addAnswers} from './actions/test';
+import 'animate.css'
 import './styles/styles.scss';
 
 const store = configureStore();
@@ -39,7 +40,7 @@ const getFromLocalStorage = (state) => {
     console.log(e)
   }
 }
-ReactDOM.render(<p>Loading...</p>, document.getElementById('root'));
+// ReactDOM.render(<LoadingPage/>, document.getElementById('root'));
 const token = sessionStorage.getItem('FBIdToken');
 if (token) {
   const decodedToken = jwtDecode(token);
@@ -57,7 +58,7 @@ if (token) {
       renderApp();
     });
     if (history.location.pathname === '/') {
-      history.push('/dashboard');
+      history.push('/dashboardtest');
     }
 }
   }else {

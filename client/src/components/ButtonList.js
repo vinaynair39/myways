@@ -1,4 +1,4 @@
-import React, { useState , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -13,13 +13,13 @@ const Wrapper = styled.div`
     text-align: justify;
   }
   .button-select {
-    background: #0f9d58;
+    background: #FFC765;
     border: none;
     outline: none;
     padding: 0.7rem 2rem;
     margin: 0 2rem 3rem 3rem;
     font-size: 1.3rem;
-    color: white;
+    color: #2e3740;
     border-radius: 3rem;
     width: fit-content;
   }
@@ -30,7 +30,7 @@ const Wrapper = styled.div`
     padding: 0.7rem 2rem;
     margin: 0 2rem 3rem 2rem;
     font-size: 1.4rem;
-    color: white;
+    color: #2e3740;
     border-radius: 3rem;
     width: fit-content;
   }
@@ -41,7 +41,7 @@ const Wrapper = styled.div`
     margin: 0 3rem 3.5rem 3rem;
     margin: 0 2rem 3.5rem 2rem;
     font-size: 1.4rem;
-    color: white;
+    color: #2e3740;
     border-radius: 3rem;
     width: fit-content;
   }
@@ -65,12 +65,12 @@ const Wrapper = styled.div`
     input:focus + label {
       background: transparent;
       .checker {
-        border-color: white;
+        border-color: #2e3740;
       }
     }
     input:checked + label {
       .checker {
-        box-shadow: inset 0 0 0 20px white;
+        box-shadow: inset 0 0 0 20px #2e3740;
       }
     }
     label {
@@ -81,7 +81,7 @@ const Wrapper = styled.div`
       margin: 10px;
       padding: 0 8px 0 6px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.4s ease;
       &:hover {
         background: transparent;
         .checker {
@@ -94,8 +94,8 @@ const Wrapper = styled.div`
       height: 18px;
       border-radius: 50%;
       margin-right: 8px;
-      box-shadow: inset 0 0 0 1px #d1d4db;
-      transition: box-shadow 0.3s ease;
+      box-shadow: inset 0 0 0 2px #2e3740;
+      transition: box-shadow 0.4s ease;
     }
   }
 `;
@@ -145,8 +145,8 @@ function ButtonList(props) {
     props.previousQuestion();
     handleShowButton();
     if (!!props.answers.questions[props.currentQuestion].questionSet) {
-      setSelectedOption(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion-1].answer.option);
-      setSelectedOptionNumber(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion-1].answer.optionNumber);
+      setSelectedOption(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion - 1].answer.option);
+      setSelectedOptionNumber(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion - 1].answer.optionNumber);
     }
     saveToLocalStorage(props.answers);
     setChecked1(false);
@@ -160,7 +160,7 @@ function ButtonList(props) {
     <div>
       <div className="radios">
         <div className="radio button-select">
-          {console.log(selectedOptionNumber === '1',selectedOptionNumber === '2' )}
+          {console.log(selectedOptionNumber === '1', selectedOptionNumber === '2')}
           {console.log(selectedOptionNumber)}
           <input type="radio" id="1" name="radio1" value={a} checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
             setSelectedOptionNumber(e.target.id)

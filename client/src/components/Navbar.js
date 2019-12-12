@@ -11,10 +11,10 @@ class Navbar extends Component {
     const loginRegLink = (
       <div>
         <Link to="/login" className="nav-links mr-5 text-color2">
-        <FontAwesomeIcon icon={faSignInAlt}/> Login
+         Login
         </Link>
-        <Link to="/signup" className="nav-links mr-5 text-color2">
-        <FontAwesomeIcon icon={faUserPlus} className="icon-reg"/> Register
+        <Link to="/signup" className="nav-links mr-4 text-color2">
+        Register
         </Link>
       </div>
     );
@@ -38,10 +38,7 @@ class Navbar extends Component {
       <NavWrapper>
         <div className="d-flex align-items-center nav-name col-6 ">
           <Link to="/" className="nav-name">
-            <h1 className="nav-name">
-              <span className="text-color1">My</span>
-              <span className="text-color2">Ways</span>
-            </h1>
+              <img className="logo" src= {"https://www.myways.in/visitor/img/logo/logo%20home.png"}/>
           </Link>
         </div>
 
@@ -55,24 +52,32 @@ class Navbar extends Component {
 
 const NavWrapper = styled.nav`
   display: flex;
-  background: #2F474B;
-  height: 12vh;
+  background: #2e3740;
+  height: 9vh;
   .nav-links {
     color: black;
-    font-size: 1.6rem!important;
+    font-size: 1.2rem!important;
     text-decoration: none;
+  }
+  .logo{
+    margin-bottom: 0.2rem;
+    height:7.5vh;
   }
   .icon-reg{
     font-size: 1.4rem;
   }
   .nav-name {
-    font-size: 2.8rem;
+    margin-top: 0.05rem;
+    font-size: 2rem;
     font-weight: bold;
     text-decoration: none !important;
     color: black;
   }
   .nav-links {
-    font-size: 1.4rem;
+    font-size: 1rem;
+  }
+  .nav-links:hover{
+    color: #FFC765;
   }
   .text-green {
     color: #0f9d58;
@@ -81,7 +86,7 @@ const NavWrapper = styled.nav`
     color: black;
   }
   .text-color1 {
-    color: #f8d637;
+    color: #FFC765;
   }
   .text-color2 {
     color: #E6E6E6;

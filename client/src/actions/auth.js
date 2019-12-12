@@ -22,7 +22,6 @@ export const startSignUp = (newUser) => {
             dispatch(startAddTests()).then(() => {
                 dispatch(login());
                 dispatch({ type: UNLOADING_UI });
-
             })
         }).catch(err => {
             console.log(err)

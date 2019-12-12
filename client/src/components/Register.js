@@ -28,8 +28,9 @@ const Wrapper = styled.div`
     background: transparent;
   }
   .form-main{
-    background: #2F474B;
+    background: #2e3740;
     padding: 2rem 3rem;
+    height: 30rem;
     border-radius: 4rem;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   }
@@ -38,12 +39,20 @@ const Wrapper = styled.div`
   }
   .form-button {
     border: none;
-    background: #1ba94c;
+    background: #FFC765;
+    outline:none;
     color: white;
     padding: 0.5rem 1rem;
     font-size: 1.5rem;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-    border-radius: 4rem;
+    border-radius: 6px;
+    &:hover{
+      transform: scale(1.1);
+    }
+    &:active{
+        transform: translateY(4px);
+        border-bottom: solid 5px #FFC765;
+    }
   }
   .form-icon {
     font-size: 1.4rem;
@@ -103,8 +112,8 @@ class Register extends Component {
           value.length <= 1
             ? "Minimum 1 character required"
             : value.length > 10
-            ? "Maximum 10 characters allowed"
-            : "";
+              ? "Maximum 10 characters allowed"
+              : "";
         break;
       case "password":
         formErrors.password =
@@ -136,9 +145,9 @@ class Register extends Component {
     const { formErrors } = this.state;
     return (
       <Wrapper className="">
-        <form noValidate onSubmit={this.onSubmit} className="form-main">
-          <div className="form-box">
-            <div className="d-flex justify-content-center align-items-center icon-box">
+        <form noValidate onSubmit={this.onSubmit} className="form-main d-flex flex-column justify-content-center align-items-center">
+          <div className="form-box ">
+            <div className="d-flex justify-content-center align-items-center icon-box ">
               <FontAwesomeIcon icon={faUser} className="form-icon" />
             </div>
             <input
@@ -153,7 +162,7 @@ class Register extends Component {
           {formErrors.name.length > 0 && (
             <span className="errorMessage">{formErrors.name}</span>
           )}
-          <div className="form-box mt-3">
+          <div className="form-box mt-4">
             <div className="d-flex justify-content-center align-items-center icon-box">
               <FontAwesomeIcon icon={faSchool} className="form-icon" />
             </div>
@@ -169,7 +178,7 @@ class Register extends Component {
           {formErrors.school.length > 0 && (
             <span className="errorMessage">{formErrors.school}</span>
           )}
-          <div className="form-box mt-3">
+          <div className="form-box mt-4">
             <div className="d-flex justify-content-center align-items-center icon-box">
               <FontAwesomeIcon icon={faMobileAlt} className="form-icon" />
             </div>
@@ -185,7 +194,7 @@ class Register extends Component {
           {formErrors.phone.length > 0 && (
             <span className="errorMessage">{formErrors.phone}</span>
           )}
-          <div className="form-box mt-3">
+          <div className="form-box mt-4">
             <div className="d-flex justify-content-center align-items-center icon-box">
               <FontAwesomeIcon icon={faKey} className="form-icon" />
             </div>
@@ -201,7 +210,7 @@ class Register extends Component {
           {formErrors.password.length > 0 && (
             <span className="errorMessage">{formErrors.password}</span>
           )}
-          <div className="d-flex justify-content-end mt-3">
+          <div className="d-flex justify-content-end mt-4">
             <button type="submit" className="form-button">
               Register
             </button>

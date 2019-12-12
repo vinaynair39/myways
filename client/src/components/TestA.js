@@ -23,7 +23,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers }) => {
             setOptions('');
             alert("Completed!");
             sendAnswers(answers);
-            history.push('/');
+            history.push('/dashboardtest');
         }
         else {
             setParagraph(test.questions[currentQuestion].paragraph);
@@ -73,6 +73,9 @@ const TestA = ({ test, isLoading, sendAnswers, answers }) => {
         <>
             {<>
                 <div className="test__item">
+                    {/* <div class="progress"> 
+                        <div className="progress-bar" role="progressbar" style={{width: `${(test.questions.length * currentSubquestion / test.questions[currentQuestion].questionSet.length) * 100}%`}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div> */}
                     <div>
                         {!!paragraph && <h2 title={test.instructions} className='test__paragraph'>{paragraph}</h2>}
                     </div>
