@@ -13,6 +13,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [currentSubquestion, setCurrentSubquestion] = useState(0);
     const [paragraph, setParagraph] = useState('');
+    const [timer, setTimer] = useState(0);
     const [question, setQuestion] = useState('');
     const [options, setOptions] = useState([]);
     const [progress, setProgress] = useState(0)
@@ -30,6 +31,8 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
             alert("Completed!");
             sendAnswers(test.assesmentType, answers);
             history.push('/dashboardtest');
+            stopTimer();
+            resetTimer();
         }
         else {
             setParagraph(test.questions[currentQuestion].paragraph);
@@ -39,6 +42,19 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
         }
     }, [currentSubquestion, currentQuestion])
 
+    //Timer Implementation
+    const startTimer =()=> {
+        this.timer = setInterval(() => setTimer(timer + 1), 1000)
+        console.log("start")
+      }  
+      const stopTimer=()=> {
+        clearInterval(this.timer)
+        console.log("stop")
+      }  
+      const resetTimer=()=> {
+        setTimer(0);
+        console.log("reset")
+      }
 
     const nextQuestion = () => {
         setPrevState(currentState);
@@ -126,6 +142,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
             {<>
                 <div className="test__item">
                     {modal()}
+                    <div>{timer}</div>
                     <div>
                         {!!paragraph && <h2 title={test.instructions} className='test__paragraph'>{paragraph}</h2>}
                     </div>
