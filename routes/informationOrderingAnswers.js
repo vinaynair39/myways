@@ -1,8 +1,8 @@
 const router = require('express').Router();
 
-const ANSWERS = require('../seed/deductiveReasoningAnswers.json');
+const ANSWERS = require('../seed/informationOrderingAnswers.json');
 
-router.get('/deductiveReasoning', async (req, res) => {
+router.get('/informationOrdering', async (req, res) => {
     try {
         res.json(ANSWERS);
     } catch (error) {

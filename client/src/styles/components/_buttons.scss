@@ -27,6 +27,26 @@
 }
 
 
+.button-testInfo {
+  border: none;
+  background: #FFC765;
+  outline:none;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.5rem;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px px 1px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  border-radius: 6px;
+  &:hover{
+    transform: scale(1.1);
+    text-decoration-line: none;
+    color:white;
+  }
+  &:active{
+      transform: translateY(4px);
+      border-bottom: solid 5px #FFC765;
+  }
+}
+
 
 * {
     margin: 0;
@@ -95,6 +115,26 @@
     padding-right: 20px;
     color: #fff;
   }
+
+
+  .button__modal-icon{
+    background-color: transparent;
+    outline:none;
+    border: none;
+    color: $yellow;
+    position: relative;
+    border: none;
+    left: 97vw;
+    margin: 0.5rem 1rem 0 0;
+    transition: all 0.2s ease;
+    &:hover{
+      transform: scale(1.1);
+   }
+   &:focus{
+     outline:none
+   }
+
+  }
   
   .effect1:hover .bg {
     height: 100%;
@@ -144,11 +184,11 @@
 
   .test-buttons{
     display: flex;
-    position: absolute;
-    bottom: 3.5rem;
-    right: 4rem;
   }
   .button-right{
+    position: absolute;
+    bottom: 3.5rem;
+    right: 2rem;
     width: 5rem;
     height:3rem;
     background-color: $red;
@@ -166,7 +206,8 @@
 
   .button-left{
     position: absolute;
-    right: 58em;
+    right: 78.5em;
+    bottom: 3.5rem;
     width: 5rem;
     height:3rem;
     background-color: $dark-grey;
@@ -183,6 +224,9 @@
   }
 
   .button-disable{
+    position: absolute;
+    bottom: 3.5rem;
+    right: 2rem;
     outline: none;
     cursor: not-allowed;
     background: grey;

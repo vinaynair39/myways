@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
-router.post('/deductiveReasoning', async (req, res) => {
+
+router.post('/mathematicalReasoning', async (req, res) => {
     try {
         console.log(req.body)
         res.json(req.body);

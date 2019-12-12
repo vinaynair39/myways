@@ -6,13 +6,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode, faGlobe, faPalette } from "@fortawesome/free-solid-svg-icons";
 
 const Wrapper = styled.div`
-  padding-top: 3rem;
+  padding-top: 1.5rem;
   margin: 1rem;
   width: 22vw;
   .card {
     border-color: transparent;
-    transition: all 1s linear;
+    margin-right: 1rem;
+    transition: all 0.1s ease;
+    cursor: pointer;
     border-radius: 2rem;
+    &:hover{
+      transform: scale(1.05);
+    }
   }
   .card-footer {
     background: transparent;
@@ -59,19 +64,20 @@ const Wrapper = styled.div`
   }
   .h-title {
     font-size: 1.3rem;
+    color: #2e3740;
     padding: 0.1rem;
     font-weight: 550;
     text-align: center;
   }
   .button-select {
-    background: #0f9d58;
+    background: #FFC765;
     border: none;
     outline: none;
     font-size: 1.3rem;
-    color: white;
+    color: #2e3740;
+    font-weight: 700; 
     padding: 0.3rem;
     text-decoration: none;
-    color: white;
     text-align: center;
     border-radius: 0 0 2rem 2rem;
   }
@@ -84,24 +90,25 @@ const Wrapper = styled.div`
 // import { faPlus } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const TestListItem = ({ assesmentName, assesmentType, definition }) => {
+const TestListItem = ({ assesmentName, assesmentType, definition, imageUrl }) => {
   return (
     <Wrapper>
-      <div className="card col-auto p-0">
-        <img
-          src="https://image.flaticon.com/icons/svg/1651/1651670.svg"
-          alt=""
-          className="card-img"
-        />
-        <div className="card-body d-flex-row  m-0 p-0">
-          <div className="h-title m-2">{assesmentName}</div>
+      {console.log(assesmentType)}
+      <Link to={`../testInfo/${assesmentType}`} >
+        <div className="card col-auto p-0">
+          <img
+            src={imageUrl}
+            alt=""
+            className="card-img"
+          />
+          <div className="card-body d-flex-row m-0 p-0">
+            <div className="h-title m-2">{assesmentName}</div>
+          </div>
+          <div className="button-select">
+              View
+          </div>
         </div>
-        <div className="button-select">
-          <Link to={`../testInfo/${assesmentType}`} className="button-select">
-            View
-          </Link>
-        </div>
-      </div>
+      </Link>
     </Wrapper>
   );
 };

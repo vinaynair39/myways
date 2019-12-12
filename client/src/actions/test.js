@@ -1,4 +1,4 @@
-import { ADD_QUESTIONS, ADD_TESTS, ADD_ANSWERS, CURRENT_TEST, LOADING_UI, UNLOADING_UI, CURRENT_ANSWERS } from './constants';
+import { ADD_QUESTIONS, ADD_TESTS, ADD_ANSWERS, CURRENT_TEST, LOADING_UI, UNLOADING_UI, CURRENT_ANSWERS,QUESTION_STATE } from './constants';
 
 import axios from 'axios';
 
@@ -19,6 +19,10 @@ export const currentAnswers = (answers) => ({
 export const addQuetions = (questions) => ({
     type: ADD_QUESTIONS,
     questions
+});
+export const questionState = (current) => ({
+    type: QUESTION_STATE,
+    current
 });
 
 
@@ -82,7 +86,7 @@ export const sendAnswers = (answers) => {
     return (dispatch, getState) => {
         console.log('send send send');
         dispatch({ type: LOADING_UI });
-        return axios.post(`http://localhost:5000/api/answers/deductiveReasoningResult`, answers).then(res => {
+        return axios.post(`http://localhost:5000/api/result/deductiveReasoningResult`, answers).then(res => {
             alert("answer submitted");
         }).catch(err => {
             console.log(err)

@@ -4,6 +4,10 @@
 
 body{
     padding-bottom: 1rem;
+    button:focus{
+        outline:none
+      }
+   
 }
 
 // a {

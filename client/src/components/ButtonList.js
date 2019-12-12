@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -13,35 +13,35 @@ const Wrapper = styled.div`
     text-align: justify;
   }
   .button-select {
-    background: #0f9d58;
+    background: #FFC765;
     border: none;
     outline: none;
     padding: 0.7rem 2rem;
     margin: 0 2rem 3rem 3rem;
     font-size: 1.3rem;
-    color: white;
+    color: #2e3740;
     border-radius: 3rem;
     width: fit-content;
   }
   .button-select2 {
-    background: #0f9d58;
+    background: #FFC765;
     border: none;
     outline: none;
     padding: 0.7rem 2rem;
     margin: 0 2rem 3rem 2rem;
     font-size: 1.4rem;
-    color: white;
+    color: #2e3740;
     border-radius: 3rem;
     width: fit-content;
   }
   .button-select3 {
-    background: #0f9d58;
+    background: #FFC765;
     border: none;
     outline: none;
     margin: 0 3rem 3.5rem 3rem;
     margin: 0 2rem 3.5rem 2rem;
     font-size: 1.4rem;
-    color: white;
+    color: #2e3740;
     border-radius: 3rem;
     width: fit-content;
   }
@@ -65,12 +65,12 @@ const Wrapper = styled.div`
     input:focus + label {
       background: transparent;
       .checker {
-        border-color: white;
+        border-color: #2e3740;
       }
     }
     input:checked + label {
       .checker {
-        box-shadow: inset 0 0 0 20px white;
+        box-shadow: inset 0 0 0 20px #2e3740;
       }
     }
     label {
@@ -81,7 +81,7 @@ const Wrapper = styled.div`
       margin: 10px;
       padding: 0 8px 0 6px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.4s ease;
       &:hover {
         background: transparent;
         .checker {
@@ -94,8 +94,8 @@ const Wrapper = styled.div`
       height: 18px;
       border-radius: 50%;
       margin-right: 8px;
-      box-shadow: inset 0 0 0 1px #d1d4db;
-      transition: box-shadow 0.3s ease;
+      box-shadow: inset 0 0 0 2px #2e3740;
+      transition: box-shadow 0.4s ease;
     }
   }
 `;
@@ -110,7 +110,8 @@ function ButtonList(props) {
   const [checked4, setChecked4] = useState(false);
   const [checked5, setChecked5] = useState(false);
   const [showButton, setShowButton] = useState(false);
-  const [selectedOptionNumber, setSelectedOptionNumber] = useState(0);
+  const [selectedOptionNumber, setSelectedOptionNumber] = useState(false);
+
 
   const handleShowButton = () => {
     setShowButton(true);
@@ -124,13 +125,13 @@ function ButtonList(props) {
     }
   }
 
+
   const onSubmit = (e) => {
     e.preventDefault();
-
+    setSelectedOptionNumber(0);
     props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion, props.currentSubquestion);
     props.nextQuestion();
     saveToLocalStorage(props.answers);
-    setSelectedOption(0);
     setShowButton(false);
     setChecked1(false);
     setChecked2(false);
@@ -142,9 +143,12 @@ function ButtonList(props) {
   const onPrevious = (e) => {
     e.preventDefault();
     props.previousQuestion();
+    handleShowButton();
+    if (!!props.answers.questions[props.currentQuestion]) {
+      setSelectedOption(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion - 1].answer.option);
+      setSelectedOptionNumber(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion - 1].answer.optionNumber);
+    }
     saveToLocalStorage(props.answers);
-    setSelectedOption(0);
-    setShowButton(false);
     setChecked1(false);
     setChecked2(false);
     setChecked3(false);
@@ -156,7 +160,9 @@ function ButtonList(props) {
     <div>
       <div className="radios">
         <div className="radio button-select">
-          <input type="radio" id="1" name="radio1" value={a} checked={checked1} onChange={(e) => {
+          {console.log(selectedOptionNumber === '1', selectedOptionNumber === '2')}
+          {console.log(selectedOptionNumber)}
+          <input type="radio" id="1" name="radio1" value={a} checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
             setSelectedOptionNumber(e.target.id)
             setSelectedOption(e.target.value);
             setChecked1(true);
@@ -169,7 +175,7 @@ function ButtonList(props) {
         </div>
 
         <div className="radio button-select">
-          <input type="radio" id="2" name="radio1" value={b} checked={checked2} onChange={(e) => {
+          <input type="radio" id="2" name="radio1" value={b} checked={selectedOptionNumber === '2' ? true : checked2} onChange={(e) => {
             setSelectedOptionNumber(e.target.id)
             setSelectedOption(e.target.value);
             setChecked2(true);
@@ -245,7 +251,7 @@ function ButtonList(props) {
     <div>
       <div className="radios">
         <div className="radio button-select3">
-          <input type="radio" id="1" name="radio1" value={a} checked={checked1} onChange={(e) => {
+          <input type="radio" id="1" name="radio1" value={a} checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
             setSelectedOption(e.target.value);
             setSelectedOptionNumber(e.target.id)
             setChecked1(true);
@@ -258,7 +264,7 @@ function ButtonList(props) {
         </div>
 
         <div className="radio button-select3">
-          <input type="radio" id="2" name="radio1" value={b} checked={checked2} onChange={(e) => {
+          <input type="radio" id="2" name="radio1" value={b} checked={selectedOptionNumber === '2' ? true : checked2} onChange={(e) => {
             setSelectedOption(e.target.value);
             setSelectedOptionNumber(e.target.id)
             setChecked2(true);
@@ -270,7 +276,7 @@ function ButtonList(props) {
           </label>
         </div>
         <div className="radio button-select3">
-          <input type="radio" id="3" name="radio1" value={c} checked={checked3} onChange={(e) => {
+          <input type="radio" id="3" name="radio1" value={c} checked={selectedOptionNumber === '3' ? true : checked3} onChange={(e) => {
             setSelectedOption(e.target.value);
             setSelectedOptionNumber(e.target.id)
             setChecked3(true);
@@ -282,7 +288,7 @@ function ButtonList(props) {
           </label>
         </div>
         <div className="radio button-select3">
-          <input type="radio" id="4" name="radio1" value={d} checked={checked4} onChange={(e) => {
+          <input type="radio" id="4" name="radio1" value={d} checked={selectedOptionNumber === '4' ? true : checked4} onChange={(e) => {
             setSelectedOption(e.target.value);
             setSelectedOptionNumber(e.target.id)
             setChecked4(true);
@@ -294,7 +300,7 @@ function ButtonList(props) {
           </label>
         </div>
         <div className="radio button-select3">
-          <input type="radio" id="5" name="radio1" value={e} checked={checked5} onChange={(e) => {
+          <input type="radio" id="5" name="radio1" value={e} checked={selectedOptionNumber === '5' ? true : checked5} onChange={(e) => {
             setSelectedOption(e.target.value);
             setSelectedOptionNumber(e.target.id)
             setChecked5(true);
@@ -453,13 +459,16 @@ function ButtonList(props) {
     if (props.options.length === 5)
       return fiveButton([...props.options])
   }
+
   return (
     <Wrapper className="">
       {getButton()}
       {/* {getEmojiMeter()} */}
-      <div className="test-buttons">{showButton ? <button className="button button-right" onClick={onSubmit}><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
-        : <button className="button button-disable"><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
-      }
+      <div className="test-buttons">
+        {showButton ? <button className="button button-right" onClick={onSubmit}><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
+          : <button className="button button-disable"><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
+        }
+        {/* <button className="button button-right" onClick={onSubmit}><FontAwesomeIcon icon={faArrowRight} size='2x' /></button> */}
         {(!!props.currentSubquestion ? (((props.currentQuestion == 0 && props.currentSubquestion > 0) || (props.currentQuestion > 0))
           && <button className="button button-left" onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>) :
           (props.currentQuestion > 0 && <button className="button button-left" onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>)

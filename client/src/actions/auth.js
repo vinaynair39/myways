@@ -4,6 +4,7 @@ import {
     UNLOADING_UI,
     SET_ERRORS,
     UNSET_ERRORS,
+    
 } from './constants.js'
 
 import { startAddTests } from './test'
@@ -22,7 +23,6 @@ export const startSignUp = (newUser) => {
             dispatch(startAddTests()).then(() => {
                 dispatch(login());
                 dispatch({ type: UNLOADING_UI });
-
             })
         }).catch(err => {
             console.log(err)

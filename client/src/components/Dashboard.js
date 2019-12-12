@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import {startLogout} from '../actions/auth';
+import { startLogout } from '../actions/auth';
 import {
   faPoll,
   faColumns,
@@ -9,6 +9,8 @@ import {
   faSignOutAlt
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { startAddTests } from '../actions/test'
+import TesList from './TestList';
 import PublicRoute from "../routers/PublicRoute";
 import Login from "./Login";
 import Register from "./Register";
@@ -18,7 +20,7 @@ import TestPage from '../pages/DashboardPage';
 
 const Wrapper = styled.div`
   display: grid;
-  height: 88vh;
+  height: 92vh;
   grid-template-columns: 1fr 5fr;
   .grid-col-1 {
   }
@@ -29,7 +31,8 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-rows: 1fr 1fr;
     color: white;
-    background: #2F474B;
+    background: #2e3740;
+    padding: 1rem 0;
   }
   .sidebar-grid1 {
     display: grid;
@@ -61,6 +64,7 @@ const Wrapper = styled.div`
     align-items: end;
     padding-top: 12vh;
     padding-bottom: 1rem;
+
   }
   .icon {
     margin-right: 0.5rem;
@@ -78,13 +82,17 @@ let selection;
 class Dashboard2 extends Component {
   constructor(props) {
     super(props);
-    this.state = {selection: ""};
+    this.state = { selection: "" };
     this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidMount(){
+    this.props.startAddTests();
   }
 
   handleClick = option => {
     console.log("ok");
-    this.setState({selection: option});
+    this.setState({ selection: option });
   };
 
   render() {
@@ -94,12 +102,12 @@ class Dashboard2 extends Component {
           <div className="sidebar-grid1">
             <div
               className="sidebar1-item"
-              onClick={()=>this.handleClick("dashboard")}
+              onClick={() => this.handleClick("dashboard")}
             >
               <FontAwesomeIcon icon={faColumns} className="icon" />
               Dashboard
             </div>
-            <div className="sidebar1-item" onClick={()=>this.handleClick("test")}>
+            <div className="sidebar1-item" onClick={() => this.handleClick("test")}>
               <FontAwesomeIcon icon={faPoll} className="icon" />
               Tests
             </div>
@@ -109,22 +117,23 @@ class Dashboard2 extends Component {
             </div>
           </div>
           <div className="sidebar-grid2">
-            <div className="sidebar2-item">
+            {this.props.isAuthenticated && <div className="sidebar2-item">
               <FontAwesomeIcon icon={faSignOutAlt} className="icon" />
               <a href="" onClick={this.props.logout.bind(this)} className="text-white">
-          Logout
-        </a>
-            </div>
+                Logout
+              </a>
+            </div>}
+
           </div>
         </div>
         <div className="grid-col-2 d-flex justify-content-center">
           {this.state.selection === "dashboard" ? (
-            <TestPage />
+            <TesList tests={this.props.tests}/>
           ) : this.state.selection === "test" ? (
-            <TestPage />
+            <TesList tests={this.props.tests}/>
           ) : (
-            <TestPage />
-          )}
+            <TesList tests={this.props.tests}/>
+              )}
         </div>
       </Wrapper>
     );
@@ -132,10 +141,13 @@ class Dashboard2 extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    isAuthenticated: state.auth.isAuthenticated
-  });
-  const mapDispatchToProps = (dispatch) => ({
-    logout: () => dispatch(startLogout())
-  });
+  isAuthenticated: state.auth.isAuthenticated,
+  tests: state.test.tests
+});
+const mapDispatchToProps = (dispatch) => ({
+  logout: () => dispatch(startLogout()),
+  startAddTests: () => dispatch(startAddTests())
+  
+});
 
-  export default connect(mapStateToProps, mapDispatchToProps)(Dashboard2)
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard2)

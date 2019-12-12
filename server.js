@@ -23,17 +23,27 @@ const port = process.env.PORT || 5000;
 const app = express();
 
 // Importing Routes
+const tests = require('./routes/tests');
 const userRoute = require('./routes/user');
+
+const languageTest = require('./routes/languageTest');
 const problemSensitivity = require('./routes/problemSensitivity');
 const deductiveReasoning = require('./routes/deductiveReasoning');
-const deductiveReasoningAnswers = require('./routes/deductiveReasoningAnswers');
-const languageTest = require('./routes/languageTest');
-const tests = require('./routes/tests');
 const informationOrdering = require('./routes/informationOrdering');
 const mathematicalReasoning = require('./routes/mathematicalReasoning');
 
+const deductiveReasoningAnswers = require('./routes/deductiveReasoningAnswers');
+const informationOrderingAnswers = require('./routes/informationOrderingAnswers');
+const languageTestAnswers = require('./routes/languageTestAnswers');
+const problemSensitivityAnswers = require('./routes/problemSensitivityAnswers');
+const mathematicalReasoningAnswers = require('./routes/mathematicalReasoningAnswers');
 
 const deductiveReasoningResult = require('./routes/deductiveReasoningResult');
+const informationOrderingResult = require('./routes/informationOrderingResult');
+const languageTestResult = require('./routes/languageTestResult');
+const problemSensitivityResult = require('./routes/problemSensitivityResult');
+const mathematicalReasoningResult = require('./routes/mathematicalReasoningResult');
+
 
 // Adding middleware to express
 app.use(bodyParser.json());
@@ -47,8 +57,21 @@ app.use('/api/test', languageTest);
 app.use('/api/test', informationOrdering);
 app.use('/api/test', mathematicalReasoning);
 
+
 app.use('/api/answers', deductiveReasoningAnswers);
-app.use('/api/answers', deductiveReasoningResult);
+app.use('/api/answers', informationOrderingAnswers);
+app.use('/api/answers', languageTestAnswers);
+app.use('/api/answers', problemSensitivityAnswers);
+app.use('/api/answers', mathematicalReasoningAnswers);
+
+
+
+app.use('/api/result', deductiveReasoningResult);
+app.use('/api/result', informationOrderingResult);
+app.use('/api/result', languageTestResult);
+app.use('/api/result', problemSensitivityResult);
+app.use('/api/result', mathematicalReasoningResult);
+
 
 
 // For Production: Delivering built client for all incoming requests
