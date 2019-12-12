@@ -57,6 +57,7 @@ app.use('/api/test', languageTest);
 app.use('/api/test', informationOrdering);
 app.use('/api/test', mathematicalReasoning);
 
+
 app.use('/api/answers', deductiveReasoningAnswers);
 app.use('/api/answers', informationOrderingAnswers);
 app.use('/api/answers', languageTestAnswers);
