@@ -24,7 +24,7 @@ const Wrapper = styled.div`
     width: fit-content;
   }
   .button-select2 {
-    background: #0f9d58;
+    background: #FFC765;
     border: none;
     outline: none;
     padding: 0.7rem 2rem;
@@ -35,7 +35,7 @@ const Wrapper = styled.div`
     width: fit-content;
   }
   .button-select3 {
-    background: #0f9d58;
+    background: #FFC765;
     border: none;
     outline: none;
     margin: 0 3rem 3.5rem 3rem;
@@ -144,7 +144,7 @@ function ButtonList(props) {
     e.preventDefault();
     props.previousQuestion();
     handleShowButton();
-    if (!!props.answers.questions[props.currentQuestion].questionSet) {
+    if (!!props.answers.questions[props.currentQuestion]) {
       setSelectedOption(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion - 1].answer.option);
       setSelectedOptionNumber(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion - 1].answer.optionNumber);
     }

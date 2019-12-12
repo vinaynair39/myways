@@ -49,6 +49,294 @@
                     ]
                 }
             ]
+        },
+        {
+            "questionNumber": "2",
+            "paragraph": "Sarah owns a new company. New companies are more likely to fail than well- established companies. Therefore:",
+            "questionSet": [
+                {
+                    "questionNumber": "1",
+                    "question": "Conclusion One: Sarah’s company will fail.",
+                    "options": [
+                        {
+                            "optionNumber": "1",
+                            "option": "Conclusion Follows"
+                        },
+                        {
+                            "optionNumber": "2",
+                            "option": "Conclusion Does Not Follow"
+                        }
+                    ]
+                },
+                {
+                    "questionNumber": "2",
+                    "question": "Conclusion Two: Sarah’s company is more likely to fail than a well-established company.",
+                    "options": [
+                        {
+                            "optionNumber": "1",
+                            "option": "Conclusion Follows"
+                        },
+                        {
+                            "optionNumber": "2",
+                            "option": "Conclusion Does Not Follow"
+                        }
+                    ]
+                },
+                {
+                    "questionNumber": "3",
+                    "question": "Conclusion Three: Well-established companies are more likely to succeed than new companies.",
+                    "options": [
+                        {
+                            "optionNumber": "1",
+                            "option": "Conclusion Follows"
+                        },
+                        {
+                            "optionNumber": "2",
+                            "option": "Conclusion Does Not Follow"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "questionNumber": "3",
+            "paragraph": "Statistics have shown that companies selling baked goods, such as cakes and pastries, are more likely to be successful if they are advertised as French or Belgian. Therefore:",
+            "questionSet": [
+                {
+                    "questionNumber": "1",
+                    "question": "Conclusion One: French and Belgian products are more expensive.",
+                    "options": [
+                        {
+                            "optionNumber": "1",
+                            "option": "Conclusion Follows"
+                        },
+                        {
+                            "optionNumber": "2",
+                            "option": "Conclusion Does Not Follow"
+                        }
+                    ]
+                },
+                {
+                    "questionNumber": "2",
+                    "question": "Conclusion Two: French and Belgian baked goods must taste better.",
+                    "options": [
+                        {
+                            "optionNumber": "1",
+                            "option": "Conclusion Follows"
+                        },
+                        {
+                            "optionNumber": "2",
+                            "option": "Conclusion Does Not Follow"
+                        }
+                    ]
+                },
+                {
+                    "questionNumber": "3",
+                    "question": "Conclusion Three: It is a sound business model to advertise baked goods as “French” or “Belgian” as this is more likely to result in successful sales.",
+                    "options": [
+                        {
+                            "optionNumber": "1",
+                            "option": "Conclusion Follows"
+                        },
+                        {
+                            "optionNumber": "2",
+                            "option": "Conclusion Does Not Follow"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "questionNumber": "4",
+            "paragraph": "May 2012 had the highest level of rainfall on record for the preceding fifty years. Predictions of rainfall are rarely accurate. Therefore:",
+            "questionSet": [
+                {
+                    "questionNumber": "1",
+                    "question": "Conclusion One: It rained more than expected in May 2012.",
+                    "options": [
+                        {
+                            "optionNumber": "1",
+                            "option": "Conclusion Follows"
+                        },
+                        {
+                            "optionNumber": "2",
+                            "option": "Conclusion Does Not Follow"
+                        }
+                    ]
+                },
+                {
+                    "questionNumber": "2",
+                    "question": "Conclusion Two: The rainfall in May 2012 was greater than in May 2011.",
+                    "options": [
+                        {
+                            "optionNumber": "1",
+                            "option": "Conclusion Follows"
+                        },
+                        {
+                            "optionNumber": "2",
+                            "option": "Conclusion Does Not Follow"
+                        }
+                    ]
+                },
+                {
+                    "questionNumber": "3",
+                    "question": "Conclusion Three: May is usually dry.",
+                    "options": [
+                        {
+                            "optionNumber": "1",
+                            "option": "Conclusion Follows"
+                        },
+                        {
+                            "optionNumber": "2",
+                            "option": "Conclusion Does Not Follow"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "questionNumber": "5",
+            "paragraph": "Facebook was launched on the American stock market in May 2012. However, statistics suggest that several previously high-performing companies, such as Pandora, Groupon and LinkedIn fell in value after they were launched on the American stock market. Therefore:",
+            "questionSet": [
+                {
+                    "questionNumber": "1",
+                    "question": "Conclusion One: It is possible that Facebook will also drop in value after May 2012.",
+                    "options": [
+                        {
+                            "optionNumber": "1",
+                            "option": "Conclusion Follows"
+                        },
+                        {
+                            "optionNumber": "2",
+                            "option": "Conclusion Does Not Follow"
+                        }
+                    ]
+                },
+                {
+                    "questionNumber": "2",
+                    "question": "Conclusion Two: Social networking sites perform badly once they become publicly listed on the stock market.",
+                    "options": [
+                        {
+                            "optionNumber": "1",
+                            "option": "Conclusion Follows"
+                        },
+                        {
+                            "optionNumber": "2",
+                            "option": "Conclusion Does Not Follow"
+                        }
+                    ]
+                },
+                {
+                    "questionNumber": "3",
+                    "question": "Conclusion Three: All companies decrease in value when first launched on the American stock market.",
+                    "options": [
+                        {
+                            "optionNumber": "1",
+                            "option": "Conclusion Follows"
+                        },
+                        {
+                            "optionNumber": "2",
+                            "option": "Conclusion Does Not Follow"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "questionNumber": "6",
+            "paragraph": "There are currently three problems facing the financial sector. Firstly, bankers are no longer seen as reliable or trustworthy. Secondly, executives of financial institutions are seen by the general public as being overpaid. Finally, it is difficult to regulate the financial sector. Therefore",
+            "questionSet": [
+                {
+                    "questionNumber": "1",
+                    "question": "Conclusion One: Banks have never been trusted by the general public.",
+                    "options": [
+                        {
+                            "optionNumber": "1",
+                            "option": "Conclusion Follows"
+                        },
+                        {
+                            "optionNumber": "2",
+                            "option": "Conclusion Does Not Follow"
+                        }
+                    ]
+                },
+                {
+                    "questionNumber": "2",
+                    "question": "Conclusion Two: Reliability is no longer an issue when considering the failings of the financial sector.",
+                    "options": [
+                        {
+                            "optionNumber": "1",
+                            "option": "Conclusion Follows"
+                        },
+                        {
+                            "optionNumber": "2",
+                            "option": "Conclusion Does Not Follow"
+                        }
+                    ]
+                },
+                {
+                    "questionNumber": "3",
+                    "question": "Conclusion Three: Overpaying financial executives may contribute to problems facing the financial sector.",
+                    "options": [
+                        {
+                            "optionNumber": "1",
+                            "option": "Conclusion Follows"
+                        },
+                        {
+                            "optionNumber": "2",
+                            "option": "Conclusion Does Not Follow"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "questionNumber": "7",
+            "paragraph": "Coley is a company that produces scented candles, using only natural products. Coley is against testing on animals and does not use pesticides in any of its products. Therefore:",
+            "questionSet": [
+                {
+                    "questionNumber": "1",
+                    "question": "Conclusion One: The scent from Coley’s candles is made from fruits and berries.",
+                    "options": [
+                        {
+                            "optionNumber": "1",
+                            "option": "Conclusion Follows"
+                        },
+                        {
+                            "optionNumber": "2",
+                            "option": "Conclusion Does Not Follow"
+                        }
+                    ]
+                },
+                {
+                    "questionNumber": "2",
+                    "question": "Conclusion Two: Coley’s products are unlikely to contain man-made setting agents.",
+                    "options": [
+                        {
+                            "optionNumber": "1",
+                            "option": "Conclusion Follows"
+                        },
+                        {
+                            "optionNumber": "2",
+                            "option": "Conclusion Does Not Follow"
+                        }
+                    ]
+                },
+                {
+                    "questionNumber": "3",
+                    "question": "Conclusion Three: Coley’s products are likely to be expensive.",
+                    "options": [
+                        {
+                            "optionNumber": "1",
+                            "option": "Conclusion Follows"
+                        },
+                        {
+                            "optionNumber": "2",
+                            "option": "Conclusion Does Not Follow"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

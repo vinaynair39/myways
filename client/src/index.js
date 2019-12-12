@@ -13,6 +13,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore'
 import { startAddTests , addAnswers} from './actions/test';
+import 'popper.js'
+import 'jquery';
 import 'animate.css'
 import './styles/styles.scss';
 

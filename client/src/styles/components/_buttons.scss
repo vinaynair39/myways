@@ -115,6 +115,26 @@
     padding-right: 20px;
     color: #fff;
   }
+
+
+  .button__modal-icon{
+    background-color: transparent;
+    outline:none;
+    border: none;
+    color: $yellow;
+    position: relative;
+    border: none;
+    left: 97vw;
+    margin: 0.5rem 1rem 0 0;
+    transition: all 0.2s ease;
+    &:hover{
+      transform: scale(1.1);
+   }
+   &:focus{
+     outline:none
+   }
+
+  }
   
   .effect1:hover .bg {
     height: 100%;

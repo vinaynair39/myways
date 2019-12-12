@@ -64,6 +64,7 @@ const Wrapper = styled.div`
     align-items: end;
     padding-top: 12vh;
     padding-bottom: 1rem;
+
   }
   .icon {
     margin-right: 0.5rem;
