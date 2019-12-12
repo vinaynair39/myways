@@ -72,7 +72,7 @@ export const getCurrentAnswers = (testName = "deductiveReasoning") => {
         console.log('bitchh')
         dispatch({ type: LOADING_UI });
         // return axios.get(`/api/test/${testName}`).then(res => {
-        return axios.get(`http://localhost:5000/api/answers/deductiveReasoning`).then(res => {
+        return axios.get(`http://localhost:5000/api/answers/${testName}`).then(res => {
             console.log(res.data)
             dispatch(currentAnswers(res.data));
         }).catch(err => {
@@ -82,11 +82,11 @@ export const getCurrentAnswers = (testName = "deductiveReasoning") => {
 }
 
 
-export const sendAnswers = (answers) => {
+export const sendAnswers = (testName, answers) => {
     return (dispatch, getState) => {
         console.log('send send send');
         dispatch({ type: LOADING_UI });
-        return axios.post(`http://localhost:5000/api/result/deductiveReasoningResult`, answers).then(res => {
+        return axios.post(`http://localhost:5000/api/result/${testName}`, answers).then(res => {
             alert("answer submitted");
         }).catch(err => {
             console.log(err)

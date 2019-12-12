@@ -128,26 +128,43 @@ function ButtonList(props) {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    console.log(props.currentQuestion,props.currentSubquestion)
     setSelectedOptionNumber(0);
+    const length = props.answers.questions[props.currentQuestion].questionSet.length;
+    if (!!props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion === length-1 ? props.currentSubquestion : props.currentSubquestion+1].answer.option){
+      setSelectedOption(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion === length-1 ? props.currentSubquestion : props.currentSubquestion+1].answer.option);
+      setSelectedOptionNumber(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion === length-1 ? 0 : props.currentSubquestion+1].answer.optionNumber);
+      props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion, props.currentSubquestion);
+      props.nextQuestion();
+      saveToLocalStorage(props.answers);
+      return true;
+    }
     props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion, props.currentSubquestion);
     props.nextQuestion();
     saveToLocalStorage(props.answers);
-    setShowButton(false);
     setChecked1(false);
     setChecked2(false);
     setChecked3(false);
     setChecked4(false);
     setChecked5(false);
+    setShowButton(false);
   };
 
   const onPrevious = (e) => {
     e.preventDefault();
-    props.previousQuestion();
     handleShowButton();
+    const length = props.answers.questions[props.currentQuestion].questionSet.length;
+    console.log(length, 'rtht');
     if (!!props.answers.questions[props.currentQuestion]) {
-      setSelectedOption(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion - 1].answer.option);
-      setSelectedOptionNumber(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion - 1].answer.optionNumber);
+      const length = props.answers.questions[props.currentQuestion].questionSet.length;
+      console.log(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion === 0 ? length-1 : props.currentSubquestion - 1].answer.optionNumber)
+      setSelectedOption(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion === 0 ? length -1  : props.currentSubquestion - 1].answer.option);
+      setSelectedOptionNumber(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion === 0 ? length-1 : props.currentSubquestion - 1].answer.optionNumber);
+      props.previousQuestion();
+      saveToLocalStorage(props.answers);
+      return true;
     }
+    props.previousQuestion();
     saveToLocalStorage(props.answers);
     setChecked1(false);
     setChecked2(false);
@@ -160,8 +177,6 @@ function ButtonList(props) {
     <div>
       <div className="radios">
         <div className="radio button-select">
-          {console.log(selectedOptionNumber === '1', selectedOptionNumber === '2')}
-          {console.log(selectedOptionNumber)}
           <input type="radio" id="1" name="radio1" value={a} checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
             setSelectedOptionNumber(e.target.id)
             setSelectedOption(e.target.value);

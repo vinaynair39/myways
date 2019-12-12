@@ -28,12 +28,11 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
             setQuestion('');
             setOptions('');
             alert("Completed!");
-            sendAnswers(answers);
+            sendAnswers(test.assesmentType, answers);
             history.push('/dashboardtest');
         }
         else {
             setParagraph(test.questions[currentQuestion].paragraph);
-            console.log(prevState, currentState)
             setQuestion(test.questions[currentQuestion].questionSet[currentSubquestion].question);
             setOptions(test.questions[currentQuestion].questionSet[currentSubquestion].options.map(option => option.option));
             addProgress();
