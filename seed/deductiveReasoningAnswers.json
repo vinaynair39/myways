@@ -1,4 +1,5 @@
 {
+
   "assesmentType": "deductiveReasoning",
   "instructions": "In this section, a statement will be provided followed by a series of suggested conclusions. Here, you must take the statement to be true. After reading each conclusion underneath the statement, you must decide whether you think it follows from the statement provided.If you agree that the conclusion exactly follows the statement, chose Conclusion follows. However, if you do not agree that the conclusion exactly follows then chose Conclusion does not follow.You must select your answer based only on the information presented; not using general knowledge. Similarly, you are advised not to let your own opinions or prejudices influence your decisions; stick to the statements and base your judgements on the facts presented.",
   "questions": [
@@ -208,6 +209,7 @@
             "optionNumber": "",
             "option": ""
           }
+
         }
       ]
     }

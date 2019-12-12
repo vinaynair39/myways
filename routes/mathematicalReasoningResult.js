@@ -8,6 +8,8 @@ router.post('/mathematicalReasoning', async (req, res) => {
     } catch (error) {
         res.send(400).send(error);
     }
+
 });
 
 module.exports = router;
+
