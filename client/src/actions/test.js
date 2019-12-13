@@ -39,13 +39,13 @@ export const addAnswers = (answerNumber, answer, currentQuestion, currentSubques
 
 export const startAddAnswers = () => {
     return (dispatch, getState) => {
-        axios.get('/api/test/questions').then(res => {
+        axios.get('api/test/questions').then(res => {
         })
     }
 }
 export const startAddTests = () => {
     return (dispatch, getState) => {
-        return axios.get('/api/test/tests').then(res => {
+        return axios.get('api/test/tests').then(res => {
             dispatch(addTests(res.data))
         }).catch(err => {
             console.log(err)
@@ -56,7 +56,7 @@ export const startAddTests = () => {
 export const getCurrentTest = (testName = "deductiveReasoning") => {
     return (dispatch, getState) => {
         dispatch({ type: LOADING_UI });
-        return axios.get(`/api/test/${testName}`).then(res => {
+        return axios.get(`api/test/${testName}`).then(res => {
             dispatch(currentTest(res.data));
             dispatch(getCurrentAnswers(testName)).then(() => {
                 dispatch({ type: UNLOADING_UI });
@@ -72,7 +72,7 @@ export const getCurrentAnswers = (testName = "deductiveReasoning") => {
         console.log('bitchh')
         dispatch({ type: LOADING_UI });
         // return axios.get(`/api/test/${testName}`).then(res => {
-        return axios.get(`/api/answers/${testName}`).then(res => {
+        return axios.get(`api/answers/${testName}`).then(res => {
             console.log(res.data)
             dispatch(currentAnswers(res.data));
         }).catch(err => {
@@ -86,7 +86,7 @@ export const sendAnswers = (testName, answers) => {
     return (dispatch, getState) => {
         console.log('send send send');
         dispatch({ type: LOADING_UI });
-        return axios.post(`/api/result/${testName}`, answers).then(res => {
+        return axios.post(`api/result/${testName}`, answers).then(res => {
             alert("answer submitted");
         }).catch(err => {
             console.log(err)
