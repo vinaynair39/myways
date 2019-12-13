@@ -38,6 +38,8 @@ const Wrapper = styled.div`
     overflow: hidden;
   }
   .card-img {
+    color: #2e3740;
+    text-align: center;
     height: 12.5rem;
     padding: 1rem 0.3rem 0.3rem 0.3rem;
   }
@@ -96,16 +98,16 @@ const TestListItem = ({ assesmentName, assesmentType, definition, imageUrl }) =>
       {console.log(assesmentType)}
       <Link to={`../testInfo/${assesmentType}`} >
         <div className="card col-auto p-0">
-          <img
+          {!!imageUrl ? <img
             src={imageUrl}
             alt=""
             className="card-img"
-          />
+          /> : <p className="card-img">Coming soon..</p>}
           <div className="card-body d-flex-row m-0 p-0">
             <div className="h-title m-2">{assesmentName}</div>
           </div>
           <div className="button-select">
-              View
+            View
           </div>
         </div>
       </Link>

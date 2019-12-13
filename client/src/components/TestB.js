@@ -46,7 +46,6 @@ const TestB = ({ test, currentTest }) => {
 
     const nextQuestion = () => {
         setQuestion('');
-        console.log(totalLength - 1, 'vs', currentQuestion)
 
         if (totalLength > currentQuestion) {
             setCurrentQuestion(currentQuestion + 1);
@@ -61,7 +60,6 @@ const TestB = ({ test, currentTest }) => {
 
     const previousQuestion = () => {
         if (currentQuestion > 0) {
-            console.log("hello")
             setCurrentQuestion(currentQuestion - 1)
             return true;
         }

@@ -31,6 +31,10 @@ export default (state = initState, action) => {
                 state.answers.questions[action.currentQuestion].questionSet[action.currentSubquestion].answer.option = action.answer;
                 state.answers.questions[action.currentQuestion].questionSet[action.currentSubquestion].answer.optionNumber = action.answerNumber;
             }
+            else{
+                state.answers.questions[action.currentQuestion].answer.option = action.answer;
+                state.answers.questions[action.currentQuestion].answer.optionNumber = action.answerNumber;
+            }
             return state;
         case CURRENT_ANSWERS:
             return {

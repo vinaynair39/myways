@@ -31,30 +31,34 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
             alert("Completed!");
             sendAnswers(test.assesmentType, answers);
             history.push('/dashboardtest');
-            stopTimer();
-            resetTimer();
         }
         else {
             setParagraph(test.questions[currentQuestion].paragraph);
             setQuestion(test.questions[currentQuestion].questionSet[currentSubquestion].question);
-            setOptions(test.questions[currentQuestion].questionSet[currentSubquestion].options.map(option => option.option));
+            if (test.questions[currentQuestion].questionSet[currentSubquestion].options){
+                setOptions(test.questions[currentQuestion].questionSet[currentSubquestion].options.map(option => option.option));
+            }
             addProgress();
         }
     }, [currentSubquestion, currentQuestion])
 
-    //Timer Implementation
-    const startTimer =()=> {
-        this.timer = setInterval(() => setTimer(timer + 1), 1000)
-        console.log("start")
-      }  
-      const stopTimer=()=> {
-        clearInterval(this.timer)
-        console.log("stop")
-      }  
-      const resetTimer=()=> {
-        setTimer(0);
-        console.log("reset")
-      }
+    // useEffect(() => {
+    //     startTimer()
+    // }, [])
+
+    // //Timer Implementation
+    // const startTimer = () => {
+    //     setTimer(setInterval(() => setTimer(timer + 1), 1000))
+    //     console.log("start")
+    // }
+    // const stopTimer = () => {
+    //     clearInterval(timer)
+    //     console.log("stop")
+    // }
+    // const resetTimer = () => {
+    //     setTimer(0);
+    //     console.log("reset")
+    // }
 
     const nextQuestion = () => {
         setPrevState(currentState);
@@ -142,7 +146,6 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
             {<>
                 <div className="test__item">
                     {modal()}
-                    <div>{timer}</div>
                     <div>
                         {!!paragraph && <h2 title={test.instructions} className='test__paragraph'>{paragraph}</h2>}
                     </div>

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const QUESTIONS = require('../seed/informationOrderingAnswers.json');
+const QUESTIONS = require('../seed/informationOrdering.json');
 
 
 router.get('/informationOrdering', async (req, res) => {

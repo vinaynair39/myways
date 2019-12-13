@@ -17,7 +17,7 @@ export const login = () => ({
 export const startSignUp = (newUser) => {
     return (dispatch) => {
         dispatch({ type: LOADING_UI });
-        axios.post('/api/user/register', { ...newUser }).then((res) => {
+        axios.post('http://localhost:5000/api/user/register', { ...newUser }).then((res) => {
             console.log(res.data)
             setAuthorizationHeader(res.data.token);
             dispatch(startAddTests()).then(() => {

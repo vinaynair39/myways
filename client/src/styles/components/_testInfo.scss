@@ -1,9 +1,10 @@
 .testInfo{
+    height:100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 2rem;
+    overflow: scroll;
 }
 
 .testInfo__title{
@@ -13,6 +14,6 @@
 
 .testInfo__subtitle{
     text-align: center;
-    font-size: 1.7rem;
-    padding: 2.5rem 5rem; 
+    font-size: 1.5rem;
+    padding: 4rem 10rem; 
 }

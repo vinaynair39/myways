@@ -31,18 +31,22 @@ const problemSensitivity = require('./routes/problemSensitivity');
 const deductiveReasoning = require('./routes/deductiveReasoning');
 const informationOrdering = require('./routes/informationOrdering');
 const mathematicalReasoning = require('./routes/mathematicalReasoning');
+const interestTest = require('./routes/interestTest');
 
 const deductiveReasoningAnswers = require('./routes/deductiveReasoningAnswers');
 const informationOrderingAnswers = require('./routes/informationOrderingAnswers');
 const languageTestAnswers = require('./routes/languageTestAnswers');
 const problemSensitivityAnswers = require('./routes/problemSensitivityAnswers');
 const mathematicalReasoningAnswers = require('./routes/mathematicalReasoningAnswers');
+const interestTestAnswers = require('./routes/interestTestAnswers');
 
 const deductiveReasoningResult = require('./routes/deductiveReasoningResult');
 const informationOrderingResult = require('./routes/informationOrderingResult');
 const languageTestResult = require('./routes/languageTestResult');
 const problemSensitivityResult = require('./routes/problemSensitivityResult');
 const mathematicalReasoningResult = require('./routes/mathematicalReasoningResult');
+const interestTestResult = require('./routes/interestTestResult');
+
 
 
 // Adding middleware to express
@@ -56,6 +60,7 @@ app.use('/api/test', deductiveReasoning);
 app.use('/api/test', languageTest);
 app.use('/api/test', informationOrdering);
 app.use('/api/test', mathematicalReasoning);
+app.use('/api/test', interestTest);
 
 
 app.use('/api/answers', deductiveReasoningAnswers);
@@ -63,6 +68,7 @@ app.use('/api/answers', informationOrderingAnswers);
 app.use('/api/answers', languageTestAnswers);
 app.use('/api/answers', problemSensitivityAnswers);
 app.use('/api/answers', mathematicalReasoningAnswers);
+app.use('/api/answers', interestTestAnswers);
 
 
 
@@ -71,6 +77,8 @@ app.use('/api/result', informationOrderingResult);
 app.use('/api/result', languageTestResult);
 app.use('/api/result', problemSensitivityResult);
 app.use('/api/result', mathematicalReasoningResult);
+app.use('/api/result', interestTestResult);
+
 
 
 
