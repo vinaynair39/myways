@@ -44,15 +44,7 @@ const interestTestAnswers = require('./routes/interestTestAnswers');
 const personalityTestAnswers = require('./routes/personalityTestAnswers');
 
 
-const deductiveReasoningResult = require('./routes/deductiveReasoningResult');
-const informationOrderingResult = require('./routes/informationOrderingResult');
-const languageTestResult = require('./routes/languageTestResult');
-const problemSensitivityResult = require('./routes/problemSensitivityResult');
-const mathematicalReasoningResult = require('./routes/mathematicalReasoningResult');
-const interestTestResult = require('./routes/interestTestResult');
-const personalityTestResult = require('./routes/personalityTestResult');
-
-
+const answers= require('./routes/answers');
 
 
 // Adding middleware to express
@@ -82,15 +74,7 @@ app.use('/api/answers', personalityTestAnswers);
 
 
 
-app.use('/api/result', deductiveReasoningResult);
-app.use('/api/result', informationOrderingResult);
-app.use('/api/result', languageTestResult);
-app.use('/api/result', problemSensitivityResult);
-app.use('/api/result', mathematicalReasoningResult);
-app.use('/api/result', interestTestResult);
-app.use('/api/result', personalityTestResult);
-
-
+app.use('/api/result', answers);
 
 
 

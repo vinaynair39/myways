@@ -1,6 +1,6 @@
 {
     "assesmentType":"personalityTest",
-    "instructions":"these are instructions",
+    "instructions":"",
     "questions":[
        {
           "questionNumber":1,

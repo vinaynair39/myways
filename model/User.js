@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Answers = require('./TestAnswers');
 
 const scoreSchema = new mongoose.Schema({
     informationOrdering: {
@@ -79,6 +80,9 @@ const testStatus = new mongoose.Schema({
 
 });
 
+
+
+
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -112,10 +116,11 @@ const userSchema = new mongoose.Schema({
     },
     score: {
         type: scoreSchema,
-   },
+    },
     testStatus: {
         type: testStatus,
-  }
+    },
+    testAnswersId: mongoose.Schema.Types.ObjectId
 });
 
 module.exports = mongoose.model('User', userSchema);

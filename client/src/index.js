@@ -46,7 +46,7 @@ const getFromLocalStorage = (state) => {
 const token = sessionStorage.getItem('FBIdToken');
 if (token) {
   const decodedToken = jwtDecode(token);
-  console.log(decodedToken);
+  console.log('decoded',decodedToken);
   if (decodedToken.exp * 10000 < Date.now()) {
     store.dispatch(startLogout());
     renderApp();

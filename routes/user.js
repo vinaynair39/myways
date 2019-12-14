@@ -2,6 +2,7 @@ const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 
 const User = require("../model/User");
+const Answers = require("../model/TestAnswers");
 const {
   registerValidation,
   loginValidation
@@ -17,7 +18,7 @@ router.post("/register", async (req, res) => {
     return res.status(400).send("hi from validation");
   }
 
-  const { name, school, phone, password, city, className} = req.body;
+  const { name, school, phone, password, city, className } = req.body;
   console.log(req.body);
 
   // Check if user already exists
@@ -57,14 +58,19 @@ router.post("/register", async (req, res) => {
       interestTest: false,
       personalityTest: false,
       languageTest: false
-    }
+    },
+    testAnswersId: ''
   });
 
-  console.log(user)
-
+  console.log()
   try {
-    console.log("inside try block");
+    const ans = new Answers({
+      answers: [],
+      userId: user._id
+    });
+    user.testAnswersId = ans._id;
     await user.save();
+    await ans.save();
     // Create and assign token
     const tokenExp = 60 * 60 * 24; // 24 hours
     const token = generateLoginToken(user, tokenExp);
@@ -91,14 +97,14 @@ router.post("/login", async (req, res) => {
   const user = await User.findOne({ phone });
 
   if (!user) {
-    return res.status(400).send({message: "User Doesn't Exist, Please Register!"});
+    return res.status(400).send({ message: "User Doesn't Exist, Please Register!" });
   }
 
   // Password is correct
   const validPass = await bcrypt.compare(password, user.password);
 
   if (!validPass) {
-    return res.status(400).send({message: "Inavlid Password!"});
+    return res.status(400).send({ message: "Inavlid Password!" });
   }
 
   try {
@@ -116,7 +122,7 @@ router.post("/login", async (req, res) => {
 });
 
 //get current user from token
-router.post("/me", function(req, res, next) {
+router.post("/me", function (req, res, next) {
   // check header or url parameters or post parameters for token
   var token = req.body.token;
 
@@ -126,7 +132,7 @@ router.post("/me", function(req, res, next) {
 
   try {
     // Check token that was passed by decoding token using secret
-    jwt.verify(token, process.env.TOKEN_SECRET, function(err, user) {
+    jwt.verify(token, process.env.TOKEN_SECRET, function (err, user) {
       if (err) throw err;
       //return user using the id from w/in JWTToken
 
@@ -134,7 +140,7 @@ router.post("/me", function(req, res, next) {
         {
           _id: user._id
         },
-        function(err, user) {
+        function (err, user) {
           if (err) throw err;
 
           res.json({
