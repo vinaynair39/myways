@@ -1,36 +1,13 @@
 const mongoose = require('mongoose');
 
 const scoreSchema = new mongoose.Schema({
-    flexibilityOfClosure: {
-        type: Number,
-        required: true,
-        min: 0,
-        max: 300
-    },
     informationOrdering: {
         type: Number,
         required: true,
         min: 0,
         max: 300
     },
-    visualization: {
-        type: Number,
-        required: true,
-        min: 0,
-        max: 100
-    },
-    spatialOrientation: {
-        type: Number,
-        required: true,
-        min: 0,
-        max: 100
-    },
-    science: {
-        type: Number,
-        required: true,
-        min: 0,
-        max: 150
-    },
+
     deductiveReasoning: {
         type: Number,
         required: true,
@@ -49,30 +26,57 @@ const scoreSchema = new mongoose.Schema({
         min: 0,
         max: 150
     },
-    categoryFlexibility: {
+
+
+    languageTest: {
         type: Number,
         required: true,
         min: 0,
-        max: 100
+        max: 150
     },
-    technical: {
+    personalityTest: {
         type: Number,
         required: true,
         min: 0,
-        max: 100
+        max: 150
     },
-    mathematicalReasoning: {
-        type: Number,
-        required: true,
-        min: 0,
-        max: 100
-    },
-    writtenComprehension: {
+    interestTest: {
         type: Number,
         required: true,
         min: 0,
         max: 150
     }
+});
+
+
+const testStatus = new mongoose.Schema({
+    informationOrdering: {
+        type: Boolean
+
+    },
+    deductiveReasoning: {
+        type: Boolean
+
+    },
+    inductiveReasoning: {
+        type: Boolean
+
+    },
+    problemSensitivity: {
+        type: Boolean
+
+    },
+    personalityTest: {
+        type: Boolean
+
+    },
+    languageTest: {
+        type: Boolean
+    },
+    interestTest: {
+        type: Boolean
+    }
+
 });
 
 const userSchema = new mongoose.Schema({
@@ -88,10 +92,10 @@ const userSchema = new mongoose.Schema({
         min: 6,
         max: 255
     },
-    class:{
+    class: {
         type: String
     },
-    city:{
+    city: {
         type: String
     },
     phone: {
@@ -108,8 +112,10 @@ const userSchema = new mongoose.Schema({
     },
     score: {
         type: scoreSchema,
-        required: true
-    }
+   },
+    testStatus: {
+        type: testStatus,
+  }
 });
 
 module.exports = mongoose.model('User', userSchema);

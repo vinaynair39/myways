@@ -4,7 +4,9 @@ import {
     LOADING_UI,
     UNLOADING_UI,
     SET_ERRORS,
-    UNSET_ERRORS
+    UNSET_ERRORS,
+    TEST_STATE,
+    SET_USER
 } from '../actions/constants'
 
 const initialState = {
@@ -47,6 +49,22 @@ export default (state = initialState, action) => {
                 loading: false,
                 error: null
             };
+        case SET_USER:
+            return {
+                ...state,
+                user: action.user
+            }
+        case TEST_STATE:
+            return {
+                ...state,
+                user: {
+                   ... action.user,
+                   testStatus: {
+                       ...state.user.testStatus,
+                       
+                   }
+                }
+            }
         default:
             return state;
     }

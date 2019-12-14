@@ -3,7 +3,7 @@ import {
     ADD_ANSWERS,
     CURRENT_TEST,
     CURRENT_ANSWERS,
-    QUESTION_STATE
+    QUESTION_STATE,TEST_STATE
 } from '../actions/constants'
 
 const initState = {
@@ -47,11 +47,7 @@ export default (state = initState, action) => {
                 questions: action.questions
             }
         case QUESTION_STATE:
-            return {
-                ...state,
-                previous: state.current,
-                current: action.current
-            }
+            return state.tests.filter(test => test.assesmentType !== action.test)
         default:
             return state;
     }

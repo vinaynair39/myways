@@ -1,4 +1,4 @@
-import { ADD_QUESTIONS, ADD_TESTS, ADD_ANSWERS, CURRENT_TEST, LOADING_UI, UNLOADING_UI, CURRENT_ANSWERS,QUESTION_STATE } from './constants';
+import { ADD_QUESTIONS, ADD_TESTS, ADD_ANSWERS, CURRENT_TEST, LOADING_UI,TEST_STATE, UNLOADING_UI, CURRENT_ANSWERS,QUESTION_STATE } from './constants';
 
 import axios from 'axios';
 
@@ -25,6 +25,10 @@ export const questionState = (current) => ({
     current
 });
 
+export const testState = (test) => ({
+    type: TEST_STATE,
+    test
+});
 
 export const addAnswers = (answerNumber, answer, currentQuestion, currentSubquestion) => {
     return (
@@ -39,7 +43,7 @@ export const addAnswers = (answerNumber, answer, currentQuestion, currentSubques
 
 export const startAddAnswers = () => {
     return (dispatch, getState) => {
-        axios.get('http://localhost:5000/api/test/questions').then(res => {
+        axios.get('http://localhost:5000/test/api/questions').then(res => {
         })
     }
 }

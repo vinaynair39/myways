@@ -40,18 +40,23 @@ router.post("/register", async (req, res) => {
     class: className,
     password: hashPassword,
     score: {
-      flexibilityOfClosure: 0,
       informationOrdering: 0,
-      visualization: 0,
-      spatialOrientation: 0,
-      science: 0,
       deductiveReasoning: 0,
       inductiveReasoning: 0,
       problemSensitivity: 0,
-      categoryFlexibility: 0,
-      technical: 0,
-      mathematicalReasoning: 0,
-      writtenComprehension: 0
+      interestTest: 0,
+      personalityTest: 0,
+      languageTest: 0
+    },
+    testStatus: {
+      informationOrdering: false,
+      personalityTest: false,
+      deductiveReasoning: false,
+      inductiveReasoning: false,
+      problemSensitivity: false,
+      interestTest: false,
+      personalityTest: false,
+      languageTest: false
     }
   });
 
@@ -64,10 +69,11 @@ router.post("/register", async (req, res) => {
     const tokenExp = 60 * 60 * 24; // 24 hours
     const token = generateLoginToken(user, tokenExp);
     res.status(200).json({
+      user,
       token
     });
   } catch (error) {
-    res.status(400).send("hi from sending");
+    res.status(400).send(error);
   }
 });
 
@@ -101,6 +107,7 @@ router.post("/login", async (req, res) => {
     const token = generateLoginToken(user, tokenExp);
 
     res.status(200).json({
+      user,
       token
     });
   } catch (error) {

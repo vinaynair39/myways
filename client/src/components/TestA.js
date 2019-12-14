@@ -7,8 +7,8 @@ import ButtonList from './ButtonList';
 import { connect } from 'react-redux';
 import { sendAnswers, questionState } from '../actions/test';
 import Progress from 'react-progressbar';
-import Timer from 'react.timer'
-
+import Timer from 'react.timer';
+import {testState} from '../actions/test'
 
 const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -32,6 +32,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
             setQuestion('');
             setOptions('');
             setProgress(100);
+            testState(test.assesmentType)
             alert("Completed!");
             sendAnswers(test.assesmentType, answers);
             history.push('/dashboardtest');
@@ -52,7 +53,6 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
             setProgress(100)
             setTestCompleted(true);
             alert("Completed!");
-            console.log(difficulty)
             history.push('/dashboardtest');
         }
         return (
@@ -159,7 +159,6 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
             {<>
                 <div className="test__item">
                     {modal()}
-                    {console.log('rjlgwfgerklngerlgn')}
                     {totalLength === currentQuestion ? stars() :
                         <>
                             <div>
@@ -180,7 +179,8 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
 }
 const mapDispatchToProps = (dispatch) => ({
     sendAnswers: (answers) => dispatch(sendAnswers(answers)),
-    questionState: (current) => dispatch(questionState(current))
+    questionState: (current) => dispatch(questionState(current)),
+    testState: (name) => dispatch(testState(name))
 });
 
 const mapStateToProps = (state) => ({

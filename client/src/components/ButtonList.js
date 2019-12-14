@@ -147,19 +147,26 @@ function ButtonList(props) {
     e.preventDefault();
     setSelectedOptionNumber(0);
     props.nextQuestion();
-    handleShowButton();
-    if(!!props.answers.questions[props.currentQuestion].questionSet){
-      const length = props.answers.questions[props.currentQuestion].questionSet.length-1;
-      setSelectedOptionNumber(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion === length ? props.currentSubquestion : props.currentSubquestion + 1].answer.optionNumber);
+    if (!!props.answers.questions[props.currentQuestion].questionSet) {
+      if (!!props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion].answer.optionNumber) {
+        const length = props.answers.questions[props.currentQuestion].questionSet.length - 1;
+        console.log(length, props.currentQuestion, props.currentSubquestion)
+        setSelectedOptionNumber(props.answers.questions[props.currentSubquestion === length ? props.currentQuestion + 1 : props.currentQuestion].questionSet[props.currentSubquestion === length ? 0 : props.currentSubquestion + 1].answer.optionNumber);
+        props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion, props.currentSubquestion);
+        saveToLocalStorage(props.answers);
+        handleShowButton();
+        return true
+      }
     }
     else if (!!props.answers.questions[props.currentQuestion].question) {
-    if (!!props.answers.questions[props.currentQuestion].answer.optionNumber) {
-      setSelectedOptionNumber(props.answers.questions[props.currentQuestion + 1].answer.optionNumber);
-      props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion, props.currentSubquestion);
-      saveToLocalStorage(props.answers);
-      return true;
+      if (!!props.answers.questions[props.currentQuestion].answer.optionNumber) {
+        setSelectedOptionNumber(props.answers.questions[props.currentQuestion + 1].answer.optionNumber);
+        props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion, props.currentSubquestion);
+        saveToLocalStorage(props.answers);
+        return true;
+      }
     }
-  }
+    console.log('idr')
     props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion, props.currentSubquestion);
     saveToLocalStorage(props.answers);
     setChecked1(false);
@@ -175,14 +182,15 @@ function ButtonList(props) {
     props.previousQuestion();
     handleShowButton();
     if (!!props.answers.questions[props.currentQuestion].questionSet) {
-      console.log('renbiren')
-      const length = props.answers.questions[props.currentQuestion].questionSet.length-1;
+      const length = props.answers.questions[props.currentQuestion].questionSet.length - 1;
       setSelectedOption(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion === 0 ? length : props.currentSubquestion - 1].answer.option);
       setSelectedOptionNumber(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion === 0 ? length : props.currentSubquestion - 1].answer.optionNumber);
+      return true;
     }
     else if (!!props.answers.questions[props.currentQuestion].question) {
       setSelectedOptionNumber(props.answers.questions[props.currentQuestion === 0 ? props.currentQuestion : props.currentQuestion - 1].answer.optionNumber);
       saveToLocalStorage(props.answers);
+      handleShowButton()
       return true;
     }
     props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion, props.currentSubquestion);
@@ -197,7 +205,7 @@ function ButtonList(props) {
 
   const twoButton = ([a, b]) => (
     <div>
-      <div className={props.currentTest === "personalityTest" ? "radios2": "radios"}>
+      <div className={props.currentTest === "personalityTest" ? "radios2" : "radios"}>
         <div className="radio button-select">
           <input type="radio" id="1" name="radio1" value={a} checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
             setSelectedOptionNumber(e.target.id)
@@ -357,49 +365,49 @@ function ButtonList(props) {
     <div className="container">
       <div className="feedback">
         <div className="rating">
-          <input type="radio" name="rating" id="rating-5" value={'5'} checked={selectedOptionNumber === '5' ? true : checked5} onChange={(e) => {
+          <input type="radio" name="rating" id="rating-5"  checked={selectedOptionNumber === '5' ? true : checked5} onChange={(e) => {
             var numberPattern = /\d+/g;
-            setSelectedOptionNumber(e.target.value)
+            setSelectedOptionNumber(e.target.id.match(numberPattern)[0])
             console.log(e.target.id.match(numberPattern)[0])
             setSelectedOption(e.target.value);
             setChecked5(true);
             handleShowButton();
           }} />
           <label htmlFor="rating-5"></label>
-          <input type="radio" name="rating" id="rating-4" value={'4'} checked={selectedOptionNumber === '4' ? true : checked4}
+          <input type="radio" name="rating" id="rating-4"  checked={selectedOptionNumber === '4' ? true : checked4}
             onChange={(e) => {
               var numberPattern = /\d+/g;
               setSelectedOption(e.target.value);
-              setSelectedOptionNumber(e.target.value);
+              setSelectedOptionNumber(e.target.id.match(numberPattern)[0]);
               console.log(e.target.id.match(numberPattern)[0])
               setChecked4(true);
               handleShowButton();
             }} />
           <label htmlFor="rating-4"></label>
-          <input type="radio" name="rating" id="rating-3" value={'3'}  checked={selectedOptionNumber === '3' ? true : checked3} onChange={(e) => {
+          <input type="radio" name="rating" id="rating-3"  checked={selectedOptionNumber === '3' ? true : checked3} onChange={(e) => {
             var numberPattern = /\d+/g;
             setSelectedOption(e.target.value);
-            setSelectedOptionNumber(e.target.value)
+            setSelectedOptionNumber(e.target.id.match(numberPattern)[0])
             console.log(e.target.id.match(numberPattern)[0])
 
             setChecked3(true);
             handleShowButton();
           }} />
           <label htmlFor="rating-3"></label>
-          <input type="radio" name="rating" id="rating-2" value={'2'}  checked={selectedOptionNumber === '2' ? true : checked2} onChange={(e) => {
+          <input type="radio" name="rating" id="rating-2"  checked={selectedOptionNumber === '2' ? true : checked2} onChange={(e) => {
             var numberPattern = /\d+/g;
             setSelectedOption(e.target.value);
-            setSelectedOptionNumber(e.target.value)
+            setSelectedOptionNumber(e.target.id.match(numberPattern)[0])
             console.log(e.target.id.match(numberPattern)[0])
 
             setChecked2(true);
             handleShowButton();
           }} />
           <label htmlFor="rating-2"></label>
-          <input type="radio" name="rating" id="rating-1" value={'1'}  checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
+          <input type="radio" name="rating" id="rating-1"  checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
             var numberPattern = /\d+/g;
             setSelectedOption(e.target.value);
-            setSelectedOptionNumber(e.target.value)
+            setSelectedOptionNumber(e.target.id.match(numberPattern)[0])
             console.log(e.target.id.match(numberPattern)[0])
 
             setChecked1(true);
@@ -515,7 +523,7 @@ function ButtonList(props) {
       {getButton()}
       {/* {getEmojiMeter()} */}
       <div className="test-buttons">
-        {showButton ? <button className="button button-right" onClick={onSubmit}><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
+        {true ? <button className="button button-right" onClick={onSubmit}><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
           : <button className="button button-disable"><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
         }
         {/* <button className="button button-right" onClick={onSubmit}><FontAwesomeIcon icon={faArrowRight} size='2x' /></button> */}

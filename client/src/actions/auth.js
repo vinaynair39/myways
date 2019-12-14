@@ -4,6 +4,8 @@ import {
     UNLOADING_UI,
     SET_ERRORS,
     UNSET_ERRORS,
+    TEST_STATE,
+    SET_USER
     
 } from './constants.js'
 
@@ -14,12 +16,20 @@ export const login = () => ({
     type: LOGIN,
 });
 
+
+export const setUser = (user) => ({
+    type: SET_USER,
+    user
+})
+
+
 export const startSignUp = (newUser) => {
     return (dispatch) => {
         dispatch({ type: LOADING_UI });
         axios.post('http://localhost:5000/api/user/register', { ...newUser }).then((res) => {
             console.log(res.data)
             setAuthorizationHeader(res.data.token);
+            dispatch(setUser(res.data.user));
             dispatch(startAddTests()).then(() => {
                 dispatch(login());
                 dispatch({ type: UNLOADING_UI });
@@ -41,6 +51,7 @@ export const startLogin = (credentials) => {
         return axios.post('http://localhost:5000/api/user/login', credentials).then(res => {
             console.log(res.data.token)
             setAuthorizationHeader(res.data.token);
+
             dispatch(startAddTests()).then(() => {
                 dispatch({ type: UNLOADING_UI });
                 dispatch(login());

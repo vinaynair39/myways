@@ -8,13 +8,15 @@ import ButtonList from './ButtonList';
 import { sendAnswers, questionState } from '../actions/test';
 import { connect } from 'react-redux'; 
 import Progress from 'react-progressbar';
-import Timer from 'react.timer'
+import Timer from 'react.timer';
+import {testState} from '../actions/test'
+
 
 
 
 
 const TestB = ({ test, currentTest, sendAnswers, answers}) => {
-    const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [currentQuestion, setCurrentQuestion] = useState(65);
     const [paragraph, setParagraph] = useState('');
     const [question, setQuestion] = useState('');
     const [options, setOptions] = useState([]);
@@ -32,6 +34,7 @@ const TestB = ({ test, currentTest, sendAnswers, answers}) => {
             setQuestion('');
             setOptions('');
             setProgress(100);
+            testState(test.assesmentType);
             alert("Completed!");
             sendAnswers(test.assesmentType, answers);
             history.push('/dashboardtest');;
@@ -159,7 +162,9 @@ const TestB = ({ test, currentTest, sendAnswers, answers}) => {
 
 const mapDispatchToProps = (dispatch) => ({
     sendAnswers: (answers) => dispatch(sendAnswers(answers)),
-    currentTest: (name) => dispatch(getCurrentTest(name))
+    currentTest: (name) => dispatch(getCurrentTest(name)),
+    testState: (name) => dispatch(testState(name))
+    
 })
 
 const mapStateToProps = (state) => ({
