@@ -6,6 +6,12 @@
         "instructions": "In each question choose how much interest you have in doing the activity as a Career. Choose Completely Agree if you love to have it as a Career and Completely Disagree if you do not like doing it at all. Choose other options if your interest level is in between. Please be thoughtful and honest in answering all questions. Some questions might look repetitive but they serve different purposes. Hence, be patient in answering."
     },
     {
+        "assesmentType": "personalityTest",
+        "assesmentName": "Personality Test",
+        "imageUrl": "https://image.flaticon.com/icons/svg/2072/2072148.svg",
+        "instructions": "This test is highly customised and will present different questions based on your earlier responses. Each response helps us recommend you the right opportunities for you and avoid the wrong/wasteful opportunities. The responses will be kept confidential. Hence, please be thoughtful and honest in answering all questions.Some questions might look repetitive but they serve different purposes. Hence, be patient in answering.Sometimes you may wish to choose both or neither of the options, in such cases choose the one which describes you comparatively more often. Think of examples and reasons behind your behaviour in such cases to choose the best option"
+    },
+    {
         "assesmentType": "deductiveReasoning",
         "assesmentName": "Deductive Reasoning",
         "imageUrl": "https://image.flaticon.com/icons/svg/1651/1651619.svg",
@@ -18,27 +24,16 @@
         "instructions": ""
     },
     {
-        "assesmentType": "languageTest",
-        "imageUrl": "https://image.flaticon.com/icons/svg/2014/2014526.svg",
-        "assesmentName": "Language Test",
-        "instructions": ""
-    },
-    {
         "assesmentType": "problemSensitivity",
         "imageUrl": "https://image.flaticon.com/icons/svg/1066/1066371.svg",
         "assesmentName": "Problem Sensitivity",
         "instructions": "In this section, a statement is presented to you with an agreeing or disagreeing argument below. You must regard each argument as true, regardless whether it is weak or strong, agrees or disagrees with the statement. The first and second statements will have three arguments each and the third statement will have only two arguments. If you consider an argument to be strong, select Strong argument, or if you consider an argument to be weak, select Weak argument. Judge each question and argument individually. Try not to take into account individual opinion or general knowledge since each argument is considered to be true."
     },
     {
-        "assesmentType": "personalityTest",
-        "assesmentName": "Personality Test",
-        "imageUrl": "",
-        "instructions": "This test is highly customised and will present different questions based on your earlier responses. Each response helps us recommend you the right opportunities for you and avoid the wrong/wasteful opportunities. The responses will be kept confidential. Hence, please be thoughtful and honest in answering all questions.Some questions might look repetitive but they serve different purposes. Hence, be patient in answering.Sometimes you may wish to choose both or neither of the options, in such cases choose the one which describes you comparatively more often. Think of examples and reasons behind your behaviour in such cases to choose the best option"
-    },
-    {
-        "assesmentType": "workStyleTest",
-        "assesmentName": "Work Style Test",
-        "imageUrl": "",
-        "instructions": "In each question choose how much interest you have in doing a certain activity. Choose Completely Agree if you love to do the activity and Completely Disagree if you do not like doing the activity at all. Choose other options if your interest level is in between. You are recommended to see hints, if you are not sure, to know the context before answering the question. The responses will be kept confidential. Hence, please be thoughtful and honest in answering all questions.Some questions might look repetitive but they serve different purposes. Hence, be patient in answering."
+        "assesmentType": "languageTest",
+        "imageUrl": "https://image.flaticon.com/icons/svg/2014/2014526.svg",
+        "assesmentName": "Language Test",
+        "instructions": ""
     }
+
 ]

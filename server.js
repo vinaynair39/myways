@@ -32,6 +32,8 @@ const deductiveReasoning = require('./routes/deductiveReasoning');
 const informationOrdering = require('./routes/informationOrdering');
 const mathematicalReasoning = require('./routes/mathematicalReasoning');
 const interestTest = require('./routes/interestTest');
+const personalityTest = require('./routes/personalityTest');
+
 
 const deductiveReasoningAnswers = require('./routes/deductiveReasoningAnswers');
 const informationOrderingAnswers = require('./routes/informationOrderingAnswers');
@@ -39,6 +41,8 @@ const languageTestAnswers = require('./routes/languageTestAnswers');
 const problemSensitivityAnswers = require('./routes/problemSensitivityAnswers');
 const mathematicalReasoningAnswers = require('./routes/mathematicalReasoningAnswers');
 const interestTestAnswers = require('./routes/interestTestAnswers');
+const personalityTestAnswers = require('./routes/personalityTestAnswers');
+
 
 const deductiveReasoningResult = require('./routes/deductiveReasoningResult');
 const informationOrderingResult = require('./routes/informationOrderingResult');
@@ -46,6 +50,8 @@ const languageTestResult = require('./routes/languageTestResult');
 const problemSensitivityResult = require('./routes/problemSensitivityResult');
 const mathematicalReasoningResult = require('./routes/mathematicalReasoningResult');
 const interestTestResult = require('./routes/interestTestResult');
+const personalityTestResult = require('./routes/personalityTestResult');
+
 
 
 
@@ -61,6 +67,8 @@ app.use('/api/test', languageTest);
 app.use('/api/test', informationOrdering);
 app.use('/api/test', mathematicalReasoning);
 app.use('/api/test', interestTest);
+app.use('/api/test', personalityTest);
+
 
 
 app.use('/api/answers', deductiveReasoningAnswers);
@@ -69,6 +77,8 @@ app.use('/api/answers', languageTestAnswers);
 app.use('/api/answers', problemSensitivityAnswers);
 app.use('/api/answers', mathematicalReasoningAnswers);
 app.use('/api/answers', interestTestAnswers);
+app.use('/api/answers', personalityTestAnswers);
+
 
 
 
@@ -78,6 +88,10 @@ app.use('/api/result', languageTestResult);
 app.use('/api/result', problemSensitivityResult);
 app.use('/api/result', mathematicalReasoningResult);
 app.use('/api/result', interestTestResult);
+app.use('/api/result', personalityTestResult);
+
+
+
 
 
 

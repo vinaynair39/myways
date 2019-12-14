@@ -88,6 +88,12 @@ const userSchema = new mongoose.Schema({
         min: 6,
         max: 255
     },
+    class:{
+        type: String
+    },
+    city:{
+        type: String
+    },
     phone: {
         type: String,
         required: true,

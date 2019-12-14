@@ -1,0 +1,54 @@
+{
+    "assesmentType": "type not provided",
+    "instructions": "these are instructions",
+    "questions": [
+        {
+            "questionNumber": 1,
+            "paragraph": "working through hands with real world materials, using & operating machines, objects, tools, plants & animals in order to solve real world problems in the surrounding. generally in a practical manner. in outdoor and physical environment.",
+            "answer": {
+                "questionNumber": "",
+                "question": ""
+            }
+        },
+        {
+            "questionNumber": 2,
+            "paragraph": "working through brain with logics & concepts, information, abstract ideas and theories in order to discover ideas , ask questions, solve problems. generally in a scholarly and reserved way in a well organized and analytical environment.",
+            "answer": {
+                "questionNumber": "",
+                "question": ""
+            }
+        },
+        {
+            "questionNumber": 3,
+            "paragraph": "working through your imagination and creativity, with words, art, music & drama, forms, patterns & design in order to to express (artistically), perform, communicate, design or create things. generally in unstructures setups and in anemotional or expressive way.",
+            "answer": {
+                "questionNumber": "",
+                "question": ""
+            }
+        },
+        {
+            "questionNumber": 4,
+            "paragraph": "working with people, helping them in order to enlighten, inform, serve or greet them. mainly concerned with welfare of others, assisting others to promote learning & personal growth, in a compassionate and friendly way and warm and supportive environment.",
+            "answer": {
+                "questionNumber": "",
+                "question": ""
+            }
+        },
+        {
+            "questionNumber": 5,
+            "paragraph": "working with people, through your mind in an influential way in order to to direct, persuade, lead, perform or manage people for organisational goals or economic gain. generally in a business and action oriented environment, in an adventurous, outgoing and energetic manner.",
+            "answer": {
+                "questionNumber": "",
+                "question": ""
+            }
+        },
+        {
+            "questionNumber": 6,
+            "paragraph": "working with data, details, information and numbers through your mind (analyzing and organizing) in order to structurize things, doing things in details, planning work & events. generally in an environment with set rules and clear line of authority, in a careful, conforming, little or no imaginative, well organised manner.",
+            "answer": {
+                "questionNumber": "",
+                "question": ""
+            }
+        }
+    ]
+}

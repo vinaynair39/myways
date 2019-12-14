@@ -1,0 +1,972 @@
+{
+    "assesmentType":"personalityTest",
+    "instructions":"these are instructions",
+    "questions":[
+       {
+          "questionNumber":1,
+          "question":"In your dealings you: ",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Overcome your personal terms and follow principles to do what is right"
+             },
+             {
+                "optionNumber":2,
+                "option":"Prefer personal terms, sometimes not going by principles"
+             }
+          ]
+       },
+       {
+          "questionNumber":2,
+          "question":"Your drive to improve comes from:",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Inner critic to do what is judged as right"
+             },
+             {
+                "optionNumber":2,
+                "option":"Drive to succeed and be recognized for your accomplishments"
+             }
+          ]
+       },
+       {
+          "questionNumber":3,
+          "question":"You get irritated of others when",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"They are inefficient ,sloppy"
+             },
+             {
+                "optionNumber":2,
+                "option":"They are insensitive to oneself and you"
+             }
+          ]
+       },
+       {
+          "questionNumber":4,
+          "question":"How do you deal with people who you think are wrong or whom you do not like",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"you are convinced why you are correct and make efforts to make people understand that"
+             },
+             {
+                "optionNumber":2,
+                "option":"You are not certain about your views and do not worry much if they do not agree with your view"
+             }
+          ]
+       },
+       {
+          "questionNumber":5,
+          "question":"While taking decisions you are",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Mostly sure and have one right way of doing something"
+             },
+             {
+                "optionNumber":2,
+                "option":"generally unsure of the way to take and consider many ways of doing something"
+             }
+          ]
+       },
+       {
+          "questionNumber":6,
+          "question":"How do you like to lead your life?",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Be self controlled,focussed , do not like to deviate from careful preparations/plans and particular about time and procedures,reserved"
+             },
+             {
+                "optionNumber":2,
+                "option":"Be adventurous,spontaneous, follow your inspiration and do not like to stick to plans,not particular about procedures,open minded,flexible"
+             }
+          ]
+       },
+       {
+          "questionNumber":7,
+          "question":"How do you deal with anger?",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"You suppress anger and shows it when you think it is right"
+             },
+             {
+                "optionNumber":2,
+                "option":"You express your anger on the spot and openly"
+             }
+          ]
+       },
+       {
+          "questionNumber":8,
+          "question":"You",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Do not compromise with your principles to avoid conflicts"
+             },
+             {
+                "optionNumber":2,
+                "option":"Do not want to get into conflicts with your loved ones and hold on your strong opinions to yourself"
+             }
+          ]
+       },
+       {
+          "questionNumber":9,
+          "question":"Your focus is primarily on:",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Relationships and others’ needs and feelings"
+             },
+             {
+                "optionNumber":2,
+                "option":"Tasks and on completing goals"
+             }
+          ]
+       },
+       {
+          "questionNumber":10,
+          "question":"You",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Tend to move towards others and engage them"
+             },
+             {
+                "optionNumber":2,
+                "option":"Tend to withdraw from others hoping they would seek you"
+             }
+          ]
+       },
+       {
+          "questionNumber":11,
+          "question":"Which one do you appreciate more in people",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Feelings"
+             },
+             {
+                "optionNumber":2,
+                "option":"Intellectual approaches and conceptual thinking"
+             }
+          ]
+       },
+       {
+          "questionNumber":12,
+          "question":"What do you want more",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"To be loved and to be important to others"
+             },
+             {
+                "optionNumber":2,
+                "option":"Approval and support of others"
+             }
+          ]
+       },
+       {
+          "questionNumber":13,
+          "question":"With respect to expressing your feelings",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"You do not easily express anger and do not show wide range of feeling which are short lived"
+             },
+             {
+                "optionNumber":2,
+                "option":"Your feelings are quite short lived and you display wide range of emotions like anger, frustration, delight or excitement"
+             }
+          ]
+       },
+       {
+          "questionNumber":14,
+          "question":"While not happy about something",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"You find it difficult to show your feelings or anger and use indirect approaches"
+             },
+             {
+                "optionNumber":2,
+                "option":"You directly communicate your aggression or disappointment"
+             }
+          ]
+       },
+       {
+          "questionNumber":15,
+          "question":"While in conflicts",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"You tend to remind others how much they are indebted to you for your help"
+             },
+             {
+                "optionNumber":2,
+                "option":"You tend to become silent or avoid further conflicts"
+             }
+          ]
+       },
+       {
+          "questionNumber":16,
+          "question":"While feeling emotional at work you",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Focus your task and are able to ignore your feelings"
+             },
+             {
+                "optionNumber":2,
+                "option":"First need time to sort out your feelings and then proceed working"
+             }
+          ]
+       },
+       {
+          "questionNumber":17,
+          "question":"You engage yourself in any task / subject",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"To take it as a stepping stone to achieve your final goal and are quick to change your subject if it does not give you success or contribute in your final goal."
+             },
+             {
+                "optionNumber":2,
+                "option":"To acquire knowledge and learn and do not care about the final goal in doing so; also you will not stop doing a particular thing until you or the subject or both are exhausted by its content"
+             }
+          ]
+       },
+       {
+          "questionNumber":18,
+          "question":"You",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Are self mobilised to work towards your set goal to achieve appreciation and recognition and like them"
+             },
+             {
+                "optionNumber":2,
+                "option":"Are reluctant to start working as you are uncertain of your goal and fear pitfalls and are uncomfortable with appreciation and recognition and doubt them"
+             }
+          ]
+       },
+       {
+          "questionNumber":19,
+          "question":"You",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Focus on your set goal and ignore your own pleasures in order to achieve success and maintain a good self image"
+             },
+             {
+                "optionNumber":2,
+                "option":"Focus on your own pleasures and desires and believe in keeping your options open in order to to achieve personal entitlement"
+             }
+          ]
+       },
+       {
+          "questionNumber":20,
+          "question":"For you",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Success and recognition is more important than power and authority"
+             },
+             {
+                "optionNumber":2,
+                "option":"Power and authority is more important than success and recognition"
+             }
+          ]
+       },
+       {
+          "questionNumber":21,
+          "question":"You",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Are fast paced, efficient , focussed and are impatient when obstruction comes their way in terms of others views, opinions etc"
+             },
+             {
+                "optionNumber":2,
+                "option":"Are slow paced,readily welcome others opinions and views and also may substitute their agendas over yours"
+             }
+          ]
+       },
+       {
+          "questionNumber":22,
+          "question":"You are:",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Emotional and okay with sharing your feelings with others with less personal boundaries preferred"
+             },
+             {
+                "optionNumber":2,
+                "option":"Do not feel like sharing your emotions with many people and want to keep clear personal boundaries, might feel detached sometime"
+             }
+          ]
+       },
+       {
+          "questionNumber":23,
+          "question":"Choose",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"I am generally alone in life as I find it difficult to form bonds with others"
+             },
+             {
+                "optionNumber":2,
+                "option":"I can make bonds with others but I fear losing them"
+             }
+          ]
+       },
+       {
+          "questionNumber":24,
+          "question":"You tend to:",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Become gloomy and think deeply about emotions, even accepting negative emotions as a part of life"
+             },
+             {
+                "optionNumber":2,
+                "option":"Be happy and avoid pain or negative feelings"
+             }
+          ]
+       },
+       {
+          "questionNumber":25,
+          "question":"While dealing with feelings of hurt or loneliness",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"You find it difficult to let go of them and find it okay to take help of others to overcome"
+             },
+             {
+                "optionNumber":2,
+                "option":"You think taking help would make you dependent on others and you yourself can get over it"
+             }
+          ]
+       },
+       {
+          "questionNumber":26,
+          "question":"You tend to withdraw yourself from people:",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"To protect yourself and give some time to yourself to deal with your emotions"
+             },
+             {
+                "optionNumber":2,
+                "option":"If you find them threatening or if they make you upset"
+             }
+          ]
+       },
+       {
+          "questionNumber":27,
+          "question":"While dealing with negative feelings",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"You detach from your feelings and delay your response to them"
+             },
+             {
+                "optionNumber":2,
+                "option":"You magnify the danger and react immediately (often intensely) most of the times and find it difficult to detach from your feelings"
+             }
+          ]
+       },
+       {
+          "questionNumber":28,
+          "question":"You tend to",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Feel that being optimistic always is unreal and that dark or painful side of life should also be thought upon deeply"
+             },
+             {
+                "optionNumber":2,
+                "option":"Be optimistic and avoid dark or painful side of life"
+             }
+          ]
+       },
+       {
+          "questionNumber":29,
+          "question":"You",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Think before acting"
+             },
+             {
+                "optionNumber":2,
+                "option":"Generally act before thinking much"
+             }
+          ]
+       },
+       {
+          "questionNumber":30,
+          "question":"You are",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Intense, defensive, strong-minded, and highly resistant to the influence of others"
+             },
+             {
+                "optionNumber":2,
+                "option":"Gentle, patient, easygoing, accommodating and receptive"
+             }
+          ]
+       },
+       {
+          "questionNumber":31,
+          "question":"You",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Look for pitfalls,dangers in situations before doing anything and plan for handling those problems"
+             },
+             {
+                "optionNumber":2,
+                "option":"Look for positive things in situations, believe in going with the flow and plan for multiple possibilities"
+             }
+          ]
+       },
+       {
+          "questionNumber":32,
+          "question":"You",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Are hesitant to act, magnify hazards and sometime give way under pressure or doubt"
+             },
+             {
+                "optionNumber":2,
+                "option":"Are confident to act,deny dangers and always hold their ground"
+             }
+          ]
+       },
+       {
+          "questionNumber":33,
+          "question":"You",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Do not trust others easily and get along with others after careful questioning and tests"
+             },
+             {
+                "optionNumber":2,
+                "option":"Very welcoming, accepting and get along with others before testing or questioning"
+             }
+          ]
+       },
+       {
+          "questionNumber":34,
+          "question":"You",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Tend to escape pain or conflicts, explain away difficulties and plan about future a lot"
+             },
+             {
+                "optionNumber":2,
+                "option":"Accept pain, confront conflicts directly and mostly stay in the present"
+             }
+          ]
+       },
+       {
+          "questionNumber":35,
+          "question":"You",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Are fast paced, short tempered and impulsive in action"
+             },
+             {
+                "optionNumber":2,
+                "option":"Are steady paced, even tempered and cautious in action"
+             }
+          ]
+       },
+       {
+          "questionNumber":36,
+          "question":"You",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Are clear about your views and are decisive"
+             },
+             {
+                "optionNumber":2,
+                "option":"Are unclear about your opinions, indecisive and often go along with what others say"
+             }
+          ]
+       },
+       {
+          "questionNumber":37,
+          "question":"While addressing others' needs you are:",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Inflexible and stick to your needs"
+             },
+             {
+                "optionNumber":2,
+                "option":"Flexible and alter your needs to make others happy"
+             }
+          ]
+       },
+       {
+          "questionNumber":38,
+          "question":"You are self sufficient in the sense :",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Completely independent of others"
+             },
+             {
+                "optionNumber":2,
+                "option":"Interdependent and connected with others"
+             }
+          ]
+       },
+       {
+          "questionNumber":39,
+          "question":"In the process of achieving a goal :",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"You find the method to do it perfectly and stick to it until it succeeds"
+             },
+             {
+                "optionNumber":2,
+                "option":"You find the most efficient/ fastest possible method and in case it doesnot work , you change the method quickly to achieve the desired result"
+             }
+          ]
+       },
+       {
+          "questionNumber":40,
+          "question":"While irritated or emotionally disturbed at work",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"You tend to express your emotions openly and people are easily aware of it"
+             },
+             {
+                "optionNumber":2,
+                "option":"You are not usually distracted by your feelings without people being aware of your emotional state"
+             }
+          ]
+       },
+       {
+          "questionNumber":41,
+          "question":"You tend to",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Suppress personal desires and become self constrained"
+             },
+             {
+                "optionNumber":2,
+                "option":"Experience strong personal desires to the point of being self-absorbed (disconnected from outside world)"
+             }
+          ]
+       },
+       {
+          "questionNumber":42,
+          "question":"You",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Focus on responsibilities before emotions"
+             },
+             {
+                "optionNumber":2,
+                "option":"Sort out emotions and then complete duties effectively"
+             }
+          ]
+       },
+       {
+          "questionNumber":43,
+          "question":"You tend to suppress your desires or detach from feelings to",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"To improve yourself and others"
+             },
+             {
+                "optionNumber":2,
+                "option":"To protect yourself from being intruded and conserve your energy"
+             }
+          ]
+       },
+       {
+          "questionNumber":44,
+          "question":"You tend to judge people on",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Activities governed by their internal standards of right and wrong"
+             },
+             {
+                "optionNumber":2,
+                "option":"Intellectual matters,knowledge and competence"
+             }
+          ]
+       },
+       {
+          "questionNumber":45,
+          "question":"How do you prevent yourself from committing mistakes? ",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Comparing things to find out what is correct in order to avoid criticism"
+             },
+             {
+                "optionNumber":2,
+                "option":"Doubting and trying to find out the potential threats in order to gain sense of safety and security"
+             }
+          ]
+       },
+       {
+          "questionNumber":46,
+          "question":"How do you deal with your negative feelings",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"You can control negative feelings and keep negative feelings at bay  "
+             },
+             {
+                "optionNumber":2,
+                "option":"You find it difficult to ignore negative feelings "
+             }
+          ]
+       },
+       {
+          "questionNumber":47,
+          "question":"How do you deal with your desires?",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"You are self restrained and limit your desires"
+             },
+             {
+                "optionNumber":2,
+                "option":"You are are fun loving and strongly dislike limits on your desires"
+             }
+          ]
+       },
+       {
+          "questionNumber":48,
+          "question":"How do you perceive your future?",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"You know your mission clearly and have set high standards for achieving it , thus expect to be disappointed,practical"
+             },
+             {
+                "optionNumber":2,
+                "option":"Your mission is a feeling/desire and you hope that you will achieve it , think positive,optimistic"
+             }
+          ]
+       },
+       {
+          "questionNumber":49,
+          "question":"What according to you makes people agree to your views/how do you do it?",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"You put logical reasons and arguments and try to convince them"
+             },
+             {
+                "optionNumber":2,
+                "option":"You rely on your self confidence and sheer personality,engaging them with gusty conversations"
+             }
+          ]
+       },
+       {
+          "questionNumber":50,
+          "question":"What is the first step in establishing justice according to you?",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"To reward those who do good and punish the wrongdoers."
+             },
+             {
+                "optionNumber":2,
+                "option":"To establish equality in terms of power/authority"
+             }
+          ]
+       },
+       {
+          "questionNumber":51,
+          "question":"You",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Are not easily convinced to take a break,do not allow yourself to be unproductive"
+             },
+             {
+                "optionNumber":2,
+                "option":"Are easily convinced to take a break from work which will be useful"
+             }
+          ]
+       },
+       {
+          "questionNumber":52,
+          "question":"You",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Hold on to your principles and ideals, always want to improve others and press for change"
+             },
+             {
+                "optionNumber":2,
+                "option":"Go along with others agendas and are more adaptable to their views and often lose sight of your own view"
+             }
+          ]
+       },
+       {
+          "questionNumber":53,
+          "question":"What type of relationships do you prefer",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Close and intimate"
+             },
+             {
+                "optionNumber":2,
+                "option":"Ordinary relationships, close relationships make you uncomfortable at times"
+             }
+          ]
+       },
+       {
+          "questionNumber":54,
+          "question":"People are attracted towards you because of",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Your friendly nature and that you give attention to their feelings"
+             },
+             {
+                "optionNumber":2,
+                "option":"Your outstanding way of work and dealing with things"
+             }
+          ]
+       },
+       {
+          "questionNumber":55,
+          "question":"You",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Look for people to rescue them"
+             },
+             {
+                "optionNumber":2,
+                "option":"Look for someone to rescue you"
+             }
+          ]
+       },
+       {
+          "questionNumber":56,
+          "question":"You focus on and are aware of",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Others’ feelings and unaware of your needs"
+             },
+             {
+                "optionNumber":2,
+                "option":"Your feelings and fail to recognize your impact on others"
+             }
+          ]
+       },
+       {
+          "questionNumber":57,
+          "question":"You are",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Emotionally expressive and people oriented"
+             },
+             {
+                "optionNumber":2,
+                "option":"Emotionally detached and loners"
+             }
+          ]
+       },
+       {
+          "questionNumber":58,
+          "question":"If you are rejected by people you cope by",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Winning over them"
+             },
+             {
+                "optionNumber":2,
+                "option":"Detaching and isolating yourself"
+             }
+          ]
+       },
+       {
+          "questionNumber":59,
+          "question":"In a relationship you want",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Love and sense of self worth"
+             },
+             {
+                "optionNumber":2,
+                "option":"Certainty and security"
+             }
+          ]
+       },
+       {
+          "questionNumber":60,
+          "question":"In a new relationship or friendship you",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Welcome others and focus on their feelings, sometimes losing on your feelings"
+             },
+             {
+                "optionNumber":2,
+                "option":"Welcome others but also doubt thems and protect yourself"
+             }
+          ]
+       },
+       {
+          "questionNumber":61,
+          "question":"You orient primarily towards",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Others needs, feelings and wants and alter yourself to meet them"
+             },
+             {
+                "optionNumber":2,
+                "option":"Your feelings and likes and want to pursue them"
+             }
+          ]
+       },
+       {
+          "questionNumber":62,
+          "question":"If a relationship is not working",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"You try to rework and find it difficult to let go"
+             },
+             {
+                "optionNumber":2,
+                "option":"You don’t like clinging on and feel letting go is better"
+             }
+          ]
+       },
+       {
+          "questionNumber":63,
+          "question":"You tend to focus on others and empower them based on",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Their feelings and wants; altering your beliefs"
+             },
+             {
+                "optionNumber":2,
+                "option":"Your sense of justice that you feel is important"
+             }
+          ]
+       },
+       {
+          "questionNumber":64,
+          "question":"When you are frustrated",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"You tend to make others feel guilty of it may be by dramatizing the suffering"
+             },
+             {
+                "optionNumber":2,
+                "option":"You push hard to get what you want may be by using direct threats"
+             }
+          ]
+       },
+       {
+          "questionNumber":65,
+          "question":"While mingling with people",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"You tend to alter your views/opinions ( lose your real self) to be accepted and sometimes become over friendly"
+             },
+             {
+                "optionNumber":2,
+                "option":"You are welcoming but do not alter your opinions to be accepted and also do not invade in people’s personal space"
+             }
+          ]
+       },
+       {
+          "questionNumber":66,
+          "question":"While focussing on others’ needs and feelings",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"You want a bit of appreciation and love from others"
+             },
+             {
+                "optionNumber":2,
+                "option":"Attention or appreciation from others do not matter much may be because you want to be independent and safe from their influence"
+             }
+          ]
+       },
+       {
+          "questionNumber":67,
+          "question":"You",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Are able to easily focus on your goals by letting go off your feelings or desires"
+             },
+             {
+                "optionNumber":2,
+                "option":"Are not able to focus on your goals and find it difficult to let go off your feelings and desires"
+             }
+          ]
+       },
+       {
+          "questionNumber":68,
+          "question":"Most of the time you find yourself to be",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Socially confident with positive self-image"
+             },
+             {
+                "optionNumber":2,
+                "option":"Socially uncomfortable with underconfident self image"
+             }
+          ]
+       },
+       {
+          "questionNumber":69,
+          "question":"You",
+          "options":[
+             {
+                "optionNumber":1,
+                "option":"Are always up for work and work is more continuous for you with little or no breaks at all so that you are not perceived as sluggish"
+             },
+             {
+                "optionNumber":2,
+                "option":"Are energetic in intervals with distinct periods of withdrawal and recharge yourselves by thinking things over"
+             }
+          ]
+       }
+    ]
+ }

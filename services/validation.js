@@ -6,7 +6,10 @@ const registerValidation = (data) => {
         name: Joi.string().min(6).required(),
         school: Joi.string().min(6).required(),
         phone: Joi.string().min(0).max(10).required(),
-        password: Joi.string().min(6).required()
+        password: Joi.string().min(6).required(),
+        city: Joi.string(),
+        class: Joi.string()
+        
     });
 
     // Lets Validate

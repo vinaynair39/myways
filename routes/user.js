@@ -17,7 +17,7 @@ router.post("/register", async (req, res) => {
     return res.status(400).send("hi from validation");
   }
 
-  const { name, school, phone, password } = req.body;
+  const { name, school, phone, password, city, className} = req.body;
   console.log(req.body);
 
   // Check if user already exists
@@ -36,6 +36,8 @@ router.post("/register", async (req, res) => {
     name,
     school,
     phone,
+    city,
+    class: className,
     password: hashPassword,
     score: {
       flexibilityOfClosure: 0,
