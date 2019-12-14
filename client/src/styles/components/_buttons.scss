@@ -125,7 +125,7 @@
     position: relative;
     border: none;
     left: 97vw;
-    margin: 0.5rem 1rem 0 0;
+    margin: 0 1rem 0 0;
     transition: all 0.2s ease;
     &:hover{
       transform: scale(1.1);
@@ -244,6 +244,7 @@
   height: 30vh;
   align-items: center;
   justify-content: center;
+  overflow: visible;
   padding: 0 20px;
 }
 
@@ -251,7 +252,6 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  overflow: hidden;
   flex-direction: row-reverse;
   height: 150px;
   position: relative;
@@ -349,4 +349,22 @@
   flex-wrap: wrap;
   align-items: center;
   box-shadow: 0 4px 30px rgba(0,0,0,.05);
+}
+.button-form {
+  border: none;
+  background: #FFC765;
+  outline:none;
+  color: white;
+  margin: 3rem 3.2rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  border-radius: 6px;
+  &:hover{
+    transform: scale(1.1);
+  }
+  &:active{
+      transform: translateY(4px);
+      border-bottom: solid 5px #FFC765;
+  }
 }

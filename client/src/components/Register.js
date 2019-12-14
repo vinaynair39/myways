@@ -6,7 +6,9 @@ import {
   faMobileAlt,
   faUser,
   faSchool,
-  faKey
+  faKey,
+  faCity,
+  faChalkboardTeacher
 } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 const Wrapper = styled.div`
@@ -84,6 +86,8 @@ class Register extends Component {
     this.state = {
       name: "",
       school: "",
+      class: "",
+      city: "",
       phone: "",
       password: "",
       formErrors: { name: "", school: "", phone: "", password: "" },
@@ -104,6 +108,12 @@ class Register extends Component {
           value.length < 6 ? "Minimum 6 characters required" : "";
         break;
       case "school":
+        formErrors.school =
+          value.length < 6 ? "Minimum 6 characters required" : "";
+        break;
+      case "class":
+        break;
+      case "city":
         formErrors.school =
           value.length < 6 ? "Minimum 6 characters required" : "";
         break;
@@ -132,7 +142,9 @@ class Register extends Component {
         name: this.state.name,
         school: this.state.school,
         phone: this.state.phone,
-        password: this.state.password
+        password: this.state.password,
+        city: this.state.city,
+        class: this.state.class
       };
       console.log(newUser);
       this.props.startSignUp(newUser);
@@ -145,72 +157,105 @@ class Register extends Component {
     const { formErrors } = this.state;
     return (
       <Wrapper className="">
-        <form noValidate onSubmit={this.onSubmit} className="form-main d-flex flex-column justify-content-center align-items-center">
-          <div className="form-box ">
-            <div className="d-flex justify-content-center align-items-center icon-box ">
-              <FontAwesomeIcon icon={faUser} className="form-icon" />
+        <form noValidate onSubmit={this.onSubmit} className="form-main ">
+          <div className="d-flex justify-content-center align-items-center">
+            <div className="d-flex flex-column justify-content-center align-items-center mx-3 my-4">
+              <div className="form-box my-3">
+                <div className="d-flex justify-content-center align-items-center icon-box ">
+                  <FontAwesomeIcon icon={faUser} className="form-icon" />
+                </div>
+                <input
+                  type="text"
+                  className="input-box ml-2"
+                  name="name"
+                  placeholder="Enter your name"
+                  value={this.state.name}
+                  onChange={this.onChange}
+                />
+              </div>
+              {formErrors.name.length > 0 && (
+                <span className="errorMessage">{formErrors.name}</span>
+              )}
+              <div className="form-box my-3">
+                <div className="d-flex justify-content-center align-items-center icon-box">
+                  <FontAwesomeIcon icon={faSchool} className="form-icon" />
+                </div>
+                <input
+                  type="text"
+                  className="input-box ml-2"
+                  name="school"
+                  placeholder="Enter school name"
+                  value={this.state.school}
+                  onChange={this.onChange}
+                />
+              </div>
+              {formErrors.school.length > 0 && (
+                <span className="errorMessage">{formErrors.school}</span>
+              )}
+              <div className="form-box my-3">
+                <div className="d-flex justify-content-center align-items-center icon-box">
+                  <FontAwesomeIcon icon={faChalkboardTeacher} className="form-icon" />
+                </div>
+                <input
+                  type="text"
+                  className="input-box ml-2"
+                  name="class"
+                  placeholder="Enter your current class"
+                  value={this.state.class}
+                  onChange={this.onChange}
+                />
+              </div>
             </div>
-            <input
-              type="text"
-              className="input-box ml-2"
-              name="name"
-              placeholder="Enter your name"
-              value={this.state.name}
-              onChange={this.onChange}
-            />
-          </div>
-          {formErrors.name.length > 0 && (
-            <span className="errorMessage">{formErrors.name}</span>
-          )}
-          <div className="form-box mt-4">
-            <div className="d-flex justify-content-center align-items-center icon-box">
-              <FontAwesomeIcon icon={faSchool} className="form-icon" />
+
+            <div className="d-flex flex-column justify-content-center align-items-center mx-3">
+              <div className="form-box my-3">
+                <div className="d-flex justify-content-center align-items-center icon-box">
+                  <FontAwesomeIcon icon={faCity} className="form-icon" />
+                </div>
+                <input
+                  type="text"
+                  className="input-box ml-2"
+                  name="city"
+                  placeholder="Enter your City"
+                  value={this.state.city}
+                  onChange={this.onChange}
+                />
+              </div>
+              <div className="form-box my-3">
+                <div className="d-flex justify-content-center align-items-center icon-box">
+                  <FontAwesomeIcon icon={faMobileAlt} className="form-icon" />
+                </div>
+                <input
+                  type="text"
+                  className="input-box ml-2"
+                  name="phone"
+                  placeholder="Phone"
+                  value={this.state.phone}
+                  onChange={this.onChange}
+                />
+              </div>
+              {formErrors.phone.length > 0 && (
+                <span className="errorMessage">{formErrors.phone}</span>
+              )}
+              <div className="form-box my-3">
+                <div className="d-flex justify-content-center align-items-center icon-box">
+                  <FontAwesomeIcon icon={faKey} className="form-icon" />
+                </div>
+                <input
+                  type="password"
+                  className="input-box ml-2"
+                  name="password"
+                  placeholder="Password"
+                  value={this.state.password}
+                  onChange={this.onChange}
+                />
+              </div>
+              {formErrors.password.length > 0 && (
+                <span className="errorMessage">{formErrors.password}</span>
+              )}
             </div>
-            <input
-              type="school"
-              className="input-box ml-2"
-              name="school"
-              placeholder="Enter school name"
-              value={this.state.school}
-              onChange={this.onChange}
-            />
           </div>
-          {formErrors.school.length > 0 && (
-            <span className="errorMessage">{formErrors.school}</span>
-          )}
-          <div className="form-box mt-4">
-            <div className="d-flex justify-content-center align-items-center icon-box">
-              <FontAwesomeIcon icon={faMobileAlt} className="form-icon" />
-            </div>
-            <input
-              type="text"
-              className="input-box ml-2"
-              name="phone"
-              placeholder="Phone"
-              value={this.state.phone}
-              onChange={this.onChange}
-            />
-          </div>
-          {formErrors.phone.length > 0 && (
-            <span className="errorMessage">{formErrors.phone}</span>
-          )}
-          <div className="form-box mt-4">
-            <div className="d-flex justify-content-center align-items-center icon-box">
-              <FontAwesomeIcon icon={faKey} className="form-icon" />
-            </div>
-            <input
-              type="password"
-              className="input-box ml-2"
-              name="password"
-              placeholder="Password"
-              value={this.state.password}
-              onChange={this.onChange}
-            />
-          </div>
-          {formErrors.password.length > 0 && (
-            <span className="errorMessage">{formErrors.password}</span>
-          )}
-          <div className="d-flex justify-content-end mt-4">
+          <div className="d-flex justify-content-center">
             <button type="submit" className="form-button">
               Register
             </button>

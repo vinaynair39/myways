@@ -45,7 +45,7 @@ class Landing extends Component {
       <Wrapper className="">
         <div className="d-flex flex-column justify-content-center align-items-center animated fadeInUp">
           <div className="title">Let us Help You</div>
-          <div className="sub-title">Discover Your Abilities</div>
+          <div className="sub-title">Discover Your Strengths</div>
           <Link to="/dashboardTest" className="link">Know more!</Link>
         </div>
         <div className="d-flex justify-content-end align-items-center">

@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestion } from "@fortawesome/free-solid-svg-icons";
 import ButtonList from './ButtonList';
 import { connect } from 'react-redux'
-import Progress from 'react-progressbar';
 
 
 const TestB = ({ test, currentTest }) => {
@@ -14,8 +13,10 @@ const TestB = ({ test, currentTest }) => {
     const [paragraph, setParagraph] = useState('');
     const [question, setQuestion] = useState('');
     const [options, setOptions] = useState([]);
-    const [progress, setProgress] = useState(0)
+    const [progress, setProgress] = useState(0);
+    const [difficulty, setDifficulty] = useState(0);
     const totalLength = test.questions.length;
+    const [testCompleted, setTestCompleted] = useState(false);
     let subquestionsTotal = 0;
 
     console.log(test)
@@ -25,8 +26,7 @@ const TestB = ({ test, currentTest }) => {
             setParagraph('');
             setQuestion('');
             setOptions('');
-            alert("Completed!")
-            history.push('/dashboardtest');
+            setProgress(100);
         }
         else {
             setQuestion(test.questions[currentQuestion].question);
@@ -35,13 +35,29 @@ const TestB = ({ test, currentTest }) => {
         }
     }, [currentQuestion])
 
-    const saveToLocalStorage = (state) => {
-        try {
-            const serializedState = JSON.stringify(state);
-            localStorage.setItem('question', serializedState)
-        } catch (e) {
-            console.log(e)
+    
+    const stars = () => {
+
+        const getDifficulty = () => {
+            setProgress(100)
+            setTestCompleted(true);
+            alert("Completed!");
+            console.log(difficulty)
+            history.push('/dashboardtest');
         }
+        return (
+            <>
+                <h2 className="test__title">How difficulty did you find this test? specifiy using this</h2>
+                <div className="stars">
+                    <input type="radio" id="star5" name="stars" value="5" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star5"></label>
+                    <input type="radio" id="star4" name="stars" value="4" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star4"></label>
+                    <input type="radio" id="star3" name="stars" value="3" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star3"></label>
+                    <input type="radio" id="star2" name="stars" value="2" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star2"></label>
+                    <input type="radio" id="star1" name="stars" value="1" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star1"></label>
+                    <button className="button-form" onClick={getDifficulty}>Submit</button>
+                </div>
+            </>
+        )
     }
 
     const nextQuestion = () => {
@@ -107,20 +123,18 @@ const TestB = ({ test, currentTest }) => {
 
     return (
         <>
-            <Progress completed={progress} color={'#FFC765'} />
+            {console.log('rjlgwfgerklngerlgn')}
             <div className="test__item">
                 {modal()}
                 <div>
-                    {/* {!!paragraph ? <h3 title={test.instructions} className='test__paragraph'>{paragraph}</h3> : <p>No questions yet</p>} */}
-                </div>
-                <div>
-                    <div>{!!question &&
-                        (validURL(question) ? <div className="test__img"><img  src={question} /></div>
-                            : <h2 className="test__title">{question}</h2>)}</div>
+                    {totalLength === currentQuestion ? stars() : <div>
+                        <div>{!!question &&
+                            (validURL(question) ? <div className="test__img"><img src={question} /></div>
+                                : <h2 className="test__title">{question}</h2>)}</div>
+                    </div>}
                 </div>
             </div>
-
-            <div><ButtonList previousQuestion={previousQuestion} nextQuestion={nextQuestion} options={options} currentQuestion={currentQuestion} currentTest={test.assesmentType} /></div>
+            <div>{totalLength !== currentQuestion && <ButtonList previousQuestion={previousQuestion} nextQuestion={nextQuestion} options={options} currentQuestion={currentQuestion} currentTest={test.assesmentType} />}</div>
             <div className="test__options">
                 {/* <Options nextQuestion={nextQuestion}  /> */}
             </div>

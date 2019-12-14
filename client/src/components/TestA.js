@@ -2,7 +2,7 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { history } from '../routers/AppRouter'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faQuestion } from "@fortawesome/free-solid-svg-icons";
+import { faQuestion, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import ButtonList from './ButtonList';
 import { connect } from 'react-redux';
 import { sendAnswers, questionState } from '../actions/test';
@@ -20,6 +20,8 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
     const [counter, setCounter] = useState(0);
     const [prevState, setPrevState] = useState(-1);
     const [currentState, setCurrentState] = useState(0);
+    const [testCompleted, setTestCompleted] = useState(false);
+    const [difficulty, setDifficulty] = useState(0);
     let subquestionsTotal = 0;
     const totalLength = test.questions.length;
 
@@ -28,6 +30,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
             setParagraph('');
             setQuestion('');
             setOptions('');
+            setProgress(100);
             alert("Completed!");
             sendAnswers(test.assesmentType, answers);
             history.push('/dashboardtest');
@@ -35,30 +38,34 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
         else {
             setParagraph(test.questions[currentQuestion].paragraph);
             setQuestion(test.questions[currentQuestion].questionSet[currentSubquestion].question);
-            if (test.questions[currentQuestion].questionSet[currentSubquestion].options){
+            if (test.questions[currentQuestion].questionSet[currentSubquestion].options) {
                 setOptions(test.questions[currentQuestion].questionSet[currentSubquestion].options.map(option => option.option));
             }
             addProgress();
         }
     }, [currentSubquestion, currentQuestion])
 
-    // useEffect(() => {
-    //     startTimer()
-    // }, [])
+    const stars = () => {
 
-    // //Timer Implementation
-    // const startTimer = () => {
-    //     setTimer(setInterval(() => setTimer(timer + 1), 1000))
-    //     console.log("start")
-    // }
-    // const stopTimer = () => {
-    //     clearInterval(timer)
-    //     console.log("stop")
-    // }
-    // const resetTimer = () => {
-    //     setTimer(0);
-    //     console.log("reset")
-    // }
+        const getDifficulty = () => {
+            setProgress(100)
+            setTestCompleted(true);
+            alert("Completed!");
+            console.log(difficulty)
+            history.push('/dashboardtest');
+        }
+        return (
+            <div className="stars">
+                <input type="radio" id="star5" name="stars" value="5" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star5"></label>
+                <input type="radio" id="star4" name="stars" value="4" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star4"></label>
+                <input type="radio" id="star3" name="stars" value="3" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star3"></label>
+                <input type="radio" id="star2" name="stars" value="2" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star2"></label>
+                <input type="radio" id="star1" name="stars" value="1" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star1"></label>
+                <button onClick={getDifficulty}>Submit</button>
+            </div>
+        )
+    }
+
 
     const nextQuestion = () => {
         setPrevState(currentState);
@@ -114,6 +121,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
 
     const modal = () => (
         <>
+            <Link className='goto-dashboard' to='/dashboardtest'><FontAwesomeIcon icon={faArrowLeft} /></Link>
             <Progress completed={progress} color={'#FFC765'} />
             <div className="button_modal">
                 <button type="button" className="button__modal-icon" data-toggle="modal" data-target="#exampleModalCenter">
@@ -146,12 +154,16 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
             {<>
                 <div className="test__item">
                     {modal()}
-                    <div>
-                        {!!paragraph && <h2 title={test.instructions} className='test__paragraph'>{paragraph}</h2>}
-                    </div>
-                    <div>
-                        {!!question && <h2 className="test__sub-question">{question}</h2>}
-                    </div>
+                    {console.log('rjlgwfgerklngerlgn')}
+                    {totalLength === currentQuestion ? stars() :
+                        <>
+                            <div>
+                                {!!paragraph && <h2 title={test.instructions} className='test__paragraph'>{paragraph}</h2>}
+                            </div>
+                            <div>
+                                {!!question && <h2 className="test__sub-question">{question}</h2>}
+                            </div></>
+                    }
                 </div>
                 <div><ButtonList nextQuestion={nextQuestion} previousQuestion={previousQuestion} options={options} currentQuestion={currentQuestion} currentSubquestion={currentSubquestion} /></div>
                 <div className="test__options">

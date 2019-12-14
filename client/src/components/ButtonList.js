@@ -22,6 +22,7 @@ const Wrapper = styled.div`
     color: #2e3740;
     border-radius: 3rem;
     width: fit-content;
+    max-width: 75vw;
   }
   .button-select2 {
     background: #FFC765;
@@ -54,6 +55,20 @@ const Wrapper = styled.div`
     justify-content: center;
     @media (max-width: 640px) {
       flex-direction: column;
+    }
+  }
+
+  .radios2 {
+    margin: 5rem 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 640px) {
+      
     }
   }
   .radio {
@@ -129,30 +144,21 @@ function ButtonList(props) {
   const onSubmit = (e) => {
     e.preventDefault();
     setSelectedOptionNumber(0);
-    if (!!props.answers.questions[props.currentQuestion].questionSet) {
-      const length = props.answers.questions[props.currentQuestion].questionSet.length;
-      if (!!props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion === length - 1 ? props.currentSubquestion : props.currentSubquestion + 1].answer.option) {
-        setSelectedOption(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion === length - 1 ? props.currentSubquestion : props.currentSubquestion + 1].answer.option);
-        setSelectedOptionNumber(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion === length - 1 ? 0 : props.currentSubquestion + 1].answer.optionNumber);
-        props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion, props.currentSubquestion);
-        props.nextQuestion();
-        saveToLocalStorage(props.answers);
-        return true;
-      }
+    props.nextQuestion();
+    handleShowButton();
+    if(!!props.answers.questions[props.currentQuestion].questionSet){
+      const length = props.answers.questions[props.currentQuestion].questionSet.length-1;
+      setSelectedOptionNumber(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion === length ? props.currentSubquestion : props.currentSubquestion + 1].answer.optionNumber);
     }
     else if (!!props.answers.questions[props.currentQuestion].question) {
-      if (!!props.answers.questions[props.currentQuestion].answer.optionNumber) {
-        console.log(props.currentQuestion)
-        setSelectedOptionNumber(props.answers.questions[props.currentQuestion + 1].answer.optionNumber);
-        props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion, props.currentSubquestion);
-        props.nextQuestion();
-        saveToLocalStorage(props.answers);
-        return true;
-      }
+    if (!!props.answers.questions[props.currentQuestion].answer.optionNumber) {
+      setSelectedOptionNumber(props.answers.questions[props.currentQuestion + 1].answer.optionNumber);
+      props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion, props.currentSubquestion);
+      saveToLocalStorage(props.answers);
+      return true;
     }
-    console.log('heerkerbv')
+  }
     props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion, props.currentSubquestion);
-    props.nextQuestion();
     saveToLocalStorage(props.answers);
     setChecked1(false);
     setChecked2(false);
@@ -164,26 +170,20 @@ function ButtonList(props) {
 
   const onPrevious = (e) => {
     e.preventDefault();
+    props.previousQuestion();
+    handleShowButton();
     if (!!props.answers.questions[props.currentQuestion].questionSet) {
-      props.previousQuestion();
-      const length = props.answers.questions[props.currentQuestion].questionSet.length;
-      setSelectedOption(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion === 0 ? length - 1 : props.currentSubquestion - 1].answer.option);
-      // console.log(props.answers.questions[props.currentQuestion-1]);
-      // console.log(props.answers.questions[props.currentQuestion-1].questionSet[props.currentSubquestion === 0 ? length - 1 : props.currentSubquestion - 1]);
-      setSelectedOptionNumber(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion === 0 ? length - 1 : props.currentSubquestion - 1].answer.optionNumber);
-      saveToLocalStorage(props.answers);
-      return true;
+      console.log('renbiren')
+      const length = props.answers.questions[props.currentQuestion].questionSet.length-1;
+      setSelectedOption(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion === 0 ? length : props.currentSubquestion - 1].answer.option);
+      setSelectedOptionNumber(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion === 0 ? length : props.currentSubquestion - 1].answer.optionNumber);
     }
     else if (!!props.answers.questions[props.currentQuestion].question) {
-      props.previousQuestion();
-      console.log(props.currentQuestion)
-      console.log(props.answers.questions[props.currentQuestion]);
       setSelectedOptionNumber(props.answers.questions[props.currentQuestion === 0 ? props.currentQuestion : props.currentQuestion - 1].answer.optionNumber);
       saveToLocalStorage(props.answers);
       return true;
     }
     props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion, props.currentSubquestion);
-    props.previousQuestion();
     saveToLocalStorage(props.answers);
     setChecked1(false);
     setChecked2(false);
@@ -195,7 +195,7 @@ function ButtonList(props) {
 
   const twoButton = ([a, b]) => (
     <div>
-      <div className="radios">
+      <div className={props.currentTest === "personalityTest" ? "radios2": "radios"}>
         <div className="radio button-select">
           <input type="radio" id="1" name="radio1" value={a} checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
             setSelectedOptionNumber(e.target.id)
