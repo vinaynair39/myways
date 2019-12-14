@@ -30,7 +30,7 @@ const Wrapper = styled.div`
     text-decoration-line:none;
     border-radius: 5px;
     color: #2e3740;
-    width: 12rem;
+    width: 15rem;
     &:hover{
       background-color: #2e3740;
       color:white;

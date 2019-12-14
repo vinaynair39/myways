@@ -7,6 +7,7 @@ import ButtonList from './ButtonList';
 import { connect } from 'react-redux';
 import { sendAnswers, questionState } from '../actions/test';
 import Progress from 'react-progressbar';
+import Timer from 'react.timer'
 
 
 const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
@@ -118,11 +119,15 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
         setProgress((currentState / subquestionsTotal) * 100);
     }
 
+    const OPTIONS = { prefix: 'seconds elapsed!', delay: 100}
+
+
 
     const modal = () => (
         <>
             <Link className='goto-dashboard' to='/dashboardtest'><FontAwesomeIcon icon={faArrowLeft} /></Link>
             <Progress completed={progress} color={'#FFC765'} />
+            <div title="elapsed time"className="test-timer"><Timer/></div>
             <div className="button_modal">
                 <button type="button" className="button__modal-icon" data-toggle="modal" data-target="#exampleModalCenter">
                     <FontAwesomeIcon color={'#2e3740'} icon={faQuestion} className="form-icon" size='lg' />

@@ -3,12 +3,17 @@ import { history } from '../routers/AppRouter'
 import { Link } from 'react-router-dom';
 import { getCurrentTest } from '../actions/test';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faQuestion } from "@fortawesome/free-solid-svg-icons";
+import { faQuestion, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import ButtonList from './ButtonList';
-import { connect } from 'react-redux'
+import { sendAnswers, questionState } from '../actions/test';
+import { connect } from 'react-redux'; 
+import Progress from 'react-progressbar';
+import Timer from 'react.timer'
 
 
-const TestB = ({ test, currentTest }) => {
+
+
+const TestB = ({ test, currentTest, sendAnswers, answers}) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [paragraph, setParagraph] = useState('');
     const [question, setQuestion] = useState('');
@@ -27,6 +32,9 @@ const TestB = ({ test, currentTest }) => {
             setQuestion('');
             setOptions('');
             setProgress(100);
+            alert("Completed!");
+            sendAnswers(test.assesmentType, answers);
+            history.push('/dashboardtest');;
         }
         else {
             setQuestion(test.questions[currentQuestion].question);
@@ -35,7 +43,7 @@ const TestB = ({ test, currentTest }) => {
         }
     }, [currentQuestion])
 
-    
+
     const stars = () => {
 
         const getDifficulty = () => {
@@ -96,29 +104,34 @@ const TestB = ({ test, currentTest }) => {
     }
 
     const modal = () => (
-        <div className="button_modal">
-            <button type="button" className="button__modal-icon" data-toggle="modal" data-target="#exampleModalCenter">
-                <FontAwesomeIcon color={'#2e3740'} icon={faQuestion} className="form-icon" size='lg' />
-            </button>
-            <div className="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div className="modal-dialog modal-dialog-centered" role="document">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLongTitle">{test.assesmentType}</h5>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div className="modal-body">
-                            {test.instructions}
-                        </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+        <>
+            <Link className='goto-dashboard' to='/dashboardtest'><FontAwesomeIcon icon={faArrowLeft} /></Link>
+            <Progress completed={progress} color={'#FFC765'} />
+            <div title="elapsed time"className="test-timer"><Timer/></div>
+            <div className="button_modal">
+                <button type="button" className="button__modal-icon" data-toggle="modal" data-target="#exampleModalCenter">
+                    <FontAwesomeIcon color={'#2e3740'} icon={faQuestion} className="form-icon" size='lg' />
+                </button>
+                <div className="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div className="modal-dialog modal-dialog-centered" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLongTitle">{test.assesmentType}</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div className="modal-body">
+                                {test.instructions}
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 
     return (
@@ -145,10 +158,12 @@ const TestB = ({ test, currentTest }) => {
 
 
 const mapDispatchToProps = (dispatch) => ({
+    sendAnswers: (answers) => dispatch(sendAnswers(answers)),
     currentTest: (name) => dispatch(getCurrentTest(name))
 })
 
 const mapStateToProps = (state) => ({
+    answers: state.test.answers,
     isLoading: state.auth.loading
 })
 
