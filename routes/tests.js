@@ -1,5 +1,6 @@
 const router = require('express').Router();
 
+const User = require("../model/User");
 const QUESTIONS = require('../seed/tests.json');
 
 const {
