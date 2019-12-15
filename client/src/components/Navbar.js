@@ -11,10 +11,10 @@ class Navbar extends Component {
     const loginRegLink = (
       <div>
         <Link to="/login" className="nav-links mr-5 text-color2">
-         Login
+          Login
         </Link>
         <Link to="/signup" className="nav-links mr-4 text-color2">
-        Register
+          Register
         </Link>
       </div>
     );
@@ -36,14 +36,15 @@ class Navbar extends Component {
 
     return (
       <NavWrapper>
-        <div className="d-flex align-items-center nav-name col-6 ">
+        <div className="d-flex align-items-center nav-name col-6 pl-1 ">
           <Link to="/" className="nav-name">
-              <img className="logo" src= {"https://www.myways.in/visitor/img/logo/logo%20home.png"}/>
+            <img className="logo2 " src={process.env.PUBLIC_URL + '/edoflip.png'} />
+            <img className="logo" src={"https://www.myways.in/visitor/img/logo/logo%20home.png"} />
           </Link>
         </div>
 
         <div className="d-flex align-items-center justify-content-end col-6 nav-links">
-          <div>{this.props.isAuthenticated ? "" : loginRegLink}</div>
+          <div className='text-color2 mr-4 text-capitalize'>{this.props.isAuthenticated ? `Hello ${this.props.user}!` : loginRegLink}</div>
         </div>
       </NavWrapper>
     );
@@ -61,6 +62,12 @@ const NavWrapper = styled.nav`
   }
   .logo{
     margin-bottom: 0.2rem;
+    height:7vh;
+    position:relative;
+    left: -0.7rem;
+  }
+  .logo2{
+    margin-bottom: 0.5rem;
     height:7.5vh;
   }
   .icon-reg{
@@ -139,7 +146,8 @@ const NavWrapper = styled.nav`
 `;
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
+  isAuthenticated: state.auth.isAuthenticated,
+  user: state.auth.user.name
 });
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(startLogout())

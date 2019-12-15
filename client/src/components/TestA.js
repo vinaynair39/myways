@@ -1,16 +1,17 @@
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect } from 'react';
 import { history } from '../routers/AppRouter'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestion, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import ButtonList from './ButtonList';
 import { connect } from 'react-redux';
-import { sendAnswers, questionState } from '../actions/test';
+import { sendAnswers, questionState, getDifficulty } from '../actions/test';
 import Progress from 'react-progressbar';
 import Timer from 'react.timer';
-import {testState} from '../actions/test'
+import { testState } from '../actions/test'
+import { postUser, saveUserToLocalStorage } from '../actions/auth';
 
-const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
+const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, userId, getDifficulty,testState, postUser}) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [currentSubquestion, setCurrentSubquestion] = useState(0);
     const [paragraph, setParagraph] = useState('');
@@ -32,10 +33,15 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
             setQuestion('');
             setOptions('');
             setProgress(100);
-            testState(test.assesmentType)
-            alert("Completed!");
-            sendAnswers(test.assesmentType, answers);
-            history.push('/dashboardtest');
+            if (testCompleted) {
+                testState(test.assesmentType);  
+                getDifficulty(difficulty)
+                alert("Completed!");
+                sendAnswers({ id: userId, answers });
+                saveUserToLocalStorage(user);
+                postUser(user);
+                history.push('/dashboardtest');
+            }
         }
         else {
             setParagraph(test.questions[currentQuestion].paragraph);
@@ -45,25 +51,26 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
             }
             addProgress();
         }
-    }, [currentSubquestion, currentQuestion])
+    }, [currentSubquestion, currentQuestion, testCompleted])
 
     const stars = () => {
 
-        const getDifficulty = () => {
-            setProgress(100)
+        const addDifficulty = () => {
+            setProgress(100);
             setTestCompleted(true);
-            alert("Completed!");
-            history.push('/dashboardtest');
         }
         return (
-            <div className="stars">
-                <input type="radio" id="star5" name="stars" value="5" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star5"></label>
-                <input type="radio" id="star4" name="stars" value="4" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star4"></label>
-                <input type="radio" id="star3" name="stars" value="3" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star3"></label>
-                <input type="radio" id="star2" name="stars" value="2" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star2"></label>
-                <input type="radio" id="star1" name="stars" value="1" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star1"></label>
-                <button onClick={getDifficulty}>Submit</button>
-            </div>
+            <>
+                <h2 className="test__title">How difficulty did you find this test? specifiy using this</h2>
+                <div className="stars">
+                    <input type="radio" id="star5" name="stars" value="5" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star5"></label>
+                    <input type="radio" id="star4" name="stars" value="4" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star4"></label>
+                    <input type="radio" id="star3" name="stars" value="3" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star3"></label>
+                    <input type="radio" id="star2" name="stars" value="2" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star2"></label>
+                    <input type="radio" id="star1" name="stars" value="1" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star1"></label>
+                    <button className="button-form" onClick={addDifficulty}>Submit</button>
+                </div>
+            </>
         )
     }
 
@@ -119,15 +126,13 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
         setProgress((currentState / subquestionsTotal) * 100);
     }
 
-    const OPTIONS = { prefix: 'seconds elapsed!', delay: 100}
-
 
 
     const modal = () => (
         <>
             <Link className='goto-dashboard' to='/dashboardtest'><FontAwesomeIcon icon={faArrowLeft} /></Link>
             <Progress completed={progress} color={'#FFC765'} />
-            <div title="elapsed time"className="test-timer"><Timer/></div>
+            <div title="elapsed time" className="test-timer"><Timer /></div>
             <div className="button_modal">
                 <button type="button" className="button__modal-icon" data-toggle="modal" data-target="#exampleModalCenter">
                     <FontAwesomeIcon color={'#2e3740'} icon={faQuestion} className="form-icon" size='lg' />
@@ -169,7 +174,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
                             </div></>
                     }
                 </div>
-                <div><ButtonList nextQuestion={nextQuestion} previousQuestion={previousQuestion} options={options} currentQuestion={currentQuestion} currentSubquestion={currentSubquestion} /></div>
+                <div>{totalLength !== currentQuestion && <ButtonList nextQuestion={nextQuestion} previousQuestion={previousQuestion} options={options} currentQuestion={currentQuestion} currentSubquestion={currentSubquestion} />}</div>
                 <div className="test__options">
                 </div>
             </>}
@@ -180,13 +185,18 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState }) => {
 const mapDispatchToProps = (dispatch) => ({
     sendAnswers: (answers) => dispatch(sendAnswers(answers)),
     questionState: (current) => dispatch(questionState(current)),
-    testState: (name) => dispatch(testState(name))
+    testState: (name) => dispatch(testState(name)),
+    getDifficulty: (difficulty) => dispatch(getDifficulty(difficulty)),
+    testState: (assesmentType) => dispatch(testState(assesmentType)),
+    postUser: (user) => dispatch(postUser(user))
 });
 
 const mapStateToProps = (state) => ({
     answers: state.test.answers,
     previousState: state.test.previous,
-    currentState: state.test.current
+    currentState: state.test.current,
+    userId: state.auth.user._id,
+    user: state.auth.user
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TestA);

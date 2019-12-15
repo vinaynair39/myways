@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import AppRouter from './routers/AppRouter'
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
-import {login, startLogout} from './actions/auth'
+import {login, startLogout, setUser} from './actions/auth'
 import {history}from './routers/AppRouter'
 import './index.css';
 import App from './App';
@@ -12,7 +12,7 @@ import LoadingPage from './pages/LoadingPage';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore'
-import { startAddTests , addAnswers} from './actions/test';
+import { startAddTests , addAnswers,} from './actions/test';
 import 'popper.js'
 import 'jquery';
 import 'animate.css'
@@ -42,6 +42,14 @@ const getFromLocalStorage = (state) => {
     console.log(e)
   }
 }
+const getUserFromLocalStorage = () => {
+  try {
+    const serializedState = JSON.parse(localStorage.getItem('user'));
+    return serializedState;
+  } catch (e) {
+    console.log(e)
+  }
+}
 // ReactDOM.render(<LoadingPage/>, document.getElementById('root'));
 const token = sessionStorage.getItem('FBIdToken');
 if (token) {
@@ -54,6 +62,7 @@ if (token) {
   }
   else {
     store.dispatch(login());
+    store.dispatch(setUser(getUserFromLocalStorage()));
     axios.defaults.headers.common['Authorization'] = token;
     store.dispatch(startAddTests()).then(() => {
       getFromLocalStorage();

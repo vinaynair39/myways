@@ -107,14 +107,6 @@ class Dashboard2 extends Component {
               <FontAwesomeIcon icon={faColumns} className="icon" />
               Dashboard
             </div>
-            <div className="sidebar1-item" onClick={() => this.handleClick("test")}>
-              <FontAwesomeIcon icon={faPoll} className="icon" />
-              Tests
-            </div>
-            <div className="sidebar1-item">
-              <FontAwesomeIcon icon={faChartArea} className="icon" />
-              Result
-            </div>
           </div>
           <div className="sidebar-grid2">
             {this.props.isAuthenticated && <div className="sidebar2-item">
@@ -126,7 +118,7 @@ class Dashboard2 extends Component {
 
           </div>
         </div>
-        <div className="grid-col-2 d-flex justify-content-center">
+        <div className="grid-col-2 d-flex justify-content-center mb-4">
           {this.state.selection === "dashboard" ? (
             <TesList tests={this.props.tests}/>
           ) : this.state.selection === "test" ? (

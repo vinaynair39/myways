@@ -1,4 +1,4 @@
-import { ADD_QUESTIONS, ADD_TESTS, ADD_ANSWERS, CURRENT_TEST, LOADING_UI,TEST_STATE, UNLOADING_UI, CURRENT_ANSWERS,QUESTION_STATE } from './constants';
+import { ADD_QUESTIONS, GET_DIFFICULTY, ADD_TESTS, ADD_ANSWERS, CURRENT_TEST, LOADING_UI,TEST_STATE, UNLOADING_UI, CURRENT_ANSWERS,QUESTION_STATE } from './constants';
 
 import axios from 'axios';
 
@@ -25,10 +25,17 @@ export const questionState = (current) => ({
     current
 });
 
-export const testState = (test) => ({
+export const testState = (assesmentType) => ({
     type: TEST_STATE,
-    test
+    assesmentType
 });
+
+export const getDifficulty = (difficulty) => ({
+    type: GET_DIFFICULTY,
+    difficulty
+});
+
+
 
 export const addAnswers = (answerNumber, answer, currentQuestion, currentSubquestion) => {
     return (
@@ -43,13 +50,13 @@ export const addAnswers = (answerNumber, answer, currentQuestion, currentSubques
 
 export const startAddAnswers = () => {
     return (dispatch, getState) => {
-        axios.get('http://localhost:5000/test/api/questions').then(res => {
+        axios.get('http://edoflip.myways.in/api/questions').then(res => {
         })
     }
 }
 export const startAddTests = () => {
     return (dispatch, getState) => {
-        return axios.get('http://localhost:5000/api/test/tests').then(res => {
+        return axios.get('http://edoflip.myways.in/api/test/tests').then(res => {
             dispatch(addTests(res.data))
         }).catch(err => {
             console.log(err)
@@ -60,7 +67,7 @@ export const startAddTests = () => {
 export const getCurrentTest = (testName = "deductiveReasoning") => {
     return (dispatch, getState) => {
         dispatch({ type: LOADING_UI });
-        return axios.get(`http://localhost:5000/api/test/${testName}`).then(res => {
+        return axios.get(`http://edoflip.myways.in/api/test/${testName}`).then(res => {
             dispatch(currentTest(res.data));
             dispatch(getCurrentAnswers(testName)).then(() => {
                 dispatch({ type: UNLOADING_UI });
@@ -76,7 +83,7 @@ export const getCurrentAnswers = (testName = "deductiveReasoning") => {
         console.log('bitchh')
         dispatch({ type: LOADING_UI });
         // return axios.get(`/api/test/${testName}`).then(res => {
-        return axios.get(`http://localhost:5000/api/answers/${testName}`).then(res => {
+        return axios.get(`http://edoflip.myways.in/api/answers/${testName}`).then(res => {
             console.log(res.data)
             dispatch(currentAnswers(res.data));
         }).catch(err => {
@@ -86,12 +93,14 @@ export const getCurrentAnswers = (testName = "deductiveReasoning") => {
 }
 
 
-export const sendAnswers = (testName, answers) => {
+export const sendAnswers = (answers) => {
     return (dispatch, getState) => {
         console.log('send send send');
         dispatch({ type: LOADING_UI });
-        return axios.post(`http://localhost:5000/api/result/${testName}`, answers).then(res => {
+        console.log(answers)
+        return axios.post(`http://edoflip.myways.in/api/result/answers`, answers).then(res => {
             alert("answer submitted");
+            console.log(res.data)
         }).catch(err => {
             console.log(err)
         })

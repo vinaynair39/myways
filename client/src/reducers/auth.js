@@ -55,16 +55,8 @@ export default (state = initialState, action) => {
                 user: action.user
             }
         case TEST_STATE:
-            return {
-                ...state,
-                user: {
-                   ... action.user,
-                   testStatus: {
-                       ...state.user.testStatus,
-                       
-                   }
-                }
-            }
+            state.user.testStatus[action.assesmentType] = true;
+            return state;
         default:
             return state;
     }

@@ -2,6 +2,7 @@
 
   "assesmentType": "informationOrdering",
   "instructions": "these are instructions",
+  "userDifficulty": "",
   "questions": [
     {
       "questionNumber": "1",

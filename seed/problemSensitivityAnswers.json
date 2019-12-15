@@ -1,5 +1,6 @@
 {
     "assesmentType": "problemSensitivity",
+    "userDifficulty": "",
     "instructions": "When making important decisions, it is useful to be able to distinguish between a strong argument and a weak argument. A strong argument is both important and directly related to the question. A weak argument is not directly related to the question, or is of minor importance or may be related to a trivial aspect of the question, or confuses correlation with causation (incorrectly assuming that because two things are related, they cause each other to happen).In this section, a statement is presented to you with an agreeing or disagreeing argument below. You must regard each argument as true, regardless whether it is weak or strong, agrees or disagrees with the statement. The first and second statements will have three arguments each and the third statement will have only two arguments.If you consider an argument to be strong, select Strong argument, or if you consider an argument to be weak, select Weak argument. Judge each question and argument individually. Try not to take into account individual opinion or general knowledge since each argument is considered to be true.",
     "questions": [
       {

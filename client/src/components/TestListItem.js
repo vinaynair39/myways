@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import TestInfo from "./TestInfo";
+import { connect } from 'react-redux'
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCode, faGlobe, faPalette } from "@fortawesome/free-solid-svg-icons";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const Wrapper = styled.div`
   padding-top: 1.5rem;
@@ -92,27 +92,35 @@ const Wrapper = styled.div`
 // import { faPlus } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const TestListItem = ({ assesmentName, assesmentType, definition, imageUrl }) => {
+const TestListItem = ({ assesmentName, assesmentType, definition, imageUrl, testState }) => {
   return (
     <Wrapper>
       {console.log(assesmentType)}
       <Link to={`../testInfo/${assesmentType}`} >
         <div className="card col-auto p-0">
-          {!!imageUrl ? <img
+          <img
             src={imageUrl}
             alt=""
             className="card-img"
-          /> : <p className="card-img">Coming soon..</p>}
+          />
           <div className="card-body d-flex-row m-0 p-0">
             <div className="h-title m-2">{assesmentName}</div>
           </div>
-          <div className="button-select">
-            View
-          </div>
+          {testState[assesmentType] ? <div className="button-select" disable={true}>
+            Completed <FontAwesomeIcon icon={faCheck} color={'#904E55'} />
+          </div> : <div className="button-select">
+            view
+          </div>}
+
         </div>
       </Link>
     </Wrapper>
   );
 };
 
-export default TestListItem;
+
+const mapStateToProps = (state) => ({
+  testState: state.auth.user.testStatus
+});
+
+export default connect(mapStateToProps, undefined)(TestListItem);

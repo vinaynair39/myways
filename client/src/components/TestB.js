@@ -5,18 +5,20 @@ import { getCurrentTest } from '../actions/test';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestion, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import ButtonList from './ButtonList';
-import { sendAnswers, questionState } from '../actions/test';
-import { connect } from 'react-redux'; 
+import { sendAnswers, questionState, getDifficulty } from '../actions/test';
+import { connect } from 'react-redux';
 import Progress from 'react-progressbar';
 import Timer from 'react.timer';
-import {testState} from '../actions/test'
+import { testState } from '../actions/test';
+import { postUser, saveUserToLocalStorage } from '../actions/auth';
 
 
 
 
 
-const TestB = ({ test, currentTest, sendAnswers, answers}) => {
-    const [currentQuestion, setCurrentQuestion] = useState(65);
+
+const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId, getDifficulty, testState}) => {
+    const [currentQuestion, setCurrentQuestion] = useState(0);
     const [paragraph, setParagraph] = useState('');
     const [question, setQuestion] = useState('');
     const [options, setOptions] = useState([]);
@@ -34,27 +36,30 @@ const TestB = ({ test, currentTest, sendAnswers, answers}) => {
             setQuestion('');
             setOptions('');
             setProgress(100);
-            testState(test.assesmentType);
-            alert("Completed!");
-            sendAnswers(test.assesmentType, answers);
-            history.push('/dashboardtest');;
+            if (testCompleted) {
+                testState(test.assesmentType);
+                getDifficulty(difficulty);
+                alert("Completed!");
+                sendAnswers({ id: userId, answers });
+                postUser(user);
+                saveUserToLocalStorage(user);
+                history.push('/dashboardtest');
+            }
         }
         else {
             setQuestion(test.questions[currentQuestion].question);
             !!test.questions[currentQuestion].options && setOptions(test.questions[currentQuestion].options.map(option => option.option));
             calculateProgress();
         }
-    }, [currentQuestion])
+    }, [currentQuestion, testCompleted])
 
 
     const stars = () => {
 
-        const getDifficulty = () => {
-            setProgress(100)
+        const addDifficulty = () => {
+            setProgress(100);
             setTestCompleted(true);
-            alert("Completed!");
-            console.log(difficulty)
-            history.push('/dashboardtest');
+            console.log(difficulty);
         }
         return (
             <>
@@ -65,7 +70,7 @@ const TestB = ({ test, currentTest, sendAnswers, answers}) => {
                     <input type="radio" id="star3" name="stars" value="3" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star3"></label>
                     <input type="radio" id="star2" name="stars" value="2" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star2"></label>
                     <input type="radio" id="star1" name="stars" value="1" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star1"></label>
-                    <button className="button-form" onClick={getDifficulty}>Submit</button>
+                    <button className="button-form" onClick={addDifficulty}>Submit</button>
                 </div>
             </>
         )
@@ -110,7 +115,7 @@ const TestB = ({ test, currentTest, sendAnswers, answers}) => {
         <>
             <Link className='goto-dashboard' to='/dashboardtest'><FontAwesomeIcon icon={faArrowLeft} /></Link>
             <Progress completed={progress} color={'#FFC765'} />
-            <div title="elapsed time"className="test-timer"><Timer/></div>
+            <div title="elapsed time" className="test-timer"><Timer /></div>
             <div className="button_modal">
                 <button type="button" className="button__modal-icon" data-toggle="modal" data-target="#exampleModalCenter">
                     <FontAwesomeIcon color={'#2e3740'} icon={faQuestion} className="form-icon" size='lg' />
@@ -163,13 +168,19 @@ const TestB = ({ test, currentTest, sendAnswers, answers}) => {
 const mapDispatchToProps = (dispatch) => ({
     sendAnswers: (answers) => dispatch(sendAnswers(answers)),
     currentTest: (name) => dispatch(getCurrentTest(name)),
-    testState: (name) => dispatch(testState(name))
-    
+    testState: (name) => dispatch(testState(name)),
+    getDifficulty: (difficulty) => dispatch(getDifficulty(difficulty)),
+    testState: (assesmentType) => dispatch(testState(assesmentType)),
+    postUser: (user) => dispatch(postUser(user))
+
 })
 
 const mapStateToProps = (state) => ({
     answers: state.test.answers,
-    isLoading: state.auth.loading
+    isLoading: state.auth.loading,
+    userId: state.auth.user._id,
+    user: state.auth.user
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TestB);

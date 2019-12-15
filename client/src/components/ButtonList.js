@@ -367,49 +367,47 @@ function ButtonList(props) {
         <div className="rating">
           <input type="radio" name="rating" id="rating-5"  checked={selectedOptionNumber === '5' ? true : checked5} onChange={(e) => {
             var numberPattern = /\d+/g;
-            setSelectedOptionNumber(e.target.id.match(numberPattern)[0])
+            setSelectedOptionNumber(e.target.id.match(numberPattern)[0]);
+            setSelectedOption(e.target.id.match(numberPattern)[0]);
             console.log(e.target.id.match(numberPattern)[0])
-            setSelectedOption(e.target.value);
+            console.log(selectedOptionNumber)
             setChecked5(true);
             handleShowButton();
           }} />
           <label htmlFor="rating-5"></label>
-          <input type="radio" name="rating" id="rating-4"  checked={selectedOptionNumber === '4' ? true : checked4}
+          <input type="radio" name="rating" id="rating-4"   checked={selectedOptionNumber === '4' ? true : checked4}
             onChange={(e) => {
               var numberPattern = /\d+/g;
-              setSelectedOption(e.target.value);
-              setSelectedOptionNumber(e.target.id.match(numberPattern)[0]);
+              setSelectedOption(e.target.id.match(numberPattern)[0]);
+              setSelectedOptionNumber(e.target.id.match(numberPattern)[0])
               console.log(e.target.id.match(numberPattern)[0])
               setChecked4(true);
               handleShowButton();
             }} />
           <label htmlFor="rating-4"></label>
-          <input type="radio" name="rating" id="rating-3"  checked={selectedOptionNumber === '3' ? true : checked3} onChange={(e) => {
+          <input type="radio" name="rating" id="rating-3" checked={selectedOptionNumber === '3' ? true : checked3} onChange={(e) => {
             var numberPattern = /\d+/g;
-            setSelectedOption(e.target.value);
+            setSelectedOption(e.target.id.match(numberPattern)[0]);
             setSelectedOptionNumber(e.target.id.match(numberPattern)[0])
             console.log(e.target.id.match(numberPattern)[0])
-
             setChecked3(true);
             handleShowButton();
           }} />
           <label htmlFor="rating-3"></label>
           <input type="radio" name="rating" id="rating-2"  checked={selectedOptionNumber === '2' ? true : checked2} onChange={(e) => {
             var numberPattern = /\d+/g;
-            setSelectedOption(e.target.value);
+            setSelectedOption(e.target.id.match(numberPattern)[0]);
             setSelectedOptionNumber(e.target.id.match(numberPattern)[0])
-            console.log(e.target.id.match(numberPattern)[0])
-
+            console.log(e.target.value)
             setChecked2(true);
             handleShowButton();
           }} />
           <label htmlFor="rating-2"></label>
           <input type="radio" name="rating" id="rating-1"  checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
             var numberPattern = /\d+/g;
-            setSelectedOption(e.target.value);
+            setSelectedOption(e.target.id.match(numberPattern)[0]);
             setSelectedOptionNumber(e.target.id.match(numberPattern)[0])
-            console.log(e.target.id.match(numberPattern)[0])
-
+            console.log(selectedOptionNumber)
             setChecked1(true);
             handleShowButton();
           }} />
@@ -521,7 +519,6 @@ function ButtonList(props) {
   return (
     <Wrapper className="">
       {getButton()}
-      {/* {getEmojiMeter()} */}
       <div className="test-buttons">
         {true ? <button className="button button-right" onClick={onSubmit}><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
           : <button className="button button-disable"><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>

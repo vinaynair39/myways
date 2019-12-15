@@ -3,7 +3,8 @@ import {
     ADD_ANSWERS,
     CURRENT_TEST,
     CURRENT_ANSWERS,
-    QUESTION_STATE,TEST_STATE
+    QUESTION_STATE,TEST_STATE,
+    GET_DIFFICULTY,
 } from '../actions/constants'
 
 const initState = {
@@ -28,6 +29,7 @@ export default (state = initState, action) => {
             };
         case ADD_ANSWERS:
             if(!!state.answers.questions[action.currentQuestion].questionSet){
+                console.log('inside redux')
                 state.answers.questions[action.currentQuestion].questionSet[action.currentSubquestion].answer.option = action.answer;
                 state.answers.questions[action.currentQuestion].questionSet[action.currentSubquestion].answer.optionNumber = action.answerNumber;
             }
@@ -41,13 +43,15 @@ export default (state = initState, action) => {
                 ...state,
                 answers: action.answers
             }
+        case GET_DIFFICULTY:
+            state.answers.userDifficulty = action.difficulty;
+            return state;
         case CURRENT_TEST:
             return {
                 ...state,
                 questions: action.questions
             }
-        case QUESTION_STATE:
-            return state.tests.filter(test => test.assesmentType !== action.test)
+
         default:
             return state;
     }

@@ -1,5 +1,6 @@
 {
     "assesmentType": "mathematicalReasoning",
+    "userDifficulty": "",
     "questions": [
         {
             "questionNumber": "1",

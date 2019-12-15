@@ -1,5 +1,6 @@
 {
-    "assesmentType": "Personality Assessment",
+    "assesmentType": "personalityTest",
+    "userDifficulty": "",
     "instructions": "these are instructions",
     "questions": [
         {

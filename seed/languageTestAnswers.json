@@ -1,5 +1,6 @@
 {
     "assesmentType": "languageTest",
+    "userDifficulty": "",
     "questions": [
         {
             "questionNumber": "1",

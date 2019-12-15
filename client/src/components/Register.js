@@ -157,7 +157,7 @@ class Register extends Component {
     const { formErrors } = this.state;
     return (
       <Wrapper className="">
-        <form noValidate onSubmit={this.onSubmit} className="form-main ">
+        <form noValidate onSubmit={this.onSubmit} className="form-main  animated fadeInLeft">
           <div className="d-flex justify-content-center align-items-center">
             <div className="d-flex flex-column justify-content-center align-items-center mx-3 my-4">
               <div className="form-box my-3">

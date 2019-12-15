@@ -22,7 +22,7 @@ const TestPage = (props) =>{
 }
     
 const mapStateToProps = (state) => ({
-    tests: state.test ? state.test.questions: []
+    tests: state.test ? state.test.questions: [],
 });
 const mapDispatchToProps = (dispatch) => ({
     currentTest: (name) => dispatch(getCurrentTest(name))

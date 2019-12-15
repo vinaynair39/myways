@@ -5,7 +5,8 @@ import {
     SET_ERRORS,
     UNSET_ERRORS,
     TEST_STATE,
-    SET_USER
+    SET_USER,
+    POST_USER
     
 } from './constants.js'
 
@@ -22,14 +23,24 @@ export const setUser = (user) => ({
     user
 })
 
+export const postUser = (user) => {
+    return () => {
+        return axios.post('http://edoflip.myways.in/api/user/setTestCompleted', user).then(() => {
+        }).catch(err => {
+            console.log('user updated')
+        })
+    }
+}
+
 
 export const startSignUp = (newUser) => {
     return (dispatch) => {
         dispatch({ type: LOADING_UI });
-        axios.post('http://localhost:5000/api/user/register', { ...newUser }).then((res) => {
+        axios.post('http://edoflip.myways.in/api/user/register', { ...newUser }).then((res) => {
             console.log(res.data)
             setAuthorizationHeader(res.data.token);
             dispatch(setUser(res.data.user));
+            saveUserToLocalStorage(res.data.user);
             dispatch(startAddTests()).then(() => {
                 dispatch(login());
                 dispatch({ type: UNLOADING_UI });
@@ -48,10 +59,11 @@ export const startLogin = (credentials) => {
     
     return (dispatch) => {
         dispatch({ type: LOADING_UI });
-        return axios.post('http://localhost:5000/api/user/login', credentials).then(res => {
-            console.log(res.data.token)
+        return axios.post('http://edoflip.myways.in/api/user/login', credentials).then(res => {
+            console.log(res.data.token);
             setAuthorizationHeader(res.data.token);
-
+            dispatch(setUser(res.data.user));
+            saveUserToLocalStorage(res.data.user);
             dispatch(startAddTests()).then(() => {
                 dispatch({ type: UNLOADING_UI });
                 dispatch(login());
@@ -84,3 +96,12 @@ const setAuthorizationHeader = (token) => {
     sessionStorage.setItem('FBIdToken', FBIdToken);
     axios.defaults.headers.common['Authorization'] = FBIdToken;
 };
+
+export const saveUserToLocalStorage = (state) => {
+    try {
+      const serializedState = JSON.stringify(state);
+      localStorage.setItem('user', serializedState)
+    } catch (e) {
+      console.log(e)
+    }
+}

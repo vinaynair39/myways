@@ -115,7 +115,7 @@ class Login extends Component {
   render() {
     return (
       <Wrapper className="">
-        <form noValidate onSubmit={this.onSubmit} className="form-main d-flex flex-column justify-content-center align-items-center">
+        <form noValidate onSubmit={this.onSubmit} className="form-main d-flex flex-column justify-content-center align-items-center animated fadeInLeft">
           <h1 className="pb-3 pt-0 text-center title">Login</h1>
           <div className="form-box  mt-3 mb-4">
             <div className="d-flex justify-content-center align-items-center icon-box">
