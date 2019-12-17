@@ -1,7 +1,6 @@
 {
     "assesmentType": "personalityTest",
-    "userDifficulty": "",
-    "instructions": "these are instructions",
+    "instructions": "",
     "questions": [
         {
             "questionNumber": 1,
@@ -247,624 +246,336 @@
             "questionNumber": 31,
             "question": "You",
             "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 32,
             "question": "You",
             "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 33,
             "question": "You",
             "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 34,
             "question": "You",
             "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 35,
             "question": "You",
             "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 36,
             "question": "You",
             "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 37,
             "question": "While addressing others' needs you are:",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 38,
-            "question": "You are self sufficient in the sense :",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 39,
             "question": "In the process of achieving a goal :",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 40,
-            "question": "While irritated or emotionally disturbed at work",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 41,
             "question": "You tend to",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 42,
-            "question": "You",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 43,
             "question": "You tend to suppress your desires or detach from feelings to",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 44,
-            "question": "You tend to judge people on",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 45,
             "question": "How do you prevent yourself from committing mistakes? ",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 46,
-            "question": "How do you deal with your negative feelings",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 47,
             "question": "How do you deal with your desires?",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 48,
-            "question": "How do you perceive your future?",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 49,
             "question": "What according to you makes people agree to your views/how do you do it?",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 50,
-            "question": "What is the first step in establishing justice according to you?",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 51,
             "question": "You",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 52,
-            "question": "You",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 53,
             "question": "What type of relationships do you prefer",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 54,
-            "question": "People are attracted towards you because of",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 55,
             "question": "You",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 56,
-            "question": "You focus on and are aware of",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 57,
             "question": "You are",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 58,
-            "question": "If you are rejected by people you cope by",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 59,
             "question": "In a relationship you want",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 60,
-            "question": "In a new relationship or friendship you",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 61,
             "question": "You orient primarily towards",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 62,
-            "question": "If a relationship is not working",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 63,
             "question": "You tend to focus on others and empower them based on",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 64,
-            "question": "When you are frustrated",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 65,
             "question": "While mingling with people",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 66,
-            "question": "While focussing on others’ needs and feelings",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 67,
             "question": "You",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 68,
-            "question": "Most of the time you find yourself to be",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 69,
             "question": "You",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 70,
-            "question": "You",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 71,
             "question": "You",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 72,
-            "question": "Choose the one which describes you more ",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 73,
             "question": "You",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 74,
-            "question": "You project the following image",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 75,
             "question": "You see failure",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 76,
-            "question": "You are",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 77,
             "question": "You",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 78,
-            "question": "You",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 79,
             "question": "Your work includes more of",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 80,
-            "question": "To understand yourself or others",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 81,
             "question": "For you,",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 82,
-            "question": "Which is more likely to make you depressed",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 83,
             "question": "You tend to take back memories (eg. a momento) from trips because:",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 84,
-            "question": "What happens when you get a thing that you wanted to have for too long (eg. shoes, jeans, mobile phone)",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 85,
             "question": "You tend to",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 86,
-            "question": "You would describe yourself as ",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 87,
             "question": "What is true about you",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 88,
-            "question": "Choose one you can better relate to most of the time",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 89,
             "question": "To come to conclusions:",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 90,
-            "question": "Choose the one which describes you best",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 91,
             "question": "You tend to",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 92,
-            "question": "You",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 93,
             "question": "You",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 94,
-            "question": "Describe yourself ",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 95,
             "question": "You tend to",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 96,
-            "question": "You",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 97,
             "question": "For you",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 98,
-            "question": "Which describes you better",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 99,
             "question": "Describe yourself",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 100,
-            "question": "You",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 101,
             "question": "You",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 102,
-            "question": "You",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 103,
             "question": "Choose the one that best describes you",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 104,
-            "question": "You want ",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 105,
             "question": "You",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 106,
-            "question": "You are",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         },
         {
             "questionNumber": 107,
             "question": "You",
             "answer": {
-                "optionNumber": "",
-                "option": ""
-            }
-        },
-        {
-            "questionNumber": 108,
-            "question": "You",
-            "answer": {
-                "optionNumber": "",
-                "option": ""
+                "questionNumber": "",
+                "question": ""
             }
         }
     ]

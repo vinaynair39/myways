@@ -50,6 +50,8 @@ const setTestCompleted= require('./routes/setTestCompleted');
 
 
 
+
+
 // Adding middleware to express
 app.use(bodyParser.json());
 app.use(cors());
@@ -80,6 +82,8 @@ app.use('/api/answers', personalityTestAnswers);
 app.use('/api/result', answers);
 
 app.use('/api/user', setTestCompleted);
+
+
 
 
 

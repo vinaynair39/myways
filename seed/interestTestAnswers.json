@@ -792,7 +792,11 @@
                 },
                 {
                     "questionNumber": 3,
-                    "question": "Want to handle management related to sports/teams"
+                    "question": "Want to handle management related to sports/teams",
+                    "answer": {
+                        "optionNumber": "",
+                        "option": ""
+                    }
                 }
             ]
         },

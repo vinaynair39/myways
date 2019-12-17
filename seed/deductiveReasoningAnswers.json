@@ -1,5 +1,4 @@
 {
-
   "assesmentType": "deductiveReasoning",
   "userDifficulty": "",
   "instructions": "In this section, a statement will be provided followed by a series of suggested conclusions. Here, you must take the statement to be true. After reading each conclusion underneath the statement, you must decide whether you think it follows from the statement provided.If you agree that the conclusion exactly follows the statement, chose Conclusion follows. However, if you do not agree that the conclusion exactly follows then chose Conclusion does not follow.You must select your answer based only on the information presented; not using general knowledge. Similarly, you are advised not to let your own opinions or prejudices influence your decisions; stick to the statements and base your judgements on the facts presented.",
@@ -12,7 +11,7 @@
           "questionNumber": "1",
           "question": "Conclusion One: Outsourcing functions to business process outsourcing companies will cut expenses.",
           "answer": {
-            "optionNumber": "",
+            "optionNumber": "1",
             "option": ""
           }
         },
@@ -20,7 +19,7 @@
           "questionNumber": "2",
           "question": "Conclusion Two: The aim of this company’s outsourcing was to make the organisation more profitable.",
           "answer": {
-            "optionNumber": "",
+            "optionNumber": "1",
             "option": ""
           }
         },
@@ -28,7 +27,7 @@
           "questionNumber": "3",
           "question": "Conclusion Three: The outsourced IT function has saved the organisation 1/5th on their IT function expenditure compared to the in-house IT function.",
           "answer": {
-            "optionNumber": "",
+            "optionNumber": "1",
             "option": ""
           }
         }
@@ -42,7 +41,7 @@
           "questionNumber": "1",
           "question": "Conclusion One: Sarah’s company will fail.",
           "answer": {
-            "optionNumber": "",
+            "optionNumber": "2",
             "option": ""
           }
         },
@@ -50,7 +49,7 @@
           "questionNumber": "2",
           "question": "Conclusion Two: Sarah’s company is more likely to fail than a well-established company.",
           "answer": {
-            "optionNumber": "",
+            "optionNumber": "2",
             "option": ""
           }
         },
@@ -58,7 +57,7 @@
           "questionNumber": "3",
           "question": "Conclusion Three: Well-established companies are more likely to succeed than new companies.",
           "answer": {
-            "optionNumber": "",
+            "optionNumber": "1",
             "option": ""
           }
         }
@@ -72,7 +71,7 @@
           "questionNumber": "1",
           "question": "Conclusion One: French and Belgian products are more expensive.",
           "answer": {
-            "optionNumber": "",
+            "optionNumber": "2",
             "option": ""
           }
         },
@@ -80,7 +79,7 @@
           "questionNumber": "2",
           "question": "Conclusion Two: French and Belgian baked goods must taste better.",
           "answer": {
-            "optionNumber": "",
+            "optionNumber": "1",
             "option": ""
           }
         },
@@ -88,7 +87,7 @@
           "questionNumber": "3",
           "question": "Conclusion Three: It is a sound business model to advertise baked goods as “French” or “Belgian” as this is more likely to result in successful sales.",
           "answer": {
-            "optionNumber": "",
+            "optionNumber": "1",
             "option": ""
           }
         }
@@ -102,7 +101,7 @@
           "questionNumber": "1",
           "question": "Conclusion One: It rained more than expected in May 2012.",
           "answer": {
-            "optionNumber": "",
+            "optionNumber": "1",
             "option": ""
           }
         },
@@ -110,14 +109,14 @@
           "questionNumber": "2",
           "question": "Conclusion Two: The rainfall in May 2012 was greater than in May 2011.",
           "answer": {
-            "optionNumber": "",
+            "optionNumber": "2",
             "option": ""
           }
         },
         {
           "questionNumber": "3",
           "answer": {
-            "optionNumber": "",
+            "optionNumber": "1",
             "option": ""
           }
         }
@@ -131,7 +130,7 @@
           "questionNumber": "1",
           "question": "Conclusion One: It is possible that Facebook will also drop in value after May 2012.",
           "answer": {
-            "optionNumber": "",
+            "optionNumber": "2",
             "option": ""
           }
         },
@@ -139,7 +138,7 @@
           "questionNumber": "2",
           "question": "Conclusion Two: Social networking sites perform badly once they become publicly listed on the stock market.",
           "answer": {
-            "optionNumber": "",
+            "optionNumber": "1",
             "option": ""
           }
         },
@@ -147,7 +146,7 @@
           "questionNumber": "3",
           "question": "Conclusion Three: All companies decrease in value when first launched on the American stock market.",
           "answer": {
-            "optionNumber": "",
+            "optionNumber": "2",
             "option": ""
           }
         }
@@ -161,7 +160,7 @@
           "questionNumber": "1",
           "question": "Conclusion One: Banks have never been trusted by the general public.",
           "answer": {
-            "optionNumber": "",
+            "optionNumber": "1",
             "option": ""
           }
         },
@@ -169,7 +168,7 @@
           "questionNumber": "2",
           "question": "Conclusion Two: Reliability is no longer an issue when considering the failings of the financial sector.",
           "answer": {
-            "optionNumber": "",
+            "optionNumber": "2",
             "option": ""
           }
         },
@@ -177,7 +176,7 @@
           "questionNumber": "3",
           "question": "Conclusion Three: Overpaying financial executives may contribute to problems facing the financial sector.",
           "answer": {
-            "optionNumber": "",
+            "optionNumber": "1",
             "option": ""
           }
         }
@@ -191,7 +190,7 @@
           "questionNumber": "1",
           "question": "Conclusion One: The scent from Coley’s candles is made from fruits and berries.",
           "answer": {
-            "optionNumber": "",
+            "optionNumber": "2",
             "option": ""
           }
         },
@@ -199,7 +198,7 @@
           "questionNumber": "2",
           "question": "Conclusion Two: Coley’s products are unlikely to contain man-made setting agents.",
           "answer": {
-            "optionNumber": "",
+            "optionNumber": "1",
             "option": ""
           }
         },
@@ -207,7 +206,7 @@
           "questionNumber": "3",
           "question": "Conclusion Three: Coley’s products are likely to be expensive.",
           "answer": {
-            "optionNumber": "",
+            "optionNumber": "1",
             "option": ""
           }
 
