@@ -77,30 +77,23 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
 
     const nextQuestion = () => {
         setPrevState(currentState);
-        setCurrentState(currentState + 1);
-        if (totalLength === currentQuestion) {
-            alert("Completed!")
-            history.push('/');
-            questionState({ currentQuestion, currentSubquestion });
-            return true;
-        }
+
         if (totalLength > currentQuestion && (test.questions[currentQuestion].questionSet.length - 1) > (currentSubquestion)) {
             setCurrentSubquestion(currentSubquestion + 1);
             setPrevState(currentState);
             setCurrentState(currentState + 1);
-            return currentQuestion, currentSubquestion;
+            return true;
         }
         if ((test.questions[currentQuestion].questionSet.length - 1) == currentSubquestion) {
             setCurrentSubquestion(0);
             setCurrentQuestion(currentQuestion + 1);
             setPrevState(currentState);
             setCurrentState(currentState + 1);
-            return currentQuestion, currentSubquestion;
+            return true;
         }
         setCurrentQuestion(currentQuestion + 1);
         setPrevState(currentState);
         setCurrentState(currentState + 1);
-        return currentQuestion, currentSubquestion;
     }
 
     const previousQuestion = () => {
@@ -116,7 +109,6 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
             return true;
         }
     }
-
 
 
     const addProgress = () => {

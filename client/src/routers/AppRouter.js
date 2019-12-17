@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, Route, Switch} from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 import DashboardPage from '../pages/DashboardPage';
+import ResultPage from '../pages/ResultPage';
 import NotFoundPage from '../pages/NotFoundPage';
 import TestInfo from '../components/TestInfo'
 import PublicRoute from './PublicRoute';
@@ -12,6 +13,7 @@ import Register from '../components/Register';
 import Navbar from '../components/Navbar';
 import Landing from '../components/Landing';
 import Dashboard from '../components/Dashboard';
+import ResultChart from '../components/result/ResultChart';
 
 export const history = createHistory();
 
@@ -21,6 +23,8 @@ const AppRouter = () => (
       <Navbar />
       <Switch>
         <PublicRoute path='/' component={Landing} exact={true} />
+        <PrivateRoute path='/result' component={ResultPage} exact={true} />
+        <PrivateRoute path='/chart' component={ResultChart} exact={true} />
         <PublicRoute path='/login' component={Login}  />
         <PublicRoute path='/signup' component={Register} />
         <PrivateRoute path="/testInfo/:name" component={TestInfo} />

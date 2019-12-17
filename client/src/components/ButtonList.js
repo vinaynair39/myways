@@ -142,6 +142,13 @@ function ButtonList(props) {
     }
   }
 
+  const clearRadioButton = () => {
+    setChecked1(false);
+    setChecked2(false);
+    setChecked3(false);
+    setChecked4(false);
+    setChecked5(false);
+  }
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -201,7 +208,7 @@ function ButtonList(props) {
     setChecked4(false);
     setChecked5(false);
     setShowButton(false);
-  };
+  }
 
   const twoButton = ([a, b]) => (
     <div>
