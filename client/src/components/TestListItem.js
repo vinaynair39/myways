@@ -7,7 +7,7 @@ import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const Wrapper = styled.div`
   padding-top: 1.5rem;
-  margin: 1rem;
+  margin: 0.7rem;
   width: 22vw;
   .card {
     border-color: transparent;
@@ -72,7 +72,7 @@ const Wrapper = styled.div`
     text-align: center;
   }
   .button-select {
-    background: #FFC765;
+    background: #F8D637;
     border: none;
     outline: none;
     font-size: 1.3rem;
@@ -109,7 +109,7 @@ const TestListItem = ({ assesmentName, assesmentType, definition, imageUrl, test
           {testState[assesmentType] ? <div className="button-select" disable={true}>
             Completed <FontAwesomeIcon icon={faCheck} color={'#904E55'} />
           </div> : <div className="button-select">
-            view
+            View
           </div>}
 
         </div>

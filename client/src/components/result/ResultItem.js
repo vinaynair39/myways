@@ -3,21 +3,21 @@ import styled from "styled-components";
 import CircularProgressBar from "./CircularProgressBar";
 
 const ItemWrapper = styled.div`
-  color: 24292e;
+  color: #24292e;
   .card-body {
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-    width: 23vw;
+    width: 19vw;
     overflow: hidden;
   }
   .skill-title {
     font-size: 1.3rem;
     font-weight: bold;
   }
+
   .skill-desc {
     font-size: 0.8rem;
   }
   .score {
-    width: 10vw;
+    width: 7vw;
   }
   .secondary-grid {
     height: 100%;
@@ -33,6 +33,7 @@ const ItemWrapper = styled.div`
     border-radius: 0.5rem;
     border: 1px solid #2e2e2e;
     background: transparent;
+    font-size: 0.9rem;
   }
 `;
 
@@ -47,7 +48,7 @@ function ResultItem({result}) {
         </div>
         <div className="score-grid d-flex justify-content-center align-items-center">
           <div className="score">
-            <CircularProgressBar strokeWidth="5" sqSize="125" percentage={result.score} />
+            <CircularProgressBar strokeWidth="5" sqSize="100" percentage={result.score} />
           </div>
           <div className="secondary-grid">
             <div className="skill-desc">Average Importance in Careers</div>

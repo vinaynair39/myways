@@ -14,13 +14,13 @@ import Navbar from '../components/Navbar';
 import Landing from '../components/Landing';
 import Dashboard from '../components/Dashboard';
 import ResultChart from '../components/result/ResultChart';
+import TraitListItems from '../components/personalityTraits/TraitListItem';
 
 export const history = createHistory();
 
 const AppRouter = () => (
   <Router history={history}>
     <div style={{height: "100vh", overflow: "hidden", background: "#f3f7f7"}}>
-      <Navbar />
       <Switch>
         <PublicRoute path='/' component={Landing} exact={true} />
         <PrivateRoute path='/result' component={ResultPage} exact={true} />
@@ -30,6 +30,7 @@ const AppRouter = () => (
         <PrivateRoute path="/testInfo/:name" component={TestInfo} />
         <PrivateRoute path="/dashboardtest" component={Dashboard} exact={true}/>
         <PrivateRoute path="/test/:name" component={TestPage} />
+        <PublicRoute path='/trait' component={TraitListItems} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
