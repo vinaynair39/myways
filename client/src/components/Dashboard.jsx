@@ -33,7 +33,6 @@ const Wrapper = styled.div`
   .grid-col-2 {
     height: 100%;
     overflow-y: scroll;
-
   }
   .sidebar {
     display: grid;
@@ -49,7 +48,6 @@ const Wrapper = styled.div`
     grid-template-rows: auto;
     align-content: flex-start;
     height: fit-content;
-
   }
   .sidebar1-item {
     padding-left: 1rem;

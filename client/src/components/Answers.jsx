@@ -50,7 +50,6 @@ const Test = ({ tests }) => {
             <div className="test__options">
                 <Options nextQuestion={nextQuestion} assesmentType={tests[currentTest === 0 ? 0 : currentTest - 1].assesmentType} currentQuestion={currentQuestion} currentTest={currentTest} />
             </div>
-
         </>
     )
 

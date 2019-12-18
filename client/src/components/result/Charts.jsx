@@ -34,7 +34,6 @@ const BarChart = () => {
             },
 
             xaxis: {
-
                 type: 'category',
                 categories: ['Thinking', 'Feeling', 'Intuition'],
                 labels: {

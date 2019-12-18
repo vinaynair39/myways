@@ -1,0 +1,10 @@
+.cognitive{
+    display: grid;
+    grid-template-columns:  62vw 20vw;
+    height: 100vh;
+    // overflow: auto;
+}
+.cognitive__data{
+    overflow: auto;
+    overflow-x: hidden;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const ResultChartBox = ({img, colr}) => (
+export const CenterOfOperationBox = ({img, colr}) => (
     <>
            <div className="list">
            <div className="list-card d-flex align-items-center flex-column">
@@ -15,4 +15,4 @@ export const ResultChartBox = ({img, colr}) => (
     </> 
 );
 
-export default ResultChartBox;
+export default CenterOfOperationBox;
