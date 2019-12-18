@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMobileAlt, faKey, faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import LoadingPage from '../pages/LoadingPage';
 import styled from "styled-components";
+import Navbar from './Navbar'
 
 const Wrapper = styled.div`
   height: 88vh;
@@ -114,6 +115,8 @@ class Login extends Component {
 
   render() {
     return (
+      <React.Fragment>
+      <Navbar />
       <Wrapper className="">
         <form noValidate onSubmit={this.onSubmit} className="form-main d-flex flex-column justify-content-center align-items-center animated fadeInLeft">
           <h1 className="pb-3 pt-0 text-center title">Login</h1>
@@ -158,6 +161,7 @@ class Login extends Component {
           </div>
         </form>
       </Wrapper>
+     </React.Fragment>
     );
   }
 }

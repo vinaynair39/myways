@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
 import pic from "../img/pic.png";
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import Navbar from './Navbar'
 
 const Wrapper = styled.div`
   display: grid;
@@ -42,6 +43,8 @@ const Wrapper = styled.div`
 class Landing extends Component {
   render() {
     return (
+      <React.Fragment>
+      <Navbar />
       <Wrapper className="">
         <div className="d-flex flex-column justify-content-center align-items-center animated fadeInUp">
           <div className="title">Let us Help You</div>
@@ -51,7 +54,7 @@ class Landing extends Component {
         <div className="d-flex justify-content-end align-items-center">
           <img src={pic} className="pic" alt="" />
         </div>
-      </Wrapper>
+      </Wrapper></React.Fragment>
     )
   }
 }

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { startSignUp } from "../actions/auth";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Navbar from './Navbar'
 import {
   faMobileAlt,
   faUser,
@@ -156,6 +157,7 @@ class Register extends Component {
   render() {
     const { formErrors } = this.state;
     return (
+      <React.Fragment><Navbar />
       <Wrapper className="">
         <form noValidate onSubmit={this.onSubmit} className="form-main  animated fadeInLeft">
           <div className="d-flex justify-content-center align-items-center">
@@ -262,6 +264,7 @@ class Register extends Component {
           </div>
         </form>
       </Wrapper>
+      </React.Fragment>
     );
   }
 }
