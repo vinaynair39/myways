@@ -14,7 +14,7 @@ height: 100vh;
     margin: 10px 0 20px;
 }
 .title span{
-    background:#F3F7F7; 
+    background:#FFFFFF; 
     padding:0 10px; 
 }
 `;

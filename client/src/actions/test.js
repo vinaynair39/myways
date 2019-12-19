@@ -50,13 +50,13 @@ export const addAnswers = (answerNumber, answer, currentQuestion, currentSubques
 
 export const startAddAnswers = () => {
     return (dispatch, getState) => {
-        axios.get('http://13.234.156.115:3000/api/questions').then(res => {
+        axios.get('/api/questions').then(res => {
         })
     }
 }
 export const startAddTests = () => {
     return (dispatch, getState) => {
-        return axios.get('http://13.234.156.115:3000/api/test/tests').then(res => {
+        return axios.get('/api/test/tests').then(res => {
             dispatch(addTests(res.data))
         }).catch(err => {
             console.log(err)

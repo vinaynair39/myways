@@ -3,6 +3,8 @@ import ResultList from '../components/result/ResultList';
 import ResultChart from '../components/result/ResultChart';
 import Layout from '../components/Layout';
 import { connect } from 'react-redux';
+import Link from 'react-router-dom/Link';
+
 
 
 const CareerValuesPage = (props) => {
@@ -11,7 +13,17 @@ const CareerValuesPage = (props) => {
             <Layout>
                 <div className="cognitive">
                     <div className="cognitive__data"><ResultList results={props.results} /></div>
-                    <div><ResultChart /></div>
+                    <div><ResultChart />
+                    <div className="centerOfOperation__next">
+              <h4>Explore Next</h4>
+              <Link to="centerOfOperation">
+                <img
+                  src="https://image.flaticon.com/icons/png/512/201/201633.png"
+                  alt=""
+                />
+              </Link>
+              <h6>Centre of Operation</h6>
+            </div></div>
                 </div>
             </Layout>
         </>
