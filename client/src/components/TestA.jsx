@@ -40,7 +40,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
                 sendAnswers({ id: userId, answers });
                 saveUserToLocalStorage(user);
                 postUser(user);
-                history.push('/dashboardtest');
+                history.push('/dashboard');
             }
         }
         else {

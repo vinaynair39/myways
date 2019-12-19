@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
 padding:2rem;
+overflow:auto;
 .trait-container{
 
     margin-bottom: 1rem;

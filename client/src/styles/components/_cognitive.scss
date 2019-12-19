@@ -9,3 +9,34 @@
     overflow: auto;
     overflow-x: hidden;
 }
+
+.cognitive__next{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & a{
+        background: transparent;
+        border:none;
+        outline: none;
+        &:hover{
+            transform: scale(1.1);
+            transition: all 0.2s ease;
+        }
+        &:active{
+            transform: translateY(4px);
+        }
+    }
+    & img{
+        height: 20vh;
+    }
+    & h5{
+        margin-top:0.5rem ;
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    & h6{
+        font-weight: 700;
+    }
+}

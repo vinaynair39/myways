@@ -22,7 +22,7 @@ const SideBar = ({ logout, isAuthenticated }) => {
         <aside>
             <div className="dashboard__sidebar">
                 <div className="dashboard__logo">
-                    <img className="" src={"https://www.myways.in/visitor/img/logo/logo%20home.png"} />
+                    <img className="" src={process.env.PUBLIC_URL + '/logo-dark.jpg'} />
                 </div>
                 <div className="dashboard__sidebar-grid1">
                     <div
@@ -67,7 +67,7 @@ const SideBar = ({ logout, isAuthenticated }) => {
                             <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" /> Personality Traits
               </div>
                         <div className="dashboard__sidebar1-item dashboard__sub-item">
-                            <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" /> <Link to="centerOfOperation">Center of Operation</Link>
+                            <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" /> <Link to="centerOfOperation">Centre of Operation</Link>
                         </div>
                         <div className="dashboard__sidebar1-item dashboard__sub-item">
                             <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" /> Learning Style

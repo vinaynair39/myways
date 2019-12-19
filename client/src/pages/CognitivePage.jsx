@@ -15,7 +15,7 @@ const CognitivePage = props => {
           </div>
           <div>
             <ResultChart />
-            <div className="centerOfOperation__next">
+            <div className="cognitive__next">
               <h4>Explore Next</h4>
               <Link to="careerValues">
                 <img

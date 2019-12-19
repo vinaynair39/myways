@@ -14,16 +14,16 @@ const CareerValuesPage = (props) => {
                 <div className="cognitive">
                     <div className="cognitive__data"><ResultList results={props.results} /></div>
                     <div><ResultChart />
-                    <div className="centerOfOperation__next">
-              <h4>Explore Next</h4>
-              <Link to="centerOfOperation">
-                <img
-                  src="https://image.flaticon.com/icons/png/512/201/201633.png"
-                  alt=""
-                />
-              </Link>
-              <h6>Centre of Operation</h6>
-            </div></div>
+                        <div className="cognitive__next">
+                            <h4>Explore Next</h4>
+                            <Link to="personalityTraits">
+                                <img
+                                    src="https://image.flaticon.com/icons/png/512/1465/1465419.png"
+                                    alt=""
+                                />
+                            </Link>
+                            <h5>Personality Traits</h5>
+                        </div></div>
                 </div>
             </Layout>
         </>

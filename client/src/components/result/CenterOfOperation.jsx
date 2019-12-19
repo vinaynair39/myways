@@ -20,7 +20,7 @@ const CenterOfOperation = ({ results }) => (
             </div>
             <div className="centerOfOperation__next">
                 <h4>Explore Next</h4>
-                <Link to="subjectInterest"><img src="https://image.flaticon.com/icons/png/512/1825/1825157.png" alt="" /></Link>
+                <Link to="subjectInterest"><img src="https://image.flaticon.com/icons/svg/1182/1182545.svg" alt="" /></Link>
                 <h6>Subject Interest</h6>
             </div>
         </div>

@@ -1,28 +1,27 @@
 import React from 'react';
-import StackedChart from '../components/result/StackedChart';
+import TraitList from '../components/personalityTraits/TraitList';
 import Layout from '../components/Layout';
 import { connect } from 'react-redux';
-import Link from "react-router-dom/Link";
+import Link from 'react-router-dom/Link'
 
 
-
-const CareerValuesPage = (props) => {
+const PersonalityTraitsPage = (props) => {
     return (
         <>
             <Layout>
                 <div className="cognitive">
                     <div className="cognitive__data">
-                        <StackedChart />
+                        <TraitList />
                     </div>
                     <div className="cognitive__next">
                         <h4>Explore Next</h4>
-                        <Link to="careerValues">
+                        <Link to="centerofOperation">
                             <img
-                                src="https://image.flaticon.com/icons/png/512/2063/premium/2063465.png"
+                                src="https://image.flaticon.com/icons/png/512/201/201633.png"
                                 alt=""
                             />
                         </Link>
-                        <h6 className="mt-3">Career Library</h6>
+                        <h6 className="mt-3">Centre of Operation</h6>
                     </div>
                 </div>
 
@@ -32,4 +31,4 @@ const CareerValuesPage = (props) => {
 }
 
 
-export default connect(undefined, undefined)(CareerValuesPage);
+export default connect(undefined, undefined)(PersonalityTraitsPage);

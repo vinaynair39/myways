@@ -18,6 +18,7 @@ import SideBar from '../components/SideBar';
 import Dashboard from '../components/Dashboard';
 import ResultChart from '../components/result/ResultChart';
 import TraitListItems from '../components/personalityTraits/TraitListItem';
+import PersonalityTraitsPage from '../pages/PersonalityTraitsPage';
 import ResultPage from '../pages/ResultPage';
 
 export const history = createHistory();
@@ -31,6 +32,7 @@ const AppRouter = () => (
         <PrivateRoute path='/careerValues' component={CareerValuesPage} exact={true} />
         <PrivateRoute path='/centerOfOperation' component={CenterOfOperationPage} exact={true} />
         <PrivateRoute path='/subjectInterest' component={SubjectInterestPage} exact={true} />
+        <PrivateRoute path='/personalityTraits' component={PersonalityTraitsPage} exact={true} />
         <PrivateRoute path='/result' component={ResultPage} exact={true} />
         <PrivateRoute path='/chart' component={ResultChart} exact={true} />
         <PublicRoute path='/login' component={Login}  />

@@ -1,14 +1,78 @@
 import React, { useState, useEffect } from 'react';
 import Chart from 'react-apexcharts';
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 const StackedChart = () => {
     const [options, setOptions] = useState({})
-    const [series, setSeries] = useState([]);
-
+    // const [series, setSeries] = useState([]);
+    let series = [{
+        data: [{
+            x: "Medical Science",
+            y: 29
+          }, {
+            x: "Transportation and Logistics",
+            y: 29
+          },{
+            x: "Design",
+            y: 22
+          }, {
+            x: "Government and Public service",
+            y: 24
+          },{
+            x: "Agriculture and Food',",
+            y: 22
+          }, {
+            x: "Education and Training",
+            y: 36
+          },{
+            x: "Allied Health",
+            y: 46
+          }, {
+            x: "Environment",
+            y: 22
+          },{
+            x: "Social Science",
+            y: 43   
+          }, {
+            x: "Law and Public Saftey",
+            y: 22
+          },{
+            x: "Medical Science",
+            y: 29
+          }, {
+            x: "Transportation and Logistics",
+            y: 32
+          },{
+            x: "Design",
+            y: 49
+          }, {
+            x: "Government and Public service",
+            y: 26
+          },{
+            x: "Agriculture and Food',",
+            y: 31
+          }, {
+            x: "Education and Training",
+            y: 7
+          },{
+            x: "Allied Health",
+            y: 46
+          }, {
+            x: "Environment",
+            y: 2
+          },{
+            x: "Social Science",
+            y: 35
+          }, {
+            x: "Law and Public Saftey",
+            y: 2
+          },
+        ]
+    }]
     useEffect(() => {
+
         setOptions({
             chart: {
                 height: 440,
@@ -44,47 +108,82 @@ const StackedChart = () => {
                 }
             },
             yaxis: {
-                min: -5,
-                max: 5,
+                seriesName: "interest",
+                min: 0,
+                max: 50,
                 title: {
-                   // text: 'Age',
+                    // text: 'Age',
                 },
+                labels: {
+                    show: true,
+                    align: 'right',
+                    minWidth: 0,
+                    maxWidth: 160,
+                    style: {
+                        color: undefined,
+                        fontSize: '13px',
+                        fontFamily: 'Helvetica, Arial, sans-serif',
+                        cssClass: 'apexcharts-yaxis-label',
+                    },
+                    offsetX: 0,
+                    offsetY: 0,
+                    rotate: 0,
+                    formatter: (value) => { return value },
+                },
+                
             },
             tooltip: {
                 shared: false,
                 x: {
-                    formatter: function(val) {
+                    formatter: function (val) {
                         return val
                     }
                 },
                 y: {
-                    formatter: function(val) {
-                        return Math.abs(val) + "%"
+                    formatter: function (val) {
+                        return val;
                     }
                 }
-            },title: {
-                text: 'Subject Interest'
             },
             xaxis: {
-              categories: ['Medical Science', 'Transportation and Logistics', 'Applied arts', 'Design', 'Government and Public service', 'Agriculture and Food', 'Education and Training', 'Allied Health', 'Environment, Natural', 'Law and Public Saftey', 'Social Science', 'Physical Science', 'Performing Arts', 'Media and Communication', 'IT and software', 'Defence and paramilitary forces', 'Finance', 'Engineering and Technology', 'Business Management',' Mathematics and Data Science', 'Commerece and Accounts', 'Architecture and Construction', 'Sales and marketing', 'Travel, Tourism and Hospitality', 'Human Services', 'Manufacturing'],
-              title: {
-                  text: 'Percent'
-              },
-              labels: {
-                formatter: function(val) {
-                  return Math.abs(Math.round(val)) + "%"
+                title: {
+                    text: 'Interest',
+                    style: {
+                        color: undefined,
+                        fontSize: '15px',
+                        fontFamily: 'Helvetica, Arial, sans-serif',
+                        cssClass: 'subjectInterest__x-axis',
+                    },
+                },
+                labels: {
+                    formatter: function (val) {
+                        return val
+                    }
+                    
                 }
-              }
             },
 
-        });
-        setSeries([{
-            data: [-0.8, -1.05, -1.06, -1.18, -1.4, -2.2, -2.85, -3.7, -3.96, -4.22, -4.3, -4.4, -4.1, -4, -4.1, -3.4, -3.1, -2.8]
-        }])
+        }
+        
+        );
+
+    
+
     }, [])
 
+    series[0].data.sort((a, b) => {
+        return (a.y > b.y) ? -1 : 1
+     }
+         )
+
     return (
-        <Chart options={options} series={series} type="bar" height="600" />
+        <>
+            <div className="subjectInterest__title">
+                <img src="https://image.flaticon.com/icons/png/512/305/305507.png" alt="" />
+            <h1>Subject Interest</h1>
+            </div>
+            <Chart options={options} series={series} type="bar" height="520" />
+        </>
     );
 }
 

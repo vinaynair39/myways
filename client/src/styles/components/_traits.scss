@@ -1,0 +1,16 @@
+.traits{
+    background-color: white;
+    height: 100vh;
+    overflow: auto;
+
+}
+
+.traits__title{
+    display: flex;
+    margin-top:1rem;
+    margin-bottom: 2rem;
+    & img{
+        height: 8vh;
+
+    }
+}

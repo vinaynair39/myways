@@ -111,7 +111,6 @@ router.post("/login", async (req, res) => {
     // Create and assign token
     const tokenExp = 60 * 60 * 24; // 24 hours
     const token = generateLoginToken(user, tokenExp);
-
     res.status(200).json({
       user,
       token

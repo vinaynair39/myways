@@ -18,7 +18,8 @@
   display: flex;
   justify-content: center;
   & img{
-    height: 10vh;
+    height: 12vh;
+    min-width: 18vw;
   }
   height: 7rem;
 }
@@ -31,7 +32,6 @@
   color: #173b0b;
   font-weight: bold;
   background: #f8d637;
-  padding: 1rem 0;
   overflow-y: auto;
 }
 .dashboard__sidebar-grid1 {
