@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Chart from 'react-apexcharts';
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
- import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";  
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 const BarChart = () => {
@@ -134,7 +134,41 @@ const BarChart = () => {
                         fontFamily: 0,
                     },
                 },
-                
+
+            },
+            yaxis: {
+                show: true,
+                showAlways: true,
+                labels: {
+                    show: true,
+                    align: 'right',
+                    minWidth: 0,
+                    maxWidth: 160,
+                    style: {
+                        color: undefined,
+                        fontSize: '20px',
+                        fontFamily: 'Helvetica, Arial, sans-serif',
+                        cssClass: 'apexcharts-yaxis-label',
+                    },
+                    offsetX: 0,
+                    offsetY: 0,
+                    rotate: 0,
+                    formatter: (value) => { return value },
+                },
+                axisBorder: {
+                    show: true,
+                    color: '#78909C',
+                    offsetX: 0,
+                    offsetY: 0
+                },
+                axisTicks: {
+                    show: true,
+                    borderType: 'solid',
+                    color: '#78909C',
+                    width: 6,
+                    offsetX: 0,
+                    offsetY: 0
+                },
             }
 
         });
@@ -144,9 +178,7 @@ const BarChart = () => {
     }, [])
 
     return (
-        <div id="chart">
-            <Chart options={options} series={series} type="bar" height="350" width="70%" />
-        </div>
+        <Chart options={options} series={series} type="bar" height="300" />
     );
 }
 

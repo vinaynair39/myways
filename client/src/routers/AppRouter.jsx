@@ -5,6 +5,7 @@ import DashboardPage from '../pages/DashboardPage';
 import CognitivePage from '../pages/CognitivePage';
 import CareerValuesPage from '../pages/CareerValuesPage';
 import CenterOfOperationPage from '../pages/CenterOfOperationPage';
+import SubjectInterestPage from '../pages/SubjectInterestPage';
 import NotFoundPage from '../pages/NotFoundPage';
 import TestInfo from '../components/TestInfo'
 import PublicRoute from './PublicRoute';
@@ -29,6 +30,7 @@ const AppRouter = () => (
         <PrivateRoute path='/cognitiveIntelligence' component={CognitivePage} exact={true} />
         <PrivateRoute path='/careerValues' component={CareerValuesPage} exact={true} />
         <PrivateRoute path='/centerOfOperation' component={CenterOfOperationPage} exact={true} />
+        <PrivateRoute path='/subjectInterest' component={SubjectInterestPage} exact={true} />
         <PrivateRoute path='/result' component={ResultPage} exact={true} />
         <PrivateRoute path='/chart' component={ResultChart} exact={true} />
         <PublicRoute path='/login' component={Login}  />

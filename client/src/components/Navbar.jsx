@@ -147,7 +147,7 @@ const NavWrapper = styled.nav`
 
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated,
-  user: state.auth.user.name
+  user: state.auth.user ? state.auth.user.name : ''
 });
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(startLogout())

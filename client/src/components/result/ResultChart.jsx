@@ -15,32 +15,62 @@ const ResultChart = () => {
             },
             plotOptions: {
                 bar: {
-                  horizontal: true,
-                  distributed: true,
-                }
-              },
-              grid: {
-                xaxis: {
-                    lines: {
-                        show: false
-                    }
-                },
-                yaxis: {
-                    lines: {
-                        show: false
-                    }
+                    barHeight: '100%',
+                    distributed: true,
+                    horizontal: true,
+                    dataLabels: {
+                        position: 'bottom'
+                    },
                 }
             },
-              dataLabels: {
-                enabled: false
-              },
-              xaxis: {
-                categories: [],
-              },
+            dataLabels: {
+                enabled: true,
+                textAnchor: 'start',
+                style: {
+                    colors: ['#fff']
+                },
+                formatter: function(val, opt) {
+                    return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val
+                },
+                offsetX: 0,
+                dropShadow: {
+                  enabled: true
+                }
+            },
+            stroke: {
+                width: 1,
+              colors: ['#fff']
+            },
+            xaxis: {
+                categories: ["problem solving", "problem solving", "problem solving", "problem solving", "problem solving", "problem solving", "problem solving", "problem solving", "problem solving"],
+            },
+            yaxis: {
+                labels: {
+                    show: false
+                }
+            },
+            title: {
+                text: 'Aptitude at a glance',
+                align: 'center',
+                floating: true
+            },
+            tooltip: {
+                theme: 'dark',
+                x: {
+                    show: false
+                },
+                y: {
+                    title: {
+                        formatter: function() {
+                            return ''
+                        }
+                    }
+                }
+            }
         });
         setSeries([{
             name: "Cognitive Intelligence",
-            data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+            data: [90, 98, 78, 66,55,68, 20,30,47]
           }])
     }, [])
 

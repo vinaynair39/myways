@@ -73,7 +73,8 @@ const SideBar = ({ logout, isAuthenticated }) => {
                             <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" /> Learning Style
               </div>
                         <div className="dashboard__sidebar1-item dashboard__sub-item mb-3">
-                            <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" /> Subject Interest
+                            <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" />
+                            <Link to="subjectInterest">Subject Interest</Link>
               </div>
                     </div>
                     <div className="dashboard__sidebar1-item">
