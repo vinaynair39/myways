@@ -6,7 +6,7 @@ const CareerLibraryList = ({ img, title }) => {
     return (
         <>
             <div className="careerLibrary__list">
-                <CareerLibraryItem img={'https://image.flaticon.com/icons/png/512/757/premium/757008.png'} title={'Agriculture and Food'}/>
+                <CareerLibraryItem img={'https://image.flaticon.com/icons/png/512/757/premium/757008.png'} title={'Agriculture and Food'} />
                 <CareerLibraryItem img={'https://image.flaticon.com/icons/png/512/757/premium/757008.png'} title={'Allied Health'}/>
                 <CareerLibraryItem img={'https://image.flaticon.com/icons/png/512/757/premium/757008.png'} title={'Architecture and Construction'}/>
                 <CareerLibraryItem img={'https://image.flaticon.com/icons/png/512/757/premium/757008.png'} title={'Business Management and Administration'}/>

@@ -6,9 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const StackedChart = () => {
   const [options, setOptions] = useState({})
-  const [radialSeries, setRadialSeries] = useState([]);
-  const [radialOptions, setRadialOptions] = useState({})
-  let radialLabel = [];
 
   let series = [{
     data: [{
@@ -170,53 +167,12 @@ const StackedChart = () => {
 
     );
 
-
-
   }, [])
 
   series[0].data.sort((a, b) => {
     return (a.y > b.y) ? -1 : 1
   }
   )
-
-  const getTopFive = () => {
-    let data = []
-    for (let i = 0; i < 5; i++){
-      data.push(series[0].data[i].y)
-      radialLabel.push(series[0].data[i].x)
-    }
-     
-    setRadialSeries(data)
-  }
-
-  useEffect(() => {
-    setRadialOptions({
-      options: {
-        labels: radialLabel,
-        radialBar: {
-          dataLabels: {
-            name: {
-              fontSize: '22px',
-            },
-            value: {
-              fontSize: '16px',
-            },
-            total: {
-              show: true,
-              label: 'Total',
-              formatter: function (w) {
-                // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
-                return 249
-              }
-            }
-          }
-        }
-      }
-
-    });
-
-    getTopFive();
-  })
 
 
   return (
