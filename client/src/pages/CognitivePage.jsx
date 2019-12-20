@@ -13,10 +13,17 @@ const CognitivePage = props => {
           <div className="cognitive__data">
             <ResultList results={props.results} />
           </div>
+<<<<<<< HEAD
           <div className="mt-1 mr-2">
             <ResultChart />
             <div className=" cognitive__next">
               <h5>Explore Next</h5>
+=======
+          <div>
+            <ResultChart />
+            <div className="cognitive__next">
+              <h4>Explore Next</h4>
+>>>>>>> master
               <Link to="careerValues">
                 <img
                   src="https://image.flaticon.com/icons/png/512/2322/2322887.png"

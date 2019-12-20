@@ -3,11 +3,19 @@ import StackedChart from '../components/result/StackedChart';
 import RadialChart from '../components/result/RadialChart';
 import Layout from '../components/Layout';
 import { connect } from 'react-redux';
+<<<<<<< HEAD
 import Link from 'react-router-dom/Link'
 
 
 
 const CareerValuesPage = (props) => {
+=======
+import {Link} from "react-router-dom";
+
+
+
+const SubjectInterestPage = (props) => {
+>>>>>>> master
     return (
         <>
             <Layout>
@@ -15,7 +23,11 @@ const CareerValuesPage = (props) => {
                     <div className="cognitive__data">
                         <StackedChart />
                     </div>
+<<<<<<< HEAD
                     <div className="cognitive__chart">
+=======
+                    <div className="cognitive__data-chart">
+>>>>>>> master
                         <RadialChart/>
                     <div className="cognitive__next">
                         <h4>Explore Next</h4>
@@ -36,4 +48,8 @@ const CareerValuesPage = (props) => {
 }
 
 
+<<<<<<< HEAD
 export default connect(undefined, undefined)(CareerValuesPage);
+=======
+export default connect(undefined, undefined)(SubjectInterestPage);
+>>>>>>> master

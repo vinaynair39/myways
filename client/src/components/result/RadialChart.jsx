@@ -116,7 +116,7 @@ const RadialChart = () => {
     });
     // getTopFive();
     setRadialSeries([44, 55, 67, 83])
-  })
+  }, [])
 
 
 

@@ -187,3 +187,4 @@ const StackedChart = () => {
 }
 
 export default StackedChart;
+
