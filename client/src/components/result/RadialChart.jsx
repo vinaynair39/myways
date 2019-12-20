@@ -4,7 +4,7 @@ import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
-const StackedChart = () => {
+const RadialChart = () => {
   const [options, setOptions] = useState({})
   const [radialSeries, setRadialSeries] = useState([]);
   const [radialOptions, setRadialOptions] = useState({})
@@ -74,105 +74,6 @@ const StackedChart = () => {
     },
     ]
   }]
-  useEffect(() => {
-
-    setOptions({
-      chart: {
-        height: 440,
-        type: 'bar',
-        stacked: true,
-        toolbar: false
-      },
-      plotOptions: {
-        bar: {
-          horizontal: true,
-          distributed: true,
-          barHeight: '80%',
-        }
-      },
-      colors: ['#FACC2E', '#F25C5C'],
-      dataLabels: {
-        enabled: false
-      },
-      stroke: {
-        width: 1,
-        colors: ["#fff"]
-      },
-      grid: {
-        xaxis: {
-          lines: {
-            show: true
-          }
-        },
-        yaxis: {
-          lines: {
-            show: false
-          }
-        }
-      },
-      yaxis: {
-        seriesName: "interest",
-        min: 0,
-        max: 50,
-        title: {
-          // text: 'Age',
-        },
-        labels: {
-          show: true,
-          align: 'right',
-          minWidth: 0,
-          maxWidth: 160,
-          style: {
-            color: undefined,
-            fontSize: '13px',
-            fontFamily: 'Helvetica, Arial, sans-serif',
-            cssClass: 'apexcharts-yaxis-label',
-          },
-          offsetX: 0,
-          offsetY: 0,
-          rotate: 0,
-          formatter: (value) => { return value },
-        },
-
-      },
-      tooltip: {
-        shared: false,
-        x: {
-          formatter: function (val) {
-            return val
-          }
-        },
-        y: {
-          formatter: function (val) {
-            return val;
-          }
-        }
-      },
-      xaxis: {
-        title: {
-          text: 'Interest',
-          style: {
-            color: undefined,
-            fontSize: '15px',
-            fontFamily: 'Helvetica, Arial, sans-serif',
-            cssClass: 'subjectInterest__x-axis',
-          },
-        },
-        labels: {
-          formatter: function (val) {
-            return val
-          }
-
-        }
-      },
-
-    }
-
-    );
-
-
-
-  }, [])
 
   series[0].data.sort((a, b) => {
     return (a.y > b.y) ? -1 : 1
@@ -185,14 +86,13 @@ const StackedChart = () => {
       data.push(series[0].data[i].y)
       radialLabel.push(series[0].data[i].x)
     }
-     
     setRadialSeries(data)
   }
 
   useEffect(() => {
     setRadialOptions({
       options: {
-        labels: radialLabel,
+        labels: ['Apples', 'Oranges', 'Bananas', 'Berries'],
         radialBar: {
           dataLabels: {
             name: {
@@ -214,21 +114,19 @@ const StackedChart = () => {
       }
 
     });
-
-    getTopFive();
+    // getTopFive();
+    setRadialSeries([44, 55, 67, 83])
   })
+
+
 
 
   return (
     <>
-      <div className="subjectInterest__title">
-        <img src="https://image.flaticon.com/icons/png/512/305/305507.png" alt="" />
-        <h1>Subject Interest</h1>
-      </div>
-      <Chart options={options} series={series} type="bar" height="520" />
+      <Chart options={radialOptions} series={radialSeries} type="radialBar" height="400" />
     </>
   );
 }
 
-export default StackedChart;
+export default RadialChart;
 

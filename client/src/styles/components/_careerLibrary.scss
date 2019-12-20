@@ -1,23 +1,41 @@
-.cognitive{
+.careerLibrary__item{
+    margin: 1rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: white;
+    justify-items: center;
+    align-items: center;
+    border-radius: 1rem;
+    width: 23vw;
+    padding: 0 1rem;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba($black, 0.3), 0 6px 17px rgba($black, 0.2);
+    & img{
+        height: 20vh;
+        padding: 0.5rem 1rem 0.5rem 0;
+    }
+}
+.careerLibrary__list{
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.careerLibrary{
     display: grid;
     grid-template-columns:  62vw 20vw;
     height: 100vh;
     background-color: white;
     justify-content: center;
-    // overflow: auto;
 }
-.cognitive__data{
+
+.careerLibrary__data{
     overflow: auto;
     overflow-x: hidden;
 }
-.cognitive__chart{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
 
-.cognitive__next{
-    margin-top: 10rem;
+.careerLibrary__next{
     display: flex;
     flex-direction: column;
     justify-content: center;

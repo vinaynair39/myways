@@ -6,11 +6,12 @@
 }
 .centerOfOperation__data{
     display: grid;
-    grid-template-rows:  40vh 60vh;
+    grid-template-rows:  50vh 50vh;
     height: 100vh;
 }
 .centerOfOperation__chart{
     margin: 0.5rem 1rem;
+    align-self: center;
 }
 .centerOfOperation__next{
     display: flex;
@@ -42,6 +43,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    padding-bottom: 1rem;
     @media(max-width: 640px) {
         padding: 1rem 1rem;
     }

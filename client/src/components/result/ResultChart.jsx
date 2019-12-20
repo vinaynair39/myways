@@ -76,7 +76,7 @@ const ResultChart = () => {
 
     return (
         <div id="chart">
-            <Chart options={options} series={series} type="bar" height="350"  />
+            <Chart options={options} series={series} type="bar" height="400"  />
         </div>
     );
 }
