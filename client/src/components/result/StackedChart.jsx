@@ -181,7 +181,7 @@ const StackedChart = () => {
         <img src="https://image.flaticon.com/icons/png/512/305/305507.png" alt="" />
         <h1>Subject Interest</h1>
       </div>
-      <Chart options={options} series={series} type="bar" height="520" />
+      <Chart options={options} series={series} type="bar" height="600" />
     </>
   );
 }

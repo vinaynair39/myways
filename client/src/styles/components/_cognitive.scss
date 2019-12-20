@@ -13,12 +13,45 @@
 .cognitive__data-chart{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .cognitive__next{
     display: flex;
     flex-direction: column;
+    margin: 1rem 0;
+    justify-content: space-between;
+    align-items: center;
+    & a{
+        background: transparent;
+        border:none;
+        outline: none;
+        &:hover{
+            transform: scale(1.1);
+            transition: all 0.2s ease;
+        }
+        &:active{
+            transform: translateY(4px);
+        }
+    }
+    & img{
+        height: 15vh;
+    }
+    & h5{
+        margin-top:0.5rem ;
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    & h6{
+        font-weight: 700;
+    }
+}
+
+.personality__next{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
     justify-content: center;
     align-items: center;
     & a{
@@ -44,5 +77,20 @@
 
     & h6{
         font-weight: 700;
+    }
+}
+
+.cognitive__title{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+    & img{
+        height: 8vh;
+        margin: 0.5rem 0.5rem 0 1rem;
+    }
+    & h1{
+        margin: 0.8rem 0 0 0;
+        color: #212529;
     }
 }

@@ -13,7 +13,7 @@ const PersonalityTraitsPage = (props) => {
                     <div className="cognitive__data">
                         <TraitList />
                     </div>
-                    <div className="cognitive__next">
+                    <div className="personality__next">
                         <h4>Explore Next</h4>
                         <Link to="centerofOperation">
                             <img

@@ -13,7 +13,6 @@ const CareerLibraryPage = () => {
                     <div className="careerLibrary__data">
                         <CareerLibraryList />
                     </div>
-                    <div>
                         <div className="careerLibrary__next">
                             <h4>Explore Next</h4>
                             <Link to="careerValues">
@@ -24,8 +23,7 @@ const CareerLibraryPage = () => {
                             </Link>
                             <h6>Career Values</h6>
                         </div>
-                    </div>
-                </div>
+=                </div>
             </Layout>
         </>
     )

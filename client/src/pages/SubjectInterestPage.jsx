@@ -7,7 +7,7 @@ import Link from 'react-router-dom/Link'
 
 
 
-const CareerValuesPage = (props) => {
+const SubjectInterestPage = (props) => {
     return (
         <>
             <Layout>
@@ -15,7 +15,7 @@ const CareerValuesPage = (props) => {
                     <div className="cognitive__data">
                         <StackedChart />
                     </div>
-                    <div className="cognitive__chart">
+                    <div className="cognitive__data-chart">
                         <RadialChart/>
                     <div className="cognitive__next">
                         <h4>Explore Next</h4>
@@ -36,4 +36,4 @@ const CareerValuesPage = (props) => {
 }
 
 
-export default connect(undefined, undefined)(CareerValuesPage);
+export default connect(undefined, undefined)(SubjectInterestPage);

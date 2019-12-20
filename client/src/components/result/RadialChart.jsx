@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Chart from 'react-apexcharts';
-import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 
 const RadialChart = () => {
-  const [options, setOptions] = useState({})
+  const [label, setLabel] = useState({})
   const [radialSeries, setRadialSeries] = useState([]);
   const [radialOptions, setRadialOptions] = useState({})
   let radialLabel = [];
@@ -82,40 +81,36 @@ const RadialChart = () => {
 
   const getTopFive = () => {
     let data = []
-    for (let i = 0; i < 5; i++){
+    let data2 = [];
+    for (let i = 0; i < 5; i++) {
       data.push(series[0].data[i].y)
       radialLabel.push(series[0].data[i].x)
+
     }
     setRadialSeries(data)
+    setLabel(data2);
+    console.log(data2)
   }
+
 
   useEffect(() => {
     setRadialOptions({
-      options: {
-        labels: ['Apples', 'Oranges', 'Bananas', 'Berries'],
+      plotOptions: {
         radialBar: {
           dataLabels: {
             name: {
-              fontSize: '22px',
+              fontSize: '15px',
             },
             value: {
               fontSize: '16px',
-            },
-            total: {
-              show: true,
-              label: 'Total',
-              formatter: function (w) {
-                // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
-                return 249
-              }
             }
           }
         }
-      }
-
+      },
+      labels: radialLabel,
     });
-    // getTopFive();
-    setRadialSeries([44, 55, 67, 83])
+    getTopFive();
+    console.log(label)
   }, [])
 
 
@@ -123,7 +118,7 @@ const RadialChart = () => {
 
   return (
     <>
-      <Chart options={radialOptions} series={radialSeries} type="radialBar" height="400" />
+      <Chart options={radialOptions} series={radialSeries} type="radialBar" height="350" />
     </>
   );
 }

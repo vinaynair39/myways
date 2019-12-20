@@ -22,7 +22,7 @@ const SideBar = ({ logout, isAuthenticated }) => {
         <aside>
             <div className="dashboard__sidebar">
                 <div className="dashboard__logo">
-                    <img className="" src={process.env.PUBLIC_URL + '/logo-dark.jpg'} />
+                    <img className="" src={'https://www.myways.in/visitor/img/logo/logo%20home.png'} />
                 </div>
                 <div className="dashboard__sidebar-grid1">
                     <div
@@ -64,7 +64,7 @@ const SideBar = ({ logout, isAuthenticated }) => {
                             <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" /> Work Orientation
               </div>
                         <div className="dashboard__sidebar1-item dashboard__sub-item">
-                            <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" /> Personality Traits
+                            <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" /><Link to="personalityTraits">Personality Traits</Link>
               </div>
                         <div className="dashboard__sidebar1-item dashboard__sub-item">
                             <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" /> <Link to="centerOfOperation">Centre of Operation</Link>
@@ -79,7 +79,8 @@ const SideBar = ({ logout, isAuthenticated }) => {
                     </div>
                     <div className="dashboard__sidebar1-item">
                         <FontAwesomeIcon icon={faLevelUpAlt} className="dashboard__icon" />
-                        Grow with MyWays
+                        <Link to="careerLibrary">Grow with MyWays</Link>
+                        
             </div>
                     <div
                         className="dashboard__sidebar1-item"

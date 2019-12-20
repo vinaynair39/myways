@@ -13,9 +13,9 @@ const CognitivePage = props => {
           <div className="cognitive__data">
             <ResultList results={props.results} />
           </div>
-          <div className="mt-1 mr-2">
+          <div className=" cognitive__next">
             <ResultChart />
-            <div className=" cognitive__next">
+            <div >
               <h5>Explore Next</h5>
               <Link to="careerValues">
                 <img

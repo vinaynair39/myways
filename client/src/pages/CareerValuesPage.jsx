@@ -13,8 +13,9 @@ const CareerValuesPage = (props) => {
             <Layout>
                 <div className="cognitive">
                     <div className="cognitive__data"><ResultList results={props.results} /></div>
-                    <div className="mt-1 mr-2"><ResultChart />
-                        <div className="cognitive__next">
+                    <div className="cognitive__next">
+                        <ResultChart />
+                        <div >
                             <h5>Explore Next</h5>
                             <Link to="personalityTraits">
                                 <img
