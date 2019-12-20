@@ -1,0 +1,45 @@
+[
+    {
+        "assesmentType": "interestTest",
+        "assesmentName": "Interest Test",
+        "hasTaken": false,
+        "imageUrl": "https://image.flaticon.com/icons/svg/1998/1998982.svg",
+        "instructions": "In each question choose how much interest you have in doing the activity as a Career. Choose Completely Agree if you love to have it as a Career and Completely Disagree if you do not like doing it at all. Choose other options if your interest level is in between. Please be thoughtful and honest in answering all questions. Some questions might look repetitive but they serve different purposes. Hence, be patient in answering."
+    },
+    {
+        "assesmentType": "personalityTest",
+        "hasTaken": false,
+        "assesmentName": "Personality Test",
+        "imageUrl": "https://image.flaticon.com/icons/svg/2072/2072148.svg",
+        "instructions": "This test is highly customised and will present different questions based on your earlier responses. Each response helps us recommend you the right opportunities for you and avoid the wrong/wasteful opportunities. The responses will be kept confidential. Hence, please be thoughtful and honest in answering all questions.Some questions might look repetitive but they serve different purposes. Hence, be patient in answering.Sometimes you may wish to choose both or neither of the options, in such cases choose the one which describes you comparatively more often. Think of examples and reasons behind your behaviour in such cases to choose the best option"
+    },
+    {
+        "assesmentType": "deductiveReasoning",
+        "hasTaken": false,
+        "assesmentName": "Deductive Reasoning",
+        "imageUrl": "https://image.flaticon.com/icons/svg/1651/1651619.svg",
+        "instructions": "In this section, a statement will be provided followed by a series of suggested conclusions. Here, you must take the statement to be true. After reading each conclusion underneath the statement, you must decide whether you think it follows from the statement provided.If you agree that the conclusion exactly follows the statement, chose Conclusion follows. However, if you do not agree that the conclusion exactly follows then chose Conclusion does not follow.You must select your answer based only on the information presented; not using general knowledge. Similarly, you are advised not to let your own opinions or prejudices influence your decisions; stick to the statements and base your judgements on the facts presented."
+    },
+    {
+        "assesmentType": "informationOrdering",
+        "hasTaken": false,
+        "assesmentName": "Information Ordering",
+        "imageUrl": "https://image.flaticon.com/icons/svg/302/302409.svg",
+        "instructions": ""
+    },
+    {
+        "assesmentType": "problemSensitivity",
+        "hasTaken": false,
+        "imageUrl": "https://image.flaticon.com/icons/svg/1066/1066371.svg",
+        "assesmentName": "Problem Sensitivity",
+        "instructions": "In this section, a statement is presented to you with an agreeing or disagreeing argument below. You must regard each argument as true, regardless whether it is weak or strong, agrees or disagrees with the statement. The first and second statements will have three arguments each and the third statement will have only two arguments. If you consider an argument to be strong, select Strong argument, or if you consider an argument to be weak, select Weak argument. Judge each question and argument individually. Try not to take into account individual opinion or general knowledge since each argument is considered to be true."
+    },
+    {
+        "assesmentType": "languageTest",
+        "hasTaken": false,
+        "imageUrl": "https://image.flaticon.com/icons/svg/2014/2014526.svg",
+        "assesmentName": "Language Test",
+        "instructions": ""
+    }
+
+]

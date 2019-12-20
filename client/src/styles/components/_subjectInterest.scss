@@ -1,0 +1,18 @@
+.subjectInterest__title{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+    & img{
+        height: 8vh;
+        margin: 0.5rem 0.5rem 0 1rem;
+    }
+    & h1{
+        margin: 0.8rem 0 0 0;
+        color: rgba(242, 92, 92, 0.85);
+    }
+}
+
+.subjectInterest__x-axis{
+    color: rgba(242, 92, 92, 0.85);;
+}

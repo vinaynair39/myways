@@ -1,0 +1,103 @@
+.test{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+    // max-width: 750px;
+    @media(max-width: 640px) {
+        padding: 1rem 1rem;
+    }
+    overflow-x: hidden;
+}
+
+
+.test__title{
+    font-family: 'Sulphur Point', sans-serif;   
+    text-transform: capitalize;
+    text-align: center;
+    margin: 10rem 5rem 3rem 5rem;
+}
+
+.text__sub{
+    margin-top: 10rem;
+}
+
+.test-timer{
+    position: absolute;
+    top: 4.2rem;
+    left: 3rem;
+    cursor: help;
+}
+
+.test__paragraph{
+    font-family: 'Sulphur Point', sans-serif;   
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    text-align: center;
+    margin: 0 1rem 2rem 1rem;
+    padding: 2rem 10rem;
+    font-weight: 600;
+}
+
+.test__sub-question{
+    font-family: 'Sulphur Point', sans-serif;   
+    text-transform: capitalize;
+    text-align: center;
+    margin: 0 1rem 2rem 1rem;
+    padding:  1rem 10rem 2rem 10rem;
+}
+
+
+.test__item{
+    & p {
+        font-size: 4rem;
+        margin-top:0;
+    }
+}
+
+.test__img{
+    & img{
+        max-height: 22rem;
+        width: 25rem;
+        min-height: 15rem;
+        min-width: 25rem;
+    }
+
+    @media(max-width: 640px) {
+        height: rem;
+        width: 20rem;
+   
+     }
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.test__options{
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 4rem;
+}
+
+.testpage{
+    height: 100%;
+    overflow:hidden;
+    overflow-y: scroll;
+    
+}
+
+.goto-dashboard{
+    color: #2e3740;
+    font-weight:700;
+    margin: 0.7rem 1rem;
+    position: absolute;
+    &:hover{
+        transform: scale(1.1);
+        color: #2e3740;
+        text-decoration: none;
+     }
+}

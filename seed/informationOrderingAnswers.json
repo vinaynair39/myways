@@ -1,0 +1,80 @@
+{
+
+  "assesmentType": "informationOrdering",
+  "instructions": "these are instructions",
+  "userDifficulty": "",
+  "questions": [
+    {
+      "questionNumber": "1",
+      "question": "A is shorter than B but much taller than E. C is the tallest and D is little shorter than A. Who is the shortest?",
+      "answer": {
+        "optionNumber": "",
+        "option": ""
+      }
+    },
+    {
+      "questionNumber": "2",
+      "question": "Among M, T, R and P, M is older than only P. T is older than R. Who among them is the oldest?",
+      "answer": {
+        "optionNumber": "",
+        "option": ""
+      }
+    },
+    {
+      "questionNumber": "3",
+      "question": "M is older than R. Q is younger than R and N. N is not as old as M. Who among M, N, R and Q is the oldest?",
+      "answer": {
+        "optionNumber": "",
+        "option": ""
+      }
+    },
+    {
+      "questionNumber": "4",
+      "question": "Among A, B, C,D and E, A is taller than B but shorter than C. B is taller than only E. C is not the tallest. Who among them will be in the middle if they stand in the order of their heights?",
+      "answer": {
+        "optionNumber": "",
+        "option": ""
+      }
+    },
+    {
+      "questionNumber": "5",
+      "question": "Among P, Q, R, S and T, S is older than R but not as old as T; Q is older than only P. Who among them is the youngest?",
+      "answer": {
+        "optionNumber": "",
+        "option": ""
+      }
+    },
+    {
+      "questionNumber": "6",
+      "question": "Five boys took part in a race. Prabir finished before Mohit but behind Mihir. Suresh finished before Sanchit but behind Mohit. Who won the race?",
+      "answer": {
+        "optionNumber": "",
+        "option": ""
+      }
+    },
+    {
+      "questionNumber": "7",
+      "question": "Geeta is taller than Seeta but not shorter than Radha. Radha and Rani are of the same height. Geeta is shorter than Paru. Amongst all the girls, who is the tallest?",
+      "answer": {
+        "optionNumber": "",
+        "option": ""
+      }
+    },
+    {
+      "questionNumber": "8",
+      "question": "Among five friends Mahesh is taller than Karan but not Yash. Hrithik is taller than Yash but not Abhishek. If they stand in increasing order of their heights, who will be first in line ?",
+      "answer": {
+        "optionNumber": "",
+        "option": ""
+      }
+    },
+    {
+      "questionNumber": "9",
+      "question": "Geeta is senior to Shilpa but not to Deepa. Gayatri is junior to Reepa. No one is senior to Fatima. Who is most junior?",
+      "answer": {
+        "optionNumber": "",
+        "option": ""
+      }
+    }
+  ]
+}

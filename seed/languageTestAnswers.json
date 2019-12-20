@@ -1,0 +1,136 @@
+{
+    "assesmentType": "languageTest",
+    "userDifficulty": "",
+    "questions": [
+        {
+            "questionNumber": "1",
+            "paragraph": "Each question below has a group of words. The word at the top of the group is not spelled in the usual way. Instead, it is spelled approximately as it is pronounced. Your task is to recognize the disguised word from the spelling. In order to show that you recognize the disguised word, look for one of the five words beneath it that corresponds most closely in meaning to the disguised word.NOW GO RIGHT AHEAD WITH THESE QUESTIONS",
+            "questionSet": [
+                {
+                    "questionNumber": "1",
+                    "question": " kloz",
+                    "answer": {
+                        "optionNumber": "",
+                        "option": ""
+                    }
+                },
+                {
+                    "questionNumber": "2",
+                    "question": "restrnt ",
+                    "answer": {
+                        "optionNumber": "",
+                        "option": ""
+                    }
+                },
+                {
+                    "questionNumber": "3",
+                    "question": " prezns",
+                    "answer": {
+                        "optionNumber": "",
+                        "option": ""
+                    }
+                },
+                {
+                    "questionNumber": "4",
+                    "question": " grbj",
+                    "answer": {
+                        "optionNumber": "",
+                        "option": ""
+                    }
+                }
+            ]
+        },
+        {
+            "questionNumber": "1",
+            "paragraph": "Vocabulary:\nMaya \u2014 English\nc?on \u2014 gun\nsi? \u2014 wood\nk?ab \u2014 hand\nkab \u2014 juice\nbat \u2014\tax\npal \u2014 son\nNOW GO RIGHT AHEAD WITH THESE QUESTIONS.Write down your answers so that you can check them when you are finished.",
+            "questionSet": [
+                {
+                    "questionNumber": "1",
+                    "question": "bat",
+                    "answer": {
+                        "optionNumber": "",
+                        "option": ""
+                    }
+                },
+                {
+                    "questionNumber": "2",
+                    "question": "kab",
+                    "answer": {
+                        "optionNumber": "",
+                        "option": ""
+                    }
+                },
+                {
+                    "questionNumber": "3",
+                    "question": "con?",
+                    "answer": {
+                        "optionNumber": "",
+                        "option": ""
+                    }
+                },
+                {
+                    "questionNumber": "4",
+                    "question": "kab?",
+                    "answer": {
+                        "optionNumber": "",
+                        "option": ""
+                    }
+                },
+                {
+                    "questionNumber": "5",
+                    "question": "si?",
+                    "answer": {
+                        "optionNumber": "",
+                        "option": ""
+                    }
+                },
+                {
+                    "questionNumber": "6",
+                    "question": "pal",
+                    "answer": {
+                        "optionNumber": "",
+                        "option": ""
+                    }
+                }
+            ]
+        },
+        {
+            "questionNumber": "1",
+            "paragraph": "Sample: JOHN took a long walk in the woods.Children in blue jeans were singing and dancing in the park.\nA\tB\tC\tD\tE\nYou would select “A.” because the key sentence is about “John” and the second sentence is about “children”.NOW GO RIGHT AHEAD WITH THESE QUESTIONS.Write down your answers so that you can check them when you are finished.",
+            "questionSet": [
+                {
+                    "questionNumber": "1",
+                    "question": "MARY is happy. From the look on your face, I can tell that you must have had a bad day.\nA\tB\tC\tD\tE",
+                    "answer": {
+                        "optionNumber": "",
+                        "option": ""
+                    }
+                },
+                {
+                    "questionNumber": "2",
+                    "question": "We wanted to go out, BUT we were too tired.\nBecause of our extensive training, we were confident when we were out sailing,\nA\t\tB\tC\nyet we were always aware of the potential dangers of being on the lake.\n\tD\tE",
+                    "answer": {
+                        "optionNumber": "",
+                        "option": ""
+                    }
+                },
+                {
+                    "questionNumber": "3",
+                    "question": "3.John said THAT Jill liked chocolate.\\nIn our class, that professor claimed that he knew that girl on the television\r\nA             \tB                                   \tC                  \tD                E\r\nnews show.",
+                    "answer": {
+                        "optionNumber": "",
+                        "option": ""
+                    }
+                },
+                {
+                    "questionNumber": "4",
+                    "question": "The officer gave me a TICKET!/nWhen she went away to college, the young man’s daughter wrote him the most\nA\tB\t\nCbeautiful letter that he had ever received.\nD \tE",
+                    "answer": {
+                        "optionNumber": "",
+                        "option": ""
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+.careerLibrary__item{
+    margin: 1rem 2rem;
+    background-color: white;
+    justify-items: center;
+    align-items: center;
+    border-radius: 1rem;
+    width: 23vw;
+    padding: 0 1rem;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba($black, 0.3), 0 6px 17px rgba($black, 0.2);
+    & img{
+        height: 20vh;
+        padding: 0.5rem 1rem 0.5rem 0;
+    }
+}
+.careerLibrary__list{
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.careerLibrary{
+    display: grid;
+    grid-template-columns:  62vw 20vw;
+    height: 100vh;
+    background-color: white;
+    justify-content: center;
+}
+
+.careerLibrary__data{
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.careerLibrary__next{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & a{
+        background: transparent;
+        border:none;
+        outline: none;
+        &:hover{
+            transform: scale(1.1);
+            transition: all 0.2s ease;
+        }
+        &:active{
+            transform: translateY(4px);
+        }
+    }
+    & img{
+        height: 20vh;
+    }
+    & h5{
+        margin-top:0.5rem ;
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    & h6{
+        font-weight: 700;
+    }
+}

@@ -1,0 +1,486 @@
+{
+    "assesmentType": "interestTest",
+    "instructions" : "In each question choose how much interest you have in doing the activity as a Career. Choose Completely Agree if you love to have it as a Career and Completely Disagree if you do not like doing it at all. Choose other options if your interest level is in between. Please be thoughtful and honest in answering all questions. Some questions might look repetitive but they serve different purposes. Hence, be patient in answering.",
+    "questions": [
+        {
+            "questionNumber": 1,
+            "paragraph": "Media and Communication is dispersing information to a large number of people. I’ll like to disperse info by ",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "Publishing and designing newspapers for it."
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "Making a film"
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "Reporting it on news channel"
+                },
+                {
+                    "questionNumber": 4,
+                    "question": "Interviewing people"
+                },
+                {
+                    "questionNumber": 5,
+                    "question": "Writing books/articles or journals about it"
+                }
+            ]
+        },
+        {
+            "questionNumber": 2,
+            "paragraph": "Product Design of an executable idea or concept into a marketable product is to satisfy the aesthetic needs. I’ll like to design",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "new dresses and jewelry"
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "practical execution of an idea/concept into a product in industry or business"
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "home/ office interior"
+                },
+                {
+                    "questionNumber": 4,
+                    "question": "the sets that appear in films on television programs as well as in the theatre"
+                }
+            ]
+        },
+        {
+            "questionNumber": 3,
+            "paragraph": " Performing Arts includes forms of creative or strenuous activity that are performed in front of an audience. I like to",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "Act [drama or comedy]"
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "Dance"
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "Sing or play musical instruments "
+                },
+                {
+                    "questionNumber": 4,
+                    "question": "Play any sport"
+                }
+            ]
+        },
+        {
+            "questionNumber": 4,
+            "paragraph": "Applied Arts is design and decoration to everyday objects to make them aesthetically pleasing. I like to",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "be a photographer"
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "be a makeup artist"
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "Design"
+                }
+            ]
+        },
+        {
+            "questionNumber": 5,
+            "paragraph": "Agricultural involves the study of soil, animals, plants,developing tools and techniques to increase the quality and quantity of agricultural and livestock produce, including food processing. I would like to",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "design agricultural machinery/processing plants and ensure their operation to enhance production"
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "be in the food production and processing industry and ensure quality production, prevent toxicity and enhance nutrition "
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "garden high-quality plants in enclosed gardens"
+                },
+                {
+                    "questionNumber": 4,
+                    "question": "study plant, soil , animal science to use the produce for economic gain"
+                }
+            ]
+        },
+        {
+            "questionNumber": 6,
+            "paragraph": "Environment, Natural Resources and Biological Sciences are the areas of science that include systematic study of living organisms such as human beings, plants and animals. Environmental science is basically the study of the conservation of energy, biodiversity, climatic change, groundwater and soil contamination and also for the treatment of air, water and noise pollution. I would like to",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "study of living organisms like humans, plant, microbes and animals."
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "study of the conservation of energy, biodiversity, climatic change, groundwater and soil contamination and also for the treatment of air, water and noise pollution."
+                }
+            ]
+        },
+        {
+            "questionNumber": 7,
+            "paragraph": "Architecture and Construction involves work on buildings and other structures, including highways, bridges, houses, and buildings, create the designs or plans for new structures, use the plans to build it or manage the workers on the project. I would like to",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "Participate in urban planning and surveying of the land"
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "Design and plan buildings, bridges"
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "Use the plans to build it or manage the workers on the project"
+                }
+            ]
+        },
+        {
+            "questionNumber": 8,
+            "paragraph": "Business Management and Administration focuses on planning, execution, analysis and supervision of business processes. I would like to",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "provide administrative support to businesses like maintaining records, managing resources"
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "start my own business "
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "Manage business operations of any company"
+                },
+                {
+                    "questionNumber": 4,
+                    "question": "Develop products by identifying present needs and trends. "
+                },
+                {
+                    "questionNumber": 5,
+                    "question": "manage the employees of an organization in terms of recruitment and their integration and well being in the company."
+                },
+                {
+                    "questionNumber": 6,
+                    "question": "be a Civil servant (IAS, IPS, etc) and advise and support government officials, and implement their policy decisions"
+                }
+            ]
+        },
+        {
+            "questionNumber": 9,
+            "paragraph": " Sales and Marketing involves",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "ensuring that the products, services of the brand resonate with current and potential customers"
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "promoting and selling goods or services, process or technique of promoting, selling, and distributing a product or service."
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "Attracting the attention of customers to a product."
+                },
+                {
+                    "questionNumber": 4,
+                    "question": "planning and developing a strategy to enable a company to sell a range of products that deliver sales and profit targets"
+                },
+                {
+                    "questionNumber": 5,
+                    "question": "Engaging and networking with new customers and sell companies’ goods or services."
+                }
+            ]
+        },
+        {
+            "questionNumber": 10,
+            "paragraph": "Education and Training processes include facilitating learning, or the acquisition of knowledge, skills, values, beliefs, and habits. I would like to",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "prepare lesson plans and educating students at all levels"
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "Help people make career-based decisions and set goals for career change or progression."
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "use theory and research to design and develop materials that educate and instruct school children to professionals in the workplace"
+                }
+            ]
+        },
+        {
+            "questionNumber": 1,
+            "paragraph": "Physical Science deals with the study of nature and properties of non-living matter and energy. It is a broad discipline concerned with natural resources, including Physics, Chemistry, astronomy, earth sciences, geology, ocean, etc. I would like to",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "Use scientific tests or techniques used in connection with the detection of crime"
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "study of celestial objects (such as stars, planets, comets, and galaxies) and phenomena that originate outside the Earth's atmosphere"
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "Study the science and art of map-making"
+                },
+                {
+                    "questionNumber": 4,
+                    "question": "Deal with all humanitarian aspects of emergencies, in particular preparedness, response and recovery in order to lessen the impact of disasters."
+                }
+            ]
+        },
+        {
+            "questionNumber": 12,
+            "paragraph": "Mathematics and Data Science uses mathematical and scientific methods, processes, algorithms and systems to extract knowledge and insights from structured and unstructured data/numbers",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "Help organizations by applying mathematical theories and techniques to solve practical problems"
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "I want to acquire information from various sources and analyze it for better understanding about how the business performs, and to build AI tools that automate certain processes within the company"
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "Gather numerical data and then display it, helping companies to make sense of quantitative data and to spot trends and make predictions"
+                },
+                {
+                    "questionNumber": 4,
+                    "question": "Create data algorithms and specialized computer software to identify and classify components of a biological system"
+                }
+            ]
+        },
+        {
+            "questionNumber": 13,
+            "paragraph": "the para",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "blah blah"
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "xyz"
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "xyz"
+                },
+                {
+                    "questionNumber": 4,
+                    "question": "xyz"
+                },
+                {
+                    "questionNumber": 5,
+                    "question": "xyz"
+                }
+            ]
+        },
+        {
+            "questionNumber": 14,
+            "paragraph": " IT and Software involves",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "Creating the look, layout, and features of a website"
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "Designing, installation, testing, and maintenance of software systems"
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "Game development which includes designing characters, levels, puzzles, art, animation, and coding."
+                },
+                {
+                    "questionNumber": 4,
+                    "question": "Maintaining the computer networks of all types of organizations, providing technical support and ensuring the whole company runs smoothly"
+                }
+            ]
+        },
+        {
+            "questionNumber": 15,
+            "paragraph": "Social Science is a category of academic disciplines concerned with society and the relationships among individuals within a society. I would like to",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "study of foreign relations between sovereign nations on matters of political, economic, and diplomatic affairs."
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "study of human activity through the recovery and analysis of material culture"
+                },
+                {
+                    "questionNumber": 3,
+                    "question": " Study the pseudoscience that claims to divine information about human affairs and terrestrial events by studying the movements and relative positions of celestial objects"
+                },
+                {
+                    "questionNumber": 4,
+                    "question": "Study the science of behavior and mind"
+                }
+            ]
+        },
+        {
+            "questionNumber": 16,
+            "paragraph": " A career in Medical Science include research and curing patients and animals using various scientific methods ",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "Set up a clinic cure patients"
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "Be a vet and treat animals"
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "Be a nutritionist/dietician"
+                },
+                {
+                    "questionNumber": 4,
+                    "question": "Nursing and assisting patients and doctors"
+                },
+                {
+                    "questionNumber": 5,
+                    "question": "to study and practice Ayurveda/homeopathy"
+                }
+            ]
+        },
+        {
+            "questionNumber": 17,
+            "paragraph": "Allied health professionals aim to prevent, diagnose and treat a range of conditions and illnesses and often work within a multidisciplinary health team to provide the best patient outcomes",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "Use therapeutic activities, which is the attempted remediation of a health problem, usually following a diagnosis"
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "Use scientific techniques of preparing, dispensing, and reviewing drugs and providing additional clinical services"
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "Study of the causes and effects of disease or injury"
+                },
+                {
+                    "questionNumber": 4,
+                    "question": "Do treatment of disease, injury, or deformity by physical methods such as massage, heat treatment, and exercise rather than by drugs or surgery"
+                }
+            ]
+        },
+        {
+            "questionNumber": 18,
+            "paragraph": "Law and Public Safety refers to the welfare and protection of the general public. It is usually expressed as a governmental responsibility. I would like to ",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "Work as the Police protecting citizens"
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "Collect information to solve crime by talking to witnesses and informants, collecting physical evidence, or searching records in databases"
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "Conduct court proceedings and pass judgements which is impartial and strive to properly interpret the meaning, significance, and implications of the law."
+                },
+                {
+                    "questionNumber": 4,
+                    "question": "Advise individuals, businesses, and government agencies on legal issues and disputes, and represent them in court and legal transactions"
+                }
+            ]
+        },
+        {
+            "questionNumber": 22,
+            "paragraph": "Travel, Tourism, and Hospitality is the industry comprising business entity of food, beverages, lodging or a combination of these businesses to travellers during their stay in a destination. I would like to",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "Oversee a restaurant's kitchen by managing other members of the food preparation team, deciding what dishes to serve and adjusting orders to meet guests' requests."
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "Provide assistance, information on cultural, historical and contemporary heritage to people on organized tours"
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "Teach animals specific responses to specific conditions or stimuli."
+                },
+                {
+                    "questionNumber": 4,
+                    "question": "xyz"
+                },
+                {
+                    "questionNumber": 5,
+                    "question": "xyz"
+                }
+            ]
+        },
+        {
+            "questionNumber": 23,
+            "paragraph": "Human services is an interdisciplinary field of study with the objective of meeting human needs through an applied knowledge base, focusing on prevention as well as remediation of problems, and maintaining a commitment to improving the overall quality of life of service populations.",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "Be a social worker"
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "give people beauty treatment."
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "Provide guidance on personal or psychological problems."
+                }
+            ]
+        },
+        {
+            "questionNumber": 24,
+            "paragraph": "Sports",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "Take a career of playing a sport"
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "Act as a trainer or coach for a sport"
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "Want to handle management related to sports/teams"
+                }
+            ]
+        },
+        {
+            "questionNumber": 25,
+            "paragraph": "Defense is charged with coordinating and supervising all agencies and functions of the government relating directly to national security and the Indian armed forces. I would like to",
+            "questionSet": [
+                {
+                    "questionNumber": 1,
+                    "question": "Be in the land force which is a fighting force that fights primarily on land. In the broadest sense, it is the land-based military branch, service branch or armed service of a nation or state."
+                },
+                {
+                    "questionNumber": 2,
+                    "question": "Be in sea force, which is the branch of a nation's armed forces principally designated for naval and amphibious warfare"
+                },
+                {
+                    "questionNumber": 3,
+                    "question": "Be in air force, which primarily conducts aerial warfare"
+                }
+            ]
+        }  
+    ]
+}
