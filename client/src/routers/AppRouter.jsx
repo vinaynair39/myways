@@ -23,6 +23,7 @@ import CareerLibraryPage from '../pages/CareerLibraryPage';
 import ResultPage from '../pages/ResultPage';
 import LearningStylePage from '../pages/LearningStylePage';
 import WorkOrientationPage from '../pages/WorkOrientationPage';
+import DevelopmentSuggestion from '../pages/SuggestedPage';
 
 export const history = createHistory();
 
@@ -37,12 +38,14 @@ const AppRouter = () => (
         <PrivateRoute path='/centerOfOperation' component={CenterOfOperationPage} exact={true} />
         <PrivateRoute path='/subjectInterest' component={SubjectInterestPage} exact={true} />
         <PrivateRoute path='/personalityTraits' component={PersonalityTraitsPage} exact={true} />
+        <PrivateRoute path='/suggestion' component={DevelopmentSuggestion}exact={true} />
         <PrivateRoute path='/careerLibrary' component={CareerLibraryPage} exact={true} />
         <PrivateRoute path='/learningStyle' component={LearningStylePage} exact={true} />
         <PrivateRoute path='/result' component={ResultPage} exact={true} />
         <PrivateRoute path='/chart' component={ResultChart} exact={true} />
         <PublicRoute path='/login' component={Login}  />
         <PublicRoute path='/signup' component={Register} />
+        
         <PrivateRoute path="/testInfo/:name" component={TestInfo} />
         <PrivateRoute path="/SideBar" component={SideBar} />
         <PrivateRoute path="/dashboard" component={DashboardPage} exact={true}/>
