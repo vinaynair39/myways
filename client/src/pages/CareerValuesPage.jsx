@@ -17,13 +17,13 @@ const CareerValuesPage = (props) => {
                         <ResultChart />
                         <div >
                             <h5>Explore Next</h5>
-                            <Link to="personalityTraits">
+                            <Link to="workOrientation">
                                 <img
-                                    src="https://image.flaticon.com/icons/png/512/1465/1465419.png"
+                                    src="https://image.flaticon.com/icons/png/512/1256/1256650.png"
                                     alt=""
                                 />
                             </Link>
-                            <h5>Personality Traits</h5>
+                            <h5>Work Orientation</h5>
                         </div></div>
                 </div>
             </Layout>

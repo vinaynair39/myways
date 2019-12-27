@@ -23,6 +23,19 @@ const ResultChart = () => {
                     },
                 }
             },
+            colors: [
+                '#6decb9',
+                '#f8b195',
+                '#f67280',
+                '#413c69',
+                '#c3f0ca',
+                '#faeee7',
+                '#ffc6c7',
+                '#c06c84',
+                '#f5f093'
+    
+    
+            ],
             dataLabels: {
                 enabled: true,
                 textAnchor: 'start',

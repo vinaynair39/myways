@@ -372,7 +372,7 @@ function ButtonList(props) {
     <div className="container">
       <div className="feedback">
         <div className="rating">
-          <input type="radio" name="rating" id="rating-5"  checked={selectedOptionNumber === '5' ? true : checked5} onChange={(e) => {
+          <input type="radio" name="rating" id="rating-5" checked={selectedOptionNumber === '5' ? true : checked5} onChange={(e) => {
             var numberPattern = /\d+/g;
             setSelectedOptionNumber(e.target.id.match(numberPattern)[0]);
             setSelectedOption(e.target.id.match(numberPattern)[0]);
@@ -382,7 +382,7 @@ function ButtonList(props) {
             handleShowButton();
           }} />
           <label htmlFor="rating-5"></label>
-          <input type="radio" name="rating" id="rating-4"   checked={selectedOptionNumber === '4' ? true : checked4}
+          <input type="radio" name="rating" id="rating-4" checked={selectedOptionNumber === '4' ? true : checked4}
             onChange={(e) => {
               var numberPattern = /\d+/g;
               setSelectedOption(e.target.id.match(numberPattern)[0]);
@@ -401,7 +401,7 @@ function ButtonList(props) {
             handleShowButton();
           }} />
           <label htmlFor="rating-3"></label>
-          <input type="radio" name="rating" id="rating-2"  checked={selectedOptionNumber === '2' ? true : checked2} onChange={(e) => {
+          <input type="radio" name="rating" id="rating-2" checked={selectedOptionNumber === '2' ? true : checked2} onChange={(e) => {
             var numberPattern = /\d+/g;
             setSelectedOption(e.target.id.match(numberPattern)[0]);
             setSelectedOptionNumber(e.target.id.match(numberPattern)[0])
@@ -410,7 +410,7 @@ function ButtonList(props) {
             handleShowButton();
           }} />
           <label htmlFor="rating-2"></label>
-          <input type="radio" name="rating" id="rating-1"  checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
+          <input type="radio" name="rating" id="rating-1" checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
             var numberPattern = /\d+/g;
             setSelectedOption(e.target.id.match(numberPattern)[0]);
             setSelectedOptionNumber(e.target.id.match(numberPattern)[0])
@@ -525,17 +525,19 @@ function ButtonList(props) {
 
   return (
     <Wrapper className="">
-      {getButton()}
-      <div className="test-buttons">
-        {true ? <button className="button button-right" onClick={onSubmit}><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
-          : <button className="button button-disable"><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
-        }
-        {/* <button className="button button-right" onClick={onSubmit}><FontAwesomeIcon icon={faArrowRight} size='2x' /></button> */}
-        {(!!props.currentSubquestion ? (((props.currentQuestion == 0 && props.currentSubquestion > 0) || (props.currentQuestion > 0))
-          && <button className="button button-left" onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>) :
-          (props.currentQuestion > 0 && <button className="button button-left" onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>)
-        )}
-      </div>
+      <form onSubmit={onSubmit}>
+        {getButton()}
+        <div className="test-buttons">
+          {(!!props.currentSubquestion ? (((props.currentQuestion == 0 && props.currentSubquestion > 0) || (props.currentQuestion > 0))
+            && <button className="button button-left" onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>) :
+            (props.currentQuestion > 0 && <button className="button button-left" onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>)
+          )}
+          {true ? <button type="submit" className="button button-right" ><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
+            : <button className="button button-disable"><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
+          }
+          {/* <button className="button button-right" onClick={onSubmit}><FontAwesomeIcon icon={faArrowRight} size='2x' /></button> */}
+        </div>
+      </form>
     </Wrapper>
   );
 }

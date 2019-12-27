@@ -21,6 +21,8 @@ import TraitListItems from '../components/personalityTraits/TraitListItem';
 import PersonalityTraitsPage from '../pages/PersonalityTraitsPage';
 import CareerLibraryPage from '../pages/CareerLibraryPage';
 import ResultPage from '../pages/ResultPage';
+import LearningStylePage from '../pages/LearningStylePage';
+import WorkOrientationPage from '../pages/WorkOrientationPage';
 
 export const history = createHistory();
 
@@ -30,11 +32,13 @@ const AppRouter = () => (
       <Switch>
         <PublicRoute path='/' component={Landing} exact={true} />
         <PrivateRoute path='/cognitiveIntelligence' component={CognitivePage} exact={true} />
+        <PrivateRoute path='/workOrientation' component={WorkOrientationPage} exact={true} />
         <PrivateRoute path='/careerValues' component={CareerValuesPage} exact={true} />
         <PrivateRoute path='/centerOfOperation' component={CenterOfOperationPage} exact={true} />
         <PrivateRoute path='/subjectInterest' component={SubjectInterestPage} exact={true} />
         <PrivateRoute path='/personalityTraits' component={PersonalityTraitsPage} exact={true} />
         <PrivateRoute path='/careerLibrary' component={CareerLibraryPage} exact={true} />
+        <PrivateRoute path='/learningStyle' component={LearningStylePage} exact={true} />
         <PrivateRoute path='/result' component={ResultPage} exact={true} />
         <PrivateRoute path='/chart' component={ResultChart} exact={true} />
         <PublicRoute path='/login' component={Login}  />

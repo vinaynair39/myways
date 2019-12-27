@@ -182,9 +182,7 @@
     top: 6px;
   }
 
-  .test-buttons{
-    display: flex;
-  }
+
   .button-right{
     position: absolute;
     bottom: 3.5rem;
@@ -206,9 +204,9 @@
 
   .button-left{
     position: absolute;
-    right: 78.5em;
     bottom: 3.5rem;
     width: 5rem;
+    left:2rem;
     height:3rem;
     background-color: $dark-grey;
     color:white;

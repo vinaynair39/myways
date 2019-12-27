@@ -122,7 +122,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
 
     const modal = () => (
         <>
-            <Link className='goto-dashboard' to='/dashboardtest'><FontAwesomeIcon icon={faArrowLeft} /></Link>
+            <Link className='goto-dashboard' to='/dashboard'><FontAwesomeIcon icon={faArrowLeft} /></Link>
             <Progress completed={progress} color={'#FFC765'} />
             <div title="elapsed time" className="test-timer"><Timer /></div>
             <div className="button_modal">

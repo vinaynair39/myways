@@ -113,7 +113,7 @@ const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId
 
     const modal = () => (
         <>
-            <Link className='goto-dashboard' to='/dashboardtest'><FontAwesomeIcon icon={faArrowLeft} /></Link>
+            <Link className='goto-dashboard' to='/dashboard'><FontAwesomeIcon icon={faArrowLeft} /></Link>
             <Progress completed={progress} color={'#FFC765'} />
             <div title="elapsed time" className="test-timer"><Timer /></div>
             <div className="button_modal">
@@ -141,6 +141,11 @@ const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId
             </div>
         </>
     )
+
+
+
+
+
 
     return (
         <>

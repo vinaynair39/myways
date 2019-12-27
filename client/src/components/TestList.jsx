@@ -4,7 +4,7 @@ import TestListItem from './TestListItem'
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";   
 
 const TestList = ({tests}) => (
-        <div className="row d-flex justify-content-center">
+        <div className="row d-flex justify-content-center ">
         {tests.length === 0 ? (<p>No Tests</p>) : (tests.map((test) => {
             return <TestListItem key={test.assesmentType}  {...test} />
         }))}
