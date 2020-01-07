@@ -29,7 +29,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
     const [sublength, setSublength] = useState(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length);
 
     useEffect(() => {
-        setSublength(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length-1);
+        setSublength(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length);
         if (totalLength === currentQuestion) {
             setParagraph('');
             setQuestion('');

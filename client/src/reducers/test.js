@@ -28,14 +28,6 @@ export default (state = initState, action) => {
                 tests: action.tests
             };
         case ADD_ANSWERS:
-            // if(!!state.answers.questions[action.currentQuestion].questionSet){
-            //     state.answers.questions[action.currentQuestion].questionSet[action.currentSubquestion].answer.option = action.answer;
-            //     state.answers.questions[action.currentQuestion].questionSet[action.currentSubquestion].answer.optionNumber = action.answerNumber;
-            // }
-            // else{
-                // state.answers.questions[action.currentQuestion].answer.option = action.answer;
-                // state.answers.questions[action.currentQuestion].answer.optionNumber = action.answerNumber;
-            // }
             const currentQuestion = action.currentQuestion;
             console.log(action)
             if(!!action.currentSubquestion){
