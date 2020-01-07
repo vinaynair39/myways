@@ -36,14 +36,16 @@ export default (state = initState, action) => {
                 // state.answers.questions[action.currentQuestion].answer.option = action.answer;
                 // state.answers.questions[action.currentQuestion].answer.optionNumber = action.answerNumber;
             // }
-            if(typeof action.currentSubquestion === 'number'){
+            const currentQuestion = action.currentQuestion;
+            console.log(action)
+            if(!!action.currentSubquestion){
                 console.log('inside')
                 return{
                     ...state,
                     response:{
                         ...state.response,
-                        [action.currentQuestion]:{
-                            ...state.response[action.currentQuestion],
+                        [currentQuestion]:{
+                            ...state.response[currentQuestion],
                             [action.currentSubquestion]: action.answerNumber
                         }
                     }
@@ -54,7 +56,7 @@ export default (state = initState, action) => {
                     ...state,
                     response: {
                         ...state.response,
-                        [action.currentQuestion]:action.answerNumber
+                        [currentQuestion]:action.answerNumber
                     }
                 }
             }

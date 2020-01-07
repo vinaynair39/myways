@@ -65,11 +65,11 @@ const SideBar = ({ logout, isAuthenticated }) => {
               onClick={() => setSelection("cognitive")}
             >
               <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" />{" "}
-              <Link to="">Cognitive Intelligence</Link>
+              <Link to="CognitiveIntelligence">Cognitive Intelligence</Link>
             </div>
             <div className="dashboard__sidebar1-item dashboard__sub-item">
               <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" />{" "}
-              <Link to="">Career Values</Link>
+              <Link to="careerValues">Career Values</Link>
             </div>
             <div className="dashboard__sidebar1-item dashboard__sub-item">
               <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" />{" "}
@@ -77,11 +77,11 @@ const SideBar = ({ logout, isAuthenticated }) => {
             </div>
             <div className="dashboard__sidebar1-item dashboard__sub-item">
               <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" />
-              <Link to="">Personality Traits</Link>
+              <Link to="personalityTraits">Personality Traits</Link>
             </div>
             <div className="dashboard__sidebar1-item dashboard__sub-item">
               <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" />{" "}
-              <Link to="">Centre of Operation</Link>
+              <Link to="centerOfOperation">Centre of Operation</Link>
             </div>
             <div className="dashboard__sidebar1-item dashboard__sub-item">
               <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" />{" "}
@@ -89,12 +89,12 @@ const SideBar = ({ logout, isAuthenticated }) => {
             </div>
             <div className="dashboard__sidebar1-item dashboard__sub-item mb-3">
               <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" />
-              <Link to="">Subject Interest</Link>
+              <Link to="subjectInterest">Subject Interest</Link>
             </div>
           </div>
           <div className="dashboard__sidebar1-item">
             <FontAwesomeIcon icon={faLevelUpAlt} className="dashboard__icon" />
-            <Link to="">Grow with MyWays</Link>
+            <Link to="careerLibrary">Grow with MyWays</Link>
           </div>
           <div className="dashboard__sidebar1-item">
             <FontAwesomeIcon

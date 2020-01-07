@@ -26,6 +26,7 @@ const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId
     const [difficulty, setDifficulty] = useState(0);
     const totalLength = test.questions.length;
     const [testCompleted, setTestCompleted] = useState(false);
+    const [questionNumber, setQuestionNumber] = useState(1);
     let subquestionsTotal = 0;
 
     console.log(test)
@@ -48,6 +49,7 @@ const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId
         }
         else {
             setQuestion(test.questions[currentQuestion].question);
+            setQuestionNumber(test.questions[currentQuestion].questionNumber)
             !!test.questions[currentQuestion].options && setOptions(test.questions[currentQuestion].options.map(option => option.option));
             calculateProgress();
         }
@@ -116,7 +118,7 @@ const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId
             <Link className='goto-dashboard' to='/dashboard'><FontAwesomeIcon icon={faArrowLeft} /></Link>
             <Progress completed={progress} color={'#FFC765'} />
             <div title="elapsed time" className="test-timer"><Timer /></div>
-            <div className="button_modal">
+            <div className="button_modal mt-1">
                 <button type="button" className="button__modal-icon" data-toggle="modal" data-target="#exampleModalCenter">
                     <FontAwesomeIcon color={'#2e3740'} icon={faQuestion} className="form-icon" size='lg' />
                 </button>
@@ -160,7 +162,7 @@ const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId
                     </div>}
                 </div>
             </div>
-            <div>{totalLength !== currentQuestion && <ButtonList previousQuestion={previousQuestion} nextQuestion={nextQuestion} options={options} currentQuestion={currentQuestion} currentTest={test.assesmentType} />}</div>
+            <div>{totalLength !== currentQuestion && <ButtonList previousQuestion={previousQuestion} questionNumber={questionNumber}nextQuestion={nextQuestion} options={options} currentQuestion={currentQuestion+1} currentTest={test.assesmentType} />}</div>
             <div className="test__options">
                 {/* <Options nextQuestion={nextQuestion}  /> */}
             </div>

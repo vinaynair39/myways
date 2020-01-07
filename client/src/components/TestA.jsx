@@ -15,18 +15,18 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [currentSubquestion, setCurrentSubquestion] = useState(0);
     const [paragraph, setParagraph] = useState('');
-    const [timer, setTimer] = useState(0);
     const [question, setQuestion] = useState('');
     const [options, setOptions] = useState([]);
     const [progress, setProgress] = useState(0)
-    const [counter, setCounter] = useState(0);
     const [prevState, setPrevState] = useState(-1);
     const [currentState, setCurrentState] = useState(0);
     const [testCompleted, setTestCompleted] = useState(false);
     const [difficulty, setDifficulty] = useState(0);
+    const [questionNumber, setQuestionNumber] = useState('1');
+    const [subquestionNumber, setSubquestionNumber] = useState('1');
     let subquestionsTotal = 0;
     const totalLength = test.questions.length;
-    const [sublength, setSublength] = useState(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length-1);
+    const [sublength, setSublength] = useState(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length);
 
     useEffect(() => {
         setSublength(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length-1);
@@ -48,12 +48,14 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
         else {
             setParagraph(test.questions[currentQuestion].paragraph);
             setQuestion(test.questions[currentQuestion].questionSet[currentSubquestion].question);
+            setQuestionNumber(test.questions[currentQuestion].questionNumber)
+            setSubquestionNumber(test.questions[currentQuestion].questionSet[currentSubquestion].questionNumber);
             if (test.questions[currentQuestion].questionSet[currentSubquestion].options) {
                 setOptions(test.questions[currentQuestion].questionSet[currentSubquestion].options.map(option => option.option));
             }
             addProgress();
         }
-    }, [currentSubquestion, currentQuestion, testCompleted])
+    }, [currentSubquestion, currentQuestion, testCompleted, questionNumber,subquestionNumber])
 
     const stars = () => {
 
@@ -127,7 +129,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
             <Link className='goto-dashboard' to='/dashboard'><FontAwesomeIcon icon={faArrowLeft} /></Link>
             <Progress completed={progress} color={'#FFC765'} />
             <div title="elapsed time" className="test-timer"><Timer /></div>
-            <div className="button_modal">
+            <div className="button_modal mt-1">
                 <button type="button" className="button__modal-icon" data-toggle="modal" data-target="#exampleModalCenter">
                     <FontAwesomeIcon color={'#2e3740'} icon={faQuestion} className="form-icon" size='lg' />
                 </button>
@@ -168,7 +170,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
                             </div></>
                     }
                 </div>
-                <div>{totalLength !== currentQuestion && <ButtonList nextQuestion={nextQuestion} previousQuestion={previousQuestion} options={options} sublength={sublength}currentQuestion={currentQuestion} totalLength={totalLength} currentSubquestion={currentSubquestion} />}</div>
+                <div>{totalLength !== currentQuestion && <ButtonList nextQuestion={nextQuestion} previousQuestion={previousQuestion} options={options} questionNumber={questionNumber} subquestionNumber={subquestionNumber} sublength={sublength}currentQuestion={currentQuestion+1} totalLength={totalLength} currentSubquestion={currentSubquestion+1} />}</div>
                 <div className="test__options">
                 </div>
             </>}

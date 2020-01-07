@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { addAnswers, currentTest, currentAnswers } from '../actions/test';
 import { connect } from 'react-redux';
 import { ADD_ANSWERS } from '../actions/constants'
+import useEventListener from 'use-event-listener'
 
 const Wrapper = styled.div`
   .question {
@@ -23,6 +24,23 @@ const Wrapper = styled.div`
     border-radius: 3rem;
     width: fit-content;
     max-width: 75vw;
+    &:hover label{
+      .checker {
+        box-shadow: inset 0 0 0 2px white;
+      }
+    }
+    &:focus label {
+      background: transparent;
+      .checker {
+        border-color: #2e3740;
+      }
+    }
+    &:active label {
+      .checker {
+        box-shadow: inset 0 0 0 20px #2e3740;
+      }
+    }
+
   }
   .button-select2 {
     background: #FFC765;
@@ -34,6 +52,22 @@ const Wrapper = styled.div`
     color: #2e3740;
     border-radius: 3rem;
     width: fit-content;
+    &:hover label{
+      .checker {
+        box-shadow: inset 0 0 0 2px white;
+      }
+    }
+    &:focus label {
+      background: transparent;
+      .checker {
+        border-color: #2e3740;
+      }
+    }
+    &:active label {
+      .checker {
+        box-shadow: inset 0 0 0 20px #2e3740;
+      }
+    }
   }
   .button-select3 {
     background: #FFC765;
@@ -45,6 +79,22 @@ const Wrapper = styled.div`
     color: #2e3740;
     border-radius: 3rem;
     width: fit-content;
+    &:hover label{
+      .checker {
+        box-shadow: inset 0 0 0 2px white;
+      }
+    }
+    &:focus label {
+      background: transparent;
+      .checker {
+        border-color: #2e3740;
+      }
+    }
+    &:active label {
+      .checker {
+        box-shadow: inset 0 0 0 20px #2e3740;
+      }
+    }
   }
   .radios {
     width: 100%;
@@ -105,6 +155,18 @@ const Wrapper = styled.div`
           box-shadow: inset 0 0 0 2px white;
         }
       }
+      &:focus{
+        background: transparent;
+        .checker {
+          border-color: #2e3740;
+        }
+      }
+      &:active{
+        .checker {
+          box-shadow: inset 0 0 0 20px #2e3740;
+        }
+      }
+
     }
     .checker {
       width: 18px;
@@ -127,6 +189,49 @@ function ButtonList(props) {
   const [checked5, setChecked5] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const [selectedOptionNumber, setSelectedOptionNumber] = useState(false);
+  const [key, setKey] = useState()
+
+
+  const radioRef1 = useRef(null);
+  const radioRef2 = useRef(null);
+  const radioRef3 = useRef(null);
+  const radioRef4 = useRef(null);
+  const radioRef5 = useRef(null);
+  const submit = useRef(null);
+
+  const clickRadio1 = (e) => {
+    if (key === 'End' || key === '1') {
+      radioRef1.current.click();
+    }
+    if (key === 'ArrowDown' || key === '2') {
+      radioRef2.current.click();
+    }
+    if (props.options.length === 4 || props.options.length === 0 || props.options.length === 5) {
+      if (key === 'PageDown' || key === '3') {
+        radioRef3.current.click();
+      }
+      if (key === 'ArrowLeft' || key === '4') {
+        radioRef4.current.click();
+      }
+    }
+    if (props.options.length === 5 || props.options.length === 0) {
+      if (key === 'Clear' || key === '5') {
+        radioRef5.current.click();
+      }
+    }
+    if (key === 'Enter' || key === 'Enter') {
+      submit.current.click();
+    }
+  }
+
+  useEffect(() => {
+    clickRadio1();
+  }, [key])
+
+  useEventListener(
+    'keydown', // event to listen to
+    event => setKey(event.key) // callback
+  )
 
   const handleShowButton = () => {
     setShowButton(true);
@@ -140,28 +245,22 @@ function ButtonList(props) {
     }
   }
 
-  const clearRadioButton = () => {
-    setChecked1(false);
-    setChecked2(false);
-    setChecked3(false);
-    setChecked4(false);
-    setChecked5(false);
-  }
 
   const onSubmit = (e) => {
     e.preventDefault();
     const length = Object.keys(props.response).length;
     setSelectedOptionNumber(0);
     props.nextQuestion();
-    props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion,typeof props.currentSubquestion === 'number' ? props.currentSubquestion: null);
-    if(typeof props.currentSubquestion === 'number'){
+    const subquestionNumber = parseInt(props.subquestionNumber, 10);
+    props.addAnswers(selectedOptionNumber, selectedOption, props.questionNumber, typeof subquestionNumber === 'number' ? subquestionNumber : null);
+    if (typeof props.currentSubquestion === 'number') {
       console.log(props.sublength, props.currentSubquestion);
-      console.log('q',(props.currentSubquestion === props.sublength && props.currentQuestion !== length) ? props.currentQuestion + 1 : props.currentQuestion, '------sq',[props.currentSubquestion === props.sublength ? 0 : props.currentSubquestion + 1]);
+      console.log('q', (props.currentSubquestion === props.sublength && props.currentQuestion !== length) ? props.currentQuestion + 1 : props.currentQuestion, '------sq', [props.currentSubquestion === props.sublength ? 0 : props.currentSubquestion + 1]);
       setSelectedOptionNumber(!!(props.response[(props.currentSubquestion === props.sublength && props.currentQuestion !== props.totalLength) ? props.currentQuestion + 1 : props.currentQuestion]) && props.response[(props.currentSubquestion === props.sublength && props.currentQuestion !== length) ? props.currentQuestion + 1 : props.currentQuestion][props.currentSubquestion === props.sublength ? 0 : props.currentSubquestion + 1]);
-      console.log( !!(props.response[(props.currentSubquestion === props.sublength && props.currentQuestion !== props.totalLength) ? props.currentQuestion + 1 : props.currentQuestion]) && props.response[(props.currentSubquestion === props.sublength && props.currentQuestion !== length) ? props.currentQuestion + 1 : props.currentQuestion][props.currentSubquestion === props.sublength ? 0 : props.currentSubquestion + 1]);
+      console.log(!!(props.response[(props.currentSubquestion === props.sublength && props.currentQuestion !== props.totalLength) ? props.currentQuestion + 1 : props.currentQuestion]) && props.response[(props.currentSubquestion === props.sublength && props.currentQuestion !== length) ? props.currentQuestion + 1 : props.currentQuestion][props.currentSubquestion === props.sublength ? 0 : props.currentSubquestion + 1]);
     }
-    else{
-      setSelectedOptionNumber(props.response[props.currentQuestion+1])
+    else {
+      setSelectedOptionNumber(props.response[props.currentQuestion + 1])
     }
     saveToLocalStorage(props.response);
     setChecked1(false);
@@ -176,8 +275,9 @@ function ButtonList(props) {
     e.preventDefault();
     props.previousQuestion();
     handleShowButton();
+
     if (typeof props.currentSubquestion === 'number') {
-      const sublength = Object.keys(props.response[(props.currentSubquestion === 0 && props.currentQuestion !== 0) ? props.currentQuestion - 1 : props.currentQuestion]).length-1
+      const sublength = Object.keys(props.response[(props.currentSubquestion === 0 && props.currentQuestion !== 0) ? props.currentQuestion - 1 : props.currentQuestion]).length - 1
       setSelectedOptionNumber(props.response[(props.currentSubquestion === 0 && props.currentQuestion !== 0) ? props.currentQuestion - 1 : props.currentQuestion][props.currentSubquestion === 0 ? sublength : props.currentSubquestion - 1]);
       return true;
     }
@@ -192,10 +292,9 @@ function ButtonList(props) {
   const twoButton = ([a, b]) => (
     <div>
       <div className={props.currentTest === "personalityTest" ? "radios2" : "radios"}>
-        <div className="radio button-select">
-          <input type="radio" id="1" name="radio1" value={a} checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
+        <button htmlFor='1' className="radio button-select" onClick={() => radioRef1.current.click()}>
+          <input ref={radioRef1} type="radio" id="1" name="radio1" value={a} checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
             setSelectedOptionNumber(e.target.id)
-            setSelectedOption(e.target.value);
             setChecked1(true);
             handleShowButton();
           }} />
@@ -203,12 +302,11 @@ function ButtonList(props) {
             <div className="checker"></div>
             {a}
           </label>
-        </div>
+        </button>
 
-        <div className="radio button-select">
-          <input type="radio" id="2" name="radio1" value={b} checked={selectedOptionNumber === '2' ? true : checked2} onChange={(e) => {
+        <button htmlFor='2' className="radio button-select" onClick={() => radioRef2.current.click()}>
+          <input type="radio" ref={radioRef2} id="2" name="radio1" value={b} checked={selectedOptionNumber === '2' ? true : checked2} onChange={(e) => {
             setSelectedOptionNumber(e.target.id)
-            setSelectedOption(e.target.value);
             setChecked2(true);
             handleShowButton();
           }} />
@@ -216,17 +314,17 @@ function ButtonList(props) {
             <div className="checker"></div>
             {b}
           </label>
-        </div>
+        </button>
       </div>
-    </div>
+    </div >
   );
 
 
   const fourButton = ([a, b, c, d]) => (
     <div>
       <div className="radios">
-        <div className="radio button-select2">
-          <input type="radio" id="1" name="radio1" value={a} checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
+        <button className="radio button-select2" onClick={() => radioRef1.current.click()}>
+          <input ref={radioRef1} type="radio" id="1" name="radio1" value={a} checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
             setSelectedOptionNumber(e.target.id)
             setSelectedOption(e.target.value);
             setChecked1(true);
@@ -236,10 +334,10 @@ function ButtonList(props) {
             <div className="checker"></div>
             {a}
           </label>
-        </div>
+        </button>
 
-        <div className="radio button-select2">
-          <input type="radio" id="2" name="radio1" value={b} checked={selectedOptionNumber === '2' ? true : checked2} onChange={(e) => {
+        <button className="radio button-select2" onClick={() => radioRef2.current.click()}>
+          <input ref={radioRef2} type="radio" id="2" name="radio1" value={b} checked={selectedOptionNumber === '2' ? true : checked2} onChange={(e) => {
             setSelectedOptionNumber(e.target.id)
             setSelectedOption(e.target.value);
             setChecked2(true);
@@ -249,9 +347,9 @@ function ButtonList(props) {
             <div className="checker"></div>
             {b}
           </label>
-        </div>
-        <div className="radio button-select2">
-          <input type="radio" id="3" name="radio1" value={c} checked={selectedOptionNumber === '3' ? true : checked3} onChange={(e) => {
+        </button>
+        <button className="radio button-select2" onClick={() => radioRef3.current.click()}>
+          <input ref={radioRef3} type="radio" id="3" name="radio1" value={c} checked={selectedOptionNumber === '3' ? true : checked3} onChange={(e) => {
             setSelectedOption(e.target.value);
             setSelectedOptionNumber(e.target.id)
             setChecked3(true);
@@ -261,9 +359,9 @@ function ButtonList(props) {
             <div className="checker"></div>
             {c}
           </label>
-        </div>
-        <div className="radio button-select2">
-          <input type="radio" id="4" name="radio1" value={d} checked={selectedOptionNumber === '4' ? true : checked4} onChange={(e) => {
+        </button>
+        <button className="radio button-select2" onClick={() => radioRef4.current.click()}>
+          <input ref={radioRef4} type="radio" id="4" name="radio1" value={d} checked={selectedOptionNumber === '4' ? true : checked4} onChange={(e) => {
             setSelectedOption(e.target.value);
             setSelectedOptionNumber(e.target.id)
             setChecked4(true);
@@ -273,16 +371,16 @@ function ButtonList(props) {
             <div className="checker"></div>
             {d}
           </label>
-        </div>
+        </button>
       </div>
     </div>
   )
 
-  const fiveButton = ([a, b, c, d, e]) => (
+  const fiveButton = ([a, b, c, d, e]) => ( 
     <div>
       <div className="radios">
-        <div className="radio button-select3">
-          <input type="radio" id="1" name="radio1" value={a} checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
+        <button iv className="radio button-select3" onClick={() => radioRef1.current.click()}>
+          <input ref={radioRef1} type="radio" id="1" name="radio1" value={a} checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
             setSelectedOption(e.target.value);
             setSelectedOptionNumber(e.target.id)
             setChecked1(true);
@@ -292,10 +390,10 @@ function ButtonList(props) {
             <div className="checker"></div>
             {a}
           </label>
-        </div>
+        </button>
 
-        <div className="radio button-select3">
-          <input type="radio" id="2" name="radio1" value={b} checked={selectedOptionNumber === '2' ? true : checked2} onChange={(e) => {
+        <button className="radio button-select3" onClick={() => radioRef2.current.click()}>
+          <input ref={radioRef2} type="radio" id="2" name="radio1" value={b} checked={selectedOptionNumber === '2' ? true : checked2} onChange={(e) => {
             setSelectedOption(e.target.value);
             setSelectedOptionNumber(e.target.id)
             setChecked2(true);
@@ -305,9 +403,9 @@ function ButtonList(props) {
             <div className="checker"></div>
             {b}
           </label>
-        </div>
-        <div className="radio button-select3">
-          <input type="radio" id="3" name="radio1" value={c} checked={selectedOptionNumber === '3' ? true : checked3} onChange={(e) => {
+        </button>
+        <button className="radio button-select3" onClick={() => radioRef3.current.click()}>
+          <input ref={radioRef3} type="radio" id="3" name="radio1" value={c} checked={selectedOptionNumber === '3' ? true : checked3} onChange={(e) => {
             setSelectedOption(e.target.value);
             setSelectedOptionNumber(e.target.id)
             setChecked3(true);
@@ -317,9 +415,9 @@ function ButtonList(props) {
             <div className="checker"></div>
             {c}
           </label>
-        </div>
-        <div className="radio button-select3">
-          <input type="radio" id="4" name="radio1" value={d} checked={selectedOptionNumber === '4' ? true : checked4} onChange={(e) => {
+        </button>
+        <button className="radio button-select3" onClick={() => radioRef4.current.click()}>
+          <input ref={radioRef4} type="radio" id="4" name="radio1" value={d} checked={selectedOptionNumber === '4' ? true : checked4} onChange={(e) => {
             setSelectedOption(e.target.value);
             setSelectedOptionNumber(e.target.id)
             setChecked4(true);
@@ -329,9 +427,9 @@ function ButtonList(props) {
             <div className="checker"></div>
             {d}
           </label>
-        </div>
-        <div className="radio button-select3">
-          <input type="radio" id="5" name="radio1" value={e} checked={selectedOptionNumber === '5' ? true : checked5} onChange={(e) => {
+        </button>
+        <button className="radio button-select3" onClick={() => radioRef5.current.click()}>
+          <input ref={radioRef5} type="radio" id="5" name="radio1" value={e} checked={selectedOptionNumber === '5' ? true : checked5} onChange={(e) => {
             setSelectedOption(e.target.value);
             setSelectedOptionNumber(e.target.id)
             setChecked5(true);
@@ -341,7 +439,7 @@ function ButtonList(props) {
             <div className="checker"></div>
             {e}
           </label>
-        </div>
+        </button>
       </div>
     </div>
   );
@@ -351,7 +449,7 @@ function ButtonList(props) {
     <div className="container">
       <div className="feedback">
         <div className="rating">
-          <input type="radio" name="rating" id="rating-5" checked={selectedOptionNumber === '5' ? true : checked5} onChange={(e) => {
+          <input ref={radioRef5} type="radio" name="rating" id="rating-5" checked={selectedOptionNumber === '5' ? true : checked5} onChange={(e) => {
             var numberPattern = /\d+/g;
             setSelectedOptionNumber(e.target.id.match(numberPattern)[0]);
             setSelectedOption(e.target.id.match(numberPattern)[0]);
@@ -361,7 +459,7 @@ function ButtonList(props) {
             handleShowButton();
           }} />
           <label htmlFor="rating-5"></label>
-          <input type="radio" name="rating" id="rating-4" checked={selectedOptionNumber === '4' ? true : checked4}
+          <input ref={radioRef4} type="radio" name="rating" id="rating-4" checked={selectedOptionNumber === '4' ? true : checked4}
             onChange={(e) => {
               var numberPattern = /\d+/g;
               setSelectedOption(e.target.id.match(numberPattern)[0]);
@@ -371,7 +469,7 @@ function ButtonList(props) {
               handleShowButton();
             }} />
           <label htmlFor="rating-4"></label>
-          <input type="radio" name="rating" id="rating-3" checked={selectedOptionNumber === '3' ? true : checked3} onChange={(e) => {
+          <input ref={radioRef3} type="radio" name="rating" id="rating-3" checked={selectedOptionNumber === '3' ? true : checked3} onChange={(e) => {
             var numberPattern = /\d+/g;
             setSelectedOption(e.target.id.match(numberPattern)[0]);
             setSelectedOptionNumber(e.target.id.match(numberPattern)[0])
@@ -380,7 +478,7 @@ function ButtonList(props) {
             handleShowButton();
           }} />
           <label htmlFor="rating-3"></label>
-          <input type="radio" name="rating" id="rating-2" checked={selectedOptionNumber === '2' ? true : checked2} onChange={(e) => {
+          <input ref={radioRef2} type="radio" name="rating" id="rating-2" checked={selectedOptionNumber === '2' ? true : checked2} onChange={(e) => {
             var numberPattern = /\d+/g;
             setSelectedOption(e.target.id.match(numberPattern)[0]);
             setSelectedOptionNumber(e.target.id.match(numberPattern)[0])
@@ -389,7 +487,7 @@ function ButtonList(props) {
             handleShowButton();
           }} />
           <label htmlFor="rating-2"></label>
-          <input type="radio" name="rating" id="rating-1" checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
+          <input ref={radioRef1} type="radio" name="rating" id="rating-1" checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
             var numberPattern = /\d+/g;
             setSelectedOption(e.target.id.match(numberPattern)[0]);
             setSelectedOptionNumber(e.target.id.match(numberPattern)[0])
@@ -511,7 +609,7 @@ function ButtonList(props) {
             && <button className="button button-left" onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>) :
             (props.currentQuestion > 0 && <button className="button button-left" onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>)
           )}
-          {true ? <button type="submit" className="button button-right" ><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
+          {true ? <button ref={submit} type="submit" className="button button-right" ><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
             : <button className="button button-disable"><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
           }
           {/* <button className="button button-right" onClick={onSubmit}><FontAwesomeIcon icon={faArrowRight} size='2x' /></button> */}

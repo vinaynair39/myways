@@ -72,7 +72,7 @@ const Wrapper = styled.div`
     text-align: center;
   }
   .button-select {
-    background: #F2D137;
+    background: #ffd369;
     border: none;
     outline: none;
     font-size: 1.3rem;

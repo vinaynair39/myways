@@ -67,9 +67,9 @@ export const startAddTests = () => {
 export const getCurrentTest = (testName = "deductiveReasoning") => {
     return (dispatch, getState) => {
         dispatch({ type: LOADING_UI });
-        console.log(axios.defaults.headers)
         return axios.get(`http://13.234.156.115:2000/api/test/${testName.toLowerCase()}`).then(res => {
             dispatch(currentTest(res.data));
+            console.log(res.data)
             dispatch(getCurrentAnswers(testName)).then(() => {
                 dispatch({ type: UNLOADING_UI });
             });

@@ -34,7 +34,8 @@
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "serve": "^11.2.0",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "use-event-listener": "^1.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
