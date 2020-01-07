@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { addAnswers, currentTest } from '../actions/test';
+import { addAnswers, currentTest, currentAnswers } from '../actions/test';
 import { connect } from 'react-redux';
 import { ADD_ANSWERS } from '../actions/constants'
 
@@ -118,7 +118,6 @@ const Wrapper = styled.div`
 `;
 
 
-
 function ButtonList(props) {
   const [selectedOption, setSelectedOption] = useState(0);
   const [checked1, setChecked1] = useState(false);
@@ -128,7 +127,6 @@ function ButtonList(props) {
   const [checked5, setChecked5] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const [selectedOptionNumber, setSelectedOptionNumber] = useState(false);
-
 
   const handleShowButton = () => {
     setShowButton(true);
@@ -152,30 +150,20 @@ function ButtonList(props) {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    const length = Object.keys(props.response).length;
     setSelectedOptionNumber(0);
     props.nextQuestion();
-    if (!!props.answers.questions[props.currentQuestion].questionSet) {
-      if (!!props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion].answer.optionNumber) {
-        const length = props.answers.questions[props.currentQuestion].questionSet.length - 1;
-        console.log(length, props.currentQuestion, props.currentSubquestion)
-        setSelectedOptionNumber(props.answers.questions[props.currentSubquestion === length ? props.currentQuestion + 1 : props.currentQuestion].questionSet[props.currentSubquestion === length ? 0 : props.currentSubquestion + 1].answer.optionNumber);
-        props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion, props.currentSubquestion);
-        saveToLocalStorage(props.answers);
-        handleShowButton();
-        return true
-      }
+    props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion,typeof props.currentSubquestion === 'number' ? props.currentSubquestion: null);
+    if(typeof props.currentSubquestion === 'number'){
+      console.log(props.sublength, props.currentSubquestion);
+      console.log('q',(props.currentSubquestion === props.sublength && props.currentQuestion !== length) ? props.currentQuestion + 1 : props.currentQuestion, '------sq',[props.currentSubquestion === props.sublength ? 0 : props.currentSubquestion + 1]);
+      setSelectedOptionNumber(!!(props.response[(props.currentSubquestion === props.sublength && props.currentQuestion !== props.totalLength) ? props.currentQuestion + 1 : props.currentQuestion]) && props.response[(props.currentSubquestion === props.sublength && props.currentQuestion !== length) ? props.currentQuestion + 1 : props.currentQuestion][props.currentSubquestion === props.sublength ? 0 : props.currentSubquestion + 1]);
+      console.log( !!(props.response[(props.currentSubquestion === props.sublength && props.currentQuestion !== props.totalLength) ? props.currentQuestion + 1 : props.currentQuestion]) && props.response[(props.currentSubquestion === props.sublength && props.currentQuestion !== length) ? props.currentQuestion + 1 : props.currentQuestion][props.currentSubquestion === props.sublength ? 0 : props.currentSubquestion + 1]);
     }
-    else if (!!props.answers.questions[props.currentQuestion].question) {
-      if (!!props.answers.questions[props.currentQuestion].answer.optionNumber) {
-        setSelectedOptionNumber(props.answers.questions[props.currentQuestion + 1].answer.optionNumber);
-        props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion, props.currentSubquestion);
-        saveToLocalStorage(props.answers);
-        return true;
-      }
+    else{
+      setSelectedOptionNumber(props.response[props.currentQuestion+1])
     }
-    console.log('idr')
-    props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion, props.currentSubquestion);
-    saveToLocalStorage(props.answers);
+    saveToLocalStorage(props.response);
     setChecked1(false);
     setChecked2(false);
     setChecked3(false);
@@ -188,26 +176,17 @@ function ButtonList(props) {
     e.preventDefault();
     props.previousQuestion();
     handleShowButton();
-    if (!!props.answers.questions[props.currentQuestion].questionSet) {
-      const length = props.answers.questions[props.currentQuestion].questionSet.length - 1;
-      setSelectedOption(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion === 0 ? length : props.currentSubquestion - 1].answer.option);
-      setSelectedOptionNumber(props.answers.questions[props.currentQuestion].questionSet[props.currentSubquestion === 0 ? length : props.currentSubquestion - 1].answer.optionNumber);
+    if (typeof props.currentSubquestion === 'number') {
+      const sublength = Object.keys(props.response[(props.currentSubquestion === 0 && props.currentQuestion !== 0) ? props.currentQuestion - 1 : props.currentQuestion]).length-1
+      setSelectedOptionNumber(props.response[(props.currentSubquestion === 0 && props.currentQuestion !== 0) ? props.currentQuestion - 1 : props.currentQuestion][props.currentSubquestion === 0 ? sublength : props.currentSubquestion - 1]);
       return true;
     }
-    else if (!!props.answers.questions[props.currentQuestion].question) {
-      setSelectedOptionNumber(props.answers.questions[props.currentQuestion === 0 ? props.currentQuestion : props.currentQuestion - 1].answer.optionNumber);
-      saveToLocalStorage(props.answers);
-      handleShowButton()
+    else {
+      setSelectedOptionNumber(props.response[props.currentQuestion === 0 ? props.currentQuestion : props.currentQuestion - 1]);
+      saveToLocalStorage(props.response);
+      handleShowButton();
       return true;
     }
-    props.addAnswers(selectedOptionNumber, selectedOption, props.currentQuestion, props.currentSubquestion);
-    saveToLocalStorage(props.answers);
-    setChecked1(false);
-    setChecked2(false);
-    setChecked3(false);
-    setChecked4(false);
-    setChecked5(false);
-    setShowButton(false);
   }
 
   const twoButton = ([a, b]) => (
@@ -554,7 +533,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => ({
   isLoading: state.auth.loading,
-  answers: state.test.answers
+  response: state.test.response
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ButtonList);

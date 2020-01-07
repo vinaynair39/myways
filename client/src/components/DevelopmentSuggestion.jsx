@@ -5,9 +5,10 @@ import Searchbar from './DevelopmentSuggestion/Searchbar.jsx'
 
 function DevelopmentSuggestion() {
     return (
-        <div className="row m-2 p-3">
+        <div className="d-flex flex-column m-2 p-3 align-items-center overflow-auto" >
             <div className="col-12"><Searchbar/></div>
             <div className="col-6"><DevSuggestItem/></div>
+            <div className="col-6"><DevSuggestVideo/></div>
             <div className="col-6"><DevSuggestVideo/></div>
         </div>
     )

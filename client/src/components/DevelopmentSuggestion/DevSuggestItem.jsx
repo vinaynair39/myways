@@ -7,12 +7,14 @@ import { faBookmark2 } from "@fortawesome/free-solid-svg-icons";
 const Wrapper = styled.div`
   color: green;
   padding: 1rem;
-  height: 50vh;
+  min-height: 30vh;
+  max-width: 40vw;
   margin:1rem;
   border-radius: 1.5rem;
   box-shadow: #FFC765 4px 4px 1px, #FFC765 0px 1px 2px;
-    position: relative;
+  position: relative;
   .recommended {
+
   }
   .bookmark{
     font-size: 1.5rem;
@@ -37,7 +39,7 @@ const Wrapper = styled.div`
 
 function DevSuggestItem() {
   return (
-    <Wrapper className="d-flex flex-column justify-content-center">
+    <Wrapper className="d-flex flex-column justify-content-around ">
         <div className="bookmark"><FontAwesomeIcon icon={faBookmark} /></div>
       <div className="recommended">Recommended by MyWays</div>
       <div className="suggestion-title">

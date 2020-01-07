@@ -36,10 +36,11 @@ export const postUser = (user) => {
 export const startSignUp = (newUser) => {
     return (dispatch) => {
         dispatch({ type: LOADING_UI });
-        axios.post('http://edoflip.myways.in/api/user/register', { ...newUser }).then((res) => {
+        console.log({...newUser})
+        axios.post('http://13.234.156.115:2000/api/register', { ...newUser }).then((res) => {
             console.log(res.data)
             setAuthorizationHeader(res.data.token);
-            dispatch(setUser(res.data.user));
+            dispatch(setUser(res.data.data));
             saveUserToLocalStorage(res.data.user);
             dispatch(startAddTests()).then(() => {
                 dispatch(login());
@@ -59,11 +60,10 @@ export const startLogin = (credentials) => {
     
     return (dispatch) => {
         dispatch({ type: LOADING_UI });
-        return axios.post('http://edoflip.myways.in/api/user/login', credentials).then(res => {
+        return axios.post('http://13.234.156.115:2000/api/login', credentials).then(res => {
             console.log(res.data.token);
             setAuthorizationHeader(res.data.token);
-            dispatch(setUser(res.data.user));
-            saveUserToLocalStorage(res.data.user);
+            dispatch(setUser(res.data.data));
             dispatch(startAddTests()).then(() => {
                 dispatch({ type: UNLOADING_UI });
                 dispatch(login());
@@ -82,20 +82,6 @@ export const logout = () => ({
     type: LOGOUT
 });
 
-export const startLogout = () => {
-    return (dispatch) => {
-        sessionStorage.removeItem('FBIdToken');
-        delete axios.defaults.headers.common['Authorization'];
-        dispatch(logout());
-    };
-};
-
-
-const setAuthorizationHeader = (token) => {
-    const FBIdToken = `Bearer ${token}`;
-    sessionStorage.setItem('FBIdToken', FBIdToken);
-    axios.defaults.headers.common['Authorization'] = FBIdToken;
-};
 
 export const saveUserToLocalStorage = (state) => {
     try {
@@ -105,3 +91,18 @@ export const saveUserToLocalStorage = (state) => {
       console.log(e)
     }
 }
+
+export const startLogout = () => {
+    return (dispatch) => {
+        localStorage.removeItem('token');
+        delete axios.defaults.headers.common['x-access-token'];
+        dispatch(logout());
+    };
+  };
+  
+
+export const setAuthorizationHeader = (token) => {
+    const FBIdToken = `${token}`;
+    localStorage.setItem('token', FBIdToken);
+    axios.defaults.headers.common['x-access-token'] = FBIdToken;
+};

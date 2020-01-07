@@ -26,8 +26,10 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
     const [difficulty, setDifficulty] = useState(0);
     let subquestionsTotal = 0;
     const totalLength = test.questions.length;
+    const [sublength, setSublength] = useState(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length-1);
 
     useEffect(() => {
+        setSublength(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length-1);
         if (totalLength === currentQuestion) {
             setParagraph('');
             setQuestion('');
@@ -60,7 +62,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
             setTestCompleted(true);
         }
         return (
-            <>
+            <div className="test-feedback">
                 <h2 className="test__title">How difficulty did you find this test? specifiy using this</h2>
                 <div className="stars">
                     <input type="radio" id="star5" name="stars" value="5" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star5"></label>
@@ -70,7 +72,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
                     <input type="radio" id="star1" name="stars" value="1" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star1"></label>
                     <button className="button-form" onClick={addDifficulty}>Submit</button>
                 </div>
-            </>
+            </div>
         )
     }
 
@@ -166,7 +168,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
                             </div></>
                     }
                 </div>
-                <div>{totalLength !== currentQuestion && <ButtonList nextQuestion={nextQuestion} previousQuestion={previousQuestion} options={options} currentQuestion={currentQuestion} currentSubquestion={currentSubquestion} />}</div>
+                <div>{totalLength !== currentQuestion && <ButtonList nextQuestion={nextQuestion} previousQuestion={previousQuestion} options={options} sublength={sublength}currentQuestion={currentQuestion} totalLength={totalLength} currentSubquestion={currentSubquestion} />}</div>
                 <div className="test__options">
                 </div>
             </>}
@@ -187,7 +189,6 @@ const mapStateToProps = (state) => ({
     answers: state.test.answers,
     previousState: state.test.previous,
     currentState: state.test.current,
-    userId: state.auth.user._id,
     user: state.auth.user
 })
 

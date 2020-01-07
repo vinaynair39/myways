@@ -62,7 +62,7 @@ const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId
             console.log(difficulty);
         }
         return (
-            <>
+            <div className="test-feedback">
                 <h2 className="test__title">How difficulty did you find this test? specifiy using this</h2>
                 <div className="stars">
                     <input type="radio" id="star5" name="stars" value="5" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star5"></label>
@@ -72,7 +72,7 @@ const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId
                     <input type="radio" id="star1" name="stars" value="1" onChange={e => setDifficulty(e.target.value)} /><label htmlFor="star1"></label>
                     <button className="button-form" onClick={addDifficulty}>Submit</button>
                 </div>
-            </>
+            </div>
         )
     }
 
@@ -183,7 +183,6 @@ const mapDispatchToProps = (dispatch) => ({
 const mapStateToProps = (state) => ({
     answers: state.test.answers,
     isLoading: state.auth.loading,
-    userId: state.auth.user._id,
     user: state.auth.user
 
 })

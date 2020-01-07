@@ -8,7 +8,8 @@ const Wrapper = styled.div`
   color: green;
   padding: 1rem;
   margin:1rem;
-  height: 50vh;
+  min-height: 30vh;
+  max-width: 40vw;
   border-radius: 1.5rem;
   box-shadow: #ffc765 4px 4px 1px, #ffc765 0px 1px 2px;
   position: relative;
@@ -35,6 +36,9 @@ const Wrapper = styled.div`
   .image-vid {
     height: 100%;
     padding: 1rem;
+    & img{
+      width: 14vw;
+    }
   }
 `;
 
@@ -44,22 +48,19 @@ function DevSuggestVideo() {
       <div className="bookmark">
         <FontAwesomeIcon icon={faBookmark} />
       </div>
-
       <div className="col-12 recommended">Recommended by MyWays</div>
-      <div className="col-6 image-vid d-flex align-items-center">
+      <div className="col-5 image-vid d-flex align-items-center">
         <img
           src="https://i.ytimg.com/vi/kcMt_Rc6ZLs/maxresdefault.jpg"
           alt=""
-          className="img-fluid"
         />
       </div>
-      <div className="col-6 d-flex flex-column justify-content-center">
+      <div className="col-7 d-flex flex-column justify-content-between">
         <div className="suggestion-title">
           This activity might help to increase your memory by 10'
         </div>
         <div className="d-flex align-items-center">
           <div>
-            {" "}
             <div className="suggestion-source mt-2">BrightSide</div>
             <div className="suggestion-date">Posted on 11 Dec, 2019</div>
           </div>

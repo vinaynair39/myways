@@ -49,7 +49,6 @@ const AppRouter = () => (
         <PrivateRoute path="/testInfo/:name" component={TestInfo} />
         <PrivateRoute path="/SideBar" component={SideBar} />
         <PrivateRoute path="/dashboard" component={DashboardPage} exact={true}/>
-        <PrivateRoute path="/dashboardtest" component={Dashboard} exact={true}/>
         <PrivateRoute path="/test/:name" component={TestPage} />
         <PrivateRoute path='/trait' component={TraitListItems} />
         <Route component={NotFoundPage} />

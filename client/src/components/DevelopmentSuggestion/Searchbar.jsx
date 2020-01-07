@@ -22,7 +22,7 @@ class Searchbar extends Component {
 
   render() {
     return (
-            <SearchWrapper className=" mt-0">
+            <SearchWrapper className="mt-0">
               
                 <div className="search-bar d-flex align-items-center">
                   <span className="p-2">

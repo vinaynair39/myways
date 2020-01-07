@@ -56,7 +56,7 @@ export const startAddAnswers = () => {
 }
 export const startAddTests = () => {
     return (dispatch, getState) => {
-        return axios.get('http://edoflip.myways.in/api/test/tests').then(res => {
+        return axios.get('http://13.234.156.115:2000/api/test').then(res => {
             dispatch(addTests(res.data))
         }).catch(err => {
             console.log(err)
@@ -67,7 +67,8 @@ export const startAddTests = () => {
 export const getCurrentTest = (testName = "deductiveReasoning") => {
     return (dispatch, getState) => {
         dispatch({ type: LOADING_UI });
-        return axios.get(`http://edoflip.myways.in/api/test/${testName}`).then(res => {
+        console.log(axios.defaults.headers)
+        return axios.get(`http://13.234.156.115:2000/api/test/${testName.toLowerCase()}`).then(res => {
             dispatch(currentTest(res.data));
             dispatch(getCurrentAnswers(testName)).then(() => {
                 dispatch({ type: UNLOADING_UI });

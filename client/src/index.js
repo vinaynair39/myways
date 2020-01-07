@@ -9,10 +9,10 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import LoadingPage from './pages/LoadingPage';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore'
 import { startAddTests , addAnswers,} from './actions/test';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'popper.js'
 import 'jquery';
 import 'animate.css'
@@ -37,7 +37,8 @@ const renderApp = () => {
 const getFromLocalStorage = (state) => {
   try {
     const serializedState = JSON.parse(localStorage.getItem('answers'));
-    store.dispatch(addAnswers(serializedState));
+  
+    !!serializedState && store.dispatch(addAnswers(serializedState));
   } catch (e) {
     console.log(e)
   }
@@ -51,7 +52,7 @@ const getUserFromLocalStorage = () => {
   }
 }
 // ReactDOM.render(<LoadingPage/>, document.getElementById('root'));
-const token = sessionStorage.getItem('FBIdToken');
+const token = localStorage.getItem('token');
 if (token) {
   const decodedToken = jwtDecode(token);
   console.log('decoded',decodedToken);
@@ -63,13 +64,13 @@ if (token) {
   else {
     store.dispatch(login());
     store.dispatch(setUser(getUserFromLocalStorage()));
-    axios.defaults.headers.common['Authorization'] = token;
+    axios.defaults.headers.common['x-access-token'] = token;
     store.dispatch(startAddTests()).then(() => {
       getFromLocalStorage();
       renderApp();
     });
     if (history.location.pathname === '/') {
-      history.push('/dashboardtest');
+      history.push('/dashboard');
     }
 }
   }else {

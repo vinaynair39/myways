@@ -36,20 +36,20 @@ const SideBar = ({ logout, isAuthenticated }) => {
             onClick={() => setSelection("dashboard")}
           >
             <FontAwesomeIcon icon={faColumns} className="dashboard__icon" />
-            Overview
+            Dashboard
           </div>
           <div
             className="dashboard__sidebar1-item"
             onClick={() => setSelection("suggestion")}
           >
             <FontAwesomeIcon icon={faDirections} className="dashboard__icon" />
-            <Link to="suggestion">Suggested Careers</Link>
+            <Link to="">Suggested Careers</Link>
           </div>
           <div
             href="#pageSubmenu"
             data-toggle="collapse"
             aria-expanded="false"
-            class="dropdown-toggle"
+            className="dropdown-toggle"
             className="dashboard__sidebar1-item"
           >
             <FontAwesomeIcon icon={faSearch} className="dashboard__icon" />
@@ -65,11 +65,11 @@ const SideBar = ({ logout, isAuthenticated }) => {
               onClick={() => setSelection("cognitive")}
             >
               <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" />{" "}
-              <Link to="CognitiveIntelligence">Cognitive Intelligence</Link>
+              <Link to="">Cognitive Intelligence</Link>
             </div>
             <div className="dashboard__sidebar1-item dashboard__sub-item">
               <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" />{" "}
-              <Link to="careerValues">Career Values</Link>
+              <Link to="">Career Values</Link>
             </div>
             <div className="dashboard__sidebar1-item dashboard__sub-item">
               <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" />{" "}
@@ -77,11 +77,11 @@ const SideBar = ({ logout, isAuthenticated }) => {
             </div>
             <div className="dashboard__sidebar1-item dashboard__sub-item">
               <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" />
-              <Link to="personalityTraits">Personality Traits</Link>
+              <Link to="">Personality Traits</Link>
             </div>
             <div className="dashboard__sidebar1-item dashboard__sub-item">
               <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" />{" "}
-              <Link to="centerOfOperation">Centre of Operation</Link>
+              <Link to="">Centre of Operation</Link>
             </div>
             <div className="dashboard__sidebar1-item dashboard__sub-item">
               <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" />{" "}
@@ -89,12 +89,12 @@ const SideBar = ({ logout, isAuthenticated }) => {
             </div>
             <div className="dashboard__sidebar1-item dashboard__sub-item mb-3">
               <FontAwesomeIcon icon={faStar} className="dashboard__sub-icon" />
-              <Link to="subjectInterest">Subject Interest</Link>
+              <Link to="">Subject Interest</Link>
             </div>
           </div>
           <div className="dashboard__sidebar1-item">
             <FontAwesomeIcon icon={faLevelUpAlt} className="dashboard__icon" />
-            <Link to="careerLibrary">Grow with MyWays</Link>
+            <Link to="">Grow with MyWays</Link>
           </div>
           <div className="dashboard__sidebar1-item">
             <FontAwesomeIcon

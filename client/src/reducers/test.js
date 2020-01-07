@@ -10,7 +10,7 @@ import {
 const initState = {
     tests: [],
     questions: [],
-    answers: [],
+    response: {},
     current: {
         currentQuestion:0,
         currentSubquestion: 0
@@ -28,15 +28,36 @@ export default (state = initState, action) => {
                 tests: action.tests
             };
         case ADD_ANSWERS:
-            if(!!state.answers.questions[action.currentQuestion].questionSet){
-                state.answers.questions[action.currentQuestion].questionSet[action.currentSubquestion].answer.option = action.answer;
-                state.answers.questions[action.currentQuestion].questionSet[action.currentSubquestion].answer.optionNumber = action.answerNumber;
+            // if(!!state.answers.questions[action.currentQuestion].questionSet){
+            //     state.answers.questions[action.currentQuestion].questionSet[action.currentSubquestion].answer.option = action.answer;
+            //     state.answers.questions[action.currentQuestion].questionSet[action.currentSubquestion].answer.optionNumber = action.answerNumber;
+            // }
+            // else{
+                // state.answers.questions[action.currentQuestion].answer.option = action.answer;
+                // state.answers.questions[action.currentQuestion].answer.optionNumber = action.answerNumber;
+            // }
+            if(typeof action.currentSubquestion === 'number'){
+                console.log('inside')
+                return{
+                    ...state,
+                    response:{
+                        ...state.response,
+                        [action.currentQuestion]:{
+                            ...state.response[action.currentQuestion],
+                            [action.currentSubquestion]: action.answerNumber
+                        }
+                    }
+                }   
             }
             else{
-                state.answers.questions[action.currentQuestion].answer.option = action.answer;
-                state.answers.questions[action.currentQuestion].answer.optionNumber = action.answerNumber;
+                return {
+                    ...state,
+                    response: {
+                        ...state.response,
+                        [action.currentQuestion]:action.answerNumber
+                    }
+                }
             }
-            return state;
         case CURRENT_ANSWERS:
             return {
                 ...state,
