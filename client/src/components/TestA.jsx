@@ -9,9 +9,9 @@ import { sendAnswers, questionState, getDifficulty } from '../actions/test';
 import Progress from 'react-progressbar';
 import Timer from 'react.timer';
 import { testState } from '../actions/test'
-import { postUser, saveUserToLocalStorage } from '../actions/auth';
+import { setTestCompleted as testComplete, saveUserToLocalStorage } from '../actions/auth';
 
-const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, userId, getDifficulty,testState, postUser}) => {
+const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, userId, getDifficulty,testState, setTestComplete}) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [currentSubquestion, setCurrentSubquestion] = useState(0);
     const [paragraph, setParagraph] = useState('');
@@ -29,6 +29,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
     const [sublength, setSublength] = useState(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length);
 
     useEffect(() => {
+        console.log(test.assesmentType)
         setSublength(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length);
         if (totalLength === currentQuestion) {
             setParagraph('');
@@ -36,12 +37,12 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
             setOptions('');
             setProgress(100);
             if (testCompleted) {
-                testState(test.assesmentType);  
-                getDifficulty(difficulty)
+                // getDifficulty(difficulty)
                 alert("Completed!");
-                sendAnswers({ id: userId, answers });
+                console.log(answers )
+                sendAnswers(test.assesmentType,answers);
                 saveUserToLocalStorage(user);
-                postUser(user);
+                setTestComplete(test.assesmentType);
                 history.push('/dashboard');
             }
         }
@@ -179,16 +180,16 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
 
 }
 const mapDispatchToProps = (dispatch) => ({
-    sendAnswers: (answers) => dispatch(sendAnswers(answers)),
+    sendAnswers: (testName, answers) => dispatch(sendAnswers(testName,answers)),
     questionState: (current) => dispatch(questionState(current)),
     testState: (name) => dispatch(testState(name)),
     getDifficulty: (difficulty) => dispatch(getDifficulty(difficulty)),
     testState: (assesmentType) => dispatch(testState(assesmentType)),
-    postUser: (user) => dispatch(postUser(user))
+    setTestComplete: (test) => dispatch(testComplete(test))
 });
 
 const mapStateToProps = (state) => ({
-    answers: state.test.answers,
+    answers: state.test.response,
     previousState: state.test.previous,
     currentState: state.test.current,
     user: state.auth.user

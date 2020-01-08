@@ -45,7 +45,7 @@ const getFromLocalStorage = (state) => {
 }
 const getUserFromLocalStorage = () => {
   try {
-    const serializedState = JSON.parse(localStorage.getItem('user'));
+    const serializedState = JSON.parse(sessionStorage.getItem('user'));
     return serializedState;
   } catch (e) {
     console.log(e)
@@ -56,7 +56,7 @@ const token = localStorage.getItem('token');
 if (token) {
   const decodedToken = jwtDecode(token);
   console.log('decoded',decodedToken);
-  if (decodedToken.exp * 10000 < Date.now()) {
+  if (decodedToken.exp * 1000 < Date.now()) {
     store.dispatch(startLogout());
     renderApp();
     history.push('/');

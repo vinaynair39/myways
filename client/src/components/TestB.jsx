@@ -10,14 +10,14 @@ import { connect } from 'react-redux';
 import Progress from 'react-progressbar';
 import Timer from 'react.timer';
 import { testState } from '../actions/test';
-import { postUser, saveUserToLocalStorage } from '../actions/auth';
+import { setTestCompleted as testComplete, saveUserToLocalStorage } from '../actions/auth';
 
 
 
 
 
 
-const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId, getDifficulty, testState}) => {
+const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId, getDifficulty, testState, setTestComplete}) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [paragraph, setParagraph] = useState('');
     const [question, setQuestion] = useState('');
@@ -38,11 +38,11 @@ const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId
             setOptions('');
             setProgress(100);
             if (testCompleted) {
-                testState(test.assesmentType);
-                getDifficulty(difficulty);
+                // testState(test.assesmentType);
+                // getDifficulty(difficulty);
                 alert("Completed!");
-                sendAnswers({ id: userId, answers });
-                postUser(user);
+                sendAnswers(test.assesmentType,answers);
+                setTestComplete(test.assesmentType);
                 saveUserToLocalStorage(user);
                 history.push('/dashboard');
             }
@@ -173,17 +173,17 @@ const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId
 
 
 const mapDispatchToProps = (dispatch) => ({
-    sendAnswers: (answers) => dispatch(sendAnswers(answers)),
+    sendAnswers: (testName, answers) => dispatch(sendAnswers(testName,answers)),
     currentTest: (name) => dispatch(getCurrentTest(name)),
     testState: (name) => dispatch(testState(name)),
     getDifficulty: (difficulty) => dispatch(getDifficulty(difficulty)),
     testState: (assesmentType) => dispatch(testState(assesmentType)),
-    postUser: (user) => dispatch(postUser(user))
+    setTestComplete: (test) => dispatch(testComplete(test))
 
 })
 
 const mapStateToProps = (state) => ({
-    answers: state.test.answers,
+    answers: state.test.response,
     isLoading: state.auth.loading,
     user: state.auth.user
 

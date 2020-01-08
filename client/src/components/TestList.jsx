@@ -5,6 +5,7 @@ import TestListItem from './TestListItem'
 
 const TestList = ({tests}) => (
         <div className="row d-flex justify-content-center ">
+            {console.log(tests.length)}
         {tests.length === 0 ? (<p>No Tests</p>) : (tests.map((test) => {
             return <TestListItem key={test.assesmentType}  {...test} />
         }))}

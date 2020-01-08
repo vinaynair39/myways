@@ -120,7 +120,7 @@ const TestListItem = ({ assesmentName, assesmentType, definition, imageUrl, test
 
 
 const mapStateToProps = (state) => ({
-  testState: state.auth.user ? state.auth.user.testStatus : ''
+  testState: state.auth.user ? state.auth.user : ''
 });
 
 export default connect(mapStateToProps, undefined)(TestListItem);

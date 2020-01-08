@@ -6,8 +6,7 @@ import {
     UNSET_ERRORS,
     TEST_STATE,
     SET_USER,
-    POST_USER
-    
+    SET_TEST_COMPLETED    
 } from './constants.js'
 
 import { startAddTests } from './test'
@@ -21,16 +20,13 @@ export const login = () => ({
 export const setUser = (user) => ({
     type: SET_USER,
     user
+});
+
+export const setTestCompleted = (test) => ({
+    type: SET_TEST_COMPLETED,
+    test
 })
 
-export const postUser = (user) => {
-    return () => {
-        return axios.post('http://edoflip.myways.in/api/user/setTestCompleted', user).then(() => {
-        }).catch(err => {
-            console.log('user updated')
-        })
-    }
-}
 
 
 export const startSignUp = (newUser) => {
@@ -41,7 +37,7 @@ export const startSignUp = (newUser) => {
             console.log(res.data)
             setAuthorizationHeader(res.data.token);
             dispatch(setUser(res.data.data));
-            saveUserToLocalStorage(res.data.user);
+            saveUserToLocalStorage(res.data.data);
             dispatch(startAddTests()).then(() => {
                 dispatch(login());
                 dispatch({ type: UNLOADING_UI });
@@ -60,15 +56,14 @@ export const startLogin = (credentials) => {
     
     return (dispatch) => {
         dispatch({ type: LOADING_UI });
-        return axios.post('http://13.234.156.115:2000/api/login', credentials).then(res => {
-            console.log(res.data.token);
+        return axios.post('http://13.234.156.115:2000/api/login', credentials).then(async res => {
+            console.log(res.data);
             setAuthorizationHeader(res.data.token);
             dispatch(setUser(res.data.data));
-            dispatch(startAddTests()).then(() => {
-                dispatch({ type: UNLOADING_UI });
-                dispatch(login());
-            })
+            saveUserToLocalStorage(res.data.data);
+            await dispatch(startAddTests())
             dispatch({ type: UNLOADING_UI });
+            dispatch(login());
         }).catch(err => {
             dispatch({
                 type: SET_ERRORS,
@@ -86,7 +81,7 @@ export const logout = () => ({
 export const saveUserToLocalStorage = (state) => {
     try {
       const serializedState = JSON.stringify(state);
-      localStorage.setItem('user', serializedState)
+      sessionStorage.setItem('user', serializedState)
     } catch (e) {
       console.log(e)
     }

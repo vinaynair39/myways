@@ -6,7 +6,8 @@ import {
     SET_ERRORS,
     UNSET_ERRORS,
     TEST_STATE,
-    SET_USER
+    SET_USER,
+    SET_TEST_COMPLETED
 } from '../actions/constants'
 
 const initialState = {
@@ -43,20 +44,26 @@ export default (state = initialState, action) => {
                 loading: false,
                 error: action.error
             };
+        case SET_USER:
+            return {
+                ...state,
+                user: action.user
+            };
         case UNSET_ERRORS:
             return {
                 ...state,
                 loading: false,
                 error: null
             };
-        case SET_USER:
+        case SET_TEST_COMPLETED:
             return {
                 ...state,
-                user: action.user
+                user: {
+                    ...state.user,
+                    [action.test]: true
+                }
+
             }
-        case TEST_STATE:
-            state.user.testStatus[action.assesmentType] = true;
-            return state;
         default:
             return state;
     }

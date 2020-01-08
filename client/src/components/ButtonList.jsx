@@ -198,29 +198,53 @@ function ButtonList(props) {
   const radioRef4 = useRef(null);
   const radioRef5 = useRef(null);
   const submit = useRef(null);
+  const previous = useRef(null);
+
 
   const clickRadio1 = (e) => {
-    if (key === 'End' || key === '1') {
+    console.log(key)
+    if (key === '1') {
       radioRef1.current.click();
+        return true;
     }
-    if (key === 'ArrowDown' || key === '2') {
+    if (key === '2') {
       radioRef2.current.click();
     }
     if (props.options.length === 4 || props.options.length === 0 || props.options.length === 5) {
-      if (key === 'PageDown' || key === '3') {
+      if (key === '3') {
         radioRef3.current.click();
       }
-      if (key === 'ArrowLeft' || key === '4') {
+      if (key === '4') {
         radioRef4.current.click();
       }
     }
     if (props.options.length === 5 || props.options.length === 0) {
-      if (key === 'Clear' || key === '5') {
+      if (key === '5') {
         radioRef5.current.click();
       }
     }
-    if (key === 'Enter' || key === 'Enter') {
+    if (key === 'Enter' || key === 'ArrowRight') {
       submit.current.click();
+      setKey('');
+
+    }
+    if (key === 'ArrowLeft') {
+      if(typeof props.currentSubquestion === 'number'){
+        if(props.currentQuestion === 1 && props.currentSubquestion === 1){
+          setKey('');
+          return true;
+        }
+        previous.current.click();
+        setKey('');
+      }
+      else{
+        if(props.currentQuestion === 1){
+          setKey('');
+          return true;
+        }
+        previous.current.click();
+        setKey('');
+      }
     }
   }
 
@@ -274,7 +298,8 @@ function ButtonList(props) {
     e.preventDefault();
     props.previousQuestion();
     handleShowButton();
-
+    const subquestionNumber = parseInt(props.subquestionNumber, 10);
+    props.addAnswers(selectedOptionNumber, selectedOption, props.questionNumber, typeof subquestionNumber === 'number' ? subquestionNumber : null);
     if (typeof props.currentSubquestion === 'number') {
       const sublength = Object.keys(props.response[(props.currentSubquestion === 1 && props.currentQuestion !== 1) ? props.currentQuestion - 1 : props.currentQuestion]).length;
       setSelectedOptionNumber(props.response[(props.currentSubquestion === 1 && props.currentQuestion !== 1) ? props.currentQuestion - 1 : props.currentQuestion][props.currentSubquestion === 1 ? sublength : props.currentSubquestion - 1]);
@@ -302,7 +327,6 @@ function ButtonList(props) {
             {a}
           </label>
         </button>
-
         <button htmlFor='2' className="radio button-select" onClick={() => radioRef2.current.click()}>
           <input type="radio" ref={radioRef2} id="2" name="radio1" value={b} checked={selectedOptionNumber === '2' ? true : checked2} onChange={(e) => {
             setSelectedOptionNumber(e.target.id)
@@ -445,6 +469,7 @@ function ButtonList(props) {
 
 
   const getEmojiMeter = () => (
+    
     <div className="container">
       <div className="feedback">
         <div className="rating">
@@ -452,8 +477,6 @@ function ButtonList(props) {
             var numberPattern = /\d+/g;
             setSelectedOptionNumber(e.target.id.match(numberPattern)[0]);
             setSelectedOption(e.target.id.match(numberPattern)[0]);
-            console.log(e.target.id.match(numberPattern)[0])
-            console.log(selectedOptionNumber)
             setChecked5(true);
             handleShowButton();
           }} />
@@ -463,7 +486,6 @@ function ButtonList(props) {
               var numberPattern = /\d+/g;
               setSelectedOption(e.target.id.match(numberPattern)[0]);
               setSelectedOptionNumber(e.target.id.match(numberPattern)[0])
-              console.log(e.target.id.match(numberPattern)[0])
               setChecked4(true);
               handleShowButton();
             }} />
@@ -472,25 +494,22 @@ function ButtonList(props) {
             var numberPattern = /\d+/g;
             setSelectedOption(e.target.id.match(numberPattern)[0]);
             setSelectedOptionNumber(e.target.id.match(numberPattern)[0])
-            console.log(e.target.id.match(numberPattern)[0])
             setChecked3(true);
             handleShowButton();
           }} />
           <label htmlFor="rating-3"></label>
-          <input ref={radioRef2} type="radio" name="rating" id="rating-2" checked={selectedOptionNumber === '2' ? true : checked2} onChange={(e) => {
+          <input type="radio" ref={radioRef2} name="rating" id="rating-2" checked={selectedOptionNumber === '2' ? true : checked2} onChange={(e) => {
             var numberPattern = /\d+/g;
             setSelectedOption(e.target.id.match(numberPattern)[0]);
             setSelectedOptionNumber(e.target.id.match(numberPattern)[0])
-            console.log(e.target.value)
             setChecked2(true);
             handleShowButton();
           }} />
-          <label htmlFor="rating-2"></label>
+          <label htmlFor="rating-2"></label>  
           <input ref={radioRef1} type="radio" name="rating" id="rating-1" checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
             var numberPattern = /\d+/g;
             setSelectedOption(e.target.id.match(numberPattern)[0]);
             setSelectedOptionNumber(e.target.id.match(numberPattern)[0])
-            console.log(selectedOptionNumber)
             setChecked1(true);
             handleShowButton();
           }} />
@@ -605,7 +624,7 @@ function ButtonList(props) {
         {getButton()}
         <div className="test-buttons">
           {(!!props.currentSubquestion ? (((props.currentQuestion === 1 && props.currentSubquestion > 1) || (props.currentQuestion > 1))
-            && <button className="button button-left" onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>) :
+            && <button ref={previous} className="button button-left" onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>) :
             (props.currentQuestion > 1 && <button className="button button-left" onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>)
           )}
           {true ? <button ref={submit} type="submit" className="button button-right" ><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>

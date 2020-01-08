@@ -48,12 +48,7 @@ export const addAnswers = (answerNumber, answer, currentQuestion, currentSubques
         })
 };
 
-export const startAddAnswers = () => {
-    return (dispatch, getState) => {
-        axios.get('/api/questions').then(res => {
-        })
-    }
-}
+
 export const startAddTests = () => {
     return (dispatch, getState) => {
         return axios.get('http://13.234.156.115:2000/api/test').then(res => {
@@ -70,23 +65,6 @@ export const getCurrentTest = (testName = "deductiveReasoning") => {
         return axios.get(`http://13.234.156.115:2000/api/test/${testName.toLowerCase()}`).then(res => {
             dispatch(currentTest(res.data));
             console.log(res.data)
-            dispatch(getCurrentAnswers(testName)).then(() => {
-                dispatch({ type: UNLOADING_UI });
-            });
-        }).catch(err => {
-            console.log(err)
-        })
-    }
-}
-
-export const getCurrentAnswers = (testName = "deductiveReasoning") => {
-    return (dispatch, getState) => {
-        console.log('bitchh')
-        dispatch({ type: LOADING_UI });
-        // return axios.get(`/api/test/${testName}`).then(res => {
-        return axios.get(`http://edoflip.myways.in/api/answers/${testName}`).then(res => {
-            console.log(res.data)
-            dispatch(currentAnswers(res.data));
         }).catch(err => {
             console.log(err)
         })
@@ -94,12 +72,13 @@ export const getCurrentAnswers = (testName = "deductiveReasoning") => {
 }
 
 
-export const sendAnswers = (answers) => {
+
+export const sendAnswers = (testName,answers) => {
     return (dispatch, getState) => {
         console.log('send send send');
         dispatch({ type: LOADING_UI });
         console.log(answers)
-        return axios.post(`http://edoflip.myways.in/api/result/answers`, answers).then(res => {
+        return axios.post(`http://13.234.156.115:2000/api/test/${testName.toLowerCase()}`, {response:answers}).then(res => {
             alert("answer submitted");
             console.log(res.data)
         }).catch(err => {
