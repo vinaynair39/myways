@@ -29,7 +29,6 @@ const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId
     const [questionNumber, setQuestionNumber] = useState(1);
     let subquestionsTotal = 0;
 
-    console.log(test)
 
     useEffect(() => {
         if (totalLength === currentQuestion) {
@@ -151,18 +150,17 @@ const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId
 
     return (
         <>
-            {console.log('rjlgwfgerklngerlgn')}
             <div className="test__item">
                 {modal()}
                 <div>
                     {totalLength === currentQuestion ? stars() : <div>
                         <div>{!!question &&
                             (validURL(question) ? <div className="test__img"><img src={question} /></div>
-                                : <h2 className="test__title">{question}</h2>)}</div>
+                        : <h2 className="test__title">{question}</h2>)}</div>
                     </div>}
                 </div>
             </div>
-            <div>{totalLength !== currentQuestion && <ButtonList previousQuestion={previousQuestion} questionNumber={questionNumber}nextQuestion={nextQuestion} options={options} currentQuestion={currentQuestion+1} currentTest={test.assesmentType} />}</div>
+            <div>{totalLength !== currentQuestion && <ButtonList previousQuestion={previousQuestion} test={test} questionNumber={questionNumber} nextQuestion={nextQuestion} options={options} currentQuestion={currentQuestion+1} currentTest={test.assesmentType} />}</div>
             <div className="test__options">
                 {/* <Options nextQuestion={nextQuestion}  /> */}
             </div>
