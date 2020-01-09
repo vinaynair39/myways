@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { startSignUp } from "../actions/auth";
+import { startSignUp, setError } from "../actions/auth";
+import { SET_ERRORS } from "../actions/constants";
 import { connect } from "react-redux";
+import { Image } from 'semantic-ui-react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Navbar from './Navbar'
 import {
@@ -9,21 +11,44 @@ import {
   faSchool,
   faKey,
   faCity,
-  faChalkboardTeacher
+  faChalkboardTeacher,
+  faEnvelope
 } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
+import Loader from "./Loader";
+
 const Wrapper = styled.div`
-  display: flex;
-  height: 88vh;
-  justify-content: center;
-  align-items: center;
+.loginPage{
+  display:grid;
+  background-color:#2E3740;
+  grid-template-columns: 1fr 1fr;
+  align-items:center;
+  height:91vh;
+}
+.login-image{
+  & img{
+    height: 70vh; 
+     padding: 0 0 0 2rem;
+  }
+}
+.login-card{
+  height: 80vh;
+  align-self: center; 
+  justify-self: center;
+
+}
   .form-box {
     font-size: 1.2rem;
     background: #f3f7f7;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 4px inset, transparent 0px 0px 0px;
     padding: 1rem;
+    @media screen and (min-height: 800px){
+      margin: 2rem 1.5rem;
+      width: 20vw;
+    }
+    margin:0.9rem 0.8rem;
     display: flex;
-      border-radius: 4rem;
+    border-radius: 4rem;
   }
   .input-box {
     border: none;
@@ -67,7 +92,6 @@ const Wrapper = styled.div`
 
 const formValid = ({ formErrors, ...rest }) => {
   let valid = true;
-
   // validate form errors being empty
   Object.values(formErrors).forEach(val => {
     val.length > 0 && (valid = false);
@@ -91,54 +115,53 @@ class Register extends Component {
       city: "",
       phone: "",
       password: "",
-      formErrors: { name: "", school: "", phone: "", password: "" },
+      confirmPassword: "",
+      formErrors: { name: "", school: "", phone: "", password: "", confirmPassword: "", city: "" },
       errors: {}
     };
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-
   onChange(e) {
     e.preventDefault();
     const { name, value } = e.target;
     let formErrors = { ...this.state.formErrors };
     switch (name) {
       case "name":
-        formErrors.name =
-          value.length < 6 ? "Minimum 6 characters required" : "";
+        formErrors.name = value.length < 6 ? "Minimum 6 characters required for Name" : '';
         break;
       case "school":
-        formErrors.school =
-          value.length < 6 ? "Minimum 6 characters required" : "";
+        formErrors.school = value.length < 6 ? "Minimum 6 characters required for School" : '';
         break;
       case "class":
         break;
       case "city":
-        formErrors.school =
-          value.length < 6 ? "Minimum 6 characters required" : "";
+        formErrors.city = value.length < 1 ? "City Required" : '';
         break;
       case "phone":
-        formErrors.phone =
-          value.length <= 1
-            ? "Minimum 1 character required"
-            : value.length > 10
-              ? "Maximum 10 characters allowed"
-              : "";
+        formErrors.phone = value.length <= 1
+          ? "Phone Number Required"
+          : value.length > 10
+            ? "Maximum 10 characters allowed for a phone number"
+            : "";
         break;
       case "password":
-        formErrors.password =
-          value.length < 6 ? "Minimum 6 characters required" : "";
+        formErrors.password = value.length < 6 ? "Minimum 6 characters required for Password" : '';
+        break;
+      case "confirmPassword":
+        console.log('hi')
+        formErrors.confirmPassword = this.state.password !== this.state.password ? "Passwords Doesn't match" : ''
         break;
       default:
         break;
     }
+    this.setState({ formErrors, [name]: value })
 
-    this.setState({ formErrors, [name]: value }, () => console.log(this.state));
   }
   onSubmit = e => {
     e.preventDefault();
-    if (formValid(this.state)) {
+    if (formValid(this.state) && this.state.password === this.state.confirmPassword) {
       const newUser = {
         name: this.state.name,
         school: this.state.school,
@@ -150,7 +173,7 @@ class Register extends Component {
       console.log(newUser);
       this.props.startSignUp(newUser);
     } else {
-      console.error("Invalid Inputs. Informed the User");
+      this.props.setError("passwords doesn't match")
     }
   };
 
@@ -158,134 +181,157 @@ class Register extends Component {
     const { formErrors } = this.state;
     return (
       <React.Fragment><Navbar />
-      <Wrapper className="">
-        <form noValidate onSubmit={this.onSubmit} className="form-main  animated fadeInLeft">
-          <div className="d-flex justify-content-center align-items-center">
-            <div className="d-flex flex-column justify-content-center align-items-center mx-3 my-4">
-              <div className="form-box my-3">
-                <div className="d-flex justify-content-center align-items-center icon-box ">
-                  <FontAwesomeIcon icon={faUser} className="form-icon" />
-                </div>
-                <input
-                  type="text"
-                  className="input-box ml-2"
-                  name="name"
-                  placeholder="Enter your name"
-                  value={this.state.name}
-                  onChange={this.onChange}
-                />
-              </div>
-              {formErrors.name.length > 0 && (
-                <span className="errorMessage">{formErrors.name}</span>
-              )}
-              <div className="form-box my-3">
-                <div className="d-flex justify-content-center align-items-center icon-box">
-                  <FontAwesomeIcon icon={faSchool} className="form-icon" />
-                </div>
-                <input
-                  type="text"
-                  className="input-box ml-2"
-                  name="school"
-                  placeholder="Enter school name"
-                  value={this.state.school}
-                  onChange={this.onChange}
-                />
-              </div>
-              {formErrors.school.length > 0 && (
-                <span className="errorMessage">{formErrors.school}</span>
-              )}
-              <div className="form-box my-3">
-                <div className="d-flex justify-content-center align-items-center icon-box">
-                  <FontAwesomeIcon icon={faChalkboardTeacher} className="form-icon" />
-                </div>
-                <input
-                  type="text"
-                  className="input-box ml-2"
-                  name="class"
-                  placeholder="Enter your current class"
-                  value={this.state.class}
-                  onChange={this.onChange}
-                />
-              </div>
+        <Wrapper className="">
+          {this.props.loading && <Loader />}
+          <div className="loginPage">
+            <div className="login-image animated fadeIn">
+              <Image src={process.env.PUBLIC_URL + '/register.svg'} />
             </div>
+            <form className="login-card animated fadeIn">
+              <div className="d-flex justify-content-center align-items-center">
+                <div className="d-flex flex-column  align-items-center mx-3 my-4">
+                  <div className="form-box ">
+                    <div className="d-flex justify-content-center align-items-center icon-box ">
+                      <FontAwesomeIcon icon={faUser} className="form-icon" />
+                    </div>
+                    <input
+                      type="text"
+                      className="input-box ml-2"
+                      name="name"
+                      placeholder="Enter Your Name"
+                      value={this.state.name}
+                      onChange={this.onChange}
+                    />
+                  </div>
+                  <div className="form-box ">
+                    <div className="d-flex justify-content-center align-items-center icon-box">
+                      <FontAwesomeIcon icon={faSchool} className="form-icon" />
+                    </div>
+                    <input
+                      type="text"
+                      className="input-box ml-2"
+                      name="school"
+                      placeholder="Enter Your School Name"
+                      value={this.state.school}
+                      onChange={this.onChange}
+                    />
+                  </div>
+                  <div className="form-box ">
+                    <div className="d-flex justify-content-center align-items-center icon-box">
+                      <FontAwesomeIcon icon={faChalkboardTeacher} className="form-icon" />
+                    </div>
+                    <input
+                      type="text"
+                      className="input-box ml-2"
+                      name="class"
+                      placeholder="Enter Your Current Class"
+                      value={this.state.class}
+                      onChange={this.onChange}
+                    />
+                  </div>
+                  <div className="form-box ">
+                    <div className="d-flex justify-content-center align-items-center icon-box">
+                      <FontAwesomeIcon icon={faEnvelope} className="form-icon" />
+                    </div>
+                    <input
+                      type="text"
+                      className="input-box ml-2"
+                      name="email"
+                      placeholder="Enter Your Email Id"
+                      value={this.state.email}
+                      onChange={this.onChange}
+                    />
+                  </div>
+                </div>
+                <div className="d-flex flex-column justify-content-center align-items-center ">
+                  <div className="form-box ">
+                    <div className="d-flex justify-content-center align-items-center icon-box">
+                      <FontAwesomeIcon icon={faCity} className="form-icon" />
+                    </div>
+                    <input
+                      type="text"
+                      className="input-box ml-2"
+                      name="city"
+                      placeholder="Enter Your City"
+                      value={this.state.city}
+                      onChange={this.onChange}
+                    />
+                  </div>
+                  <div className="form-box ">
+                    <div className="d-flex justify-content-center align-items-center icon-box">
+                      <FontAwesomeIcon icon={faMobileAlt} className="form-icon" />
+                    </div>
+                    <input
+                      type="text"
+                      className="input-box ml-2"
+                      name="phone"
+                      placeholder="Enter Phone Number"
+                      value={this.state.phone}
+                      onChange={this.onChange}
+                    />
+                  </div>
 
-            <div className="d-flex flex-column justify-content-center align-items-center mx-3">
-              <div className="form-box my-3">
-                <div className="d-flex justify-content-center align-items-center icon-box">
-                  <FontAwesomeIcon icon={faCity} className="form-icon" />
+                  <div className="form-box ">
+                    <div className="d-flex justify-content-center align-items-center icon-box">
+                      <FontAwesomeIcon icon={faKey} className="form-icon" />
+                    </div>
+                    <input
+                      type="password"
+                      className="input-box ml-2"
+                      name="password"
+                      placeholder="Password"
+                      value={this.state.password}
+                      onChange={this.onChange}
+                    />
+                  </div>
+                  <div className="form-box ">
+                    <div className="d-flex justify-content-center align-items-center icon-box">
+                      <FontAwesomeIcon icon={faKey} className="form-icon" />
+                    </div>
+                    <input
+                      type="password"
+                      className="input-box ml-2"
+                      name="confirmPassword"
+                      placeholder="Confirm Password"
+                      value={this.state.confirmPassword}
+                      onChange={this.onChange}
+                    />
+                  </div>
                 </div>
-                <input
-                  type="text"
-                  className="input-box ml-2"
-                  name="city"
-                  placeholder="Enter your City"
-                  value={this.state.city}
-                  onChange={this.onChange}
-                />
               </div>
-              <div className="form-box my-3">
-                <div className="d-flex justify-content-center align-items-center icon-box">
-                  <FontAwesomeIcon icon={faMobileAlt} className="form-icon" />
-                </div>
-                <input
-                  type="text"
-                  className="input-box ml-2"
-                  name="phone"
-                  placeholder="Phone"
-                  value={this.state.phone}
-                  onChange={this.onChange}
-                />
-              </div>
-              {formErrors.phone.length > 0 && (
-                <span className="errorMessage">{formErrors.phone}</span>
-              )}
-              <div className="form-box my-3">
-                <div className="d-flex justify-content-center align-items-center icon-box">
-                  <FontAwesomeIcon icon={faKey} className="form-icon" />
-                </div>
-                <input
-                  type="password"
-                  className="input-box ml-2"
-                  name="password"
-                  placeholder="Password"
-                  value={this.state.password}
-                  onChange={this.onChange}
-                />
-              </div>
-              {formErrors.password.length > 0 && (
-                <span className="errorMessage">{formErrors.password}</span>
-              )}
-            </div>
-          </div>
-          <div className="d-flex justify-content-center">
-            <button type="submit" className="form-button">
-              Register
+              <div className="d-flex justify-content-center">
+                <button type="submit" onClick={this.onSubmit} className="form-button">
+                  Register
             </button>
+              </div>
+              {!!this.props.error && <div className="mt-4 mx-5 alert alert-danger" role="alert">{this.props.error} </div>}
+              {this.state.formErrors.name.length > 0 && <div className="mt-4 mx-5 alert alert-danger" role="alert">{this.state.formErrors.name}</div>}
+              {this.state.formErrors.city.length > 0 && <div className="mt-4 mx-5 alert alert-danger" role="alert">{this.state.formErrors.city}</div>}
+              {this.state.formErrors.school.length > 0 && <div className="mt-4 mx-5 alert alert-danger" role="alert">{this.state.formErrors.school}</div>}
+              {this.state.formErrors.phone.length > 0 && <div className="mt-4 mx-5 alert alert-danger" role="alert">{this.state.formErrors.phone}</div>}
+              {this.state.formErrors.password.length > 0 && <div className="mt-4 mx-5 alert alert-danger" role="alert">{this.state.formErrors.password}</div>}
+
+            </form>
           </div>
-        </form>
-      </Wrapper>
+        </Wrapper>
       </React.Fragment>
     );
   }
 }
 const mapDispatchToProps = dispatch => ({
   startSignUp: credentials => dispatch(startSignUp(credentials)),
-  setUIErrors: error =>
-    dispatch({
-      type: "SET_ERRORS",
-      error: error
-    }),
   unsetError: () =>
     dispatch({
       type: "SET_ERRORS",
       error: ""
-    })
+    }),
+  setError: (error) => dispatch(setError(error))
 });
 
-// const mapStateToProps = (state) => ({
-//   error: state.auth.error,
-//   loading: state.auth.loading
+const mapStateToProps = (state) => ({
+  error: state.auth.error,
+  loading: state.auth.loading
 
-// })
+})
 
-export default connect(undefined, mapDispatchToProps)(Register);
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

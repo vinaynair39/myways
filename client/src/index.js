@@ -16,6 +16,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'popper.js'
 import 'jquery';
 import 'animate.css'
+// import 'semantic-ui-css/semantic.min.css';
 import './styles/styles.scss';
 
 const store = configureStore();

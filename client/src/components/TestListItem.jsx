@@ -10,6 +10,9 @@ const Wrapper = styled.div`
   margin: 0.7rem;
   width: 22vw;
   .card {
+    @media screen and (min-height: 800px){
+      height: 40vh;
+    }
     border-color: transparent;
     margin-right: 1rem;
     transition: all 0.1s ease;
@@ -42,6 +45,9 @@ const Wrapper = styled.div`
     text-align: center;
     height: 12.5rem;
     padding: 1rem 0.3rem 0.3rem 0.3rem;
+    @media screen and (min-height: 800px){
+      height: 30vh;
+    }
   }
   .title {
     font-size: 1.3rem;

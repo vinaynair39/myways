@@ -42,9 +42,7 @@ class Dashboard2 extends Component {
     return (
       <Layout>
         <div className="dashboard">
-          <div className="dashboard__grid-col-2 d-flex justify-content-center mb-4">
             <TesList tests={this.props.tests} />
-          </div>
         </div>
       </Layout>
     );

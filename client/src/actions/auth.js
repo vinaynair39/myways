@@ -16,6 +16,11 @@ export const login = () => ({
     type: LOGIN,
 });
 
+export const setError = (error) => ({
+    type: SET_ERRORS,
+    error
+})
+
 
 export const setUser = (user) => ({
     type: SET_USER,

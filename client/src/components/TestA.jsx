@@ -27,11 +27,11 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
     const [subquestionNumber, setSubquestionNumber] = useState('1');
     let subquestionsTotal = 0;
     const totalLength = test.questions.length;
-    const [sublength, setSublength] = useState(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length-1);
+    const [sublength, setSublength] = useState(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length - 1);
 
     useEffect(() => {
         console.log(test.assesmentType)
-        setSublength(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length-1);
+        setSublength(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length - 1);
         if (totalLength === currentQuestion) {
             setParagraph('');
             setQuestion('');
@@ -39,12 +39,18 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
             setProgress(100);
             if (testCompleted) {
                 // getDifficulty(difficulty)
-                alert("Completed!");
-                console.log(answers)
-                sendAnswers(test.assesmentType, answers);
-                saveUserToLocalStorage(user);
-                setTestComplete(test.assesmentType);
-                history.push('/dashboard');
+                if (test.assesmentType === 'interestTest') {
+                    sendAnswers(test.assesmentType, answers);
+
+                }
+                else {
+                    alert("Completed!");
+                    console.log(answers)
+                    sendAnswers(test.assesmentType, answers);
+                    saveUserToLocalStorage(user);
+                    setTestComplete(test.assesmentType);
+                    history.push('/dashboard');
+                }
             }
         }
         else {
@@ -159,8 +165,8 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
     return (
         <>
             {<>
+                {modal()}
                 <div className="test__item">
-                    {modal()}
                     {totalLength === currentQuestion ? stars() :
                         <>
                             <div>
@@ -168,7 +174,8 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
                             </div>
                             <div>
                                 {!!question && <h2 className="test__sub-question">{question}</h2>}
-                            </div></>
+                            </div>
+                        </>
                     }
                 </div>
                 <div>{totalLength !== currentQuestion && <ButtonList nextQuestion={nextQuestion} test={test} previousQuestion={previousQuestion} options={options} questionNumber={questionNumber} subquestionNumber={subquestionNumber} sublength={sublength} currentQuestion={currentQuestion} totalLength={totalLength} currentSubquestion={currentSubquestion} />}</div>

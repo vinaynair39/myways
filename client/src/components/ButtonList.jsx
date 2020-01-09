@@ -253,9 +253,6 @@ function ButtonList(props) {
     clickRadio1();
   }, [key])
 
-  // useEffect(() => {
-  //   setQuestionNumber(props.questionNumber)
-  // },[props.questionNumber]);
 
   useEventListener(
     'keydown', // event to listen to
@@ -313,8 +310,8 @@ function ButtonList(props) {
       const questionNumber = props.test.questions[(props.currentSubquestion === 0 && props.currentQuestion !== 0) ? props.currentQuestion - 1 : props.currentQuestion].questionNumber;
       const subQuestion =  !!props.test.questions[(props.currentSubquestion === 0 && props.currentQuestion !== 0) ? props.currentQuestion - 1 : props.currentQuestion].questionSet[props.currentSubquestion === 0 ? props.sublength : props.currentSubquestion - 1] && props.test.questions[(props.currentSubquestion === 0 && props.currentQuestion !== 0) ? props.currentQuestion - 1 : props.currentQuestion].questionSet[props.currentSubquestion === 0 ? props.sublength : props.currentSubquestion - 1].questionNumber;
       setSelectedOptionNumber(props.response[questionNumber][subQuestion]);
-      console.log('subqc', props.currentSubquestion === 0 ? props.sublength : props.currentSubquestion - 1)
-      console.log('q', questionNumber, 'sq',subQuestion)
+      // console.log('subqc', props.currentSubquestion === 0 ? props.sublength : props.currentSubquestion - 1)
+      // console.log('q', questionNumber, 'sq',subQuestion)
       return true;
     }
     else {
@@ -417,7 +414,7 @@ function ButtonList(props) {
         <button iv className="radio button-select3" onClick={() => radioRef1.current.click()}>
           <input ref={radioRef1} type="radio" id="1" name="radio1" value={a} checked={selectedOptionNumber === '1' ? true : checked1} onChange={(e) => {
             setSelectedOption(e.target.value);
-            setSelectedOptionNumber(e.target.id)
+            setSelectedOptionNumber(e.target.value)
             setChecked1(true);
             handleShowButton();
           }} />
@@ -430,7 +427,7 @@ function ButtonList(props) {
         <button className="radio button-select3" onClick={() => radioRef2.current.click()}>
           <input ref={radioRef2} type="radio" id="2" name="radio1" value={b} checked={selectedOptionNumber === '2' ? true : checked2} onChange={(e) => {
             setSelectedOption(e.target.value);
-            setSelectedOptionNumber(e.target.id)
+            setSelectedOptionNumber(e.target.value)
             setChecked2(true);
             handleShowButton();
           }} />
@@ -442,7 +439,7 @@ function ButtonList(props) {
         <button className="radio button-select3" onClick={() => radioRef3.current.click()}>
           <input ref={radioRef3} type="radio" id="3" name="radio1" value={c} checked={selectedOptionNumber === '3' ? true : checked3} onChange={(e) => {
             setSelectedOption(e.target.value);
-            setSelectedOptionNumber(e.target.id)
+            setSelectedOptionNumber(e.target.value)
             setChecked3(true);
             handleShowButton();
           }} />
@@ -454,7 +451,7 @@ function ButtonList(props) {
         <button className="radio button-select3" onClick={() => radioRef4.current.click()}>
           <input ref={radioRef4} type="radio" id="4" name="radio1" value={d} checked={selectedOptionNumber === '4' ? true : checked4} onChange={(e) => {
             setSelectedOption(e.target.value);
-            setSelectedOptionNumber(e.target.id)
+            setSelectedOptionNumber(e.target.value)
             setChecked4(true);
             handleShowButton();
           }} />
@@ -466,7 +463,7 @@ function ButtonList(props) {
         <button className="radio button-select3" onClick={() => radioRef5.current.click()}>
           <input ref={radioRef5} type="radio" id="5" name="radio1" value={e} checked={selectedOptionNumber === '5' ? true : checked5} onChange={(e) => {
             setSelectedOption(e.target.value);
-            setSelectedOptionNumber(e.target.id)
+            setSelectedOptionNumber(e.target.value)
             setChecked5(true);
             handleShowButton();
           }} />

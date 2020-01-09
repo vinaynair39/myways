@@ -55,6 +55,7 @@ const NavWrapper = styled.nav`
   display: flex;
   background: #2e3740;
   height: 9vh;
+  box-shadow: 0 8px 8px -6px #2e3740;
   .nav-links {
     color: black;
     font-size: 1.2rem!important;
@@ -62,20 +63,22 @@ const NavWrapper = styled.nav`
   }
   .logo{
     margin-bottom: 0.2rem;
-    height:7vh;
+    height:6vh;
     position:relative;
-    left: -0.7rem;
+    left: -0.7vw;
   }
   .logo2{
+    margin-left:1rem;
+    padding: 0 0.3rem;
     margin-bottom: 0.5rem;
-    height:7.5vh;
+    height:4.5vh;
+    position:relative;
+    top:-0.2vh;  
   }
   .icon-reg{
     font-size: 1.4rem;
   }
   .nav-name {
-    margin-top: 0.05rem;
-    font-size: 2rem;
     font-weight: bold;
     text-decoration: none !important;
     color: black;
@@ -86,6 +89,8 @@ const NavWrapper = styled.nav`
   .nav-links:hover{
     color: #FFC765;
   }
+
+
   .text-green {
     color: #0f9d58;
   }
