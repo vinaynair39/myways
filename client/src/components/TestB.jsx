@@ -160,7 +160,7 @@ const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId
                     </div>}
                 </div>
             </div>
-            <div>{totalLength !== currentQuestion && <ButtonList previousQuestion={previousQuestion} test={test} questionNumber={questionNumber} nextQuestion={nextQuestion} options={options} currentQuestion={currentQuestion+1} currentTest={test.assesmentType} />}</div>
+            <div>{totalLength !== currentQuestion && <ButtonList previousQuestion={previousQuestion} test={test} questionNumber={questionNumber} nextQuestion={nextQuestion} options={options} currentQuestion={currentQuestion} currentTest={test.assesmentType} />}</div>
             <div className="test__options">
                 {/* <Options nextQuestion={nextQuestion}  /> */}
             </div>

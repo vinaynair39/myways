@@ -27,11 +27,11 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
     const [subquestionNumber, setSubquestionNumber] = useState('1');
     let subquestionsTotal = 0;
     const totalLength = test.questions.length;
-    const [sublength, setSublength] = useState(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length);
+    const [sublength, setSublength] = useState(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length-1);
 
     useEffect(() => {
         console.log(test.assesmentType)
-        setSublength(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length);
+        setSublength(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length-1);
         if (totalLength === currentQuestion) {
             setParagraph('');
             setQuestion('');
@@ -57,7 +57,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
             }
             addProgress();
         }
-    }, [currentSubquestion, currentQuestion, testCompleted, questionNumber, subquestionNumber])
+    }, [currentSubquestion, currentQuestion, testCompleted, questionNumber, subquestionNumber, sublength])
 
     const stars = () => {
 
@@ -171,7 +171,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
                             </div></>
                     }
                 </div>
-                <div>{totalLength !== currentQuestion && <ButtonList nextQuestion={nextQuestion} test={test} previousQuestion={previousQuestion} options={options} questionNumber={questionNumber} subquestionNumber={subquestionNumber} sublength={sublength} currentQuestion={currentQuestion + 1} totalLength={totalLength} currentSubquestion={currentSubquestion + 1} />}</div>
+                <div>{totalLength !== currentQuestion && <ButtonList nextQuestion={nextQuestion} test={test} previousQuestion={previousQuestion} options={options} questionNumber={questionNumber} subquestionNumber={subquestionNumber} sublength={sublength} currentQuestion={currentQuestion} totalLength={totalLength} currentSubquestion={currentSubquestion} />}</div>
                 <div className="test__options">
                 </div>
             </>}
