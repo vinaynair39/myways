@@ -189,6 +189,8 @@ function ButtonList(props) {
   const [checked5, setChecked5] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const [selectedOptionNumber, setSelectedOptionNumber] = useState(false);
+  // const [questionNumber, setQuestionNumber] = useState(false);
+
   const [key, setKey] = useState()
 
 
@@ -226,11 +228,10 @@ function ButtonList(props) {
     if (key === 'Enter' || key === 'ArrowRight') {
       submit.current.click();
       setKey('');
-
     }
     if (key === 'ArrowLeft') {
       if(typeof props.currentSubquestion === 'number'){
-        if(props.currentQuestion === 1 && props.currentSubquestion === 1){
+        if(props.currentQuestion === 0 && props.currentSubquestion === 0){
           setKey('');
           return true;
         }
@@ -238,7 +239,7 @@ function ButtonList(props) {
         setKey('');
       }
       else{
-        if(props.currentQuestion === 1){
+        if(props.currentQuestion === 0){
           setKey('');
           return true;
         }
@@ -251,6 +252,10 @@ function ButtonList(props) {
   useEffect(() => {
     clickRadio1();
   }, [key])
+
+  // useEffect(() => {
+  //   setQuestionNumber(props.questionNumber)
+  // },[props.questionNumber]);
 
   useEventListener(
     'keydown', // event to listen to
@@ -271,6 +276,7 @@ function ButtonList(props) {
 
 
   const onSubmit = (e) => {
+
     e.preventDefault();
     const length = Object.keys(props.response).length;
     setSelectedOptionNumber(0);
@@ -278,13 +284,16 @@ function ButtonList(props) {
     const subquestionNumber = parseInt(props.subquestionNumber, 10);
     props.addAnswers(selectedOptionNumber, selectedOption, props.questionNumber, typeof subquestionNumber === 'number' ? subquestionNumber : null);
     if (typeof props.currentSubquestion === 'number') {
-      console.log('sublen', props.sublength, 'and', props.currentQuestion === length)
-      console.log('q', (props.currentSubquestion === props.sublength && props.currentQuestion ===length) ? props.currentQuestion + 1 : props.currentQuestion, '------sq', [props.currentSubquestion === props.sublength ? 1 : props.currentSubquestion + 1]);
-      setSelectedOptionNumber(!!(props.response[(props.currentSubquestion === props.sublength && props.currentQuestion === length) ? props.currentQuestion + 1 : props.currentQuestion]) && props.response[(props.currentSubquestion === props.sublength && props.currentQuestion < length) ? props.currentQuestion + 1 : props.currentQuestion][props.currentSubquestion === props.sublength ? 1 : props.currentSubquestion + 1]);
+      // console.log('q', (props.currentSubquestion === props.sublength && props.currentQuestion ===length) ? props.currentQuestion + 1 : props.currentQuestion, '------sq', [props.currentSubquestion === props.sublength ? 1 : props.currentSubquestion + 1]);
+      // setSelectedOptionNumber(!!(props.response[(props.currentSubquestion === props.sublength && props.currentQuestion !== props.totalLength) ? props.currentQuestion + 1 : props.currentQuestion]) && props.response[(props.currentSubquestion === props.sublength && props.currentQuestion !== length) ? props.currentQuestion + 1 : props.currentQuestion][props.currentSubquestion === props.sublength ? 0 : props.currentSubquestion + 1]);
+      const questionNumber = !!props.test.questions[(props.currentSubquestion === props.sublength && props.currentQuestion !== props.totalLength) ? props.currentQuestion +1: props.currentQuestion] && props.test.questions[(props.currentSubquestion === props.sublength && props.currentQuestion !== props.totalLength) ? props.currentQuestion +1: props.currentQuestion].questionNumber 
+      const subQuestion = !!props.test.questions[(props.currentSubquestion === props.sublength && props.currentQuestion !== props.totalLength) ? props.currentQuestion +1: props.currentQuestion]&& props.test.questions[props.currentQuestion].questionSet[props.currentSubquestion !== props.sublength ? props.currentSubquestion+1 : 0].questionNumber;
+      setSelectedOptionNumber(!!props.response[questionNumber] && props.response[questionNumber][subQuestion]);
     }
     else {
-      setSelectedOptionNumber(props.response[props.currentQuestion + 1])
-    }
+      const questionNumber = !!props.test.questions[props.currentQuestion+1] && props.test.questions[props.currentQuestion+1].questionNumber;
+      setSelectedOptionNumber(props.response[questionNumber])
+    } 
     // saveToLocalStorage(props.response);
     setChecked1(false);
     setChecked2(false);
@@ -299,15 +308,18 @@ function ButtonList(props) {
     props.previousQuestion();
     handleShowButton();
     const subquestionNumber = parseInt(props.subquestionNumber, 10);
-    props.addAnswers(selectedOptionNumber, selectedOption, props.questionNumber, typeof subquestionNumber === 'number' ? subquestionNumber : null);
+    // props.addAnswers(selectedOptionNumber, selectedOption, props.questionNumber, typeof subquestionNumber === 'number' ? subquestionNumber : null);
     if (typeof props.currentSubquestion === 'number') {
-      const sublength = Object.keys(props.response[(props.currentSubquestion === 1 && props.currentQuestion !== 1) ? props.currentQuestion - 1 : props.currentQuestion]).length;
-      setSelectedOptionNumber(props.response[(props.currentSubquestion === 1 && props.currentQuestion !== 1) ? props.currentQuestion - 1 : props.currentQuestion][props.currentSubquestion === 1 ? sublength : props.currentSubquestion - 1]);
+      const questionNumber = props.test.questions[(props.currentSubquestion === 0 && props.currentQuestion !== 0) ? props.currentQuestion - 1 : props.currentQuestion].questionNumber;
+      const subQuestion =  !!props.test.questions[(props.currentSubquestion === 0 && props.currentQuestion !== 0) ? props.currentQuestion - 1 : props.currentQuestion].questionSet[props.currentSubquestion === 0 ? props.sublength : props.currentSubquestion - 1] && props.test.questions[(props.currentSubquestion === 0 && props.currentQuestion !== 0) ? props.currentQuestion - 1 : props.currentQuestion].questionSet[props.currentSubquestion === 0 ? props.sublength : props.currentSubquestion - 1].questionNumber;
+      setSelectedOptionNumber(props.response[questionNumber][subQuestion]);
+      console.log('subqc', props.currentSubquestion === 0 ? props.sublength : props.currentSubquestion - 1)
+      console.log('q', questionNumber, 'sq',subQuestion)
       return true;
     }
     else {
-      setSelectedOptionNumber(props.response[props.currentQuestion === 1 ? props.currentQuestion : props.currentQuestion - 1]);
-      // saveToLocalStorage(props.response);
+      const questionNumber = props.test.questions[props.currentQuestion === 0 ? props.currentQuestion : props.currentQuestion - 1].questionNumber;
+      setSelectedOptionNumber(props.response[questionNumber]);
       handleShowButton();
       return true;
     }
@@ -623,9 +635,9 @@ function ButtonList(props) {
       <form onSubmit={onSubmit}>
         {getButton()}
         <div className="test-buttons">
-          {(!!props.currentSubquestion ? (((props.currentQuestion === 1 && props.currentSubquestion > 1) || (props.currentQuestion > 1))
+          {(!!props.currentSubquestion ? (((props.currentQuestion === 0 && props.currentSubquestion > 0) || (props.currentQuestion > 0))
             && <button ref={previous} className="button button-left" onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>) :
-            (props.currentQuestion > 1 && <button className="button button-left" onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>)
+            (props.currentQuestion > 0 && <button className="button button-left" ref={previous} onClick={onPrevious}><FontAwesomeIcon icon={faArrowLeft} size='2x' /></button>)
           )}
           {true ? <button ref={submit} type="submit" className="button button-right" ><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>
             : <button className="button button-disable"><FontAwesomeIcon icon={faArrowRight} size='2x' /></button>

@@ -11,7 +11,7 @@ import Timer from 'react.timer';
 import { testState } from '../actions/test'
 import { setTestCompleted as testComplete, saveUserToLocalStorage } from '../actions/auth';
 
-const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, userId, getDifficulty,testState, setTestComplete}) => {
+const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, userId, getDifficulty, testState, setTestComplete }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [currentSubquestion, setCurrentSubquestion] = useState(0);
     const [paragraph, setParagraph] = useState('');
@@ -23,14 +23,15 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
     const [testCompleted, setTestCompleted] = useState(false);
     const [difficulty, setDifficulty] = useState(0);
     const [questionNumber, setQuestionNumber] = useState('1');
+    const [nextQuestionNumber, setNextQuestionNumber] = useState('1');
     const [subquestionNumber, setSubquestionNumber] = useState('1');
     let subquestionsTotal = 0;
     const totalLength = test.questions.length;
-    const [sublength, setSublength] = useState(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length);
+    const [sublength, setSublength] = useState(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length-1);
 
     useEffect(() => {
         console.log(test.assesmentType)
-        setSublength(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length);
+        setSublength(!!test.questions[currentQuestion] && test.questions[currentQuestion].questionSet.length-1);
         if (totalLength === currentQuestion) {
             setParagraph('');
             setQuestion('');
@@ -39,8 +40,8 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
             if (testCompleted) {
                 // getDifficulty(difficulty)
                 alert("Completed!");
-                console.log(answers )
-                sendAnswers(test.assesmentType,answers);
+                console.log(answers)
+                sendAnswers(test.assesmentType, answers);
                 saveUserToLocalStorage(user);
                 setTestComplete(test.assesmentType);
                 history.push('/dashboard');
@@ -56,7 +57,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
             }
             addProgress();
         }
-    }, [currentSubquestion, currentQuestion, testCompleted, questionNumber,subquestionNumber])
+    }, [currentSubquestion, currentQuestion, testCompleted, questionNumber, subquestionNumber, sublength])
 
     const stars = () => {
 
@@ -82,7 +83,6 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
 
     const nextQuestion = () => {
         setPrevState(currentState);
-
         if (totalLength > currentQuestion && (test.questions[currentQuestion].questionSet.length - 1) > (currentSubquestion)) {
             setCurrentSubquestion(currentSubquestion + 1);
             setPrevState(currentState);
@@ -171,7 +171,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
                             </div></>
                     }
                 </div>
-                <div>{totalLength !== currentQuestion && <ButtonList nextQuestion={nextQuestion} previousQuestion={previousQuestion} options={options} questionNumber={questionNumber} subquestionNumber={subquestionNumber} sublength={sublength}currentQuestion={currentQuestion+1} totalLength={totalLength} currentSubquestion={currentSubquestion+1} />}</div>
+                <div>{totalLength !== currentQuestion && <ButtonList nextQuestion={nextQuestion} test={test} previousQuestion={previousQuestion} options={options} questionNumber={questionNumber} subquestionNumber={subquestionNumber} sublength={sublength} currentQuestion={currentQuestion} totalLength={totalLength} currentSubquestion={currentSubquestion} />}</div>
                 <div className="test__options">
                 </div>
             </>}
@@ -180,7 +180,7 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
 
 }
 const mapDispatchToProps = (dispatch) => ({
-    sendAnswers: (testName, answers) => dispatch(sendAnswers(testName,answers)),
+    sendAnswers: (testName, answers) => dispatch(sendAnswers(testName, answers)),
     questionState: (current) => dispatch(questionState(current)),
     testState: (name) => dispatch(testState(name)),
     getDifficulty: (difficulty) => dispatch(getDifficulty(difficulty)),
