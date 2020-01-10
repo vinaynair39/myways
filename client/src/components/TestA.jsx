@@ -9,9 +9,11 @@ import { sendAnswers, questionState, getDifficulty } from '../actions/test';
 import Progress from 'react-progressbar';
 import Timer from 'react.timer';
 import { testState } from '../actions/test'
+import Loader from './Loader';
+
 import { setTestCompleted as testComplete, saveUserToLocalStorage } from '../actions/auth';
 
-const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, userId, getDifficulty, testState, setTestComplete }) => {
+const TestA = ({ test, loading, sendAnswers, answers, questionState, user, userId, getDifficulty, testState, setTestComplete }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [currentSubquestion, setCurrentSubquestion] = useState(0);
     const [paragraph, setParagraph] = useState('');
@@ -23,7 +25,6 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
     const [testCompleted, setTestCompleted] = useState(false);
     const [difficulty, setDifficulty] = useState(0);
     const [questionNumber, setQuestionNumber] = useState('1');
-    const [nextQuestionNumber, setNextQuestionNumber] = useState('1');
     const [subquestionNumber, setSubquestionNumber] = useState('1');
     let subquestionsTotal = 0;
     const totalLength = test.questions.length;
@@ -39,10 +40,19 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
             setProgress(100);
             if (testCompleted) {
                 // getDifficulty(difficulty)
-                if (test.assesmentType === 'interestTest') {
-                    sendAnswers(test.assesmentType, answers);
-
-                }
+                // if (test.assesmentType === 'personalityTest' && test2===false) {
+                //     console.log('inside 2')
+                //     sendAnswers(test.assesmentType, answers);
+                //     setCurrentQuestion(0);
+                //     setCurrentSubquestion(0);
+                //     setParagraph('');
+                //     setQuestion('');
+                //     setProgress(0);
+                //     setTestCompleted(false);
+                //     setQuestionNumber(0);
+                //     setSubquestionNumber(0);
+                // 
+            }
                 else {
                     alert("Completed!");
                     console.log(answers)
@@ -52,7 +62,6 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
                     history.push('/dashboard');
                 }
             }
-        }
         else {
             setParagraph(test.questions[currentQuestion].paragraph);
             setQuestion(test.questions[currentQuestion].questionSet[currentSubquestion].question);
@@ -166,19 +175,20 @@ const TestA = ({ test, isLoading, sendAnswers, answers, questionState, user, use
         <>
             {<>
                 {modal()}
+                {loading && <Loader />}
                 <div className="test__item">
                     {totalLength === currentQuestion ? stars() :
                         <>
-                            <div>
-                                {!!paragraph && <h2 title={test.instructions} className='test__paragraph'>{paragraph}</h2>}
+                            <div className='test__paragraph'>
+                                {!!paragraph && <h2 title={test.instructions} >{paragraph}</h2>}
                             </div>
-                            <div>
-                                {!!question && <h2 className="test__sub-question">{question}</h2>}
+                            <div className="test__sub-question">
+                                {!!question && <h2 >{question}</h2>}
                             </div>
                         </>
                     }
+                    <div>{totalLength !== currentQuestion && <ButtonList nextQuestion={nextQuestion} test={test} previousQuestion={previousQuestion} options={options} questionNumber={questionNumber} subquestionNumber={subquestionNumber} sublength={sublength} currentQuestion={currentQuestion} totalLength={totalLength} currentSubquestion={currentSubquestion} />}</div>
                 </div>
-                <div>{totalLength !== currentQuestion && <ButtonList nextQuestion={nextQuestion} test={test} previousQuestion={previousQuestion} options={options} questionNumber={questionNumber} subquestionNumber={subquestionNumber} sublength={sublength} currentQuestion={currentQuestion} totalLength={totalLength} currentSubquestion={currentSubquestion} />}</div>
                 <div className="test__options">
                 </div>
             </>}
@@ -199,7 +209,8 @@ const mapStateToProps = (state) => ({
     answers: state.test.response,
     previousState: state.test.previous,
     currentState: state.test.current,
-    user: state.auth.user
+    user: state.auth.user,
+    loading: state.auth.loading
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TestA);

@@ -63,7 +63,7 @@ const NavWrapper = styled.nav`
   }
   .logo{
     margin-bottom: 0.2rem;
-    height:6vh;
+    height:7vh;
     position:relative;
     left: -0.7vw;
   }
@@ -71,7 +71,7 @@ const NavWrapper = styled.nav`
     margin-left:1rem;
     padding: 0 0.3rem;
     margin-bottom: 0.5rem;
-    height:4.5vh;
+    height:5vh;
     position:relative;
     top:-0.2vh;  
   }

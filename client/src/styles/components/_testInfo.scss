@@ -4,7 +4,8 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    overflow: scroll;
+    overflow-y: scroll;
+    padding: 1rem 0;
 }
 
 .testInfo__title{
@@ -15,6 +16,6 @@
 .testInfo__subtitle{
     text-align: center;
     font-size: 4vh;
-    line-height: 2;
+    line-height: 1.7;
     padding: 4rem 10rem; 
 }

@@ -37,7 +37,6 @@
   box-shadow: rgba(0, 0, 0, 0.12) 0px px 1px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   border-radius: 6px;
   &:hover{
-    transform: scale(1.1);
     text-decoration-line: none;
     color:white;
   }
@@ -248,10 +247,10 @@
 
 .rating {
   display: flex;
-  width: 100%;
+  width: 25vw;
   justify-content: center;
   flex-direction: row-reverse;
-  height: 150px;
+  height: 25vh;
   position: relative;
 }
 
@@ -326,7 +325,7 @@
 
 .emoji > svg {
   margin: 15px 0; 
-  width: 70px;
+  width: 100px;
   height: 70px;
   flex-shrink: 0;
 }
@@ -338,9 +337,8 @@
 #rating-5:checked ~ .emoji-wrapper > .emoji { transform: translateY(-500px); }
 
 .feedback {
-  max-width: 360px;
   background-color: transparent;
-  width: 100%;
+  width: 25vw;
   border-radius: 8px;
   display: flex;
   flex-direction: column;

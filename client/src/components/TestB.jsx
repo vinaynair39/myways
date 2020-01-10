@@ -5,19 +5,21 @@ import { getCurrentTest } from '../actions/test';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestion, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import ButtonList from './ButtonList';
-import { sendAnswers, questionState, getDifficulty } from '../actions/test';
+import { sendAnswers, sendAnswers2, questionState, getDifficulty } from '../actions/test';
 import { connect } from 'react-redux';
 import Progress from 'react-progressbar';
 import Timer from 'react.timer';
 import { testState } from '../actions/test';
 import { setTestCompleted as testComplete, saveUserToLocalStorage } from '../actions/auth';
+import Loader from "./Loader";
 
 
 
 
 
 
-const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId, getDifficulty, testState, setTestComplete}) => {
+
+const TestB = ({ test, loading,currentTest, sendAnswers,sendAnswers2, answers, user, postUser, userId, getDifficulty, testState, setTestComplete}) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [paragraph, setParagraph] = useState('');
     const [question, setQuestion] = useState('');
@@ -27,6 +29,8 @@ const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId
     const totalLength = test.questions.length;
     const [testCompleted, setTestCompleted] = useState(false);
     const [questionNumber, setQuestionNumber] = useState(1);
+    const [test2, setTest2] = useState(false)
+
     let subquestionsTotal = 0;
 
 
@@ -39,11 +43,30 @@ const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId
             if (testCompleted) {
                 // testState(test.assesmentType);
                 // getDifficulty(difficulty);
-                alert("Completed!");
-                sendAnswers(test.assesmentType,answers);
-                setTestComplete(test.assesmentType);
-                saveUserToLocalStorage(user);
-                history.push('/dashboard');
+                console.log(test.assesmentType, test.assesmentType === 'personalityTest', test2===false)
+                if (test.assesmentType === 'personalityTest' && test2===false) {
+                    console.log('inside 2')
+                    setCurrentQuestion(0);
+                    setQuestion('');
+                    setProgress(0);
+                    setTestCompleted(false);
+                    setQuestionNumber(0);
+                    sendAnswers(test.assesmentType, answers);
+                    setTest2(true);
+                }else{
+                    alert("Completed!");
+                    if(test2==true){
+                        sendAnswers2(test.assesmentType,answers)
+                        setTestComplete(test.assesmentType);
+                        saveUserToLocalStorage(user);
+                        history.push('/dashboard');
+                    }
+                    sendAnswers(test.assesmentType,answers);
+                    setTestComplete(test.assesmentType);
+                    saveUserToLocalStorage(user);
+                    history.push('/dashboard');
+                }
+               
             }
         }
         else {
@@ -52,7 +75,7 @@ const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId
             !!test.questions[currentQuestion].options && setOptions(test.questions[currentQuestion].options.map(option => option.option));
             calculateProgress();
         }
-    }, [currentQuestion, testCompleted])
+    }, [currentQuestion, testCompleted, test.questions])
 
 
     const stars = () => {
@@ -143,21 +166,44 @@ const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId
         </>
     )
 
+const done = () => {
+    setTestCompleted(true);
+}
+const data = () => {
+    if(totalLength === currentQuestion){
+        if(test.assesmentType !== 'personalityTest')
+            return stars();
+        if(test.assesmentType === 'personalityTest' && test2)
+            return stars();
+        done();
+    }
+    else{
+        return <>
+                <div>
+                        <div>{!!question &&
+                            (validURL(question) ? <div className="test__img"><img src={question} /></div>
+                        : <div><h2 className="test__title">{question}</h2></div>)}</div>
+                </div>
+        </>
+    }
+}
 
-
-
-
+    // return (
+    //     <>
+    //        {modal()}
+    //        {loading && <Loader />}
+    //         <div className="test__item2">
+    //             {data()}
+    //         </div>
+    //     </>
+    // )
 
     return (
         <>
-            <div className="test__item">
+            <div className="test__item2">
                 {modal()}
                 <div>
-                    {totalLength === currentQuestion ? stars() : <div>
-                        <div>{!!question &&
-                            (validURL(question) ? <div className="test__img"><img src={question} /></div>
-                        : <h2 className="test__title">{question}</h2>)}</div>
-                    </div>}
+                    {data()}
                 </div>
             </div>
             <div>{totalLength !== currentQuestion && <ButtonList previousQuestion={previousQuestion} test={test} questionNumber={questionNumber} nextQuestion={nextQuestion} options={options} currentQuestion={currentQuestion} currentTest={test.assesmentType} />}</div>
@@ -167,11 +213,14 @@ const TestB = ({ test, currentTest, sendAnswers, answers, user, postUser, userId
         </>
     )
 
+
+
 }
 
 
 const mapDispatchToProps = (dispatch) => ({
     sendAnswers: (testName, answers) => dispatch(sendAnswers(testName,answers)),
+    sendAnswers2: (testName, answers) => dispatch(sendAnswers2(testName,answers)),
     currentTest: (name) => dispatch(getCurrentTest(name)),
     testState: (name) => dispatch(testState(name)),
     getDifficulty: (difficulty) => dispatch(getDifficulty(difficulty)),
@@ -182,9 +231,8 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => ({
     answers: state.test.response,
-    isLoading: state.auth.loading,
+    loading: state.auth.loading,
     user: state.auth.user
-
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TestB);

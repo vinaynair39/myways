@@ -29,9 +29,7 @@ export default (state = initState, action) => {
             };
         case ADD_ANSWERS:
             const currentQuestion = action.currentQuestion;
-            console.log(action)
             if(!!action.currentSubquestion){
-                console.log('inside')
                 return{
                     ...state,
                     response:{

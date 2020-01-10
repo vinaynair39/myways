@@ -51,8 +51,10 @@ export const addAnswers = (answerNumber, answer, currentQuestion, currentSubques
 
 export const startAddTests = () => {
     return (dispatch, getState) => {
+        dispatch({ type: LOADING_UI });
         return axios.get('http://13.234.156.115:2000/api/test').then(res => {
-            dispatch(addTests(res.data))
+            dispatch(addTests(res.data));
+            dispatch({ type: UNLOADING_UI });
         }).catch(err => {
             console.log(err)
         })
@@ -64,6 +66,7 @@ export const getCurrentTest = (testName = "deductiveReasoning") => {
         dispatch({ type: LOADING_UI });
         return axios.get(`http://13.234.156.115:2000/api/test/${testName.toLowerCase()}`).then(res => {
             dispatch(currentTest(res.data));
+            dispatch({ type: UNLOADING_UI });
             console.log(res.data)
         }).catch(err => {
             console.log(err)
@@ -79,13 +82,32 @@ export const sendAnswers = (testName,answers) => {
         dispatch({ type: LOADING_UI });
         console.log(answers)
         return axios.post(`http://13.234.156.115:2000/api/test/${testName.toLowerCase()}`, {response:answers}).then(res => {
-            alert("answer submitted");
             console.log(res.data)
+            dispatch(currentTest(res.data));
+            dispatch({ type: UNLOADING_UI });
+            return res.data;
         }).catch(err => {
             console.log(err)
         })
     }
 }
+
+export const sendAnswers2 = (testName,answers) => {
+    return (dispatch, getState) => {
+        console.log('send send send');
+        dispatch({ type: LOADING_UI });
+        console.log(answers)
+        return axios.post(`http://13.234.156.115:2000/api/test/${testName.toLowerCase()}2`, {response:answers}).then(res => {
+            console.log(res.data)
+            dispatch(currentTest(res.data));
+            dispatch({ type: UNLOADING_UI });
+            return res.data;
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+}
+
 
 
 
