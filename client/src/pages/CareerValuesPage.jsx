@@ -11,7 +11,7 @@ const CareerValuesPage = (props) => {
     return (
         <>
             <Layout>
-                <div className="cognitive">
+                <div className="cognitive animated fadeIn">
                     <div className="cognitive__data"><ResultList results={props.results} /></div>
                     <div className="cognitive__next">
                         <ResultChart />

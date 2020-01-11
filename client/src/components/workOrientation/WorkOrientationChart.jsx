@@ -13,7 +13,7 @@ const WorkOrientationChart = () => {
                 type: 'bar',
                 toolbar: false
             },
-            labels: ['Physical', 'Informative', 'Creative', 'Interactive', 'Persuasive', 'Administrate'],
+            labels: ['Physical', 'Informative', 'Creative', 'Interactive', 'Persuasive', 'Administrative'],
             yaxis: {
                 labels: {
                     style: {
@@ -46,12 +46,12 @@ const WorkOrientationChart = () => {
         }
         );
         setSeries([{
-            data: [10, 20, 15, 13, 11]
+            data: [3,10, 20, 15, 13, 11]
         }])
     }, [])
 
     return (
-        <Chart options={options} series={series} type="radar" height="500" />
+        <Chart options={options} series={series} type="radar" height="400" />
     );
 }
 

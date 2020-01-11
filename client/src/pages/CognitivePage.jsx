@@ -10,10 +10,10 @@ const CognitivePage = props => {
     <>
       <Layout>
         <div className="cognitive">
-          <div className="cognitive__data">
+          <div className="cognitive__data animated fadeIn">
             <ResultList results={props.results} />
           </div>
-          <div className=" cognitive__next">
+          <div className="cognitive__next">
             <ResultChart />
             <div >
               <h5>Explore Next</h5>
@@ -44,31 +44,39 @@ const mapStateToProps = state => ({
       title: "problem solving",
       subtitle:
         "there is this thing called as proper plaanning and yahape yeh nhi hoga",
-      score: 98
+      score: 98,
+      importance: 'average'
     },
     {
       title: "problem solving",
       subtitle:
         "there is this thing called as proper plaanning and yahape yeh nhi hoga",
-      score: 78
+      score: 78,
+      importance: 'high'
+
     },
     {
       title: "problem solving",
       subtitle:
         "there is this thing called as proper plaanning and yahape yeh nhi hoga",
-      score: 60
+      score: 60,
+      importance: 'low'
+
     },
     {
       title: "problem solving",
       subtitle:
         "there is this thing called as proper plaanning and yahape yeh nhi hoga",
-      score: 55
+      score: 55,
+      importance: 'low'
     },
     {
       title: "problem solving",
       subtitle:
         "there is this thing called as proper plaanning and yahape yeh nhi hoga",
-      score: 68
+      score: 68,
+      importance: 'high'
+
     },
     {
       title: "problem solving",

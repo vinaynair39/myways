@@ -33,8 +33,6 @@ const ResultChart = () => {
                 '#ffc6c7',
                 '#c06c84',
                 '#f5f093'
-    
-    
             ],
             dataLabels: {
                 enabled: true,

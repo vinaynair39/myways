@@ -1,16 +1,16 @@
-import React from 'react';
-import { setCurrentItem } from '../../actions/test';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 
-const LearningStyleCard = () => {
+const WorkOrientationBox = () => {
     const state = useSelector(state => state.test.currentItem)
+    const [toggle, setToggle] = useState(false)
 
     const modal = (name, introduction) => {
         console.log('helo')
         return (
-            <div className="modal fade" id="learningModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div className="modal fade" id="workOrientationModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered modal-lg"  role="document">
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLongTitle">{name}</h5>
@@ -28,20 +28,25 @@ const LearningStyleCard = () => {
                 </div>
             </div>)
     }
-
     return (
-        <div className="workOrientation__box" style={{ margin: !!state.name && `0 1rem` }}>
+        <>
             {modal(state.name, state.introduction)}
-            {!!state.definition ? <>
-                <h1>{state.name}</h1>
-                <p>{state.introduction.substring(0, 250)}</p>
-                <button data-toggle="modal" data-target="#learningModal">
-                    Read More...
+            <div className="workOrientation__box" style={{margin: !!state.name && `0 1rem`}}>
+                {!!state.name ? <>
+                    <h1>{state.name}</h1>
+                    <p>{state.definition}</p>
+                    <li>Unique Ability: {state.uniqueAbility}</li>
+                    <li>Strength: {state.strength}</li>
+                    <li>Work Behaviour: {state.behaviour}</li>
+                    <button data-toggle="modal" data-target="#workOrientationModal">
+                        Read More...
                     </button>
-            </> : <h2>Hover around the icons!</h2>
-            }
-        </div>
+                </> : <h2>Hover around the icons!</h2>
+                }
+
+            </div>
+        </>
     );
 }
 
-export default LearningStyleCard;
+export default WorkOrientationBox;

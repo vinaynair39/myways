@@ -1,15 +1,17 @@
-import React from 'react';
-import { setCurrentItem } from '../../actions/test';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 
 
-const LearningStyleCard = () => {
-    const state = useSelector(state => state.test.currentItem)
+const WorkOrientationBox = () => {
+    const state = useSelector(state => state.test.currentItem);
+    const { pathname } = useLocation();
+    const [toggle, setToggle] = useState(false)
 
     const modal = (name, introduction) => {
         console.log('helo')
         return (
-            <div className="modal fade" id="learningModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div className="modal fade" id="traitModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -28,20 +30,22 @@ const LearningStyleCard = () => {
                 </div>
             </div>)
     }
-
     return (
-        <div className="workOrientation__box" style={{ margin: !!state.name && `0 1rem` }}>
-            {modal(state.name, state.introduction)}
-            {!!state.definition ? <>
-                <h1>{state.name}</h1>
-                <p>{state.introduction.substring(0, 250)}</p>
-                <button data-toggle="modal" data-target="#learningModal">
-                    Read More...
+        <>
+            <div className="workOrientation__box" style={{ margin: !!state.name && `0 1rem` }}>
+                {modal(state.name, state.introduction)}
+                {!!state.name ? <>
+                    <h1>{state.name}</h1>
+                    <p>{state.introduction.substring(0, 250)}</p>
+                    <button data-toggle="modal" data-target="#traitModal">
+                        Read More...
                     </button>
-            </> : <h2>Hover around the icons!</h2>
-            }
-        </div>
+                </> : <h2>{pathname === '/centerofOperation' ? 'Hover around the Icons!' : 'Hover around the label text!'}</h2>
+                }
+
+            </div>
+        </>
     );
 }
 
-export default LearningStyleCard;
+export default WorkOrientationBox;

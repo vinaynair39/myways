@@ -7,7 +7,7 @@ const TraitList = () => {
         <>
             <div className="traits">
                 <div className="traits__title">
-                    <img src="https://atmanco.com/wp-content/uploads/2015/12/personality-traits-about-workforce.png" alt="" />
+                    <img src="https://image.flaticon.com/icons/svg/2472/2472104.svg" alt="" />
                     <h1>Personality Traits</h1>
                 </div>
                 <TraitListChart />

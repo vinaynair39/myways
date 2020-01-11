@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import CenterOfOperation from '../components/result/CenterOfOperation';
 import Layout from '../components/Layout';
-import { connect } from 'react-redux';
+import {useDispatch } from 'react-redux';
+import { setCurrentItem } from '../actions/test';
 
 
-const CareerValuesPage = (props) => {
+const CenterOfOperationPage = (props) => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(setCurrentItem(''))
+    },[])
     return (
         <>
             <Layout>
@@ -15,4 +20,4 @@ const CareerValuesPage = (props) => {
 }
 
 
-export default connect(undefined, undefined)(CareerValuesPage);
+export default CenterOfOperationPage;

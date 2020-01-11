@@ -72,7 +72,7 @@ const Wrapper = styled.div`
   }
   .h-title {
     font-size: 1.3rem;
-    color: #2e3740;
+    color: #2f353f;
     padding: 0.1rem;
     font-weight: 550;
     text-align: center;
@@ -82,7 +82,7 @@ const Wrapper = styled.div`
     border: none;
     outline: none;
     font-size: 1.3rem;
-    color: #2e3740;
+    color: #2f353f;
     font-weight: 700; 
     padding: 0.3rem;
     text-decoration: none;

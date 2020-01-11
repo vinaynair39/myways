@@ -36,7 +36,8 @@ const SideBar = ({ logout, isAuthenticated }) => {
             onClick={() => setSelection("dashboard")}
           >
             <FontAwesomeIcon icon={faColumns} className="dashboard__icon" />
-            Dashboard
+            <Link to="dashboard">Dashboard</Link>
+            
           </div>
           <div
             className="dashboard__sidebar1-item"

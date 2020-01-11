@@ -7,11 +7,53 @@
 
 .traits__title{
     display: flex;
-    margin-top:1rem;
     align-items: flex-end;
     margin-bottom: 2rem;
+    & h1{
+        margin:0;
+    }
     & img{
-        height: 8vh;
+        height: 8vh;    
+        width:7vw;
+    }
+}
+.traits__next{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    & a{
+        background: transparent;
+        border:none;
+        outline: none;
+        &:hover{
+            transform: scale(1.1);
+            transition: all 0.2s ease;
+        }
+        &:active{
+            transform: translateY(4px);
+        }
+    }
+    & img{
+        height: 15vh;
+        &:hover{
+            transform: scale(1.1);
+            transition: all 0.2s ease;
+        }
+        &:active{
+            transform: translateY(4px);
+        }
 
+    }
+    & h5{
+        margin-top:0.5rem ;
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    & h6{
+        font-weight: 700;
     }
 }

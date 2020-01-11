@@ -5,20 +5,14 @@ import {
     CURRENT_ANSWERS,
     QUESTION_STATE,TEST_STATE,
     GET_DIFFICULTY,
+    SET_CURRENT_ITEM
 } from '../actions/constants'
 
 const initState = {
     tests: [],
     questions: [],
     response: {},
-    current: {
-        currentQuestion:0,
-        currentSubquestion: 0
-    },
-    previous: {
-        currentQuestion:0,
-        currentSubquestion: 0
-    },
+    currentItem: {}
 }
 export default (state = initState, action) => {
     switch (action.type) {
@@ -63,7 +57,11 @@ export default (state = initState, action) => {
                 ...state,
                 questions: action.questions
             }
-
+        case SET_CURRENT_ITEM:
+            return {
+                ...state,
+                currentItem: action.item
+            }
         default:
             return state;
     }

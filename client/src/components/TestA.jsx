@@ -40,28 +40,14 @@ const TestA = ({ test, loading, sendAnswers, answers, questionState, user, userI
             setProgress(100);
             if (testCompleted) {
                 // getDifficulty(difficulty)
-                // if (test.assesmentType === 'personalityTest' && test2===false) {
-                //     console.log('inside 2')
-                //     sendAnswers(test.assesmentType, answers);
-                //     setCurrentQuestion(0);
-                //     setCurrentSubquestion(0);
-                //     setParagraph('');
-                //     setQuestion('');
-                //     setProgress(0);
-                //     setTestCompleted(false);
-                //     setQuestionNumber(0);
-                //     setSubquestionNumber(0);
-                // 
-            }
-                else {
                     alert("Completed!");
                     console.log(answers)
                     sendAnswers(test.assesmentType, answers);
                     saveUserToLocalStorage(user);
                     setTestComplete(test.assesmentType);
                     history.push('/dashboard');
-                }
             }
+        }   
         else {
             setParagraph(test.questions[currentQuestion].paragraph);
             setQuestion(test.questions[currentQuestion].questionSet[currentSubquestion].question);

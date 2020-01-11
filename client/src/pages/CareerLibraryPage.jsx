@@ -9,7 +9,7 @@ const CareerLibraryPage = () => {
     return (
         <>
             <Layout>
-                <div className="careerLibrary">
+                <div className="careerLibrary animated fadeIn">
                     <div className="careerLibrary__data">
                         <CareerLibraryList />
                     </div>

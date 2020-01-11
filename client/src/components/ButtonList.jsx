@@ -275,7 +275,6 @@ function ButtonList(props) {
   const onSubmit = (e) => {
 
     e.preventDefault();
-    const length = Object.keys(props.response).length;
     setSelectedOptionNumber(0);
     props.nextQuestion();
     const subquestionNumber = parseInt(props.subquestionNumber, 10);
@@ -305,7 +304,7 @@ function ButtonList(props) {
     props.previousQuestion();
     handleShowButton();
     const subquestionNumber = parseInt(props.subquestionNumber, 10);
-    // props.addAnswers(selectedOptionNumber, selectedOption, props.questionNumber, typeof subquestionNumber === 'number' ? subquestionNumber : null);
+    props.addAnswers(selectedOptionNumber, selectedOption, props.questionNumber, typeof subquestionNumber === 'number' ? subquestionNumber : null);
     if (typeof props.currentSubquestion === 'number') {
       const questionNumber = props.test.questions[(props.currentSubquestion === 0 && props.currentQuestion !== 0) ? props.currentQuestion - 1 : props.currentQuestion].questionNumber;
       const subQuestion =  !!props.test.questions[(props.currentSubquestion === 0 && props.currentQuestion !== 0) ? props.currentQuestion - 1 : props.currentQuestion].questionSet[props.currentSubquestion === 0 ? props.sublength : props.currentSubquestion - 1] && props.test.questions[(props.currentSubquestion === 0 && props.currentQuestion !== 0) ? props.currentQuestion - 1 : props.currentQuestion].questionSet[props.currentSubquestion === 0 ? props.sublength : props.currentSubquestion - 1].questionNumber;

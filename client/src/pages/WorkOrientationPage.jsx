@@ -1,12 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import TraitList from '../components/personalityTraits/TraitList';
 import Layout from '../components/Layout';
 import { connect } from 'react-redux';
+import {useDispatch } from 'react-redux';
+import { setCurrentItem } from '../actions/test';
 import Link from 'react-router-dom/Link'
 import WorkOrientation from '../components/workOrientation/WorkOrientation';
+import WorkOrientationBox from '../components/workOrientation/WorkOrientationBox';
 
 
 const WorkOrientationPage = (props) => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(setCurrentItem(''))
+    },[])
     return (
         <>
             <Layout>
@@ -15,6 +22,7 @@ const WorkOrientationPage = (props) => {
                         <WorkOrientation />
                     </div>
                     <div className="workOrientation__next">
+                        <WorkOrientationBox/>
                         <div>
                             <h5>Explore Next</h5>
                             <Link to="personalityTraits">
@@ -33,4 +41,4 @@ const WorkOrientationPage = (props) => {
 }
 
 
-export default connect(undefined, undefined)(WorkOrientationPage);
+export default WorkOrientationPage;

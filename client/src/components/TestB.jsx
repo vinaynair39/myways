@@ -19,7 +19,7 @@ import Loader from "./Loader";
 
 
 
-const TestB = ({ test, loading,currentTest, sendAnswers,sendAnswers2, answers, user, postUser, userId, getDifficulty, testState, setTestComplete}) => {
+const TestB = ({ test, loading, currentTest, sendAnswers, sendAnswers2, answers, user, postUser, userId, getDifficulty, testState, setTestComplete }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [paragraph, setParagraph] = useState('');
     const [question, setQuestion] = useState('');
@@ -40,34 +40,24 @@ const TestB = ({ test, loading,currentTest, sendAnswers,sendAnswers2, answers, u
             setQuestion('');
             setOptions('');
             setProgress(100);
-            if (testCompleted) {
-                // testState(test.assesmentType);
-                // getDifficulty(difficulty);
-                console.log(test.assesmentType, test.assesmentType === 'personalityTest', test2===false)
-                if (test.assesmentType === 'personalityTest' && test2===false) {
-                    console.log('inside 2')
-                    setCurrentQuestion(0);
-                    setQuestion('');
-                    setProgress(0);
-                    setTestCompleted(false);
-                    setQuestionNumber(0);
-                    sendAnswers(test.assesmentType, answers);
-                    setTest2(true);
-                }else{
-                    alert("Completed!");
-                    if(test2==true){
-                        sendAnswers2(test.assesmentType,answers)
-                        setTestComplete(test.assesmentType);
-                        saveUserToLocalStorage(user);
-                        history.push('/dashboard');
-                    }
-                    sendAnswers(test.assesmentType,answers);
-                    setTestComplete(test.assesmentType);
-                    saveUserToLocalStorage(user);
-                    history.push('/dashboard');
-                }
-               
+            if (test.assesmentType === 'personalityTest' && test2 === false) {
+                console.log('inside 2')
+                setCurrentQuestion(0);
+                setQuestion('');
+                setProgress(0);
+                setTestCompleted(false);
+                setQuestionNumber(0);
+                sendAnswers(test.assesmentType, answers);
+                setTest2(true);
             }
+            if (testCompleted) {
+
+                sendAnswers(test.assesmentType, answers);
+                setTestComplete(test.assesmentType);
+                saveUserToLocalStorage(user);
+                history.push('/dashboard');
+            }
+
         }
         else {
             setQuestion(test.questions[currentQuestion].question);
@@ -166,27 +156,25 @@ const TestB = ({ test, loading,currentTest, sendAnswers,sendAnswers2, answers, u
         </>
     )
 
-const done = () => {
-    setTestCompleted(true);
-}
-const data = () => {
-    if(totalLength === currentQuestion){
-        if(test.assesmentType !== 'personalityTest')
-            return stars();
-        if(test.assesmentType === 'personalityTest' && test2)
-            return stars();
-        done();
-    }
-    else{
-        return <>
+
+    const data = () => {
+        if (totalLength === currentQuestion) {
+            console.log(test.assesmentType !== 'personalityTest', test.assesmentType === 'personalityTest' && test2)
+            if (test.assesmentType !== 'personalityTest')
+                return stars();
+            if (test.assesmentType === 'personalityTest' && test2)
+                return stars();
+        }
+        else {
+            return <>
                 <div>
-                        <div>{!!question &&
-                            (validURL(question) ? <div className="test__img"><img src={question} /></div>
-                        : <div><h2 className="test__title">{question}</h2></div>)}</div>
+                    <div>{!!question &&
+                        (validURL(question) ? <div className="test__img"><img src={question} /></div>
+                            : <div><h2 className="test__title">{question}</h2></div>)}</div>
                 </div>
-        </>
+            </>
+        }
     }
-}
 
     // return (
     //     <>
@@ -202,6 +190,7 @@ const data = () => {
         <>
             <div className="test__item2">
                 {modal()}
+                {loading && <Loader />}
                 <div>
                     {data()}
                 </div>
@@ -219,8 +208,8 @@ const data = () => {
 
 
 const mapDispatchToProps = (dispatch) => ({
-    sendAnswers: (testName, answers) => dispatch(sendAnswers(testName,answers)),
-    sendAnswers2: (testName, answers) => dispatch(sendAnswers2(testName,answers)),
+    sendAnswers: (testName, answers) => dispatch(sendAnswers(testName, answers)),
+    sendAnswers2: (testName, answers) => dispatch(sendAnswers2(testName, answers)),
     currentTest: (name) => dispatch(getCurrentTest(name)),
     testState: (name) => dispatch(testState(name)),
     getDifficulty: (difficulty) => dispatch(getDifficulty(difficulty)),

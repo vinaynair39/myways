@@ -41,7 +41,7 @@ class Dashboard2 extends Component {
   render() {
     return (
       <Layout>
-        <div className="dashboard">
+        <div className="dashboard  animated fadeIn">
             <TesList tests={this.props.tests} />
         </div>
       </Layout>
