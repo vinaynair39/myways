@@ -1,4 +1,4 @@
-import { ADD_QUESTIONS, GET_DIFFICULTY, ADD_TESTS,SET_CURRENT_ITEM, ADD_ANSWERS, CURRENT_TEST, LOADING_UI,TEST_STATE, UNLOADING_UI, CURRENT_ANSWERS,QUESTION_STATE } from './constants';
+import { ADD_QUESTIONS,CLEAR_RESPONSE, GET_DIFFICULTY, ADD_TESTS,SET_CURRENT_ITEM, ADD_ANSWERS, CURRENT_TEST, LOADING_UI,TEST_STATE, UNLOADING_UI, CURRENT_ANSWERS,QUESTION_STATE } from './constants';
 
 import axios from 'axios';
 
@@ -39,6 +39,10 @@ export const setCurrentItem = (item) => ({
     type: SET_CURRENT_ITEM,
     item
 });
+
+export const clearResponse = () => ({
+    type: CLEAR_RESPONSE
+})
 
 
 

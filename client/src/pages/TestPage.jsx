@@ -3,6 +3,7 @@ import TestB from '../components/TestB';
 import TestA from '../components/TestA';
 import { connect } from 'react-redux';
 import { getCurrentTest } from '../actions/test';
+import { Loader } from 'semantic-ui-react';
 // import { faPlus } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";   
 
@@ -22,6 +23,7 @@ const TestPage = (props) =>{
     
 const mapStateToProps = (state) => ({
     tests: state.test ? state.test.questions: [],
+    loading:state.auth.loading
 });
 const mapDispatchToProps = (dispatch) => ({
     currentTest: (name) => dispatch(getCurrentTest(name))

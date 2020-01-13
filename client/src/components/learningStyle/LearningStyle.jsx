@@ -6,25 +6,47 @@ import Link from 'react-router-dom/Link'
 import { setCurrentItem } from '../../actions/test';
 import { physical, informative, creative, interactive, persuasive, administrative } from '../workOrientation/WorkOrientationData'
 import { useDispatch } from 'react-redux';
-
+import { beholder, listener, reader, experimenter} from '../learningStyle/learningStyleData'
 
 const LearningStyle = ({ results }) => {
+    
+    const dispatch = useDispatch();
+
+    const currentItem = (e) => {
+        switch (e.target.name) {
+            case 'beholder':
+                dispatch(setCurrentItem(beholder));
+                break;
+            case 'listener':
+                dispatch(setCurrentItem(listener));
+                break;
+            case 'reader':
+                dispatch(setCurrentItem(reader));
+                break;
+            case 'experimenter':
+                dispatch(setCurrentItem(experimenter));
+                break;
+            default:
+                break;
+
+        }
+    }
     return (
         <>
             <div className="centerOfOperation  animated fadeIn">
                 <div className="centerOfOperation__data2">
+                    <div className="traits__title mt-0">
+                        <img src="https://image.flaticon.com/icons/svg/1081/1081040.svg" alt="" />
+                        <h1>Learning Style</h1>
+                    </div>
                     <div className="centerOfOperation__chart">
-                        <div className="traits__title mt-0">
-                            <img src="https://atmanco.com/wp-content/uploads/2015/12/personality-traits-about-workforce.png" alt="" />
-                            <h1>Learning Style</h1>
-                        </div>
                         <LearningStyleChart />
                     </div>
                     <div className="centerOfOperation__list2" >
-                        <div ><CenterOfOperationBox name={'visual'} img={"https://image.flaticon.com/icons/png/512/128/128644.png"} colr="#6decb9" /><h6>Visual</h6></div>
-                        <div ><CenterOfOperationBox name={'audio'} img={"https://image.flaticon.com/icons/png/512/930/930381.png"} colr="#f8b195" /><h6>Audrio</h6></div>
-                        <div ><CenterOfOperationBox name={'read/write'} img={"https://image.flaticon.com/icons/png/512/85/85590.png"} colr="#f67280" /><h6>Read/Write</h6></div>
-                        <div ><CenterOfOperationBox name={'kinesthetic/touch'} img={"https://image.flaticon.com/icons/png/512/84/84590.png"} colr="#413c69" /><h6>Kinesthetic/Touch</h6></div>
+                        <div className="centerOfOperation__list-item2" ><div className="centerOfOperation__image"><img onMouseEnter={currentItem} name={'beholder'} src={"https://image.flaticon.com/icons/png/512/128/128644.png"} style={{background:"#6decb9"}} /><h6>Beholder</h6></div></div>
+                        <div className="centerOfOperation__list-item2 "><div className="centerOfOperation__image"><img onMouseEnter={currentItem} name={'listener'} src={"https://image.flaticon.com/icons/png/512/930/930381.png"} style={{background:"#f8b195"}} /><h6>Listener</h6></div></div>
+                        <div className="centerOfOperation__list-item2 "><div className="centerOfOperation__image"><img onMouseEnter={currentItem} name={'reader'} src={"https://image.flaticon.com/icons/png/512/85/85590.png"} style={{background:"#f67280"}} /><h6>Reader</h6></div></div>
+                        <div className="centerOfOperation__list-item2 "><div className="centerOfOperation__image"><img onMouseEnter={currentItem} name={'experimenter'} src={"https://image.flaticon.com/icons/png/512/84/84590.png"} style={{background:"#413c69"}} /><h6>Experimenter</h6></div></div>
                     </div>
                 </div>
                 <div className="centerOfOperation__next">

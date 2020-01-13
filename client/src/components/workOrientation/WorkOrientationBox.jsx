@@ -26,7 +26,8 @@ const WorkOrientationBox = () => {
                         </div>
                     </div>
                 </div>
-            </div>)
+            </div>
+            )
     }
     return (
         <>
@@ -43,7 +44,6 @@ const WorkOrientationBox = () => {
                     </button>
                 </> : <h2>Hover around the icons!</h2>
                 }
-
             </div>
         </>
     );

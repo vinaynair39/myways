@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestion, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import ButtonList from './ButtonList';
 import { connect } from 'react-redux';
-import { sendAnswers, questionState, getDifficulty } from '../actions/test';
+import { sendAnswers, questionState, getDifficulty, clearResponse } from '../actions/test';
 import Progress from 'react-progressbar';
 import Timer from 'react.timer';
 import { testState } from '../actions/test'
@@ -13,7 +13,7 @@ import Loader from './Loader';
 
 import { setTestCompleted as testComplete, saveUserToLocalStorage } from '../actions/auth';
 
-const TestA = ({ test, loading, sendAnswers, answers, questionState, user, userId, getDifficulty, testState, setTestComplete }) => {
+const TestA = ({ test, loading, clearResponse, sendAnswers, answers, questionState, user, userId, getDifficulty, testState, setTestComplete }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [currentSubquestion, setCurrentSubquestion] = useState(0);
     const [paragraph, setParagraph] = useState('');
@@ -40,14 +40,16 @@ const TestA = ({ test, loading, sendAnswers, answers, questionState, user, userI
             setProgress(100);
             if (testCompleted) {
                 // getDifficulty(difficulty)
-                    alert("Completed!");
-                    console.log(answers)
-                    sendAnswers(test.assesmentType, answers);
-                    saveUserToLocalStorage(user);
-                    setTestComplete(test.assesmentType);
-                    history.push('/dashboard');
+                alert("Completed!");
+                console.log(JSON.stringify(answers))
+                sendAnswers(test.assesmentType, answers);
+                saveUserToLocalStorage(user);
+                setTestComplete(test.assesmentType);
+                history.push('/dashboard');
+                clearResponse();
+
             }
-        }   
+        }
         else {
             setParagraph(test.questions[currentQuestion].paragraph);
             setQuestion(test.questions[currentQuestion].questionSet[currentSubquestion].question);
@@ -159,9 +161,9 @@ const TestA = ({ test, loading, sendAnswers, answers, questionState, user, userI
 
     return (
         <>
+            {loading && <Loader />}
             {<>
                 {modal()}
-                {loading && <Loader />}
                 <div className="test__item">
                     {totalLength === currentQuestion ? stars() :
                         <>
@@ -188,7 +190,8 @@ const mapDispatchToProps = (dispatch) => ({
     testState: (name) => dispatch(testState(name)),
     getDifficulty: (difficulty) => dispatch(getDifficulty(difficulty)),
     testState: (assesmentType) => dispatch(testState(assesmentType)),
-    setTestComplete: (test) => dispatch(testComplete(test))
+    setTestComplete: (test) => dispatch(testComplete(test)),
+    clearResponse: () => dispatch(clearResponse())
 });
 
 const mapStateToProps = (state) => ({

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { history } from '../routers/AppRouter'
 import { Link } from 'react-router-dom';
-import { getCurrentTest } from '../actions/test';
+import { getCurrentTest, clearResponse } from '../actions/test';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestion, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import ButtonList from './ButtonList';
@@ -19,7 +19,7 @@ import Loader from "./Loader";
 
 
 
-const TestB = ({ test, loading, currentTest, sendAnswers, sendAnswers2, answers, user, postUser, userId, getDifficulty, testState, setTestComplete }) => {
+const TestB = ({ test, loading, currentTest, clearResponse, sendAnswers, sendAnswers2, answers, user, postUser, userId, getDifficulty, testState, setTestComplete }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [paragraph, setParagraph] = useState('');
     const [question, setQuestion] = useState('');
@@ -51,13 +51,13 @@ const TestB = ({ test, loading, currentTest, sendAnswers, sendAnswers2, answers,
                 setTest2(true);
             }
             if (testCompleted) {
-
+                test.assesmentType === 'personalityTest' ? sendAnswers2(test.assesmentType, answers):sendAnswers(test.assesmentType, answers);
                 sendAnswers(test.assesmentType, answers);
                 setTestComplete(test.assesmentType);
                 saveUserToLocalStorage(user);
                 history.push('/dashboard');
+                clearResponse();
             }
-
         }
         else {
             setQuestion(test.questions[currentQuestion].question);
@@ -188,9 +188,9 @@ const TestB = ({ test, loading, currentTest, sendAnswers, sendAnswers2, answers,
 
     return (
         <>
+            {loading && <Loader />}
             <div className="test__item2">
                 {modal()}
-                {loading && <Loader />}
                 <div>
                     {data()}
                 </div>
@@ -214,8 +214,8 @@ const mapDispatchToProps = (dispatch) => ({
     testState: (name) => dispatch(testState(name)),
     getDifficulty: (difficulty) => dispatch(getDifficulty(difficulty)),
     testState: (assesmentType) => dispatch(testState(assesmentType)),
-    setTestComplete: (test) => dispatch(testComplete(test))
-
+    setTestComplete: (test) => dispatch(testComplete(test)),
+    clearResponse: () => dispatch(clearResponse())
 })
 
 const mapStateToProps = (state) => ({

@@ -35,7 +35,7 @@ const WorkOrientation = () => {
 
     return (
         <>
-            <div className="workOrientation animated fadeIn">
+            <div className="animated fadeIn">
                 <div className="workOrientation__title">
                     <img src="https://image.flaticon.com/icons/png/512/426/426992.png" alt="" />
                     <h1>Work Orientation</h1>

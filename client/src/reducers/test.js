@@ -4,6 +4,7 @@ import {
     CURRENT_TEST,
     CURRENT_ANSWERS,
     QUESTION_STATE,TEST_STATE,
+    CLEAR_RESPONSE,
     GET_DIFFICULTY,
     SET_CURRENT_ITEM
 } from '../actions/constants'
@@ -61,6 +62,11 @@ export default (state = initState, action) => {
             return {
                 ...state,
                 currentItem: action.item
+            }
+        case CLEAR_RESPONSE:
+            return {
+                ...state,
+                response: {}
             }
         default:
             return state;

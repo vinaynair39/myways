@@ -1,62 +1,51 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom'
-import { useDispatch } from 'react-redux';
-import { setCurrentItem } from '../../actions/test';
-import { physical, informative, creative, interactive, persuasive, administrative } from '../workOrientation/WorkOrientationData'
+import { useDispatch, useSelector } from 'react-redux';
+
 
 export const CenterOfOperationBox = ({ img, colr, text, name }) => {
+    const state = useSelector(state => state.test.currentItem);
     const location = useLocation();
     const dispatch = useDispatch();
 
-    const currentItem = (e) => {
-        switch (e.target.name) {
-            case 'thinking':
-                dispatch(setCurrentItem(physical));
-                break;
-            case 'feeling':
-                dispatch(setCurrentItem(informative));
-                break;
-            case 'intuition':
-                dispatch(setCurrentItem(creative));
-                break;
-            case 'interactive':
-                dispatch(setCurrentItem(interactive));
-                break;
-            case 'persuasive':
-                dispatch(setCurrentItem(persuasive));
-                break;
-            case 'administrative':
-                dispatch(setCurrentItem(administrative));
-                break;
-            case 'visual':
-                dispatch(setCurrentItem(physical));
-                break;
-            case 'audio':
-                dispatch(setCurrentItem(informative));
-                break;
-            case 'read/write':
-                dispatch(setCurrentItem(creative));
-                break;
-            case 'kinesthetic/touch':
-                dispatch(setCurrentItem(persuasive));
-                break;
-            default:
-                break;
-
-        }
+    const modal = (name, introduction) => {
+        console.log('helo')
+        return (
+            <div className="modal fade" id="centerOfOperationModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title">{name}</h5>
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div className="modal-body">
+                            {introduction}
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>)
     }
-
-
     return (
         <>
-            {console.log(location.pathname)}
-            <div className={location.pathname === "/learningStyle" ? "centerOfOperation__list-item2" : "centerOfOperation__list-item"}>
-                <div className="centerOfOperation__image">
-                    <img onMouseEnter={currentItem} name={name} src={img} alt="" style={{ background: colr }} />
-                </div>
+            {modal(state.name, state.introduction)}
+            <div className="workOrientation__box" style={{ margin: !!state.name && `0 1rem` }}>
+                {!!state.name ? <>
+                    <h1>{state.name}</h1>
+                    <p>{state.introduction.substring(0, 250)}</p>
+                    <button data-toggle="modal" data-target="#centerOfOperationModal">
+                        Read More...
+                    </button>
+                </> : <h2>{'Hover around the Icons!'}</h2>
+                }
+
             </div>
         </>
-    )
+    );
 }
 
 export default CenterOfOperationBox;

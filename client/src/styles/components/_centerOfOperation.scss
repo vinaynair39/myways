@@ -6,17 +6,31 @@
 }
 .centerOfOperation__data{
     display: grid;
-    grid-template-rows:  70vh 30vh;
+    grid-template-rows:  10vh 55vh 35vh;
     height: 100vh;
 }
 .centerOfOperation__data2{
     display: grid;
-    grid-template-rows:  70vh 30vh;
+    grid-template-rows:  15vh 55vh 30vh;
     height: 100vh;
 }
 .centerOfOperation__chart{
     margin: 0.5rem 1rem;
     align-self: center;
+}
+
+.centerOfOperation__title{
+    display: flex;
+    align-items: flex-end;
+    & img{
+        height: 8vh;
+        margin: 0.5rem 0.5rem 0 1rem;
+    }
+    & h1{
+        font-size: 5vh;
+        margin:0;
+        color: $color-title;
+    }
 }
 .centerOfOperation__next{
     display: flex;
@@ -55,7 +69,7 @@
 .centerOfOperation__list{
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     padding-bottom: 1rem;
     text-align: center;
     @media(max-width: 640px) {
@@ -69,10 +83,9 @@
     justify-self: center;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     padding-bottom: 1rem;
     text-align: center;
-    width: inherit;
     @media(max-width: 640px) {
         padding: 1rem 1rem;
     }
@@ -140,6 +153,7 @@
     text-transform: capitalize;
     text-align: center;
     margin: 10rem 5rem 3rem 5rem;
+    
 }
 
 .text__sub{

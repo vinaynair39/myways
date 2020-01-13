@@ -17,6 +17,7 @@ height: 100vh;
 .title span{
     background:#FFFFFF; 
     padding:0 10px; 
+    font-size:4vh;
 }
 `;
 
