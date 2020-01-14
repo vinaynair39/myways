@@ -4,12 +4,9 @@ import { useSelector } from 'react-redux';
 
 const WorkOrientationBox = () => {
     const state = useSelector(state => state.test.currentItem)
-    const [toggle, setToggle] = useState(false)
-
     const modal = (name, introduction) => {
-        console.log('helo')
         return (
-            <div className="modal fade" id="workOrientationModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div className="modal fade" id="workOrientationModal" tabIndex="-10" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered modal-lg"  role="document">
                     <div className="modal-content">
                         <div className="modal-header">

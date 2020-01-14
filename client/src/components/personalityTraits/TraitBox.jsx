@@ -36,7 +36,7 @@ const WorkOrientationBox = () => {
                 {modal(state.name, state.introduction)}
                 {!!state.name ? <>
                     <h1>{state.name}</h1>
-                    <p>{state.introduction.substring(0, 250)}</p>
+                    <p>{state.introduction && state.introduction.substring(0, 250)}</p>
                     <button data-toggle="modal" data-target="#traitModal">
                         Read More...
                     </button>

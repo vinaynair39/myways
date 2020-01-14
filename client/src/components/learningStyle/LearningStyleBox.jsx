@@ -8,7 +8,7 @@ const LearningStyleBox = () => {
     const modal = (name, introduction) => {
         return (
             <div className="modal fade" id="learningModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title">{name}</h5>
@@ -17,7 +17,7 @@ const LearningStyleBox = () => {
                             </button>
                         </div>
                         <div className="modal-body">
-                            {introduction}
+                            Key Belief: {state.keyBelief}
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
