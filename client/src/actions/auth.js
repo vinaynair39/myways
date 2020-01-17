@@ -38,7 +38,7 @@ export const startSignUp = (newUser) => {
     return (dispatch) => {
         dispatch({ type: LOADING_UI });
         console.log({...newUser})
-        axios.post('http://13.234.156.115:2000/api/register', { ...newUser }).then((res) => {
+        axios.post('http://edoflip.myways.in/api/register', { ...newUser }).then((res) => {
             console.log(res.data)
             setAuthorizationHeader(res.data.token);
             dispatch(setUser(res.data.data));
@@ -61,7 +61,7 @@ export const startLogin = (credentials) => {
     
     return (dispatch) => {
         dispatch({ type: LOADING_UI });
-        return axios.post('http://13.234.156.115:2000/api/login', credentials).then(async res => {
+        return axios.post('http://edoflip.myways.in/api/login', credentials).then(async res => {
             console.log(res.data);
             setAuthorizationHeader(res.data.token);
             dispatch(setUser(res.data.data));

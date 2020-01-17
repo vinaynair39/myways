@@ -37,7 +37,34 @@ const ItemWrapper = styled.div`
   }
 `;
 
-function ResultItem({result}) {
+function ResultItem({ result }) {
+
+  const modal = (name, introduction) => {
+    console.log('helo')
+    return (
+      <div className="modal fade" id="centerOfOperationModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">{name}</h5>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              {introduction}
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+
+    
+  }
+
   return (
     <ItemWrapper>
       <div className="card-body d-flex flex-column">
@@ -54,7 +81,7 @@ function ResultItem({result}) {
             <div className="skill-desc">Average Importance in Careers</div>
             <div className="score-title mb-2">High</div>
             <div className="">
-              <button className="know-more">Know More</button>
+              <button data-toggle="modal" data-target="#centerOfOperationModal" className="know-more">Know More</button>
             </div>
           </div>
         </div>

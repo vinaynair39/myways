@@ -62,7 +62,7 @@ export const addAnswers = (answerNumber, answer, currentQuestion, currentSubques
 export const startAddTests = () => {
     return (dispatch, getState) => {
         dispatch({ type: LOADING_UI });
-        return axios.get('http://13.234.156.115:2000/api/test').then(res => {
+        return axios.get('http://edoflip.myways.in/api/test').then(res => {
             dispatch(addTests(res.data));
             dispatch({ type: UNLOADING_UI });
         }).catch(err => {
@@ -74,7 +74,7 @@ export const startAddTests = () => {
 export const getCurrentTest = (testName = "deductiveReasoning") => {
     return (dispatch, getState) => {
         dispatch({ type: LOADING_UI });
-        return axios.get(`http://13.234.156.115:2000/api/test/${testName.toLowerCase()}`).then(res => {
+        return axios.get(`http://edoflip.myways.in/api/test/${testName.toLowerCase()}`).then(res => {
             dispatch(currentTest(res.data));
             dispatch({ type: UNLOADING_UI });
             console.log(res.data)
@@ -91,7 +91,7 @@ export const sendAnswers = (testName,answers) => {
         console.log('send send send');
         dispatch({ type: LOADING_UI });
         console.log(answers)
-        return axios.post(`http://13.234.156.115:2000/api/test/${testName.toLowerCase()}`, {response:answers}).then(res => {
+        return axios.post(`http://edoflip.myways.in/api/test/${testName.toLowerCase()}`, {response:answers}).then(res => {
             console.log(res.data)
             dispatch(currentTest(res.data));
             dispatch({ type: UNLOADING_UI });
@@ -107,7 +107,7 @@ export const sendAnswers2 = (testName,answers) => {
         console.log('send send send');
         dispatch({ type: LOADING_UI });
         console.log(answers)
-        return axios.post(`http://13.234.156.115:2000/api/test/${testName.toLowerCase()}2`, {response:answers}).then(res => {
+        return axios.post(`http://edoflip.myways.in/api/test/${testName.toLowerCase()}2`, {response:answers}).then(res => {
             console.log(res.data)
             dispatch(currentTest(res.data));
             dispatch({ type: UNLOADING_UI });
