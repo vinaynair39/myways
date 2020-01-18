@@ -35,65 +35,65 @@ const CognitivePage = props => {
 const mapStateToProps = state => ({
   results: [
     {
-      title: "problem solving",
-      subtitle:
-        "there is this thing called as proper plaanning and yahape yeh nhi hoga",
+      name: "Problem solving",
+      description:
+        "The ability to apply general rules to specific problems to produce answers that make sense.",
       score: 90
     },
     {
-      title: "problem solving",
-      subtitle:
-        "there is this thing called as proper plaanning and yahape yeh nhi hoga",
+      name: "Sequential Detection",
+      description:
+        "The ability to identify or detect a known pattern (a figure, object, word, or sound) that is hidden in other distracting material.",
       score: 98,
       importance: 'average'
     },
     {
-      title: "problem solving",
-      subtitle:
-        "there is this thing called as proper plaanning and yahape yeh nhi hoga",
+      name: "Interpretation",
+      description:
+        "The ability to combine pieces of information to form general rules or conclusions (includes finding a relationship among seemingly unrelated events).",
       score: 78,
       importance: 'high'
 
     },
     {
-      title: "problem solving",
-      subtitle:
-        "there is this thing called as proper plaanning and yahape yeh nhi hoga",
+      name: "Arrangement",
+      description:
+        "The ability to arrange things or actions in a certain order or pattern according to a specific rule or set of rules (e.g., patterns of numbers, letters, words, pictures, mathematical operations).",
       score: 60,
       importance: 'low'
 
     },
     {
-      title: "problem solving",
-      subtitle:
-        "there is this thing called as proper plaanning and yahape yeh nhi hoga",
+      name: "Memory",
+      description:
+        "The ability to remember information such as words, numbers, pictures, and procedures.",
       score: 55,
       importance: 'low'
     },
     {
-      title: "problem solving",
-      subtitle:
-        "there is this thing called as proper plaanning and yahape yeh nhi hoga",
+      name: "Categorization",
+      description:
+        "The ability to generate or use different sets of rules for combining or grouping things in different ways.",
       score: 68,
       importance: 'high'
 
     },
     {
-      title: "problem solving",
-      subtitle:
-        "there is this thing called as proper plaanning and yahape yeh nhi hoga",
+      name: "Language Usage",
+      description:
+        "The ability to read and understand information and ideas presented in writing.",
       score: 20
     },
     {
-      title: "problem solving",
-      subtitle:
-        "there is this thing called as proper plaanning and yahape yeh nhi hoga",
+      name: "Speed And Accuracy",
+      description:
+        "The ability to quickly and accurately compare similarities and differences among sets of letters, numbers, objects, pictures, or patterns. The things to be compared may be presented at the same time or one after the other. This ability also includes comparing a presented object with a remembered object.",
       score: 30
     },
     {
-      title: "problem solving",
-      subtitle:
-        "there is this thing called as proper plaanning and yahape yeh nhi hoga",
+      name: "Science",
+      description:
+        "The ability to imagine how something will look after it is moved around or when its parts are moved or rearranged.",
       score: 47
     }
   ]

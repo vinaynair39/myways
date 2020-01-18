@@ -1,5 +1,6 @@
 const careerValues = [{
     name: "PERFECTIONISM",
+    score: 65,
     definition: "It is the desire to be flawless and beyondcriticism",
     introduction: "Your personality is the most disciplined and rational personality type whoseek perfection and righteousness. You are principled, purposeful andself-controlled. You always tend to improve things, fear making mistakesand thus may be seen as over critical. At your best, you are wise,discerning, realistic and noble.You believe that: I must be as good andperfect as possible in order to be worthy.",
     strengthsExternal: "orderly, organized, accurate, correct ondetails, fastidious (very attentive), clear, direct, diligent, dependable,responsible.",
@@ -32,6 +33,7 @@ const careerValues = [{
 },
 {
     name: "CARE",
+    score: 80,
     definition: "It means to help those in need before thinking aboutoneself",
     introduction: "You have a distinctive mix of all the 9 core personalitytraits, among which Care is the dominant trait. Thismeans that mostly you exhibit Care in your behavior,decisions or the way you deal with life situations. Othertraits are not very prominent in your personality but play asmall part.",
     strengthsExternal: "empathetic, friendly, generous, caring,expressive, quick to support or give advice, good communicator",
@@ -64,6 +66,7 @@ const careerValues = [{
 },
 {
     name: "AMBITION",
+    score: 87,
     definition: "It means to focus strongly on achieving goals",
     introduction: "Your personality trait like that of the achievers is the most ambitious personality traitwho seek success.You are highly competitive and strive hard to achieve yourgoals.You are highly conscious of your self image. You are excelling, adaptive andcompetent. At your best you are self accepting, original, inspirational and highlydriven for advancement. You believe that “to do” is more rewarded than “to be”",
     strengthsExternal: "attractive, charming, competent, energetic,performers, motivating for success, enthusiastic",
@@ -96,6 +99,7 @@ const careerValues = [{
 },
 {
     name: "INDIVIDUALITY",
+    score: 20,
     definition: "It is the desire to seek uniqueness andbeauty in everything",
     introduction: "Your personality trait is the most romantic and moody personality trait which seeksindividuality and strive to create own identity.You feel about stuff more deeply thanothers and can feel disrespectful and move away from ordinary way of life. You arecreative, withdrawn, dramatic and self absorbed. At your best you are very creative,have a great sense of taste and class and able to renew yourself ( start afresh), thusmake your experiences better. You believe that a complete life is full of joy andsorrows and both must be appreciated.",
     strengthsExternal: "expressive, compassionate, idealistic,emotionally intense, warm, empathetic",
@@ -128,6 +132,7 @@ const careerValues = [{
 },
 {
     name: "CURIOSITY",
+    score: 60,
     definition: "It is the quest for knowledge, information andintellect",
     introduction: "Your personality is like that of investigators which is the most intense and brainypersonality type who seek mental stimulation and competency.You are perceptive,innovative, secretive and observant. You are able to focus on developing complexideas and skills but can get detached easily. At your best you are visionary, oftenahead of their time and able to see the world in an entirely different way. I need toobserve and study the world. You seek for knowledge through facts and logic. Youthink that feelings cannot be trusted.",
     strengthsExternal: "alert, insightful, curious, calm in crisis,responsible",
@@ -160,6 +165,7 @@ const careerValues = [{
 },
 {
     name: "COMMITMENT",
+    score: 70,
     definition: "It is synonyms to loyalty with a strongfocus on security",
     introduction: "Your personality like that of the loyalist is the most committed personality type whoseek security and reassurance.You scan your environment for potential threats andplan for worst case scenarios.You are engaging, responsible, willful andconfrontational. At your best you are internally stable, self reliant and courageouslywinning yourself and others. You believe that the world is dangerous and peoplecannot be trusted easily.",
     strengthsExternal: "trustworthy, thoughtful, cooperative, good atbuilding alliances, detail oriented, organised, analytical, protective",
@@ -192,6 +198,7 @@ const careerValues = [{
 },
 {
     name: "ENTHUSIASM",
+    score: 16,
     definition: "It is the desire to be free, unbounded andeagerness to explore",
     introduction: "Your personality like that of the adventurers is the most busy and fun lovingpersonality type who seek change, variety and excitement. You like to feel happy,avoid painful situations and are least concerned about others opinion. You areextroverted, optimistic and spontaneous. You can misapply your talents and becomeundisciplined .At your best you focus on worthy goals, become highly accomplishedand keep moving forward.",
     strengthsExternal: "good communicators, humorous, playful,versatile, energetic, adventurous",
@@ -224,6 +231,7 @@ const careerValues = [{
 },
 {
     name: "POWER",
+    score: 48,
     definition: "It is the desire to seek authority beingstraightforward and confident",
     introduction: 'Your personality like that of the Warriors is the most powerful and dominatingpersonality type who seek power, recognition and authority.You want to control theenvironment (specially people) and thus sometimes become aggressive.You are selfconfident, decisive, willful and confrontational. At your best you are self sufficient,useyour strength to help others and become heroic. You believe that : "I have to bestrong and powerful to protect myself"',
     strengthsExternal: "assertive, straight talking, empowering/helpful,great leaders, challenging attitude, protective, generous",
@@ -256,8 +264,9 @@ const careerValues = [{
 },
 {
     name: "AGREEABLENESS",
+    score: 50,
     definition: "It means to be able to empathize andcoordinate with others",
-    introduction: "Your personality like that of a peace-maker is the most easy going and modestpersonality type who seek peace and harmony in their environment. You tend toavoid internal and external conflicts or stressful situations.You are humble,non -confrontational, caring and patient.You want everything to be done without anyconflicts and thus become complacent. At your best you are accepting, optimisticand able to resolve conflicts. You believe that : "Let us make and be at peace".",
+    introduction: "Your personality like that of a peace-maker is the most easy going and modestpersonality type who seek peace and harmony in their environment. You tend toavoid internal and external conflicts or stressful situations.You are humble,non -confrontational, caring and patient.You want everything to be done without anyconflicts and thus become complacent. At your best you are accepting, optimisticand able to resolve conflicts. You believe that : \"Let us make and be at peace\".",
     strengthsExternal: "excellent mediator, good listening skills, easygoing, welcomes others views, supportive, able to see througheveryone’s’ point of view, modest, non – judgmental",
     strengthsInternal: "well balanced, stable, creative, complacent (self-satisfied)",
     difficultiesExternal: "conflict avoidance, not standing up for oneself,confused, not self-assertive, problem in being precise",
@@ -287,3 +296,5 @@ const careerValues = [{
     lessonsLearned: "It is okay to refuse (say no)someone or get into conflictsfor legit reasonsPrioritise tasks and not giveequal importance toeverythingIt is important to assert yourpoint /stand up for yourself"
 },
 ]
+
+export default careerValues;

@@ -1,9 +1,12 @@
 import React from 'react';
 import ResultItem from './ResultItem'
-import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom';
+import careerValues from './careerValues'
+
 // import { faPlus } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";   
 import styled from 'styled-components';
+import CognitiveItem from './CognitiveItem';
 
 const Wrapper = styled.div`
 height: 100vh;
@@ -31,34 +34,17 @@ const ResultList = ({ results, type = "" }) => {
                     <h1>{location.pathname === '/CognitiveIntelligence' ? "Cognitive Intelligence" : "Career Values"}</h1>
                 </div>
                 <div className="row d-flex justify-content-center px-4 pt-2 ">
-                    <h1 className="col-12 mt-3  title " ><span>{type === 'cognitive' ? 'Your strengths' : 'Most Important Values'}</span></h1>
-                    {results.map(result => {
-                        if (result.score >= 75) {
-                            return <div className="col-4"> <ResultItem result={result} /></div>
-
-                        }
-                    })}
+                    
+                    {location.pathname === '/CognitiveIntelligence' ? 
+                        results.map(result => {
+                            return <div className="col-4"> <CognitiveItem result={result} /></div>
+                        }) : careerValues.map(values => <ResultItem {...values} />)
+                    }
+                    </div>
                 </div>
-                <div className="row d-flex justify-content-center px-4 pt-2">
-                    <h1 className="col-12 mt-3 title " ><span>{type === 'cognitive' ? 'Intermediate Ability' : 'Intermediate Values'}</span></h1>
-                    {results.map(result => {
-                        if (result.score > 50 && result.score < 75) {
-                            return <div className="col-4"> <ResultItem result={result} /></div>
-                        }
-                    })}
-                </div>
-                <div className="row d-flex justify-content-center px-4 pt-2" >
-                    <h1 className="col-12 mt-3  title" ><span>{type === 'cognitive' ? 'Need to Imporve' : 'Need to improve'}</span></h1>
-                    {results.map(result => {
-                        if (result.score < 50) {
-                            return <div className="col-4"> <ResultItem result={result} /></div>
-                        }
-                    })}
-                </div>
-            </div>
-        </Wrapper>
-    );
-}
-
-
+        </Wrapper >
+            );
+        }
+        
+        
 export default ResultList;
