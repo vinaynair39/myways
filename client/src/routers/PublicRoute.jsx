@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
-import NavBar from '../components/Navbar';
+
+// Here what we do is we check if the user is authenticated.
+// If the user is authenticated and he goes to login aur register page, user will be automatically be redirected to the dashboard
 
 export const PublicRoute = ({
   isAuthenticated,

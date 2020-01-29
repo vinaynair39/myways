@@ -5,7 +5,6 @@ import {
     UNLOADING_UI,
     SET_ERRORS,
     UNSET_ERRORS,
-    TEST_STATE,
     SET_USER,
     SET_TEST_COMPLETED
 } from '../actions/constants'

@@ -52,8 +52,6 @@ function DevSuggestItem() {
       <div className="description mt-2">
         Rasengan!! sdhsauidhsaohdoashdosahd
         lsodsokdaokskdoeihf; oihfodrihgoirhgo Asakujaku!! sdhsauidhsaohdoashdosahd
-       
-        
       </div>
       <div className="read-more-link mt-2"><a href="#" className="link-more"><u>Read More</u></a></div>
       <div className=""></div>

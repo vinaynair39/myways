@@ -34,7 +34,6 @@ const ResultList = ({ results, type = "" }) => {
                     <h1>{location.pathname === '/CognitiveIntelligence' ? "Cognitive Intelligence" : "Career Values"}</h1>
                 </div>
                 <div className="row d-flex justify-content-center px-4 pt-2 ">
-                    
                     {location.pathname === '/CognitiveIntelligence' ? 
                         results.map(result => {
                             return <div className="col-4"> <CognitiveItem result={result} /></div>

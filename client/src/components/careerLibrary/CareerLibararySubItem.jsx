@@ -1,7 +1,4 @@
 import React from "react";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "react-router-dom/Link";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -17,7 +14,7 @@ const Wrapper = styled.div`
 `;
 
 const CareerLibraryItem = ({
-    id,
+  id,
   img,
   title,
   subtitles = [
@@ -41,14 +38,14 @@ const CareerLibraryItem = ({
         </div>
       </div>
       <div class="modal" id={`${id}`} tabindex="-1" role="dialog" aria-labelledby="exampleModalCenteredLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
     </Wrapper>
   );
 };

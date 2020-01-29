@@ -32,6 +32,8 @@ const AppRouter = () => (
     <div style={{height: "100vh", overflow: "hidden", background: "#f3f7f7"}}>
       <Switch>
         <PublicRoute path='/' component={Landing} exact={true} />
+        <PublicRoute path='/login' component={Login}  />
+        <PublicRoute path='/signup' component={Register} />
         <PrivateRoute path='/cognitiveIntelligence' component={CognitivePage} exact={true} />
         <PrivateRoute path='/workOrientation' component={WorkOrientationPage} exact={true} />
         <PrivateRoute path='/careerValues' component={CareerValuesPage} exact={true} />
@@ -43,9 +45,6 @@ const AppRouter = () => (
         <PrivateRoute path='/learningStyle' component={LearningStylePage} exact={true} />
         <PrivateRoute path='/result' component={ResultPage} exact={true} />
         <PrivateRoute path='/chart' component={ResultChart} exact={true} />
-        <PublicRoute path='/login' component={Login}  />
-        <PublicRoute path='/signup' component={Register} />
-        
         <PrivateRoute path="/testInfo/:name" component={TestInfo} />
         <PrivateRoute path="/SideBar" component={SideBar} />
         <PrivateRoute path="/dashboard" component={DashboardPage} exact={true}/>

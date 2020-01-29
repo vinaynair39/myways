@@ -1,10 +1,8 @@
 import React from 'react';
-import CenterOfOperationBox from '../result/CenterOfOperationBox'
 import LearningStyleChart from './LearningStyleChart'
 import LearningStyleBox from './LearningStyleBox'
 import Link from 'react-router-dom/Link'
 import { setCurrentItem } from '../../actions/test';
-import { physical, informative, creative, interactive, persuasive, administrative } from '../workOrientation/WorkOrientationData'
 import { useDispatch } from 'react-redux';
 import { beholder, listener, reader, experimenter} from '../learningStyle/learningStyleData'
 

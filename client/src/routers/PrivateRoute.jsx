@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
-import NavBar from '../components/Navbar';
-// import Header from '../components/Header';
+
+// Here what we do is we check if the user is authenticated. If not we redirect them to login page
 export const PrivateRoute = ({
   login,
   isAuthenticated,
@@ -13,7 +13,6 @@ export const PrivateRoute = ({
       <Route {...rest} component={(props) => (
       (isAuthenticated === true) ? (
         <div>
-          {/* <NavBar /> */}
           <Component {...props} />
         </div>
       ) : (

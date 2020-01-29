@@ -3,7 +3,6 @@ import {
     ADD_ANSWERS,
     CURRENT_TEST,
     CURRENT_ANSWERS,
-    QUESTION_STATE,TEST_STATE,
     CLEAR_RESPONSE,
     GET_DIFFICULTY,
     SET_CURRENT_ITEM
@@ -22,26 +21,32 @@ export default (state = initState, action) => {
                 ...state,
                 tests: action.tests
             };
+        /* 
+            There are two types of tests. 
+            A. with paragraph and its sub questions
+            B. only questions
+            the below code is used to store the the answers being giving by the user into redux
+        */
         case ADD_ANSWERS:
             const currentQuestion = action.currentQuestion;
-            if(!!action.currentSubquestion){
-                return{
+            if (!!action.currentSubquestion) {        //we're checking if subquestions are being passed. if yes then it means that this is test A
+                return {
                     ...state,
-                    response:{
+                    response: {                        
                         ...state.response,
-                        [currentQuestion]:{
+                        [currentQuestion]: {
                             ...state.response[currentQuestion],
                             [action.currentSubquestion]: action.answerNumber
                         }
                     }
-                }   
+                }
             }
-            else{
+            else {
                 return {
                     ...state,
                     response: {
                         ...state.response,
-                        [currentQuestion]:action.answerNumber
+                        [currentQuestion]: action.answerNumber
                     }
                 }
             }
