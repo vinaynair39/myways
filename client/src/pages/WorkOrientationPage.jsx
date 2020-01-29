@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import TraitList from '../components/personalityTraits/TraitList';
-import Layout from '../components/Layout';
+import Layout from "../components/Layout/Layout";
 import { connect } from 'react-redux';
 import {useDispatch } from 'react-redux';
 import { setCurrentItem } from '../actions/test';

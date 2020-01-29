@@ -1,7 +1,7 @@
 import React from 'react';
 import CareerLibraryList from '../components/careerLibrary/CareerLibraryList';
 import Link from "react-router-dom/Link";
-import Layout from "../components/Layout";
+import Layout from "../components/Layout/Layout";
 
 
 

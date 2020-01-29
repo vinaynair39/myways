@@ -14,6 +14,7 @@
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
     "chat.js": "^1.0.2",
+    "docz": "^2.2.0",
     "history": "^4.10.1",
     "jquery": "^3.4.1",
     "jwt-decode": "^2.2.0",
@@ -43,7 +44,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build",
+    "docz:serve": "docz build && docz serve"
   },
   "browserslist": {
     "production": [

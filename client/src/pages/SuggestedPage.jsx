@@ -1,6 +1,6 @@
 import React from 'react';
 import DevelopmentSuggestion from '../components/DevelopmentSuggestion.jsx';
-import Layout from '../components/Layout';
+import Layout from "../components/Layout/Layout";
 import { connect } from 'react-redux';
 
 

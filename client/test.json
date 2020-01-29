@@ -1,0 +1,20 @@
+{
+    "questionNumber": "2",
+    "paragraph": "Should university-level education be free to all students?",
+    "questionSet": [
+        {
+            "questionNumber": "1",
+            "question": "Argument One: No, too much education can lead to over-qualification, and therefore unemployment.",
+            "options": [
+                {
+                    "optionNumber": "1",
+                    "option": "Strong Argument"
+                },
+                {
+                    "optionNumber": "2",
+                    "option": "Weak Argument"
+                }
+            ]
+        }
+    ]
+}

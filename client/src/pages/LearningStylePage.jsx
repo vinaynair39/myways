@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import LearningStyle from '../components/learningStyle/LearningStyle';
-import Layout from '../components/Layout';
+import Layout from "../components/Layout/Layout";
 import {useDispatch } from 'react-redux';
 import { setCurrentItem } from '../actions/test';
 

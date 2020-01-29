@@ -1,26 +1,10 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
-import Layout from '../components/Layout'
-import {
-  faDirections,
-  faColumns,
-  faCaretDown,
-  faSignOutAlt,
-  faSearch,
-  faLevelUpAlt,
-  faExclamationCircle,
-  faComments,
-  faStar
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Layout from "../components/Layout/Layout";
 import { startAddTests } from "../actions/test";
-import TesList from "../components/TestList";
-import ResultPage from "./ResultPage";
+import TesList from "../components/TestList/TestList";
 
-
-let selection;
 
 class Dashboard2 extends Component {
   constructor(props) {

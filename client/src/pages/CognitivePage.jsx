@@ -1,7 +1,7 @@
 import React from "react";
 import ResultList from "../components/result/ResultList";
 import ResultChart from "../components/result/ResultChart";
-import Layout from "../components/Layout";
+import Layout from "../components/Layout/Layout";
 import { connect } from "react-redux";
 import Link from "react-router-dom/Link";
 

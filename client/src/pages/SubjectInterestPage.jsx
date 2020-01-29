@@ -1,7 +1,7 @@
 import React from 'react';
 import StackedChart from '../components/result/StackedChart';
 import RadialChart from '../components/result/RadialChart';
-import Layout from '../components/Layout';
+import Layout from "../components/Layout/Layout";
 import { connect } from 'react-redux';
 import Link from 'react-router-dom/Link'
 

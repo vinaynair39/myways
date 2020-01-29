@@ -1,6 +1,6 @@
 import React, {useEffect,useState} from 'react';
-import TestB from '../components/TestB';
-import TestA from '../components/TestA';
+import TestB from '../components/TestB/TestB';
+import TestA from '../components/TestA/TestA';
 import { connect } from 'react-redux';
 import { getCurrentTest } from '../actions/test';
 

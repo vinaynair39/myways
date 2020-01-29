@@ -16,7 +16,7 @@ import 'popper.js'
 import 'jquery';
 import 'animate.css'
 import './styles/styles.scss';
-import Loader from './components/Loader';
+import Loader from './components/Loader/Loader';
 
 const store = configureStore();
 
