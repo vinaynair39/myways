@@ -41,7 +41,7 @@ export default (state = initState, action) => {
                     }
                 }
             }
-            else {
+            else {                                //else  it means that this is test B where we only have questions and no paragraph
                 return {
                     ...state,
                     response: {
@@ -53,15 +53,15 @@ export default (state = initState, action) => {
         case CURRENT_ANSWERS:
             return {
                 ...state,
-                answers: action.answers
+                answers: action.answers       //feeds the current ans
             }
         case GET_DIFFICULTY:
-            state.answers.userDifficulty = action.difficulty;
+            state.answers.userDifficulty = action.difficulty;   //this is used to store the diff that is recieved from the user at the end of the test
             return state;
         case CURRENT_TEST:
             return {
                 ...state,
-                questions: action.questions
+                questions: action.questions    // feeds all the test information that we got from the backend into redux using this
             }
         case SET_CURRENT_ITEM:
             return {
