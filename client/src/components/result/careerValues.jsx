@@ -165,7 +165,7 @@ const careerValues = [{
 },
 {
     name: "COMMITMENT",
-    score: 70,
+    score: 82,
     definition: "It is synonyms to loyalty with a strongfocus on security",
     introduction: "Your personality like that of the loyalist is the most committed personality type whoseek security and reassurance.You scan your environment for potential threats andplan for worst case scenarios.You are engaging, responsible, willful andconfrontational. At your best you are internally stable, self reliant and courageouslywinning yourself and others. You believe that the world is dangerous and peoplecannot be trusted easily.",
     strengthsExternal: "trustworthy, thoughtful, cooperative, good atbuilding alliances, detail oriented, organised, analytical, protective",

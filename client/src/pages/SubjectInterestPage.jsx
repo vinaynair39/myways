@@ -11,22 +11,24 @@ const SubjectInterestPage = (props) => {
     return (
         <>
             <Layout>
-                <div className="cognitive">
-                    <div className="cognitive__data">
+                <div className="subjectInterest">
+                    <div className="">
                         <StackedChart />
                     </div>
                     <div className="cognitive__data-chart">
-                        <RadialChart/>
-                    <div className="cognitive__next">
-                        <h5>Explore Next</h5>
-                        <Link to="careerLibrary">
-                            <img
-                                src="https://image.flaticon.com/icons/png/512/2063/premium/2063465.png"
-                                alt=""
-                            />
-                        </Link>
-                        <h6 className="mt-3">Career Library</h6>
-                    </div>
+                        <div style={{marginTop: "15vh"}}>
+                            <RadialChart />
+                        </div>
+                        <div className="cognitive__next">
+                            <h5>Explore Next</h5>
+                            <Link to="careerLibrary">
+                                <img
+                                    src="https://image.flaticon.com/icons/png/512/2063/premium/2063465.png"
+                                    alt=""
+                                />
+                            </Link>
+                            <h6 className="mt-3">Career Library</h6>
+                        </div>
                     </div>
                 </div>
 

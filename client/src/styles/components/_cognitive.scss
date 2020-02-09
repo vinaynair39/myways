@@ -4,7 +4,6 @@
     height: 100vh;
     background-color: white;
     justify-content: center;
-    // overflow: auto;
 }
 .cognitive__data{
     overflow: auto;
@@ -13,7 +12,7 @@
 .cognitive__data-chart{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .cognitive__next{
@@ -56,7 +55,7 @@
     justify-content: flex-start;
     align-items: flex-end;
     padding-bottom: 4vh;
-    border-bottom: 2px solid $yellow;
+    // border-bottom: 2px solid $yellow;
     & img{
         height: 8vh;
         margin: 0.5rem 0.5rem 0 1rem;
