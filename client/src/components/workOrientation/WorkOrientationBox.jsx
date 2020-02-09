@@ -7,7 +7,7 @@ const WorkOrientationBox = () => {
     const modal = (name, introduction) => {
         return (
             <div className="modal fade" id="workOrientationModal" tabIndex="-10" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div className="modal-dialog modal-dialog-centered modal-lg"  role="document">
+                <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLongTitle">{name}</h5>
@@ -16,7 +16,13 @@ const WorkOrientationBox = () => {
                             </button>
                         </div>
                         <div className="modal-body">
-                            {introduction}
+                            <h3>Introduction:</h3>
+                            <p>{state.introduction}</p>
+                            <div className="workOrientation_modal" style={{textAlign: "start", marginTop: "1.5rem"}}>
+                                    <li><b>Unique Ability:</b> {state.uniqueAbility}</li>
+                                    <li><b>Strength:</b> {state.strength}</li>
+                                    <li><b>Work Behaviour:</b> {state.behaviour}</li>
+                            </div>
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -24,18 +30,15 @@ const WorkOrientationBox = () => {
                     </div>
                 </div>
             </div>
-            )
+        )
     }
     return (
         <>
-            {modal(state.name, state.introduction)}
-            <div className="workOrientation__box" style={{margin: !!state.name && `0 1rem`}}>
+            {modal()}
+            <div className="workOrientation__box">
                 {!!state.name ? <>
                     <h1>{state.name}</h1>
                     <p>{state.definition}</p>
-                    <li>Unique Ability: {state.uniqueAbility}</li>
-                    <li>Strength: {state.strength}</li>
-                    <li>Work Behaviour: {state.behaviour}</li>
                     <button data-toggle="modal" data-target="#workOrientationModal">
                         Read More...
                     </button>

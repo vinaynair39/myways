@@ -6,12 +6,12 @@
 }
 .centerOfOperation__data{
     display: grid;
-    grid-template-rows:  10vh 55vh 35vh;
+    grid-template-rows:  10vh 50vh 40vh;
     height: 100vh;
 }
 .centerOfOperation__data2{
     display: grid;
-    grid-template-rows:  15vh 55vh 30vh;
+    grid-template-rows:  10vh 50vh 40vh;
     height: 100vh;
 }
 .centerOfOperation__chart{
@@ -35,7 +35,7 @@
 .centerOfOperation__next{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     text-align: center;
     margin: 1rem auto;
@@ -69,27 +69,24 @@
 .centerOfOperation__list{
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding-bottom: 1rem;
+    align-items: flex-end;
     text-align: center;
+    padding: 0 0 1rem 0;
     @media(max-width: 640px) {
         padding: 1rem 1rem;
     }
-    overflow: hidden;
-
 }
 
 .centerOfOperation__list2{
     justify-self: center;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     padding-bottom: 1rem;
     text-align: center;
     @media(max-width: 640px) {
         padding: 1rem 1rem;
     }
-    overflow: hidden;
 }
 
 .centerOfOperation__list-item{
@@ -99,18 +96,18 @@
     align-items: center;
     margin: 0 2vw;
     flex-wrap: wrap;
-    height: 20vh;
+    height: 35vh;
     width: 15vw;
     padding: 0 0.5rem;
-    margin-bottom: 1rem;
     border-radius: 20px;
     background-color: white;
+    box-shadow: 0px 0px 4px 0px $color-subtitle;
     &:hover{
         -webkit-transform: scale(0.9);  
         -ms-transform: scale(0.9);  
         transform: scale(0.92);  
         transition: all 0.3s ease;
-        transform: scale(1.03); 
+        transform: scale(0.95); 
         cursor: pointer;
       }
 }
@@ -120,31 +117,31 @@
     text-align: center;
     flex-direction: column;
     align-items: center;
-    margin: 0 0.7vw;
     flex-wrap: wrap;
-    height: 20vh;
+    height: 35vh;
     width: 13vw;
-    margin-bottom: 1rem;
+    margin: 0 0.8vw;
     border-radius: 20px;
     background-color: white;
-
+    box-shadow: 0px 0px 4px 0px $color-subtitle;
     &:hover{
         -webkit-transform: scale(0.9);  
         -ms-transform: scale(0.9);  
         transform: scale(0.92);  
         transition: all 0.3s ease;
-        transform: scale(1.03); 
+        transform: scale(0.95); 
         cursor: pointer;
       }
 }
 
 .centerOfOperation__image img{
-    height: 20vh;
+    height: 13vh;
+    position: relative;
+    top:-5vh;
     margin-bottom: 1rem;
     border-radius: 1rem;
     padding: 0.5rem;
-    box-shadow: 0 10px 20px rgba($black, 0.3), 0 6px 17px rgba($black, 0.2);
-
+    box-shadow: 0px 2px 5px 0px $color-subtitle;
 }
 
 

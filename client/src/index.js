@@ -4,26 +4,27 @@ import AppRouter from './routers/AppRouter'
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 import App from './App'
-import {login, startLogout, setUser} from './actions/auth'
-import {history}from './routers/AppRouter'
+import { login, startLogout, setUser } from './actions/auth'
+import { history } from './routers/AppRouter'
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore'
-import { startAddTests , addAnswers,} from './actions/test';
+import { startAddTests, addAnswers, } from './actions/test';
+import Loader from './components/Loader/Loader';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'popper.js'
 import 'jquery';
 import 'animate.css'
 import './styles/styles.scss';
-import Loader from './components/Loader/Loader';
+import 'react-perfect-scrollbar/dist/css/styles.css';
 
 const store = configureStore();
 
 // where we defined all our routes and its associated components. we wrapped it inside the Provider to have access to redux
 const jsx = (
   <Provider store={store}>
-    <AppRouter />   
+    <AppRouter />
   </Provider>
 );
 
@@ -56,13 +57,13 @@ const getUserFromLocalStorage = () => {
   }
 }
 
-ReactDOM.render(<Loader/>, document.getElementById('root'));
+ReactDOM.render(<Loader />, document.getElementById('root'));
 
 const token = localStorage.getItem('token');
 //checks if the token is there. if it is there then check its expiery and if its expired then logout
 if (token) {
   const decodedToken = jwtDecode(token);
-  console.log('decoded',decodedToken);
+  console.log('decoded', decodedToken);
   if (decodedToken.exp * 1000 < Date.now()) {
     store.dispatch(startLogout());
     renderApp();
@@ -79,8 +80,8 @@ if (token) {
     if (history.location.pathname === '/') {
       history.push('/dashboard');
     }
-}
-  }else {
+  }
+} else {
   renderApp();
 }
 // ReactDOM.render(<App />, document.getElementById('root'));

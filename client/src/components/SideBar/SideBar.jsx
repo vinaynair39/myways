@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { startLogout } from "../../actions/auth";
 import { Link } from "react-router-dom";
+import { Scrollbars } from 'react-custom-scrollbars';
 import {
   faDirections,
   faColumns,
