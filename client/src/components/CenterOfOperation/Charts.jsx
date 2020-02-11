@@ -173,7 +173,7 @@ const BarChart = () => {
 
         });
         setSeries([{
-            data: [90, 60, 40]
+            data: [90, 60, 40] // here you have to pass  the score comming from the ml model and remove this static content
         }])
     }, [])
 

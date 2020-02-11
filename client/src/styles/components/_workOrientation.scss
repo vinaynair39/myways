@@ -74,7 +74,6 @@
         margin-top: 1vh;
     }
 }
-
 .workOrientation__box{
     display: flex;
     flex-direction: column;
@@ -85,8 +84,9 @@
     transition: all ease 0.3s;
     box-shadow: 0 5px 5px rgba(#5a6270, 0.3), 0 6px 17px rgba(#5a6270, 0.2);
     & h1{
-        font-size: 5vh;
+        font-size: 4vh;
         margin-bottom:1rem;
+        padding: 0 0.5rem;
         color: $color-title;
     }
     & h2{

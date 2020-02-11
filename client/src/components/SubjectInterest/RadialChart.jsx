@@ -8,7 +8,7 @@ const RadialChart = () => {
   const [radialSeries, setRadialSeries] = useState([]);
   const [radialOptions, setRadialOptions] = useState({})
   let radialLabel = [];
-
+// here you have to pass  the score comming from the ml model and remove this static content
   let series = [{
     data: [{
       x: "Medical Science",

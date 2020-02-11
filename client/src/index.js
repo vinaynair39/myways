@@ -17,7 +17,6 @@ import 'popper.js'
 import 'jquery';
 import 'animate.css'
 import './styles/styles.scss';
-import 'react-perfect-scrollbar/dist/css/styles.css';
 
 const store = configureStore();
 

@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Chart from 'react-apexcharts';
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
- import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";  
-
 
 const ResultChart = () => {
     const [options, setOptions] = useState({})

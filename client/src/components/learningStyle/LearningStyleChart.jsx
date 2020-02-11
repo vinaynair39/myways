@@ -114,7 +114,7 @@ const LearningStyleChart = () => {
 );
         setSeries([{
             name: 'Capacity',
-            data: [70, 10, 7, 13]
+            data: [70, 10, 7, 13] // here you have to pass  the score comming from the ml model and remove this static content
         }])
     }, [])
 

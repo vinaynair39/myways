@@ -46,7 +46,7 @@ const WorkOrientationChart = () => {
         }
         );
         setSeries([{
-            data: [3,10, 20, 15, 13, 11]
+            data: [3,10, 20, 15, 13, 11]  // here you have to pass  the score comming from the ml model and remove this static content
         }])
     }, [])
 

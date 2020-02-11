@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import CenterOfOperation from '../components/result/CenterOfOperation';
+import CenterOfOperation from '../components/CenterOfOperation/CenterOfOperation';
 import Layout from "../components/Layout/Layout";
 import {useDispatch } from 'react-redux';
 import { setCurrentItem } from '../actions/test';

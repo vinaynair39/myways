@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import CircularProgressBar from "./CircularProgressBar";
-import careerValues from './careerValues'
 
 const ItemWrapper = styled.div`
   color: #24292e;
